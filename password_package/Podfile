@@ -1,0 +1,14 @@
+
+platform :ios,’8.0’
+
+target 'password_package' do
+    
+pod 'IQKeyboardManager'
+pod 'Masonry'
+pod 'SVProgressHUD'
+pod 'FMDB'
+pod 'MBProgressHUD'
+pod 'AppCenter'
+
+end
+

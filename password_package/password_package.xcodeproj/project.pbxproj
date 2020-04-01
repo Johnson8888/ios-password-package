@@ -1,0 +1,418 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D646957927D67AE8C806FD6F /* libPods-password_package.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0270F482AFFA398E0F140246 /* libPods-password_package.a */; };
+		F36A890324348C520003FF39 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F36A890224348C520003FF39 /* AppDelegate.m */; };
+		F36A890624348C520003FF39 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F36A890524348C520003FF39 /* SceneDelegate.m */; };
+		F36A890924348C520003FF39 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F36A890824348C520003FF39 /* ViewController.m */; };
+		F36A890C24348C520003FF39 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F36A890A24348C520003FF39 /* Main.storyboard */; };
+		F36A890E24348C550003FF39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F36A890D24348C550003FF39 /* Assets.xcassets */; };
+		F36A891124348C550003FF39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F36A890F24348C550003FF39 /* LaunchScreen.storyboard */; };
+		F36A891424348C550003FF39 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F36A891324348C550003FF39 /* main.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0270F482AFFA398E0F140246 /* libPods-password_package.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-password_package.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		66714315A6FA835F3E139AAC /* Pods-password_package.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-password_package.release.xcconfig"; path = "Target Support Files/Pods-password_package/Pods-password_package.release.xcconfig"; sourceTree = "<group>"; };
+		82E11F506ABBC2510A560921 /* Pods-password_package.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-password_package.debug.xcconfig"; path = "Target Support Files/Pods-password_package/Pods-password_package.debug.xcconfig"; sourceTree = "<group>"; };
+		F36A88FE24348C520003FF39 /* password_package.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = password_package.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F36A890124348C520003FF39 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F36A890224348C520003FF39 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F36A890424348C520003FF39 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		F36A890524348C520003FF39 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		F36A890724348C520003FF39 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		F36A890824348C520003FF39 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F36A890B24348C520003FF39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F36A890D24348C550003FF39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F36A891024348C550003FF39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F36A891224348C550003FF39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F36A891324348C550003FF39 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F36A88FB24348C520003FF39 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D646957927D67AE8C806FD6F /* libPods-password_package.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		553EABF8958A07819B6AFE9A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				82E11F506ABBC2510A560921 /* Pods-password_package.debug.xcconfig */,
+				66714315A6FA835F3E139AAC /* Pods-password_package.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		71888E6422CCB52593A73A4F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0270F482AFFA398E0F140246 /* libPods-password_package.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F36A88F524348C520003FF39 = {
+			isa = PBXGroup;
+			children = (
+				F36A890024348C520003FF39 /* password_package */,
+				F36A88FF24348C520003FF39 /* Products */,
+				553EABF8958A07819B6AFE9A /* Pods */,
+				71888E6422CCB52593A73A4F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F36A88FF24348C520003FF39 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F36A88FE24348C520003FF39 /* password_package.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F36A890024348C520003FF39 /* password_package */ = {
+			isa = PBXGroup;
+			children = (
+				F36A890124348C520003FF39 /* AppDelegate.h */,
+				F36A890224348C520003FF39 /* AppDelegate.m */,
+				F36A890424348C520003FF39 /* SceneDelegate.h */,
+				F36A890524348C520003FF39 /* SceneDelegate.m */,
+				F36A890724348C520003FF39 /* ViewController.h */,
+				F36A890824348C520003FF39 /* ViewController.m */,
+				F36A890A24348C520003FF39 /* Main.storyboard */,
+				F36A890D24348C550003FF39 /* Assets.xcassets */,
+				F36A890F24348C550003FF39 /* LaunchScreen.storyboard */,
+				F36A891224348C550003FF39 /* Info.plist */,
+				F36A891324348C550003FF39 /* main.m */,
+			);
+			path = password_package;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F36A88FD24348C520003FF39 /* password_package */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F36A891724348C550003FF39 /* Build configuration list for PBXNativeTarget "password_package" */;
+			buildPhases = (
+				C04D182DB1508AECFF027A87 /* [CP] Check Pods Manifest.lock */,
+				F36A88FA24348C520003FF39 /* Sources */,
+				F36A88FB24348C520003FF39 /* Frameworks */,
+				F36A88FC24348C520003FF39 /* Resources */,
+				66E3A649E151788B60CA1DCD /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = password_package;
+			productName = password_package;
+			productReference = F36A88FE24348C520003FF39 /* password_package.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F36A88F624348C520003FF39 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "Jon Snow";
+				TargetAttributes = {
+					F36A88FD24348C520003FF39 = {
+						CreatedOnToolsVersion = 11.3;
+					};
+				};
+			};
+			buildConfigurationList = F36A88F924348C520003FF39 /* Build configuration list for PBXProject "password_package" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F36A88F524348C520003FF39;
+			productRefGroup = F36A88FF24348C520003FF39 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F36A88FD24348C520003FF39 /* password_package */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F36A88FC24348C520003FF39 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F36A891124348C550003FF39 /* LaunchScreen.storyboard in Resources */,
+				F36A890E24348C550003FF39 /* Assets.xcassets in Resources */,
+				F36A890C24348C520003FF39 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		66E3A649E151788B60CA1DCD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-password_package/Pods-password_package-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-password_package/Pods-password_package-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-password_package/Pods-password_package-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C04D182DB1508AECFF027A87 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-password_package-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F36A88FA24348C520003FF39 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F36A890924348C520003FF39 /* ViewController.m in Sources */,
+				F36A890324348C520003FF39 /* AppDelegate.m in Sources */,
+				F36A891424348C550003FF39 /* main.m in Sources */,
+				F36A890624348C520003FF39 /* SceneDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F36A890A24348C520003FF39 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F36A890B24348C520003FF39 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F36A890F24348C550003FF39 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F36A891024348C550003FF39 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F36A891524348C550003FF39 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F36A891624348C550003FF39 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F36A891824348C550003FF39 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 82E11F506ABBC2510A560921 /* Pods-password_package.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B322RG9L6H;
+				INFOPLIST_FILE = password_package/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.CocoaPods.password-package";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F36A891924348C550003FF39 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 66714315A6FA835F3E139AAC /* Pods-password_package.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B322RG9L6H;
+				INFOPLIST_FILE = password_package/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.CocoaPods.password-package";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F36A88F924348C520003FF39 /* Build configuration list for PBXProject "password_package" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F36A891524348C550003FF39 /* Debug */,
+				F36A891624348C550003FF39 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F36A891724348C550003FF39 /* Build configuration list for PBXNativeTarget "password_package" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F36A891824348C550003FF39 /* Debug */,
+				F36A891924348C550003FF39 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F36A88F624348C520003FF39 /* Project object */;
+}
