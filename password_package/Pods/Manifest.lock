@@ -1,4 +1,19 @@
 PODS:
+  - AFNetworking (3.2.1):
+    - AFNetworking/NSURLSession (= 3.2.1)
+    - AFNetworking/Reachability (= 3.2.1)
+    - AFNetworking/Security (= 3.2.1)
+    - AFNetworking/Serialization (= 3.2.1)
+    - AFNetworking/UIKit (= 3.2.1)
+  - AFNetworking/NSURLSession (3.2.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.2.1)
+  - AFNetworking/Security (3.2.1)
+  - AFNetworking/Serialization (3.2.1)
+  - AFNetworking/UIKit (3.2.1):
+    - AFNetworking/NSURLSession
   - AppCenter (1.2.0):
     - AppCenter/Analytics (= 1.2.0)
     - AppCenter/Crashes (= 1.2.0)
@@ -10,36 +25,47 @@ PODS:
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
+  - iCloudDocumentSync (7.4.1)
   - IQKeyboardManager (6.5.5)
+  - JSONModel (1.8.0)
   - Masonry (1.1.0)
   - MBProgressHUD (1.2.0)
   - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
+  - AFNetworking
   - AppCenter
   - FMDB
+  - iCloudDocumentSync
   - IQKeyboardManager
+  - JSONModel
   - Masonry
   - MBProgressHUD
   - SVProgressHUD
 
 SPEC REPOS:
   trunk:
+    - AFNetworking
     - AppCenter
     - FMDB
+    - iCloudDocumentSync
     - IQKeyboardManager
+    - JSONModel
     - Masonry
     - MBProgressHUD
     - SVProgressHUD
 
 SPEC CHECKSUMS:
+  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   AppCenter: d0b68b2a7a87ac0aed78e66f36d87fd321d0a29c
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  iCloudDocumentSync: 961aac30ca09c221de4c236e94dae69912f2c589
   IQKeyboardManager: 3a8b9e603f8b0eeaf5f096a1f2b2cfcf121992ef
+  JSONModel: 02ab723958366a3fd27da57ea2af2113658762e9
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: e587e56b70c591026a057fc4eeec99c65cb8a9e7
+PODFILE CHECKSUM: 0bc2ab2925c1e1ab476637f54eeae76c168ad0f9
 
 COCOAPODS: 1.8.4

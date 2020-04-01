@@ -1,0 +1,1465 @@
+{
+    "login": [
+        {
+            "icon": "web/google.com",
+            "title": "Google",
+            "urls": {
+                "login": "https://accounts.google.com/"
+            }
+        },
+        {
+            "icon": "web/facebook.com",
+            "title": "Facebook",
+            "urls": {
+                "url": "https://www.facebook.com/login/"
+            }
+        },
+        {
+            "icon": "web/yahoo.com",
+            "title": "Yahoo!",
+            "urls": {
+                "url": "https://login.yahoo.com/"
+            }
+        },
+        {
+            "icon": "web/apple.com",
+            "title": "Apple ID",
+            "urls": {
+                "url": "https://appleid.apple.com/"
+            }
+        },
+        {
+            "icon": "web/amazon.com",
+            "title": "Amazon",
+            "urls": {
+                "url": "https://www.amazon.com"
+            }
+        },
+        {
+            "icon": "web/wikipedia.org",
+            "title": "Wikipedia",
+            "urls": {
+                "url": "https://en.wikipedia.org/w/index.php?title=Special:UserLogin&returnto=Main+Page"
+            }
+        },
+        {
+            "icon": "web/twitter.com",
+            "title": "Twitter",
+            "urls": {
+                "url": "https://twitter.com/login"
+            }
+        },
+        {
+            "icon": "web/dropbox.com",
+            "title": "Dropbox",
+            "urls": {
+                "url": "https://www.dropbox.com/login"
+            }
+        },
+        {
+            "icon": "web/live.com",
+            "title": "Live",
+            "urls": {
+                "url": "http://login.live.com/"
+            }
+        },
+        {
+            "icon": "web/reddit.com",
+            "title": "Reddit",
+            "urls": {
+                "url": "https://www.reddit.com/"
+            }
+        },
+        {
+            "icon": "web/linkdin.com",
+            "title": "LinkedIn",
+            "urls": {
+                "url": "https://www.linkedin.com/"
+            }
+        },
+        {
+            "icon": "web/skype.com",
+            "title": "Skype",
+            "urls": {
+                "url": "https://login.skype.com/"
+            }
+        },
+        {
+            "icon": "web/vk.com",
+            "title": "VK",
+            "urls": {
+                "url": "https://vk.com/"
+            }
+        },
+        {
+            "icon": "web/baidu.com",
+            "title": "Baidu",
+            "urls": {
+                "url": "https://passport.baidu.com/v2/?login"
+            }
+        },
+        {
+            "icon": "web/taobao.com",
+            "title": "Taobao",
+            "urls": {
+                "url": "https://login.taobao.com/"
+            }
+        },
+        {
+            "icon": "web/1and1.com",
+            "title": "1and1",
+            "urls": {
+                "url": "https://www.1and1.com/login"
+            }
+        },
+        {
+            "icon": "web/4shared.com",
+            "title": "4Shared",
+            "urls": {
+                "url": "https://www.4shared.com"
+            }
+        },
+        {
+            "icon": "web/500px.com",
+            "title": "500px",
+            "urls": {
+                "url": "https://500px.com"
+            }
+        },
+        {
+            "icon": "web/9gag.com",
+            "title": "9GAG",
+            "urls": {
+                "url": "https://9gag.com/",
+                "login": "https://9gag.com/login"
+            }
+        },
+        {
+            "icon": "web/aarp.org",
+            "title": "AARP",
+            "urls": {
+                "url": "https://www.aarp.org/"
+            }
+        },
+        {
+            "icon": "web/abebooks.com",
+            "title": "AbeBooks",
+            "urls": {
+                "url": "https://www.abebooks.com/"
+            }
+        },
+        {
+            "icon": "web/about.com",
+            "title": "About",
+            "urls": {
+                "url": "https://about.me/login"
+            }
+        },
+        {
+            "icon": "web/academia.edu",
+            "title": "Academia",
+            "urls": {
+                "url": "https://www.academia.edu/login"
+            }
+        },
+        {
+            "icon": "web/accuweather.com",
+            "title": "AccuWeather",
+            "urls": {
+                "url": "https://www.accuweather.com/",
+                "login": "https://wwwl.accuweather.com/premium_login.php"
+            }
+        },
+        {
+            "icon": "web/acronis.com",
+            "title": "Acronis",
+            "urls": {
+                "url": "https://www.acronis.com"
+            }
+        },
+        {
+            "icon": "web/adac.de",
+            "title": "ADAC",
+            "urls": {
+                "url": "https://www.adac.de/"
+            }
+        },
+        {
+            "icon": "web/addthis.com",
+            "title": "AddThis",
+            "urls": {
+                "url": "https://www.addthis.com/login"
+            }
+        },
+        {
+            "icon": "web/adobe.com",
+            "title": "Adobe",
+            "urls": {
+                "url": "https://accounts.adobe.com/"
+            }
+        },
+        {
+            "icon": "web/aim.com",
+            "title": "AIM",
+            "urls": {
+                "url": "https://www.aim.com/"
+            }
+        },
+        {
+            "icon": "web/airbnb.com",
+            "title": "Airbnb",
+            "urls": {
+                "url": "https://www.airbnb.com",
+                "login": "https://www.airbnb.com/login"
+            }
+        },
+        {
+            "icon": "web/alexa.com",
+            "title": "Alexa",
+            "urls": {
+                "url": "https://www.alexa.com/login"
+            }
+        },
+        {
+            "icon": "web/alfabank.com",
+            "title": "Alfa-Bank",
+            "urls": {
+                "url": "https://click.alfabank.ru/"
+            }
+        },
+        {
+            "icon": "web/alibaba.com",
+            "title": "Alibaba",
+            "urls": {
+                "url": "https://login.alibaba.com"
+            }
+        },
+        {
+            "icon": "web/aliexpress.com",
+            "title": "AliExpress",
+            "urls": {
+                "url": "https://login.aliexpress.com"
+            }
+        },
+        {
+            "icon": "web/alipay.com",
+            "title": "Alipay",
+            "urls": {
+                "url": "https://auth.alipay.com"
+            }
+        },
+        {
+            "icon": "web/allegro.pl",
+            "title": "Allegro",
+            "urls": {
+                "url": "https://allegro.pl/login/form"
+            }
+        },
+
+        {
+            "icon": "web/amazonaws.com",
+            "title": "Amazon Web Services",
+            "urls": {
+                "url": "https://aws.amazon.com"
+            }
+        },
+        {
+            "icon": "web/ameblo.jp",
+            "title": "Ameba",
+            "urls": {
+                "url": "https://dauth.user.ameba.jp/login/ameba"
+            }
+        },
+        {
+            "icon": "cc/american_express",
+            "title": "American Express",
+            "urls": {
+                "url": "https://online.americanexpress.com/"
+            }
+        },
+        {
+            "icon": "web/angle.co",
+            "title": "Angel",
+            "urls": {
+                "url": "https://angel.co/"
+            }
+        },
+        {
+            "icon": "web/aol.com",
+            "title": "AOL",
+            "urls": {
+                "url": "https://my.screenname.aol.com/"
+            }
+        },
+        {
+            "icon": "web/archive.org",
+            "title": "Internet Archive",
+            "urls": {
+                "url": "https://archive.org/account/login.php"
+            }
+        },
+        {
+            "icon": "web/ask.com",
+            "title": "Ask",
+            "urls": {
+                "url": "https://help.ask.com/ics/support/mylogin.asp"
+            }
+        },
+        {
+            "icon": "web/asos.com",
+            "title": "ASOS",
+            "urls": {
+                "url": "http://www.asos.com/"
+            }
+        },
+        {
+            "icon": "web/att.com",
+            "title": "AT&T",
+            "urls": {
+                "url": "https://www.att.com/",
+                "login": "https://www.att.com/olam/loginAction.olamexecute"
+            }
+        },
+        {
+            "icon": "web/atlassian.com",
+            "title": "Atlassian",
+            "urls": {
+                "url": "https://id.atlassian.com/login"
+            }
+        },
+        {
+            "icon": "web/authorize.net",
+            "title": "Authorize",
+            "urls": {
+                "url": "https://account.authorize.net/"
+            }
+        },
+        {
+            "icon": "web/avast.com",
+            "title": "Avast ",
+            "urls": {
+                "url": "https://id.avast.com/"
+            }
+        },
+        {
+            "icon": "web/avg.com",
+            "title": "AVG",
+            "urls": {
+                "url": "https://myaccount.avg.com/my-account-login"
+            }
+        },
+        {
+            "icon": "web/avito.ru",
+            "title": "Avito",
+            "urls": {
+                "url": "https://www.avito.ru/profile/login"
+            }
+        },
+        {
+            "icon": "web/backcountry.com",
+            "title": "Backcountry",
+            "urls": {
+                "url": "https://www.backcountry.com/"
+            }
+        },
+        {
+            "icon": "web/badoo.com",
+            "title": "Badoo",
+            "urls": {
+                "url": "https://badoo.com/signin"
+            }
+        },
+
+        {
+            "icon": "web/bankofamerica.com",
+            "title": "Bank of America",
+            "urls": {
+                "url": "https://secure.bankofamerica.com/login/sign-in/signOnV2Screen.go"
+            }
+        },
+        {
+            "icon": "web/barclaycard.co.uk",
+            "title": "Barclaycard (UK)",
+            "urls": {
+                "url": "https://www.barclaycard.co.uk/"
+            }
+        },
+        {
+            "icon": "web/basecamp.com",
+            "title": "Basecamp",
+            "urls": {
+                "url": "https://3.basecamp.com/sign_in"
+            }
+        },
+        {
+            "icon": "web/behance.net",
+            "title": "Behance",
+            "urls": {
+                "url": "https://www.behance.net/"
+            }
+        },
+        {
+            "icon": "web/bestbuy.com",
+            "title": "Best Buy",
+            "urls": {
+                "url": "https://www.bestbuy.com/"
+            }
+        },
+        {
+            "icon": "web/bing.com",
+            "title": "Bing",
+            "urls": {
+                "url": "http://www.bing.com/",
+                "login": "https://login.live.com/"
+            }
+        },
+        {
+            "icon": "web/blackberry.com",
+            "title": "BlackBerry",
+            "urls": {
+                "url": "https://blackberryid.blackberry.com/bbid/login"
+            }
+        },
+        {
+            "icon": "web/blogger.com",
+            "title": "Blogger",
+            "urls": {
+                "url": "https://www.blogger.com",
+                "login": "https://accounts.google.com/"
+            }
+        },
+        {
+            "icon": "web/bloomberg.com",
+            "title": "Bloomberg",
+            "urls": {
+                "url": "https://www.bloomberg.com/",
+                "login": "https://login.bloomberg.com/"
+            }
+        },
+        {
+            "icon": "web/booking.com",
+            "title": "Booking",
+            "urls": {
+                "url": "https://www.booking.com/",
+                "login": "https://secure.booking.com/mybooking.html"
+            }
+        },
+        {
+            "icon": "web/box.com",
+            "title": "Box",
+            "urls": {
+                "url": "https://account.box.com/login"
+            }
+        },
+        {
+            "icon": "web/buzzfeed.com",
+            "title": "BuzzFeed",
+            "urls": {
+                "url": "https://www.buzzfeed.com/signin"
+            }
+        },
+        {
+            "icon": "web/capitalone.com",
+            "title": "CapitalOne",
+            "urls": {
+                "url": "https://www.capitalone.com/",
+                "login": "https://verified.capitalone.com/"
+            }
+        },
+        {
+            "icon": "web/chase.com",
+            "title": "Chase",
+            "urls": {
+                "url": "https://www.chase.com/",
+                "login": "https://chaseonline.chase.com/"
+            }
+        },
+        {
+            "icon": "web/citi.com",
+            "title": "Citibank",
+            "urls": {
+                "url": "https://online.citi.com/"
+            }
+        },
+        {
+            "icon": "web/comcast.net",
+            "title": "Comcast",
+            "urls": {
+                "url": "https://login.comcast.net/login"
+            }
+        },
+        {
+            "icon": "web/craigslist.org",
+            "title": "Craigslist",
+            "urls": {
+                "url": "https://accounts.craigslist.org/login/"
+            }
+        },
+        {
+            "icon": "web/dailymotion.com",
+            "title": "Dailymotion",
+            "urls": {
+                "url": "www.dailymotion.com/",
+                "login": "https://www.dailymotion.com/signin/"
+            }
+        },
+        {
+            "icon": "web/daum.net",
+            "title": "Daum",
+            "urls": {
+                "url": "https://logins.daum.net/accounts/loginform.do"
+            }
+        },
+        {
+            "icon": "web/dell.com",
+            "title": "Dell",
+            "urls": {
+                "url": "https://ecomm.dell.com/myaccount/ga/login.aspx"
+            }
+        },
+        {
+            "icon": "web/deviantart.com",
+            "title": "DeviantArt",
+            "urls": {
+                "url": "https://www.deviantart.com/",
+                "login": "https://www.deviantart.com/users/login"
+            }
+        },
+        {
+            "icon": "web/dhl.com",
+            "title": "DHL",
+            "urls": {
+                "url": "http://www.dhl.com/",
+                "login": "https://www.mydhl.dhl.com/"
+            }
+        },
+        {
+            "icon": "web/digikala.com",
+            "title": "Digikala",
+            "urls": {
+                "url": "http://www.digikala.com/"
+            }
+        },
+        {
+            "icon": "web/disqus.com",
+            "title": "Disqus",
+            "urls": {
+                "url": "https://disqus.com/profile/login/"
+            }
+        },
+        {
+            "icon": "web/dmm.com",
+            "title": "DMM",
+            "urls": {
+                "url": "https://www.dmm.com/my/-/login/"
+            }
+        },
+        {
+            "icon": "web/douban.com",
+            "title": "Douban",
+            "urls": {
+                "url": "https://www.douban.com/login"
+            }
+        },
+        {
+            "icon": "web/dribble.com",
+            "title": "Dribbble",
+            "urls": {
+                "url": "https://dribbble.com/session/new"
+            }
+        },
+
+        {
+            "icon": "web/drupal.org",
+            "title": "Drupal",
+            "urls": {
+                "url": "https://www.drupal.org/user"
+            }
+        },
+        {
+            "icon": "web/ebay.com",
+            "title": "eBay",
+            "urls": {
+                "url": "https://signin.ebay.com"
+            }
+        },
+        {
+            "icon": "web/enpass.io",
+            "title": "Enpass Forums",
+            "urls": {
+                "url": "https://discussion.enpass.io/"
+            }
+        },
+        {
+            "icon": "web/envato.com",
+            "title": "Envato",
+            "urls": {
+                "url": "https://account.envato.com/",
+                "login": "https://account.envato.com/sign_in?to=themeforest"
+            }
+        },
+        {
+            "icon": "web/etsy.com",
+            "title": "Etsy",
+            "urls": {
+                "url": "https://www.etsy.com/signin"
+            }
+        },
+        {
+            "icon": "web/evernote.com",
+            "title": "Evernote",
+            "urls": {
+                "url": "https://www.evernote.com/Login.action"
+            }
+        },
+        {
+            "icon": "web/fc2.com",
+            "title": "FC2",
+            "urls": {
+                "url": "https://fc2.com/",
+                "login": "https://fc2.com/en/login.php"
+            }
+        },
+        {
+            "icon": "web/fedex.com",
+            "title": "FedEx",
+            "urls": {
+                "url": "https://www.fedex.com/us"
+            }
+        },
+        {
+            "icon": "web/feedly.com",
+            "title": "Feedly",
+            "urls": {
+                "url": "https://feedly.com/"
+            }
+        },
+        {
+            "icon": "web/flickr.com",
+            "title": "Flickr",
+            "urls": {
+                "url": "https://www.flickr.com/",
+                "login": "https://login.yahoo.com/"
+            }
+        },
+        {
+            "icon": "web/flipkart.com",
+            "title": "Flipkart",
+            "urls": {
+                "url": "https://www.flipkart.com/sign-in"
+            }
+        },
+        {
+            "icon": "web/foursquare.com",
+            "title": "Foursquare",
+            "urls": {
+                "url": "https://foursquare.com/login"
+            }
+        },
+        {
+            "icon": "web/freepik.com",
+            "title": "Freepik",
+            "urls": {
+                "url": "https://www.freepik.com/",
+                "login": "https://profile.freepik.com/login"
+            }
+        },
+        {
+            "icon": "web/github.com",
+            "title": "GitHub",
+            "urls": {
+                "url": "https://github.com/login"
+            }
+        },
+        {
+            "icon": "web/gmx.net",
+            "title": "GMX",
+            "urls": {
+                "url": "https://www.gmx.com/"
+            }
+        },
+        {
+            "icon": "web/godaddy.com",
+            "title": "GoDaddy",
+            "urls": {
+                "url": "https://www.godaddy.com",
+                "login": "https://sso.godaddy.com/"
+            }
+        },
+        {
+            "icon": "web/goodreads.com",
+            "title": "Goodreads",
+            "urls": {
+                "url": "https://www.goodreads.com/",
+                "login": "https://www.goodreads.com/user/sign_in"
+            }
+        },
+        {
+            "icon": "web/google_drive",
+            "title": "Google Drive",
+            "urls": {
+                "login": "https://accounts.google.com/"
+            }
+        },
+        {
+            "icon": "web/hdfcbank.com",
+            "title": "HDFC",
+            "urls": {
+                "url": "https://www.hdfcbank.com/",
+                "NetBanking": "https://netbanking.hdfcbank.com/"
+            }
+        },
+        {
+            "icon": "web/hp.com",
+            "title": "HP",
+            "urls": {
+                "url": "https://www.hpconnected.com/"
+            }
+        },
+        {
+            "icon": "web/hulu.com",
+            "title": "Hulu",
+            "urls": {
+                "url": "https://www.hulu.com/"
+            }
+        },
+        {
+            "icon": "web/icloud.com",
+            "title": "iCloud",
+            "urls": {
+                "url": "https://www.icloud.com/"
+            }
+        },
+        {
+            "icon": "web/ikea.com",
+            "title": "Ikea",
+            "urls": {
+                "url": "https://securem.ikea.com/us/en/login/"
+            }
+        },
+        {
+            "icon": "web/imdb.com",
+            "title": "IMDB",
+            "urls": {
+                "url": "https://www.imdb.com/registration/signin"
+            }
+        },
+        {
+            "icon": "web/imgur.com",
+            "title": "Imgur",
+            "urls": {
+                "url": "https://imgur.com/signin"
+            }
+        },
+        {
+            "icon": "web/indeed.com",
+            "title": "Indeed",
+            "urls": {
+                "url": "https://secure.indeed.com/account/login"
+            }
+        },
+        {
+            "icon": "web/infusionsoft.com",
+            "title": "Infusionsoft",
+            "urls": {
+                "login": "https://signin.infusionsoft.com/login"
+            }
+        },
+        {
+            "icon": "web/instagram.com",
+            "title": "Instagram",
+            "urls": {
+                "login": "https://www.instagram.com/accounts/login/"
+            }
+        },
+
+        {
+            "icon": "web/intuit.com",
+            "title": "Intuit",
+            "urls": {
+                "url": "https://myturbotax.intuit.com/"
+            }
+        },
+        {
+            "icon": "web/irctc.co.in",
+            "title": "IRCTC",
+            "urls": {
+                "url": "https://www.irctc.co.in/eticketing/loginurl.jsf"
+            }
+        },
+        {
+            "icon": "web/jd.com",
+            "title": "JD",
+            "urls": {
+                "url": "https://passport.jd.com/new/login.aspx"
+            }
+        },
+        {
+            "icon": "web/kaskus.co.id",
+            "title": "Kaskus",
+            "urls": {
+                "url": "https://www.kaskus.co.id/"
+            }
+        },
+        {
+            "icon": "web/kickstarter.com",
+            "title": "Kickstarter",
+            "urls": {
+                "url": "https://www.kickstarter.com/login"
+            }
+        },
+        {
+            "icon": "web/kompass.com",
+            "title": "Kompass",
+            "urls": {
+                "url": "https://www.kompass.com"
+            }
+        },
+        {
+            "icon": "web/last.fm",
+            "title": "Last.fm",
+            "urls": {
+                "url": "https://secure.last.fm/login"
+            }
+        },
+        {
+            "icon": "web/leboncoin.fr",
+            "title": "Leboncoin.fr",
+            "urls": {
+                "url": "https://www.leboncoin.fr/"
+            }
+        },
+
+
+        {
+            "icon": "web/livedoor.com",
+            "title": "Livedoor",
+            "urls": {
+                "url": "http://www.livedoor.com/",
+                "login": "https://member.livedoor.com/login/"
+            }
+        },
+        {
+            "icon": "web/lowes.com",
+            "title": "Lowe's",
+            "urls": {
+                "url": "https://www.lowes.com/"
+            }
+        },
+        {
+            "icon": "web/mail.ru",
+            "title": "Mail.Ru",
+            "urls": {
+                "url": "https://mail.ru/"
+            }
+        },
+        {
+            "icon": "web/mailchimp.com",
+            "title": "MailChimp",
+            "urls": {
+                "url": "https://login.mailchimp.com/"
+            }
+        },
+        {
+            "icon": "web/mediafire.com",
+            "title": "MediaFire",
+            "urls": {
+                "url": "https://www.mediafire.com/login/"
+            }
+        },
+        {
+            "icon": "web/medium.com",
+            "title": "Medium",
+            "urls": {
+                "url": "https://medium.com/"
+            }
+        },
+        {
+            "icon": "web/mega.nz",
+            "title": "MEGA",
+            "urls": {
+                "url": "https://mega.nz/"
+            }
+        },
+        {
+            "icon": "web/mercadolibre.com.ar",
+            "title": "MercadoLibre",
+            "urls": {
+                "url": "https://www.mercadolibre.com.ar/"
+            }
+        },
+        {
+            "icon": "web/messenger.com",
+            "title": "Messenger",
+            "urls": {
+                "url": "https://www.messenger.com/"
+            }
+        },
+        {
+            "icon": "web/mi.com",
+            "title": "Xiaomi",
+            "urls": {
+                "url": "https://account.xiaomi.com/"
+            }
+        },
+        {
+            "icon": "web/microsoft.com",
+            "title": "Microsoft",
+            "urls": {
+                "url": "https://login.microsoftonline.com"
+            }
+        },
+        {
+            "icon": "web/mlb.com",
+            "title": "MLB",
+            "urls": {
+                "url": "https://www.mlb.com/"
+            }
+        },
+        {
+            "icon": "web/mozilla.org",
+            "title": "Mozilla",
+            "urls": {
+                "url": "https://addons.mozilla.org/en-US/firefox/users/login"
+            }
+        },
+        {
+            "icon": "web/msn.com",
+            "title": "MSN",
+            "urls": {
+                "url": "https://www.msn.com/",
+                "login": "https://login.live.com/"
+            }
+        },
+        {
+            "icon": "web/myspace.com",
+            "title": "Myspace",
+            "urls": {
+                "url": "https://myspace.com/signin"
+            }
+        },
+        {
+            "icon": "web/naver.com",
+            "title": "Naver",
+            "urls": {
+                "url": "https://www.naver.com/"
+            }
+        },
+        {
+            "icon": "web/netflix.com",
+            "title": "Netflix",
+            "urls": {
+                "url": "https://www.netflix.com",
+                "login": "https://www.netflix.com/Login"
+            }
+        },
+        {
+            "icon": "web/nicovideo.jp",
+            "title": "Niconico",
+            "urls": {
+                "url": "https://account.nicovideo.jp/login"
+            }
+        },
+        {
+            "icon": "web/office.com",
+            "title": "Office Online",
+            "urls": {
+                "url": "https://login.microsoftonline.com/"
+            }
+        },
+        {
+            "icon": "web/ok.ru",
+            "title": "OK",
+            "urls": {
+                "url": "https://ok.ru/"
+            }
+        },
+        {
+            "icon": "web/onedrive.live.com",
+            "title": "OneDrive",
+            "urls": {
+                "url": "https://onedrive.live.com/",
+                "login": "https://login.live.com/"
+            }
+        },
+        {
+            "icon": "web/onet.pl",
+            "title": "Onet",
+            "urls": {
+                "login": "https://konto.onet.pl/login.html"
+            }
+        },
+        {
+            "icon": "web/onlinesbi.com",
+            "title": "State Bank of India",
+            "urls": {
+                "url": "https://www.onlinesbi.com/",
+                "login": "https://retail.onlinesbi.com/retail/login.htm"
+            }
+        },
+        {
+            "icon": "web/openid.net",
+            "title": "OpenID",
+            "urls": {
+                "url": "http://openid.net/start-using-your-openid/"
+            }
+        },
+        {
+            "icon": "web/oracle.com",
+            "title": "Oracle",
+            "urls": {
+                "url": "https://www.oracle.com/index.html"
+            }
+        },
+        {
+            "icon": "web/outbrain.com",
+            "title": "Outbrain",
+            "urls": {
+                "url": "https://my.outbrain.com/"
+            }
+        },
+        {
+            "icon": "web/pandora.com",
+            "title": "Pandora",
+            "urls": {
+                "url": "https://www.pandora.com/login.vm"
+            }
+        },
+        {
+            "icon": "web/paypal.com",
+            "title": "PayPal",
+            "urls": {
+                "url": "https://www.paypal.com/signin"
+            }
+        },
+        {
+            "icon": "web/paytm.com",
+            "title": "Paytm",
+            "urls": {
+                "url": "https://paytm.com/"
+            }
+        },
+        {
+            "icon": "web/pinterest.com",
+            "title": "Pinterest",
+            "urls": {
+                "url": "https://www.pinterest.com/login/"
+            }
+        },
+        {
+            "icon": "web/pixiv.net",
+            "title": "Pixiv",
+            "urls": {
+                "url": "https://accounts.pixiv.net/"
+            }
+        },
+        {
+            "icon": "web/pixnet.net",
+            "title": "Pixnet",
+            "urls": {
+                "url": "https://member.pixnet.cc/login/verify"
+            }
+        },
+        {
+            "icon": "web/playstation.com",
+            "title": "PlayStation",
+            "urls": {
+                "url": "https://www.playstation.com/"
+            }
+        },
+        {
+            "icon": "web/qq.com",
+            "title": "QQ",
+            "urls": {
+                "url": "https://mail.qq.com"
+            }
+        },
+        {
+            "icon": "web/quora.com",
+            "title": "Quora",
+            "urls": {
+                "url": "https://www.quora.com/"
+            }
+        },
+        {
+            "icon": "web/rakuten.co.jp",
+            "title": "Rakuten Japan",
+            "urls": {
+                "url": "https://www.rakuten.co.jp/myrakuten/login.html"
+            }
+        },
+
+        {
+            "icon": "web/rediff.com",
+            "title": "Rediff",
+            "urls": {
+                "url": "https://mail.rediff.com/cgi-bin/login.cgi"
+            }
+        },
+        {
+            "icon": "web/rt.com",
+            "title": "RT",
+            "urls": {
+                "url": "https://www.rt.com/"
+            }
+        },
+        {
+            "icon": "web/sahibinden.com",
+            "title": "Sahibinden",
+            "urls": {
+                "url": "https://secure.sahibinden.com/login"
+            }
+        },
+        {
+            "icon": "web/salesforce.com",
+            "title": "Salesforce",
+            "urls": {
+                "url": "https://login.salesforce.com/"
+            }
+        },
+        {
+            "icon": "web/samsung.com",
+            "title": "Samsung",
+            "urls": {
+                "url": "https://account.samsung.com/account/check.do"
+            }
+        },
+        {
+            "icon": "web/seznam.cz",
+            "title": "Seznam",
+            "urls": {
+                "url": "https://login.szn.cz/"
+            }
+        },
+        {
+            "icon": "web/shopify.com",
+            "title": "Shopify",
+            "urls": {
+                "url": "https://www.shopify.com/login"
+            }
+        },
+        {
+            "icon": "web/shutterstock.com",
+            "title": "Shutterstock",
+            "urls": {
+                "url": "https://www.shutterstock.com/"
+            }
+        },
+
+        {
+            "icon": "web/slack.com",
+            "title": "Slack",
+            "urls": {
+                "url": "https://slack.com/signin"
+            }
+        },
+        {
+            "icon": "web/slashdot.org",
+            "title": "Slashdot",
+            "urls": {
+                "url": "https://slashdot.org/"
+            }
+        },
+        {
+            "icon": "web/slickdeals.com",
+            "title": "Slickdeals",
+            "urls": {
+                "url": "https://slickdeals.net/",
+                "login": "https://slickdeals.net/forums/login.php"
+            }
+        },
+        {
+            "icon": "web/slideshare.net",
+            "title": "SlideShare",
+            "urls": {
+                "url": "https://www.slideshare.net/login"
+            }
+        },
+        {
+            "icon": "web/softonic.com",
+            "title": "Softonic",
+            "urls": {
+                "url": "https://www.softonic.com"
+            }
+        },
+        {
+            "icon": "web/soundcloud.com",
+            "title": "SoundCloud",
+            "urls": {
+                "url": "https://soundcloud.com/"
+            }
+        },
+        {
+            "icon": "web/spiegel.de",
+            "title": "Spiegel",
+            "urls": {
+                "url": "https://www.spiegel.de/meinspiegel/login.html"
+            }
+        },
+        {
+            "icon": "web/spotify.com",
+            "title": "Spotify",
+            "urls": {
+                "url": "https://www.spotify.com/login/"
+            }
+        },
+        {
+            "icon": "web/stack_overflow.com",
+            "title": "Stack Overflow",
+            "urls": {
+                "url": "https://stackoverflow.com/users/login"
+            }
+        },
+        {
+            "icon": "web/steamcommunity.com",
+            "title": "Steam",
+            "urls": {
+                "url": "https://store.steampowered.com//login/"
+            }
+        },
+        {
+            "icon": "web/taboola.com",
+            "title": "Taboola",
+            "urls": {
+                "url": "https://authentication.taboola.com/authentication/login?"
+            }
+        },
+
+        {
+            "icon": "web/target.com",
+            "title": "Target",
+            "urls": {
+                "url": "https://rcam.target.com/"
+            }
+        },
+        {
+            "icon": "web/taringa.net",
+            "title": "Taringa!",
+            "urls": {
+                "url": "https://www.taringa.net/login"
+            }
+        },
+        {
+            "icon": "web/telegram.org",
+            "title": "Telegram",
+            "urls": {
+                "url": "https://web.telegram.org/"
+            }
+        },
+        {
+            "icon": "web/telegraph.co.uk",
+            "title": "The Telegraph",
+            "urls": {
+                "url": "https://secure.telegraph.co.uk/secure/login/"
+            }
+        },
+        {
+            "icon": "web/theguardian.com",
+            "title": "The Guardian",
+            "urls": {
+                "url": "https://profile.theguardian.com/signin"
+            }
+        },
+        {
+            "icon": "web/themeforest.net",
+            "title": "ThemeForest",
+            "urls": {
+                "url": "https://themeforest.net/"
+            }
+        },
+        {
+            "icon": "web/tokopedia.com",
+            "title": "Tokopedia",
+            "urls": {
+                "url": "https://www.tokopedia.com/"
+            }
+        },
+        {
+            "icon": "web/trello.com",
+            "title": "Trello",
+            "urls": {
+                "url": "https://trello.com/login"
+            }
+        },
+        {
+            "icon": "web/tripadvisor.com",
+            "title": "TripAdvisor",
+            "urls": {
+                "url": "https://www.tripadvisor.com/"
+            }
+        },
+        {
+            "icon": "web/tumblr.com",
+            "title": "Tumblr",
+            "urls": {
+                "url": "https://www.tumblr.com/login"
+            }
+        },
+        {
+            "icon": "web/twitch.tv",
+            "title": "Twitch",
+            "urls": {
+                "url": "https://www.twitch.tv/"
+            }
+        },
+
+        {
+            "icon": "web/uol.com.br",
+            "title": "Universo Online",
+            "urls": {
+                "url": "https://www.uol.com.br/"
+            }
+        },
+        {
+            "icon": "web/ups.com",
+            "title": "UPS",
+            "urls": {
+                "url": "https://www.ups.com/lasso/login"
+            }
+        },
+        {
+            "icon": "web/versionwireless.com",
+            "title": "Verizon Wireless",
+            "urls": {
+                "url": "https://www.verizonwireless.com/",
+                "login": "https://login.verizonwireless.com/amserver/UI/Login"
+            }
+        },
+        {
+            "icon": "web/vimeo.com",
+            "title": "Vimeo",
+            "urls": {
+                "url": "https://vimeo.com/log_in"
+            }
+        },
+        {
+            "icon": "web/vine.co",
+            "title": "Vine",
+            "urls": {
+                "url": "https://vine.co/"
+            }
+        },
+
+        {
+            "icon": "web/walmart.com",
+            "title": "Walmart",
+            "urls": {
+                "url": "https://www.walmart.com/account/login"
+            }
+        },
+        {
+            "icon": "web/webmd.com",
+            "title": "WebMD",
+            "urls": {
+                "url": "https://www.webmd.com/",
+                "login": "https://member.webmd.com/signin"
+            }
+        },
+        {
+            "icon": "web/weebly.com",
+            "title": "Weebly",
+            "urls": {
+                "url": "https://www.weebly.com/login"
+            }
+        },
+        {
+            "icon": "web/wellsfargo.com",
+            "title": "Wells Fargo",
+            "urls": {
+                "url": "https://www.wellsfargo.com/"
+            }
+        },
+        {
+            "icon": "web/wikihow.com",
+            "title": "wikiHow",
+            "urls": {
+                "url": "https://www.wikihow.com/"
+            }
+        },
+
+        {
+            "icon": "web/wix.com",
+            "title": "Wix",
+            "urls": {
+                "url": "https://users.wix.com/signin"
+            }
+        },
+        {
+            "icon": "web/wordpress.com",
+            "title": "WordPress",
+            "urls": {
+                "url": "https://wordpress.com/log-in"
+            }
+        },
+        {
+            "icon": "web/xing.com",
+            "title": "Xing",
+            "urls": {
+                "url": "https://login.xing.com/"
+            }
+        },
+        {
+            "icon": "web/yahoo.co.jp",
+            "title": "Yahoo! Japan",
+            "urls": {
+                "url": "https://login.yahoo.co.jp/config/login"
+            }
+        },
+        {
+            "icon": "web/yandex.com",
+            "title": "Yandex",
+            "urls": {
+                "url": "https://mail.yandex.ru/"
+            }
+        },
+        {
+            "icon": "web/ycombinator.com",
+            "title": "Y Combinator",
+            "urls": {
+                "url": "https://news.ycombinator.com/login"
+            }
+        },
+        {
+            "icon": "web/yelp.com",
+            "title": "Yelp",
+            "urls": {
+                "url": "https://www.yelp.com/"
+            }
+        },
+        {
+            "icon": "web/youtube.com",
+            "title": "YouTube",
+            "urls": {
+                "url": "https://accounts.google.com/"
+            }
+        },
+        {
+            "icon": "web/zendesk.com",
+            "title": "Zendesk",
+            "urls": {
+                "url": "https://www.zendesk.com/login/"
+            }
+        },
+        {
+            "icon": "web/zhihu.com",
+            "title": "Zhihu",
+            "urls": {
+                "url": "https://www.zhihu.com/"
+            }
+        },
+        {
+            "icon": "web/zillow.com",
+            "title": "Zillow",
+            "urls": {
+                "url": "https://www.zillow.com/"
+            }
+        },
+        {
+            "icon": "web/zoho.com",
+            "title": "Zoho",
+            "urls": {
+                "url": "https://accounts.zoho.com/"
+            }
+        }
+    ]
+}

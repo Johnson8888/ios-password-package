@@ -9,6 +9,11 @@ pod 'SVProgressHUD'
 pod 'FMDB'
 pod 'MBProgressHUD'
 pod 'AppCenter'
+pod 'Masonry'
+pod 'AFNetworking'
+pod 'JSONModel'
+pod 'iCloudDocumentSync'
+
 
 end
 

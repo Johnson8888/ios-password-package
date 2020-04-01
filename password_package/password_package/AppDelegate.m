@@ -10,7 +10,10 @@
 #import <AppCenter/AppCenter.h>
 #import <AppCenterCrashes/AppCenterCrashes.h>
 #import <AppCenterAnalytics/AppCenterAnalytics.h>
+#import <IQKeyboardManager/IQKeyboardManager.h>
+
 @interface AppDelegate ()
+
 
 @end
 
@@ -18,9 +21,10 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
     [MSAppCenter start:@"0209845f-0d7d-4a95-9841-e58fdcb72c52"
           withServices:@[[MSAnalytics class],[MSCrashes class]]];
+    
+    [IQKeyboardManager sharedManager];
     return YES;
 }
 
