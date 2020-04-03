@@ -13,6 +13,7 @@ pod 'Masonry'
 pod 'AFNetworking'
 pod 'JSONModel'
 pod 'iCloudDocumentSync'
+pod 'DYFAuthIDAndGestureLock'
 
 
 end

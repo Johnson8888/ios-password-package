@@ -1,0 +1,1 @@
+../../../DYFAuthIDAndGestureLock/Classes/Gesture/Controller/DYFGestureSettingsController.h

@@ -16,62 +16,22 @@
 #define NET_WORK_DATA_ERROR @"请求网络数据格式错误,请重试"
 #define SINGLE_PLAY_ERROR @"播放失败,请重试"
 /// appid
-#define APP_ID @"1499958774"
+#define APP_ID @"XXXXXXXX"
 /// 反馈bug地址
 #define SUPPORT_EMAIL_ADDRESS @"ctTec@foxmail.com"
 /// 记录我的收藏的 itemId
 #define PLAY_MY_LIKE_TAG -99999
 
-/// 解锁所用音乐篇章的 内购ID
-#define kAllFreeIAPIdentifier [NSString stringWithFormat:@"%@.unlimited",[[NSBundle mainBundle]bundleIdentifier]]
-
-
 
 
 ///************************************ Firebase Key Begin **************************************////
-/// 展示了 评分界面
-#define SHOW_REVIEW_ALERT_TAG @"show_review_alert"
-/// 点击了 “以后再说”
-#define PRESSED_REVIEW_LATE @"pressed_review_late"
-/// 点击了 “不了 谢谢”
-#define PRESSED_NO_THANKS @"pressed_no_thanks"
-/// 点击了 立刻去评分
-#define PRESSED_REVIEW_NOW @"pressed_review_now"
-///跳转到 Item详情页面
-#define GO_TO_ITEM_VIEW @"go_to_item_view"
-/// 试听某个音频
-#define TRY_PLAY_AUDIO @"try_play_audio"
-/// 开始播放某个音频文件
-#define PLAY_AUDIO_ACTION @"play_audio_aciton"
-/// 点击RestoreButton
-#define TAP_RESTORE_ACTION @"tap_restore_action"
-/// 尝试购买的IAP事件
-#define TAP_TRY_BUY @"try_buy_action"
-/// 进入到我的收藏页面
-#define MY_LIKE_VIEW_CONTROLLER @"go_my_like_view_controller"
-/// 点击了 我喜欢按钮
-#define MY_LIKE_ACTION @"my_like_action"
-/// 进入到设置页面
-#define SETTING_VIEW_CONTROLLER @"setting_view_controller"
-
-
+///
 ///************************************ Firebase Key End **************************************////
 
 
 
-///************************************ Player View Begin **************************************////
-/// 记录最后一次选择的播放模式
-#define kLastSelectedLoopType @"com.soundofnature.audiop.player.last.selected.loop.type"
-/// 记录最后一次选择的ItemId信息
-#define kLastSelectedItemIdKey @"com.soundofnature.audio.player.last.selected.item.id"
-/// 记录最后一次选择的播放音频的id信息
-#define kLasetSelectedTrackModelId @"com.soundofnature.audio.player.last.selected.track.model.id"
-///************************************ Player View End **************************************////
-
-
-
 #ifdef DEBUG
-# define TTLog(fmt, ...) NSLog((@"\n %s  " " %s  " "%d \n   " fmt), __FILE__, __FUNCTION__, __LINE__, ##__VA_ARGS__);
+# define TTLog(fmt, ...) NSLog((@"" " %s  " "%d \n   " fmt),  __FUNCTION__, __LINE__, ##__VA_ARGS__);
 #else
 # define TTLog(...);
 #endif

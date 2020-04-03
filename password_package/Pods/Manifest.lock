@@ -22,6 +22,7 @@ PODS:
   - AppCenter/Core (1.2.0)
   - AppCenter/Crashes (1.2.0):
     - AppCenter/Core
+  - DYFAuthIDAndGestureLock (1.0.1)
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
@@ -35,6 +36,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking
   - AppCenter
+  - DYFAuthIDAndGestureLock
   - FMDB
   - iCloudDocumentSync
   - IQKeyboardManager
@@ -47,6 +49,7 @@ SPEC REPOS:
   trunk:
     - AFNetworking
     - AppCenter
+    - DYFAuthIDAndGestureLock
     - FMDB
     - iCloudDocumentSync
     - IQKeyboardManager
@@ -58,6 +61,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   AppCenter: d0b68b2a7a87ac0aed78e66f36d87fd321d0a29c
+  DYFAuthIDAndGestureLock: bb0b77378f1f1fa6964cd29ebbd30c4fa647b224
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   iCloudDocumentSync: 961aac30ca09c221de4c236e94dae69912f2c589
   IQKeyboardManager: 3a8b9e603f8b0eeaf5f096a1f2b2cfcf121992ef
@@ -66,6 +70,6 @@ SPEC CHECKSUMS:
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 0bc2ab2925c1e1ab476637f54eeae76c168ad0f9
+PODFILE CHECKSUM: 46fbf10742a07ea4bc11181f4d2bf6641e815d38
 
 COCOAPODS: 1.8.4
