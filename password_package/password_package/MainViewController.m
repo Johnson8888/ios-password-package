@@ -30,10 +30,15 @@
     [super viewDidLoad];
     
     
-    /*!
+    NSArray *inCommonUseArray = @[@"wechat",@"qq",@"taobao",@"zhihu",@"baidu",
+                                  @"weibo",@"163",@"github",@"jingdong",@"yinxiangbiji"
+                                @"douban",@"12306",@"zhifubao"];
+    
+    /*!  京东   印象笔记   豆瓣 12306 支付宝
+     *  
      * 常用的网站地址 微信 QQ 京东 淘宝 豆瓣 知乎 百度 微博 支付宝 网易邮箱 QQ邮箱 12306 印象笔记 百度网盘 Github
      *  中国工商银行
-     *  中国建设银行
+     *  中国建设银
      *  中国银行
      *  中国农业银行
      *  中国光大银行
@@ -53,15 +58,16 @@
     NSFileManager *myFileManager = [NSFileManager defaultManager];
     NSDirectoryEnumerator *myDirectoryEnumerator = [myFileManager enumeratorAtPath:folderPath];
     
-    
+    NSMutableArray *nameArray = [NSMutableArray array];
     //列举目录内容，可以遍历子目录
     for (NSString *path in myDirectoryEnumerator.allObjects) {
         if ([path hasSuffix:@"@2x.png"]) {
             NSString *webSiteName = [path stringByReplacingOccurrencesOfString:@"@2x.png" withString:@".com"];
             TTLog(@"webSiteName = %@",webSiteName);
+            [nameArray addObject:webSiteName];
         }
     }
-    
+    NSLog(@"nameArray == %@",nameArray);
 }
 
 

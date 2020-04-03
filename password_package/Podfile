@@ -14,7 +14,8 @@ pod 'AFNetworking'
 pod 'JSONModel'
 pod 'iCloudDocumentSync'
 pod 'DYFAuthIDAndGestureLock'
-
+pod 'SDWebImage'
+pod 'MMPopupView'
 
 end
 
