@@ -11,6 +11,9 @@
 		F36359172435AF2300182C96 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = F36359162435AF2300182C96 /* Utils.m */; };
 		F36359342435FA6C00182C96 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F36359322435FA6C00182C96 /* LoginViewController.m */; };
 		F36359352435FA6C00182C96 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F36359332435FA6C00182C96 /* LoginViewController.xib */; };
+		F363594C2437493C00182C96 /* SearchItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F363594B2437493C00182C96 /* SearchItemViewController.m */; };
+		F363595524375D0500182C96 /* KxMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F363595324375D0500182C96 /* KxMenu.m */; };
+		F36359582437661300182C96 /* CreatePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F36359572437661300182C96 /* CreatePasswordViewController.m */; };
 		F36A890324348C520003FF39 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F36A890224348C520003FF39 /* AppDelegate.m */; };
 		F36A890624348C520003FF39 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F36A890524348C520003FF39 /* SceneDelegate.m */; };
 		F36A890924348C520003FF39 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F36A890824348C520003FF39 /* MainViewController.m */; };
@@ -1150,6 +1153,12 @@
 		F36359312435FA6B00182C96 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		F36359322435FA6C00182C96 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		F36359332435FA6C00182C96 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		F363594A2437493C00182C96 /* SearchItemViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchItemViewController.h; sourceTree = "<group>"; };
+		F363594B2437493C00182C96 /* SearchItemViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchItemViewController.m; sourceTree = "<group>"; };
+		F363595324375D0500182C96 /* KxMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KxMenu.m; sourceTree = "<group>"; };
+		F363595424375D0500182C96 /* KxMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxMenu.h; sourceTree = "<group>"; };
+		F36359562437661300182C96 /* CreatePasswordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreatePasswordViewController.h; sourceTree = "<group>"; };
+		F36359572437661300182C96 /* CreatePasswordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreatePasswordViewController.m; sourceTree = "<group>"; };
 		F36A88FE24348C520003FF39 /* password_package.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = password_package.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F36A890124348C520003FF39 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F36A890224348C520003FF39 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -2328,6 +2337,15 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		F363595224375CEF00182C96 /* Vender */ = {
+			isa = PBXGroup;
+			children = (
+				F363595424375D0500182C96 /* KxMenu.h */,
+				F363595324375D0500182C96 /* KxMenu.m */,
+			);
+			path = Vender;
+			sourceTree = "<group>";
+		};
 		F36A88F524348C520003FF39 = {
 			isa = PBXGroup;
 			children = (
@@ -2359,9 +2377,14 @@
 				F37257982434C5AC009B054F /* PPPasswordCreator.m */,
 				F36A890724348C520003FF39 /* MainViewController.h */,
 				F36A890824348C520003FF39 /* MainViewController.m */,
+				F363594A2437493C00182C96 /* SearchItemViewController.h */,
+				F363594B2437493C00182C96 /* SearchItemViewController.m */,
+				F36359562437661300182C96 /* CreatePasswordViewController.h */,
+				F36359572437661300182C96 /* CreatePasswordViewController.m */,
 				F36359312435FA6B00182C96 /* LoginViewController.h */,
 				F36359322435FA6C00182C96 /* LoginViewController.m */,
 				F36359332435FA6C00182C96 /* LoginViewController.xib */,
+				F363595224375CEF00182C96 /* Vender */,
 				F36359142435AF0E00182C96 /* Utils */,
 				F3725DEB24359352009B054F /* Model */,
 				F3724ED22434B13A009B054F /* DataManager */,
@@ -4794,6 +4817,9 @@
 				F3725DF1243593A0009B054F /* PPWebsiteModel.m in Sources */,
 				F3724ED52434B159009B054F /* PPDataManager.m in Sources */,
 				F36A890924348C520003FF39 /* MainViewController.m in Sources */,
+				F36359582437661300182C96 /* CreatePasswordViewController.m in Sources */,
+				F363594C2437493C00182C96 /* SearchItemViewController.m in Sources */,
+				F363595524375D0500182C96 /* KxMenu.m in Sources */,
 				F36359172435AF2300182C96 /* Utils.m in Sources */,
 				F36A890324348C520003FF39 /* AppDelegate.m in Sources */,
 				F36359342435FA6C00182C96 /* LoginViewController.m in Sources */,

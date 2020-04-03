@@ -36,7 +36,13 @@ PODS:
   - SDWebImage (5.6.1):
     - SDWebImage/Core (= 5.6.1)
   - SDWebImage/Core (5.6.1)
+  - SQLiteRepairKit (1.2.2):
+    - WCDBOptimizedSQLCipher (~> 1.2.0)
   - SVProgressHUD (2.2.5)
+  - WCDB (1.0.7.5):
+    - SQLiteRepairKit (~> 1.2.0)
+    - WCDBOptimizedSQLCipher (~> 1.2.0)
+  - WCDBOptimizedSQLCipher (1.2.1)
 
 DEPENDENCIES:
   - AFNetworking
@@ -51,6 +57,7 @@ DEPENDENCIES:
   - MMPopupView
   - SDWebImage
   - SVProgressHUD
+  - WCDB
 
 SPEC REPOS:
   trunk:
@@ -65,7 +72,10 @@ SPEC REPOS:
     - MBProgressHUD
     - MMPopupView
     - SDWebImage
+    - SQLiteRepairKit
     - SVProgressHUD
+    - WCDB
+    - WCDBOptimizedSQLCipher
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
@@ -79,8 +89,11 @@ SPEC CHECKSUMS:
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   MMPopupView: fe1dd010824029dfb632fdf1a531db5dd5386020
   SDWebImage: 7edb9c3ea661e77a66661f7f044de8c1b55d1120
+  SQLiteRepairKit: 35aaae5a8838adb85f5b1eb4d796055be6060a4b
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  WCDB: 8e90babdeb7784c569353a4bd22a66c0a175a882
+  WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
 
-PODFILE CHECKSUM: 068fb5d1b80602323a46adb6d1afa2e41a9445cb
+PODFILE CHECKSUM: 08b93f3620ff1b96250556bcaff24c37be0945b9
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.8.4
