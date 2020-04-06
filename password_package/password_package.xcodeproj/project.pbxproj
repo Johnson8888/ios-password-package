@@ -1142,6 +1142,7 @@
 		F37257992434C5AC009B054F /* PPPasswordCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = F37257982434C5AC009B054F /* PPPasswordCreator.m */; };
 		F3725DEA243588DE009B054F /* website in Resources */ = {isa = PBXBuildFile; fileRef = F3725DE9243588DE009B054F /* website */; };
 		F3725DF1243593A0009B054F /* PPWebsiteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F3725DF0243593A0009B054F /* PPWebsiteModel.m */; };
+		F3C7F6B0243B430700F45EBD /* CSYGroupButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C7F6AF243B430700F45EBD /* CSYGroupButtonView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -2297,6 +2298,8 @@
 		F3725DE9243588DE009B054F /* website */ = {isa = PBXFileReference; lastKnownFileType = folder; path = website; sourceTree = "<group>"; };
 		F3725DEF243593A0009B054F /* PPWebsiteModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPWebsiteModel.h; sourceTree = "<group>"; };
 		F3725DF0243593A0009B054F /* PPWebsiteModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPWebsiteModel.m; sourceTree = "<group>"; };
+		F3C7F6AE243B430700F45EBD /* CSYGroupButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSYGroupButtonView.h; sourceTree = "<group>"; };
+		F3C7F6AF243B430700F45EBD /* CSYGroupButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSYGroupButtonView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2342,6 +2345,8 @@
 			children = (
 				F363595424375D0500182C96 /* KxMenu.h */,
 				F363595324375D0500182C96 /* KxMenu.m */,
+				F3C7F6AE243B430700F45EBD /* CSYGroupButtonView.h */,
+				F3C7F6AF243B430700F45EBD /* CSYGroupButtonView.m */,
 			);
 			path = Vender;
 			sourceTree = "<group>";
@@ -4823,6 +4828,7 @@
 				F36359172435AF2300182C96 /* Utils.m in Sources */,
 				F36A890324348C520003FF39 /* AppDelegate.m in Sources */,
 				F36359342435FA6C00182C96 /* LoginViewController.m in Sources */,
+				F3C7F6B0243B430700F45EBD /* CSYGroupButtonView.m in Sources */,
 				F37257992434C5AC009B054F /* PPPasswordCreator.m in Sources */,
 				F36A891424348C550003FF39 /* main.m in Sources */,
 				F36A890624348C520003FF39 /* SceneDelegate.m in Sources */,
@@ -4981,6 +4987,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.xi.passwordpackage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = PasswordPackage_dev;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -5005,6 +5015,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.xi.passwordpackage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = PasswordPackage_dev;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

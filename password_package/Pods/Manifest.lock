@@ -26,6 +26,7 @@ PODS:
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
+  - HWPopController (1.0.6)
   - iCloudDocumentSync (7.4.1)
   - IQKeyboardManager (6.5.5)
   - JSONModel (1.8.0)
@@ -49,6 +50,7 @@ DEPENDENCIES:
   - AppCenter
   - DYFAuthIDAndGestureLock
   - FMDB
+  - HWPopController
   - iCloudDocumentSync
   - IQKeyboardManager
   - JSONModel
@@ -65,6 +67,7 @@ SPEC REPOS:
     - AppCenter
     - DYFAuthIDAndGestureLock
     - FMDB
+    - HWPopController
     - iCloudDocumentSync
     - IQKeyboardManager
     - JSONModel
@@ -82,6 +85,7 @@ SPEC CHECKSUMS:
   AppCenter: d0b68b2a7a87ac0aed78e66f36d87fd321d0a29c
   DYFAuthIDAndGestureLock: bb0b77378f1f1fa6964cd29ebbd30c4fa647b224
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  HWPopController: 7a079918fe8ca5bf7de3d971faf1cab7fc905529
   iCloudDocumentSync: 961aac30ca09c221de4c236e94dae69912f2c589
   IQKeyboardManager: 3a8b9e603f8b0eeaf5f096a1f2b2cfcf121992ef
   JSONModel: 02ab723958366a3fd27da57ea2af2113658762e9
@@ -94,6 +98,6 @@ SPEC CHECKSUMS:
   WCDB: 8e90babdeb7784c569353a4bd22a66c0a175a882
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
 
-PODFILE CHECKSUM: 08b93f3620ff1b96250556bcaff24c37be0945b9
+PODFILE CHECKSUM: d4d8be2eb3f9a317655bdc1fd797265cf6cd3e3c
 
 COCOAPODS: 1.8.4

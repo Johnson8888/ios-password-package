@@ -10,12 +10,30 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NS_ENUM(NSUInteger, PPNumberType) {
+    PPAllNumber,
+    PPAllLetter,
+    PPNumberAndLetter,
+};
+
+typedef NS_ENUM(NSUInteger, PPLetterType) {
+    PPUpLetter,
+    PPLowLetter,
+    PPUpAndLowLetter,
+};
+
+
 @interface PPPasswordCreator : NSObject
 
 
 /// 生成一个长度为 length 的密码
 /// @param length 密码的长度
-+ (NSString *)createPasswrodWithLength:(NSInteger)length;
++ (NSString *)createPasswordWithLength:(NSInteger)length;
+
++ (NSString *)createPasswordWithLength:(NSInteger)legth
+                            numberType:(PPNumberType)numberType
+                            letterType:(PPLetterType)letterType
+                      isOtherCharacter:(BOOL)isOtherCharacter;
 
 @end
 

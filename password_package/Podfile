@@ -17,5 +17,9 @@ pod 'DYFAuthIDAndGestureLock'
 pod 'SDWebImage'
 pod 'MMPopupView'
 pod 'WCDB'
+pod 'HWPopController'
+#pod 'ExpandingMenu'
+
+
 end
 

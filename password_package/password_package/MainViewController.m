@@ -11,6 +11,8 @@
 #import "LoginViewController.h"
 #import "KxMenu.h"
 #import "CreatePasswordViewController.h"
+#import "CSYGroupButtonView.h"
+#import <Masonry.h>
 
 @interface MainViewController ()
 
@@ -22,9 +24,19 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-//    LoginViewController *lViewController = [[LoginViewController alloc] initWithNibName:NSStringFromClass([LoginViewController class]) bundle:nil];
-//    [self presentViewController:lViewController animated:YES completion:nil];
     
+    
+    NSArray *arrayLeft = @[@"按钮1",@"按钮2",@"按钮3"];
+    
+    //相应数组
+    CSYGroupButtonView *groupButton = [[CSYGroupButtonView alloc]initWithFrame:CGRectMake(self.view.bounds.size.width - 85, self.view.bounds.size.height - 100 - 65, 65, 65) mainButtonTitle:@"添加" selectedTitle:@"添加" otherButtonsTitle:arrayLeft];
+    groupButton.ButtonClickBlock = ^(UIButton *btn) {
+        NSLog(@"%@ tag=%ld",btn.titleLabel.text,(long)btn.tag);
+        if (btn.tag == 1) {
+            [self showCreatePasswordViewController];
+        }
+    };
+    [self.view addSubview:groupButton];
 }
 
 - (void)viewDidLoad {
@@ -35,40 +47,18 @@
     TTLog(@"view did load");
 }
 
-
-- (IBAction)pressedAddBarButton:(UIBarButtonItem *)sender {
-    
-    NSArray *menuItems = @[
-      [KxMenuItem menuItem:@"Share this"
-                     image:[UIImage imageNamed:@"action_icon"]
-                    target:self
-                    action:@selector(pushMenuItem:)],
-      
-      [KxMenuItem menuItem:@"Reload page"
-                     image:[UIImage imageNamed:@"reload"]
-                    target:self
-                    action:@selector(pushMenuItem:)],
-      
-      [KxMenuItem menuItem:@"生成"
-                     image:[UIImage imageNamed:@"home_icon"]
-                    target:self
-                    action:@selector(pressedCreatePasswordMenu:)]];
-    
-    KxMenuItem *first = menuItems[0];
-    first.foreColor = [UIColor redColor];
-    first.alignment = NSTextAlignmentCenter;
-    
-    [KxMenu showMenuInView:self.navigationController.view
-                  fromRect:CGRectMake(self.view.bounds.size.width - 60, 20, 40, 30)
-                 menuItems:menuItems];
-}
-
-
-
-- (void)pressedCreatePasswordMenu:(id)menu {
+- (void)showCreatePasswordViewController {
     CreatePasswordViewController *cViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass([CreatePasswordViewController class])];
     cViewController.modalPresentationStyle = UIModalPresentationFullScreen;
     [self.navigationController presentViewController:cViewController animated:YES completion:nil];
 }
+
+- (IBAction)pressedAddBarButton:(UIBarButtonItem *)sender {
+    
+
+}
+
+
+
 
 @end

@@ -44,6 +44,33 @@
 			</array>
 		</dict>
 	</dict>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>ic_empty_box</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>添加密码</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>CreatePasswordViewController</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>ic_empty_box</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>添加银行卡</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>CreatePasswordViewController</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>ic_empty_box</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>生成密码</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>CreatePasswordViewController</string>
+		</dict>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
