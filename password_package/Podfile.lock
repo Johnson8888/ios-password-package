@@ -29,17 +29,21 @@ PODS:
   - HWPopController (1.0.6)
   - iCloudDocumentSync (7.4.1)
   - IQKeyboardManager (6.5.5)
+  - JHUD (0.3.0)
   - JSONModel (1.8.0)
   - Masonry (1.1.0)
   - MBProgressHUD (1.2.0)
   - MMPopupView (1.7.2):
     - Masonry
+  - PYSearch (0.9.1)
+  - SCIndexView (2.2.3)
   - SDWebImage (5.6.1):
     - SDWebImage/Core (= 5.6.1)
   - SDWebImage/Core (5.6.1)
   - SQLiteRepairKit (1.2.2):
     - WCDBOptimizedSQLCipher (~> 1.2.0)
   - SVProgressHUD (2.2.5)
+  - TZImagePickerController (3.3.1)
   - WCDB (1.0.7.5):
     - SQLiteRepairKit (~> 1.2.0)
     - WCDBOptimizedSQLCipher (~> 1.2.0)
@@ -53,12 +57,16 @@ DEPENDENCIES:
   - HWPopController
   - iCloudDocumentSync
   - IQKeyboardManager
+  - JHUD
   - JSONModel
   - Masonry
   - MBProgressHUD
   - MMPopupView
+  - PYSearch
+  - SCIndexView
   - SDWebImage
   - SVProgressHUD
+  - TZImagePickerController
   - WCDB
 
 SPEC REPOS:
@@ -70,13 +78,17 @@ SPEC REPOS:
     - HWPopController
     - iCloudDocumentSync
     - IQKeyboardManager
+    - JHUD
     - JSONModel
     - Masonry
     - MBProgressHUD
     - MMPopupView
+    - PYSearch
+    - SCIndexView
     - SDWebImage
     - SQLiteRepairKit
     - SVProgressHUD
+    - TZImagePickerController
     - WCDB
     - WCDBOptimizedSQLCipher
 
@@ -88,16 +100,20 @@ SPEC CHECKSUMS:
   HWPopController: 7a079918fe8ca5bf7de3d971faf1cab7fc905529
   iCloudDocumentSync: 961aac30ca09c221de4c236e94dae69912f2c589
   IQKeyboardManager: 3a8b9e603f8b0eeaf5f096a1f2b2cfcf121992ef
+  JHUD: 17650f65045d9843a7ad19f6a0b1eac6c78a45d2
   JSONModel: 02ab723958366a3fd27da57ea2af2113658762e9
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   MMPopupView: fe1dd010824029dfb632fdf1a531db5dd5386020
+  PYSearch: 76dee18eea3309b60921a5d6a69390a63a5dda15
+  SCIndexView: 992b56c3c7743bd7799bb43e764d42aef02038d9
   SDWebImage: 7edb9c3ea661e77a66661f7f044de8c1b55d1120
   SQLiteRepairKit: 35aaae5a8838adb85f5b1eb4d796055be6060a4b
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  TZImagePickerController: 99f03b64145a8c92c55b9b1b931410967d9be4cb
   WCDB: 8e90babdeb7784c569353a4bd22a66c0a175a882
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
 
-PODFILE CHECKSUM: d4d8be2eb3f9a317655bdc1fd797265cf6cd3e3c
+PODFILE CHECKSUM: 5af85becf0f147269e2e6af0e092859832bd9bd7
 
 COCOAPODS: 1.8.4

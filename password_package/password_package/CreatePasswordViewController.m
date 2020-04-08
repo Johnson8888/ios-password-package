@@ -8,6 +8,10 @@
 
 #import "CreatePasswordViewController.h"
 #import "PPPasswordCreator.h"
+#import "HWBottomAuthViewController.h"
+#import "HWTopBarViewController.h"
+#import <HWPop.h>
+#import <Masonry.h>
 
 
 @interface CreatePasswordViewController ()
@@ -34,7 +38,29 @@
     self.isOtherCharacter = NO;
     self.lengthSlider.minimumValue = 6;
     self.lengthSlider.maximumValue = 32;
+    self.currentLetterType = PPUpAndLowLetter;
+    self.currentNumberType = PPNumberAndLetter;
+    self.lengthSlider.value = 8;
+    
+    UIButton *closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [closeButton setImage:[[UIImage imageNamed:@"btn_close_circle_white"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
+                     forState:UIControlStateNormal];
+    closeButton.tintColor = SYSTEM_COLOR;
+    [self.view addSubview:closeButton];
+    [closeButton addTarget:self
+                    action:@selector(pressedCloseButton:)
+          forControlEvents:UIControlEventTouchUpInside];
+    
+    [closeButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(@36);
+        make.height.equalTo(@36);
+        make.right.equalTo(self.view).offset(-30);
+        make.top.equalTo(@30);
+    }];
+}
 
+- (void)pressedCloseButton:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)lengthSliderAction:(UISlider *)slider {
@@ -51,13 +77,27 @@
         self.length16Switch.on = NO;
     }
 }
+
 - (IBAction)length8SwitchAction:(UISwitch *)switchItem {
     BOOL isOn = switchItem.on;
     self.length16Switch.on = !isOn;
+    if (isOn) {
+        self.lengthSlider.value = 8;
+    } else {
+        self.lengthSlider.value = 16;
+    }
+    self.lengthLabel.text = [NSString stringWithFormat:@"%ld位数",(long)self.lengthSlider.value];
 }
+
 - (IBAction)length16SwitchAction:(UISwitch *)switchItem {
     BOOL isOn = switchItem.on;
     self.length8Switch.on = !isOn;
+    if (isOn) {
+        self.lengthSlider.value = 16;
+    } else {
+        self.lengthSlider.value = 8;
+    }
+    self.lengthLabel.text = [NSString stringWithFormat:@"%ld位数",(long)self.lengthSlider.value];
 }
 
 
@@ -66,10 +106,16 @@
     if (isOn) {
         self.allLetterSwitch.on = NO;
         self.numberAndLetterSwitch.on = NO;
+        self.upLetterSwitch.on = NO;
+        self.lowLetterSwitch.on = NO;
+        self.upAndLetterSwitch.on = NO;
         self.currentNumberType = PPAllNumber;
     } else {
         self.allLetterSwitch.on = YES;
         self.numberAndLetterSwitch.on = NO;
+        self.upLetterSwitch.on = YES;
+        self.lowLetterSwitch.on = NO;
+        self.upAndLetterSwitch.on = NO;
         self.currentNumberType = PPAllLetter;
     }
 }
@@ -139,11 +185,49 @@
     self.isOtherCharacter = switchItem.isOn;
 }
 
+
 - (IBAction)pressedCreateButton:(UISwitch *)switchItem {
     NSInteger currentLength = (NSInteger)self.lengthSlider.value;
+    NSString *password = [PPPasswordCreator createPasswordWithLength:currentLength
+                                                          numberType:self.currentNumberType
+                                                          letterType:self.currentLetterType
+                                                    isOtherCharacter:self.isOtherCharacter];
+    TTLog(@"password == %@",password);
+    
+    HWBottomAuthViewController *bottomAuthVC = [[HWBottomAuthViewController alloc]
+                                                initWithText:password
+                                                buttonText:self.buttonText
+                                                completion:^{
+        if (self.alertText.length != 0) {
+            [self showCopySuccess];
+        }
+        UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+        pasteboard.string = password;
+        
+        if (self.completion) {
+            self.completion(password,self);
+        }
+    }];
+    
+    HWPopController *popController = [[HWPopController alloc] initWithViewController:bottomAuthVC];
+    popController.popPosition = HWPopPositionBottom;
+    popController.popType = HWPopTypeBounceInFromBottom;
+    popController.dismissType = HWDismissTypeSlideOutToBottom;
+    popController.shouldDismissOnBackgroundTouch = NO;
+    [popController presentInViewController:self];
     
 }
 
+
+-(void)showCopySuccess {
+    HWTopBarViewController *topBarVC = [[HWTopBarViewController alloc] initWithText:self.alertText];
+    HWPopController *popController = [[HWPopController alloc] initWithViewController:topBarVC];
+    popController.backgroundAlpha = 0;
+    popController.popPosition = HWPopPositionTop;
+    popController.popType = HWPopTypeBounceInFromTop;
+    popController.dismissType = HWDismissTypeSlideOutToTop;
+    [popController presentInViewController:self];
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];

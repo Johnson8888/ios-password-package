@@ -18,7 +18,10 @@ pod 'SDWebImage'
 pod 'MMPopupView'
 pod 'WCDB'
 pod 'HWPopController'
-#pod 'ExpandingMenu'
+pod 'JHUD'
+pod 'SCIndexView'
+pod 'PYSearch'
+pod 'TZImagePickerController'
 
 
 end

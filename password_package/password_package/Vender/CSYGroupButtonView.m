@@ -11,8 +11,7 @@
 
 static const int fontSize = 10.0;
 
-@interface CSYGroupButtonView()
-{
+@interface CSYGroupButtonView() {
     NSMutableArray *otherButtons;
     CGRect rectFrame;
     UIImageView *myImageView;

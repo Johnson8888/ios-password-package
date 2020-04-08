@@ -35,6 +35,7 @@ typedef NS_ENUM(NSUInteger, PPLetterType) {
                             letterType:(PPLetterType)letterType
                       isOtherCharacter:(BOOL)isOtherCharacter;
 
+
 @end
 
 NS_ASSUME_NONNULL_END

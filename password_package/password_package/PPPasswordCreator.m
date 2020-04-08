@@ -32,15 +32,40 @@
 }
 
 
-+ (NSString *)createPasswordWithLength:(NSInteger)legth
++ (NSString *)createPasswordWithLength:(NSInteger)length
                             numberType:(PPNumberType)numberType
                             letterType:(PPLetterType)letterType
                       isOtherCharacter:(BOOL)isOtherCharacter {
-    if (legth == 0) {
+    
+    if (length == 0) {
         return @"";
     }
     NSMutableString *password = [NSMutableString string];
-    
+    for (int i = 0; i < length; ++i) {
+        NSMutableArray *tempArray = [NSMutableArray array];
+        if (isOtherCharacter) {
+            [tempArray addObjectsFromArray:[self otherCharacter]];
+        }
+        if (numberType == PPAllNumber || numberType == PPNumberAndLetter) {
+            [tempArray addObjectsFromArray:[self numberArray]];
+        }
+        if (numberType == PPAllLetter || numberType == PPNumberAndLetter) {
+            if (letterType == PPUpLetter) {
+                [tempArray addObjectsFromArray:[self upLetterArray]];
+            }
+            if (letterType == PPLowLetter) {
+                [tempArray addObjectsFromArray:[self lowLetterArray]];
+            }
+            if (letterType == PPUpAndLowLetter) {
+                [tempArray addObjectsFromArray:[self upLetterArray]];
+                [tempArray addObjectsFromArray:[self lowLetterArray]];
+            }
+        }
+        NSInteger count = tempArray.count;
+        NSInteger index = arc4random() % (count - 1);
+        NSString *str = tempArray[index];
+        [password appendString:str];
+    }
     return password;
 }
 
@@ -57,6 +82,10 @@
 
 + (NSArray *)upLetterArray  {
     return @[@"A",@"B",@"C",@"D",@"E",@"F",@"G",@"H",@"I",@"J",@"K",@"L",@"M",@"N",@"O",@"P",@"R",@"S",@"T",@"U",@"V",@"W",@"X",@"Y",@"Z"];
+}
+
++ (NSArray *)otherCharacter {
+    return @[@"!",@"#",@"$",@"%",@"&",@"'",@"+",@"*",@",",@"-",@".",@"/",@":",@";",@"<",@">",@"=",@"?",@"@",@"[",@"]",@"^",@"_",@"{",@"}",@"~"];
 }
 
 @end
