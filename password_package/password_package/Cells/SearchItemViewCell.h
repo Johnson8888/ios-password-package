@@ -8,11 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@class PPWebsiteModel;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SearchItemViewCell : UITableViewCell
 
 
+@property (nonatomic,strong) PPWebsiteModel *dataModel;
 /// 网站的名字
 @property (nonatomic,strong) NSString *websiteName;
 /// 获取域名

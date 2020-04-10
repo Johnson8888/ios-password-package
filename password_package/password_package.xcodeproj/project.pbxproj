@@ -40,6 +40,7 @@
 		F3C7F6F0243C46AA00F45EBD /* HWPickTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C7F6EA243C46AA00F45EBD /* HWPickTypeViewController.m */; };
 		F3C7F6F1243C46AA00F45EBD /* HWCatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C7F6EB243C46AA00F45EBD /* HWCatViewController.m */; };
 		F3C7F6F2243C46AA00F45EBD /* HWAnimationConfigListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C7F6EC243C46AA00F45EBD /* HWAnimationConfigListViewController.m */; };
+		F3C9D98A243FFB9900BAD7EA /* BankCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C9D989243FFB9900BAD7EA /* BankCardViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,6 +107,8 @@
 		F3C7F6ED243C46AA00F45EBD /* HWPickTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWPickTypeViewController.h; sourceTree = "<group>"; };
 		F3C7F6EE243C46AA00F45EBD /* HWCatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWCatViewController.h; sourceTree = "<group>"; };
 		F3C7F6EF243C46AA00F45EBD /* HWAnimationConfigListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWAnimationConfigListViewController.h; sourceTree = "<group>"; };
+		F3C9D988243FFB9900BAD7EA /* BankCardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BankCardViewController.h; sourceTree = "<group>"; };
+		F3C9D989243FFB9900BAD7EA /* BankCardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BankCardViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +201,8 @@
 				F37257982434C5AC009B054F /* PPPasswordCreator.m */,
 				F36A890724348C520003FF39 /* MainViewController.h */,
 				F36A890824348C520003FF39 /* MainViewController.m */,
+				F3C9D988243FFB9900BAD7EA /* BankCardViewController.h */,
+				F3C9D989243FFB9900BAD7EA /* BankCardViewController.m */,
 				F325325A243DB7DB00BCEA3E /* InputWebsiteViewController.h */,
 				F325325B243DB7DB00BCEA3E /* InputWebsiteViewController.m */,
 				F325325D243DB88200BCEA3E /* InputCartViewController.h */,
@@ -403,6 +408,7 @@
 				F36359582437661300182C96 /* CreatePasswordViewController.m in Sources */,
 				F3C7F6E6243C469000F45EBD /* HWBottomAuthViewController.m in Sources */,
 				F363594C2437493C00182C96 /* SearchItemViewController.m in Sources */,
+				F3C9D98A243FFB9900BAD7EA /* BankCardViewController.m in Sources */,
 				F3C7F6E5243C469000F45EBD /* HWNavStackViewController.m in Sources */,
 				F325325C243DB7DB00BCEA3E /* InputWebsiteViewController.m in Sources */,
 				F36359172435AF2300182C96 /* Utils.m in Sources */,

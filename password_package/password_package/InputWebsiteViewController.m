@@ -7,6 +7,8 @@
 //
 
 #import "InputWebsiteViewController.h"
+#import "PPWebsiteModel.h"
+#import "PPDataManager.h"
 #import "CreatePasswordViewController.h"
 #import "CreatePasswordViewController.h"
 #import <TZImagePickerController/TZImagePickerController.h>
@@ -18,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *passwordTF;
 @property (weak, nonatomic) IBOutlet UITextField *websiteTF;
 @property (weak, nonatomic) IBOutlet UITextView *describeTextView;
+@property (nonatomic,strong) PPWebsiteModel *insertModel;
 
 @end
 
@@ -25,7 +28,10 @@
 
 - (void)viewDidLoad {
     
+    // 100.54 400630999
+    //
     [super viewDidLoad];
+    self.insertModel = [[PPWebsiteModel alloc] init];
     
     TTLog(@"webSite = %@",self.webSiteName);
     if ([self.webSiteName containsString:@"."] == NO) {
@@ -37,6 +43,8 @@
     NSString *filePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingString:namePath];
     self.iconImageView.image = [UIImage imageWithContentsOfFile:filePath];
     self.iconLabel.text = self.webSiteName;
+    self.insertModel.title = self.iconLabel.text;
+    self.insertModel.iconImg = UIImagePNGRepresentation(self.iconImageView.image);
 }
 
 
@@ -52,6 +60,30 @@
 
 - (IBAction)pressedFinishButton:(id)sender {
     
+    if (self.accountTF.text.length == 0 || self.accountTF.text == nil) {
+        
+        return;
+    }
+    if (self.passwordTF.text.length == 0 || self.passwordTF.text == nil) {
+        
+        return;
+    }
+    
+    self.insertModel.account = self.accountTF.text;
+    self.insertModel.password = self.passwordTF.text;
+    self.insertModel.link = self.websiteTF.text;
+    self.insertModel.describe = self.describeTextView.text;
+    
+//    NSLog(@"self.insertModel = %@",self.insertModel);
+    
+    [[PPDataManager sharedInstance] insertWebsiteWithModel:self.insertModel
+                                                completion:^(BOOL isSuccess) {
+        if (isSuccess) {
+            TTLog(@"插入成功 需要返回");
+        } else {
+            TTLog(@"插入失败");
+        }
+    }];
 }
 
 - (IBAction)pressedCreatePasswrodButton:(id)sender {
@@ -64,8 +96,8 @@
     
     cViewController.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:cViewController animated:YES completion:nil];
-    
 }
+
 
 - (void)pushTZImagePickerController {
     
@@ -112,7 +144,7 @@
     // 3. 设置是否可以选择视频/图片/原图
     imagePickerVc.allowPickingVideo = NO;
     imagePickerVc.allowPickingImage = YES;
-    imagePickerVc.allowPickingOriginalPhoto = YES;
+    imagePickerVc.allowPickingOriginalPhoto = NO;
     imagePickerVc.allowPickingGif = NO;
     imagePickerVc.allowPickingMultipleVideo = NO; // 是否可以多选视频
     
@@ -154,33 +186,20 @@
     imagePickerVc.delegate = self;
     */
     
-    // Deprecated, Use statusBarStyle
     // imagePickerVc.isStatusBarDefault = NO;
     imagePickerVc.statusBarStyle = UIStatusBarStyleLightContent;
     
     // 设置是否显示图片序号
     imagePickerVc.showSelectedIndex = NO;
-    
-    // 设置拍照时是否需要定位，仅对选择器内部拍照有效，外部拍照的，请拷贝demo时手动把pushImagePickerController里定位方法的调用删掉
-    // imagePickerVc.allowCameraLocation = NO;
-    
-    // 自定义gif播放方案
-
-    
-    // 设置首选语言 / Set preferred language
-    // imagePickerVc.preferredLanguage = @"zh-Hans";
-    
-    // 设置languageBundle以使用其它语言 / Set languageBundle to use other language
-    // imagePickerVc.languageBundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"tz-ru" ofType:@"lproj"]];
-    
-#pragma mark - 到这里为止
-    
-    // You can get the photos by block, the same as by delegate.
-    // 你可以通过block或者代理，来得到用户选择的照片.
+    imagePickerVc.allowCameraLocation = NO;
+    imagePickerVc.preferredLanguage = @"zh-Hans";
     [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
-        
+        if (photos.count > 0) {
+            self.iconImageView.image = photos.firstObject;
+            TTLog(@"先把图片保存到相册!!!");
+            self.insertModel.iconImg = UIImagePNGRepresentation(self.iconImageView.image);
+        }
     }];
-    
     imagePickerVc.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:imagePickerVc animated:YES completion:nil];
 }

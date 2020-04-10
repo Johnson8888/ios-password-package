@@ -8,12 +8,13 @@
 
 #import "PPDataManager.h"
 #import "FMDB.h"
+#import "PPWebsiteModel.h"
 
 // 数据库 文件名
 #define DB_FILE_NAME                    @"pp.sqlite"
 
 /// 聊天数据记录
-#define TABLE_ITEM_NAME                   @"item"
+#define TABLE_ITEM_NAME                   @"website"
 
 
 
@@ -24,8 +25,7 @@
 
 /*
  id 自增键           int
- iconImg icon图片    blob
- cardImg cardImg    blob
+ iconImg 图片路径    varchar
  title 名称          varchar
  account 账号        varchar
  password 密码       varchar
@@ -34,7 +34,7 @@
  ctime 时间戳         integer
  */
  
-#define SQL_CREATE_MESSAGE [NSString stringWithFormat:@"create table if not exists %@(id INTEGER PRIMARY KEY AUTOINCREMENT,iconImg blob ,cardImg blob ,title varchar ,account varchar , password varchar ,link varchar ,describe varchar ,ctime integer)",TABLE_ITEM_NAME]
+#define SQL_CREATE_MESSAGE [NSString stringWithFormat:@"create table if not exists %@(id INTEGER PRIMARY KEY AUTOINCREMENT,iconImg text ,title text ,account text , password text ,link text ,describe text ,ctime integer)",TABLE_ITEM_NAME]
 
 
 @interface PPDataManager()
@@ -80,6 +80,7 @@
         [self.dataBase close];
         self.dataBase = nil;
     }
+    self.dataBase.logsErrors = YES;
     NSString *dbPath = [PPDataManager dbFilePath];
     TTLog(@"dbPath == %@",dbPath);
     self.dataBase = [FMDatabase databaseWithPath:dbPath];
@@ -97,6 +98,27 @@
 }
 
 
+/// 新增一个网站信息记录
+- (void)insertWebsiteString:(NSString *)title
+                  completion:(ExecuteSqlCompletion)completion {
+        
+    [self.dataBaseQueue inDatabase:^(FMDatabase *db) {
+        NSInteger cTime = (NSInteger)[[NSDate date] timeIntervalSince1970];
+        
+        NSString *sql = [NSString stringWithFormat:@"INSERT INTO %@ (title,cTime) VALUES (?,?)",TABLE_ITEM_NAME];
+        
+        TTLog(@"sql == %@",sql);
+        BOOL success = [self.dataBase executeUpdate:sql,title,[NSNumber numberWithInteger:cTime]];
+        if (success == NO) {
+            TTLog(@"sql error = %@",self.dataBase.lastErrorMessage);
+        }
+        completion(success);
+    }];
+}
+
+
+
+
 /// 获取所有的网站信息记录
 /// @param completion 获取成功后的回调
 - (void)getAllWebsiteWithCompletion:(LoadAllWebsiteCompletion)completion {
@@ -108,8 +130,11 @@
             FMResultSet* result = [self.dataBase executeQuery:sqlString];
             id item = nil;
             while ([result next]) {
+                TTLog(@"result = %@",result);
                 item = [self websiteFromResult:result];
-                [array addObject:item];
+                if (item != nil) {
+                    [array addObject:item];
+                }
             }
             dispatch_async(dispatch_get_main_queue(), ^{
                 completion(array,nil);
@@ -122,38 +147,69 @@
 
 /// 删除一个网站信息
 /// @param aId 自增键
-- (BOOL)deleteWebsiteWithId:(NSNumber *)aId {
-    NSString* sql = [NSString stringWithFormat:@"DELETE FROM %@ WHERE id = ?",TABLE_ITEM_NAME];
-    return [self.dataBase executeUpdate:sql,aId];
+- (void)deleteWebsiteWithId:(NSNumber *)aId
+                 completion:(ExecuteSqlCompletion)completion{
+    [self.dataBaseQueue inDatabase:^(FMDatabase *db) {
+        NSString* sql = [NSString stringWithFormat:@"DELETE FROM %@ WHERE id = ?",TABLE_ITEM_NAME];
+        BOOL result = [self.dataBase executeUpdate:sql,aId];
+        completion(result);
+    }];
 }
 
 /// 新增一个网站信息记录
 /// @param model 数据模型
-- (BOOL)insertWebsiteWithModel:(PPWebsiteModel *)model {    
-    NSInteger cTime = (NSInteger)[[NSDate date] timeIntervalSince1970];
-    NSString *sql = [NSString stringWithFormat:@"INSERT INTO %@ (iconImg, cardImg,title,account,password,link,describe,ctime) VALUES (?, ?,?,?,?,?,?,?)",TABLE_ITEM_NAME];
-    BOOL success = [self.dataBase executeUpdate:sql];
-    return success;
+- (void)insertWebsiteWithModel:(PPWebsiteModel *)model
+                     completion:(ExecuteSqlCompletion)completion {
+        
+    [self.dataBaseQueue inDatabase:^(FMDatabase *db) {
+        NSInteger integerTime = (NSInteger)[[NSDate date] timeIntervalSince1970];
+        NSNumber *cTime = [NSNumber numberWithInteger:integerTime];
+        
+//        NSString *sql = [NSString stringWithFormat:@"INSERT INTO %@ (iconImg, title,account,password,link,describe,ctime) VALUES (?, ?,?,?,?,?,?)",TABLE_ITEM_NAME];
+        
+        NSString *sql = [NSString stringWithFormat:@"INSERT INTO %@ (title,iconImg,account,password,link,describe,ctime) VALUES (?,?,?,?,?,?,?)",TABLE_ITEM_NAME];
+        TTLog(@"sql == %@",sql);
+        BOOL success = [self.dataBase executeUpdate:sql,model.title,model.iconImg,model.account,model.password,model.link,model.describe,cTime];
+        if (success == NO) {
+            TTLog(@"sql error = %@",self.dataBase.lastErrorMessage);
+        }
+        completion(success);
+    }];
 }
 
 /// 更新网站信息
 /// @param aId 自增键
 /// @param model 数据模型
-- (BOOL)updateWebsizeWithId:(NSNumber *)aId model:(PPWebsiteModel *)model {
-    NSString *sql = [NSString stringWithFormat:@"UPDATE %@ SET lastMessageContent = ? , unReadCount = ? WHERE id = ?;",TABLE_ITEM_NAME];
-    return [self.dataBase executeUpdate:sql];
+- (void)updateWebsizeWithId:(NSNumber *)aId
+                      model:(PPWebsiteModel *)model
+                 completion:(ExecuteSqlCompletion)completion {
+    [self.dataBaseQueue inDatabase:^(FMDatabase *db) {
+        NSString *sql = [NSString stringWithFormat:@"UPDATE %@ SET lastMessageContent = ? , unReadCount = ? WHERE id = ?;",TABLE_ITEM_NAME];
+        BOOL result = [self.dataBase executeUpdate:sql];
+        completion(result);
+    }];
 }
 
 /// 将 数据库查询的数据封装成 model 目前默认返回Dictionary
 - (id)websiteFromResult:(FMResultSet*)resultSet {
     NSMutableDictionary *dic = [NSMutableDictionary new];
     dic[@"id"] = [NSNumber numberWithInt:[resultSet intForColumn:@"id"]];
-    dic[@"sessionId"] = [resultSet stringForColumn:@"sessionId"];
-    dic[@"type"] = [NSNumber numberWithInt:[resultSet intForColumn:@"type"]];
-    dic[@"name"] = [resultSet stringForColumn:@"name"];
-    dic[@"lastMessageContent"] = [resultSet stringForColumn:@"lastMessageContent"];
-    dic[@"unReadCount"] = [NSNumber numberWithInt:[resultSet intForColumn:@"unReadCount"]];
-    return dic;
+    dic[@"account"] = [resultSet stringForColumn:@"account"];
+    dic[@"password"] = [resultSet stringForColumn:@"password"];
+    dic[@"title"] = [resultSet stringForColumn:@"title"];
+    dic[@"link"] = [resultSet stringForColumn:@"link"];
+    dic[@"describe"] = [resultSet stringForColumn:@"describe"];
+    dic[@"cTime"] = [NSNumber numberWithInt:[resultSet intForColumn:@"cTime"]];
+    NSError *error;
+    PPWebsiteModel *model = [[PPWebsiteModel alloc] initWithDictionary:dic error:&error];
+    if (model) {
+        model.iconImg = [resultSet dataForColumn:@"iconImg"];;
+    }
+    if (error) {
+        TTLog(@"create model error = %@",error);
+        return nil;
+    }
+    return model;
 }
 
 

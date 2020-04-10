@@ -7,6 +7,7 @@
 //
 
 #import "SearchItemViewCell.h"
+#import "PPWebsiteModel.h"
 
 
 @interface SearchItemViewCell()
@@ -44,6 +45,15 @@
         self.nameLabel.text = websiteName;
     }
 }
+
+
+- (void)setDataModel:(PPWebsiteModel *)dataModel {
+    _dataModel = dataModel;
+    self.iconImageView.image = [UIImage imageWithData:dataModel.iconImg];
+    self.nameLabel.text = dataModel.title;
+    self.websiteLabel.text = dataModel.account;
+}
+
 - (NSString *)getWebsite {
     return self.websiteLabel.text;
 }

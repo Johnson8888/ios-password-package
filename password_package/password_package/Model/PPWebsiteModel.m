@@ -10,4 +10,20 @@
 
 @implementation PPWebsiteModel
 
+//@property (nonatomic,strong) NSData *iconImg;
+//@property (nonatomic,strong) NSString *title;
+//@property (nonatomic,strong) NSString *link;
+//@property (nonatomic,strong) NSString *describe;
+//@property (nonatomic,assign) NSInteger cTime;
+
+
++(BOOL)propertyIsOptional:(NSString *)propertyName{
+    if ([propertyName isEqualToString:@"iconImg"] || [propertyName isEqualToString:@"title"] ||
+        [propertyName isEqualToString:@"link"] || [propertyName isEqualToString:@"describe"] ||
+        [propertyName isEqualToString:@"cTime"]) {
+        return  YES;
+    }
+    return NO;
+}
+
 @end

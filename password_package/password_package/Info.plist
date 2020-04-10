@@ -25,6 +25,12 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>请允许方法相机，用来拍摄图片并保存</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>请允许访问相册，用来选择图片并保持</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>请允许访问相册，用来选择图片并保持</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

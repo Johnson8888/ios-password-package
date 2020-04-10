@@ -120,7 +120,7 @@ PYSearchViewControllerDataSource
             [array addObject:webSiteName];
             self.dataDictionary[startCharacter] = array;
         }
-        TTLog(@"webSiteName = %@",webSiteName);
+//        TTLog(@"webSiteName = %@",webSiteName);
     }
     
     self.tableView.sectionIndexColor = [UIColor blackColor];

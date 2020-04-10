@@ -14,9 +14,12 @@
 #import "CSYGroupButtonView.h"
 #import <Masonry.h>
 #import <JHUD/JHUD.h>
+#import "PPDataManager.h"
+#import "SearchItemViewCell.h"
 
-@interface MainViewController ()
-
+@interface MainViewController ()<UITableViewDelegate,UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic,strong) NSMutableArray *dataArray;
 @end
 
 @implementation MainViewController
@@ -32,7 +35,8 @@
     [super viewDidLoad];
 //    [self showEmptyMessageView];
     
-    
+    self.tableView.rowHeight = 64.0f;
+    self.tableView.tableFooterView = [[UIView alloc] init];
     NSArray *arrayLeft = @[@"按钮1",@"按钮2",@"按钮3"];
     //相应数组
     CSYGroupButtonView *groupButton = [[CSYGroupButtonView alloc]initWithFrame:CGRectMake(self.view.bounds.size.width - 85, self.view.bounds.size.height - 100 - 65, 65, 65) mainButtonTitle:@"添加" selectedTitle:@"添加" otherButtonsTitle:arrayLeft];
@@ -48,7 +52,37 @@
     };
     [self.view addSubview:groupButton];
     TTLog(@"view did load");
+    
+    
+    [[PPDataManager sharedInstance] getAllWebsiteWithCompletion:^(NSMutableArray<PPWebsiteModel *> * _Nonnull array, NSError * _Nullable error) {
+        if (error) {
+            TTLog(@"get all website error = %@",array);
+        } else {
+            if (self.dataArray) {
+                [self.dataArray removeAllObjects];
+            }
+            if (array.count != 0) {
+                self.dataArray = array.mutableCopy;
+                [self.tableView reloadData];
+            }
+        }
+    }];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([SearchItemViewCell class]) bundle:nil] forCellReuseIdentifier:@"com.main.view.controller.search.item.cell"];
 }
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.dataArray.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    SearchItemViewCell *cell = [tableView  dequeueReusableCellWithIdentifier:@"com.main.view.controller.search.item.cell"];
+    PPWebsiteModel *model = self.dataArray[indexPath.row];
+    cell.dataModel = model;
+    return cell;
+}
+
 
 
 - (void)showSelectedItemViewController {
