@@ -35,12 +35,21 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hCC-dy-8Vj">
+                        <rect key="frame" x="253" y="14" width="36" height="30"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <state key="normal" title="Copy"/>
+                        <connections>
+                            <action selector="pressedCopyButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="2c8-VX-2vV"/>
+                        </connections>
+                    </button>
                 </subviews>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
                 <outlet property="iconImageView" destination="EB6-Cy-T1W" id="4dD-jm-tzA"/>
                 <outlet property="nameLabel" destination="Mnf-4D-wae" id="dyT-l4-wCI"/>
+                <outlet property="pasteButton" destination="hCC-dy-8Vj" id="dDp-GD-qSr"/>
                 <outlet property="websiteLabel" destination="0lq-5U-neC" id="wgS-9U-zy3"/>
             </connections>
             <point key="canvasLocation" x="-5.7971014492753632" y="102.79017857142857"/>

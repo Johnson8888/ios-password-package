@@ -8,6 +8,9 @@
 
 #import "SearchItemViewCell.h"
 #import "PPWebsiteModel.h"
+#import "HWBottomAuthViewController.h"
+#import "HWTopBarViewController.h"
+#import <HWPop.h>
 
 
 @interface SearchItemViewCell()
@@ -16,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *websiteLabel;
 
+@property (weak, nonatomic) IBOutlet UIButton *pasteButton;
 
 @end
 
@@ -52,10 +56,23 @@
     self.iconImageView.image = [UIImage imageWithData:dataModel.iconImg];
     self.nameLabel.text = dataModel.title;
     self.websiteLabel.text = dataModel.account;
+    self.pasteButton.hidden = NO;
 }
 
 - (NSString *)getWebsite {
     return self.websiteLabel.text;
+}
+
+- (IBAction)pressedCopyButton:(id)sender {
+    
+    UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
+    HWTopBarViewController *topBarVC = [[HWTopBarViewController alloc] initWithText:@"复制密码成功!"];
+    HWPopController *popController = [[HWPopController alloc] initWithViewController:topBarVC];
+    popController.backgroundAlpha = 0;
+    popController.popPosition = HWPopPositionTop;
+    popController.popType = HWPopTypeBounceInFromTop;
+    popController.dismissType = HWDismissTypeSlideOutToTop;
+    [popController presentInViewController:rootViewController];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

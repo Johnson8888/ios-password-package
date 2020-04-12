@@ -26,4 +26,18 @@
     return NO;
 }
 
++ (JSONKeyMapper *)keyMapper {
+    return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{
+        @"aId":@"id",
+        @"account":@"account",
+        @"password":@"password",
+        @"iconImg":@"iconImg",
+        @"title":@"title",
+        @"link":@"link",
+        @"describe":@"describe",
+        @"cTime":@"cTime"
+    }];
+}
+
+
 @end

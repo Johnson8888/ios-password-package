@@ -41,6 +41,10 @@
 		F3C7F6F1243C46AA00F45EBD /* HWCatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C7F6EB243C46AA00F45EBD /* HWCatViewController.m */; };
 		F3C7F6F2243C46AA00F45EBD /* HWAnimationConfigListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C7F6EC243C46AA00F45EBD /* HWAnimationConfigListViewController.m */; };
 		F3C9D98A243FFB9900BAD7EA /* BankCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C9D989243FFB9900BAD7EA /* BankCardViewController.m */; };
+		F3C9D98D2440237500BAD7EA /* PPBankCardModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C9D98C2440237500BAD7EA /* PPBankCardModel.m */; };
+		F3C9D99124404CA300BAD7EA /* BankCardViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C9D98F24404CA300BAD7EA /* BankCardViewCell.m */; };
+		F3C9D99224404CA300BAD7EA /* BankCardViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3C9D99024404CA300BAD7EA /* BankCardViewCell.xib */; };
+		F3D53B5E2440D98100D1B1A3 /* PresentWebsiteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D53B5D2440D98100D1B1A3 /* PresentWebsiteViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,6 +113,13 @@
 		F3C7F6EF243C46AA00F45EBD /* HWAnimationConfigListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWAnimationConfigListViewController.h; sourceTree = "<group>"; };
 		F3C9D988243FFB9900BAD7EA /* BankCardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BankCardViewController.h; sourceTree = "<group>"; };
 		F3C9D989243FFB9900BAD7EA /* BankCardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BankCardViewController.m; sourceTree = "<group>"; };
+		F3C9D98B2440237500BAD7EA /* PPBankCardModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPBankCardModel.h; sourceTree = "<group>"; };
+		F3C9D98C2440237500BAD7EA /* PPBankCardModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPBankCardModel.m; sourceTree = "<group>"; };
+		F3C9D98E24404CA300BAD7EA /* BankCardViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BankCardViewCell.h; sourceTree = "<group>"; };
+		F3C9D98F24404CA300BAD7EA /* BankCardViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BankCardViewCell.m; sourceTree = "<group>"; };
+		F3C9D99024404CA300BAD7EA /* BankCardViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BankCardViewCell.xib; sourceTree = "<group>"; };
+		F3D53B5C2440D98100D1B1A3 /* PresentWebsiteViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PresentWebsiteViewController.h; sourceTree = "<group>"; };
+		F3D53B5D2440D98100D1B1A3 /* PresentWebsiteViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PresentWebsiteViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +157,9 @@
 				F3253243243C969800BCEA3E /* SearchItemViewCell.h */,
 				F3253244243C969800BCEA3E /* SearchItemViewCell.m */,
 				F3253245243C969800BCEA3E /* SearchItemViewCell.xib */,
+				F3C9D98E24404CA300BAD7EA /* BankCardViewCell.h */,
+				F3C9D98F24404CA300BAD7EA /* BankCardViewCell.m */,
+				F3C9D99024404CA300BAD7EA /* BankCardViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -205,6 +219,8 @@
 				F3C9D989243FFB9900BAD7EA /* BankCardViewController.m */,
 				F325325A243DB7DB00BCEA3E /* InputWebsiteViewController.h */,
 				F325325B243DB7DB00BCEA3E /* InputWebsiteViewController.m */,
+				F3D53B5C2440D98100D1B1A3 /* PresentWebsiteViewController.h */,
+				F3D53B5D2440D98100D1B1A3 /* PresentWebsiteViewController.m */,
 				F325325D243DB88200BCEA3E /* InputCartViewController.h */,
 				F325325E243DB88200BCEA3E /* InputCartViewController.m */,
 				F363594A2437493C00182C96 /* SearchItemViewController.h */,
@@ -244,6 +260,8 @@
 			children = (
 				F3725DEF243593A0009B054F /* PPWebsiteModel.h */,
 				F3725DF0243593A0009B054F /* PPWebsiteModel.m */,
+				F3C9D98B2440237500BAD7EA /* PPBankCardModel.h */,
+				F3C9D98C2440237500BAD7EA /* PPBankCardModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -347,6 +365,7 @@
 				F372533A2434C162009B054F /* login.json in Resources */,
 				F36359352435FA6C00182C96 /* LoginViewController.xib in Resources */,
 				F3725DEA243588DE009B054F /* website in Resources */,
+				F3C9D99224404CA300BAD7EA /* BankCardViewCell.xib in Resources */,
 				F3253247243C969800BCEA3E /* SearchItemViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -400,8 +419,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3D53B5E2440D98100D1B1A3 /* PresentWebsiteViewController.m in Sources */,
 				F3725DF1243593A0009B054F /* PPWebsiteModel.m in Sources */,
 				F3724ED52434B159009B054F /* PPDataManager.m in Sources */,
+				F3C9D99124404CA300BAD7EA /* BankCardViewCell.m in Sources */,
 				F3C7F6E3243C469000F45EBD /* HWFullDialogViewController.m in Sources */,
 				F3C7F6E4243C469000F45EBD /* HWNavViewController.m in Sources */,
 				F36A890924348C520003FF39 /* MainViewController.m in Sources */,
@@ -423,6 +444,7 @@
 				F3C7F6E7243C469000F45EBD /* HWAutoSizeViewController.m in Sources */,
 				F36A891424348C550003FF39 /* main.m in Sources */,
 				F3C7F6E8243C469000F45EBD /* HWCenterViewController.m in Sources */,
+				F3C9D98D2440237500BAD7EA /* PPBankCardModel.m in Sources */,
 				F36A890624348C520003FF39 /* SceneDelegate.m in Sources */,
 				F3C7F6F2243C46AA00F45EBD /* HWAnimationConfigListViewController.m in Sources */,
 				F3253246243C969800BCEA3E /* SearchItemViewCell.m in Sources */,

@@ -12,10 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PPWebsiteModel : JSONModel
 
-//iconImg blob ,cardImg blob ,title varchar ,account varchar , password varchar ,link varchar ,describe varchar , tag varchar ,ctime integer
-
-
-
+@property (nonatomic,strong)NSNumber *aId;
 @property (nonatomic,strong) NSString *account;
 @property (nonatomic,strong) NSString *password;
 

@@ -16,6 +16,7 @@
 #import <JHUD/JHUD.h>
 #import "PPDataManager.h"
 #import "SearchItemViewCell.h"
+#import "PresentWebsiteViewController.h"
 
 @interface MainViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -33,6 +34,8 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
+    
 //    [self showEmptyMessageView];
     
     self.tableView.rowHeight = 64.0f;
@@ -69,6 +72,7 @@
     }];
     
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([SearchItemViewCell class]) bundle:nil] forCellReuseIdentifier:@"com.main.view.controller.search.item.cell"];
+    
 }
 
 
@@ -81,6 +85,13 @@
     PPWebsiteModel *model = self.dataArray[indexPath.row];
     cell.dataModel = model;
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    PresentWebsiteViewController *sViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass([PresentWebsiteViewController class])];
+    sViewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    [self.tabBarController presentViewController:sViewController animated:YES completion:nil];
 }
 
 
