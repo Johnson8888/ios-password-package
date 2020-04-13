@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MMPopupView/MMPopupView.h>
+#import <MMPopupView/MMAlertView.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,6 +20,14 @@ NS_ASSUME_NONNULL_BEGIN
 + (BOOL)canUseTouchID;
 /// 判断 FaceID 是否可用
 + (BOOL)canUseFaceID;
+
+/// 给出Alert提示 用于给用户下载购买过的视频
+/// @param title Title
+/// @param detail 详细描述
+/// @param callBack 点击后的回调
++ (void)alertWithTitle:(NSString *)title
+                detail:(NSString *)detail
+              callBack:(MMPopupItemHandler)callBack;
 
 @end
 

@@ -18,8 +18,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *websiteLabel;
-
 @property (weak, nonatomic) IBOutlet UIButton *pasteButton;
+
 
 @end
 

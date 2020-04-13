@@ -18,6 +18,25 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>brave</string>
+		<string>firefox</string>
+		<string>havecake</string>
+		<string>dolphin</string>
+		<string>firefox-focus</string>
+		<string>googlechrome</string>
+		<string>microsoft-edge-http</string>
+		<string>opera-http</string>
+		<string>puffin</string>
+		<string>ucbrowser</string>
+		<string>yandexbrowser-open-url</string>
+		<string>ddgLaunch</string>
+		<string>ddgQuickLink</string>
+		<string>alohabrowser</string>
+		<string>touch-url</string>
+		<string>cakebrowser</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>

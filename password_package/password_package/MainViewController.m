@@ -29,6 +29,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     
     [super viewWillAppear:animated];
+    [self refreshData];
 }
 
 - (void)viewDidLoad {
@@ -56,9 +57,15 @@
     [self.view addSubview:groupButton];
     TTLog(@"view did load");
     
-    
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([SearchItemViewCell class]) bundle:nil] forCellReuseIdentifier:@"com.main.view.controller.search.item.cell"];
+}
+
+
+/// 刷新数据
+- (void)refreshData {
     [[PPDataManager sharedInstance] getAllWebsiteWithCompletion:^(NSMutableArray<PPWebsiteModel *> * _Nonnull array, NSError * _Nullable error) {
         if (error) {
+            
             TTLog(@"get all website error = %@",array);
         } else {
             if (self.dataArray) {
@@ -70,9 +77,7 @@
             }
         }
     }];
-    
-    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([SearchItemViewCell class]) bundle:nil] forCellReuseIdentifier:@"com.main.view.controller.search.item.cell"];
-    
+
 }
 
 
@@ -90,6 +95,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     PresentWebsiteViewController *sViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass([PresentWebsiteViewController class])];
+    sViewController.websiteModel = self.dataArray[indexPath.row];
     sViewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     [self.tabBarController presentViewController:sViewController animated:YES completion:nil];
 }

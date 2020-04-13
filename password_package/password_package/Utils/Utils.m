@@ -36,7 +36,22 @@
 }
 
 
-
+/// 给出Alert提示 用于给用户下载购买过的视频
+/// @param title Title
+/// @param detail 详细描述
+/// @param callBack 点击后的回调
++ (void)alertWithTitle:(NSString *)title
+                detail:(NSString *)detail
+              callBack:(MMPopupItemHandler)callBack {
+    NSArray *items =@[MMItemMake(@"确定", MMItemTypeHighlight, callBack),
+                      MMItemMake(@"取消", MMItemTypeNormal, callBack)];
+    MMAlertView *alertView = [[MMAlertView alloc] initWithTitle:title
+                                 detail:detail
+                                  items:items];
+    alertView.attachedView.mm_dimBackgroundBlurEnabled = NO;
+    alertView.attachedView = [UIApplication sharedApplication].keyWindow;
+    [alertView show];
+}
 
 
 
