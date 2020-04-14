@@ -120,6 +120,58 @@ ctime 时间戳        integer
 }
 
 
+/// 获取所有的网站信息记录
+- (NSMutableArray <PPWebsiteModel *>*)getAllWebsite {
+    NSMutableArray* array = [[NSMutableArray alloc] init];
+    @synchronized (self.dataBase) {
+        if ([self.dataBase tableExists:TABLE_ITEM_NAME]) {
+            [self.dataBase setShouldCacheStatements:YES];
+            NSString* sqlString = [NSString stringWithFormat:@"SELECT * FROM %@ ",TABLE_ITEM_NAME];
+            FMResultSet* result = [self.dataBase executeQuery:sqlString];
+            id item = nil;
+            while ([result next]) {
+                TTLog(@"result = %@",result);
+                item = [self websiteFromResult:result];
+                if (item != nil) {
+                    [array addObject:item];
+                }
+            }
+        }
+    }
+    return array;
+}
+/// 删除一个网站信息
+/// @param aId 自增键
+- (BOOL)deleteWebsiteWithId:(NSNumber *)aId {
+    @synchronized (self.dataBase) {
+        NSString* sql = [NSString stringWithFormat:@"DELETE FROM %@ WHERE id = ?",TABLE_ITEM_NAME];
+        BOOL result = [self.dataBase executeUpdate:sql,aId];
+        return result;
+    }
+}
+/// 新增一个网站信息记录
+/// @param model 数据模型
+- (BOOL)insertWebsiteWithModel:(PPWebsiteModel *)model {
+    NSInteger integerTime = (NSInteger)[[NSDate date] timeIntervalSince1970];
+    NSNumber *cTime = [NSNumber numberWithInteger:integerTime];
+    NSString *sql = [NSString stringWithFormat:@"INSERT INTO %@ (title,iconImg,account,password,link,describe,ctime) VALUES (?,?,?,?,?,?,?)",TABLE_ITEM_NAME];
+    BOOL success = [self.dataBase executeUpdate:sql,model.title,model.iconImg,model.account,model.password,model.link,model.describe,cTime];
+    if (success == NO) {
+        TTLog(@"sql error = %@",self.dataBase.lastErrorMessage);
+    }
+    return success;
+}
+/// 更新网站信息
+/// @param aId 自增键
+/// @param model 数据模型
+- (BOOL)updateWebsizeWithId:(NSNumber *)aId model:(PPWebsiteModel *)model {
+    NSString *sql = [NSString stringWithFormat:@"UPDATE %@ SET lastMessageContent = ? , unReadCount = ? WHERE id = ?;",TABLE_ITEM_NAME];
+    BOOL result = [self.dataBase executeUpdate:sql];
+    return result;
+}
+
+
+
 
 
 /// 获取所有的网站信息记录
@@ -167,7 +219,6 @@ ctime 时间戳        integer
         NSInteger integerTime = (NSInteger)[[NSDate date] timeIntervalSince1970];
         NSNumber *cTime = [NSNumber numberWithInteger:integerTime];
         NSString *sql = [NSString stringWithFormat:@"INSERT INTO %@ (title,iconImg,account,password,link,describe,ctime) VALUES (?,?,?,?,?,?,?)",TABLE_ITEM_NAME];
-        TTLog(@"sql == %@",sql);
         BOOL success = [self.dataBase executeUpdate:sql,model.title,model.iconImg,model.account,model.password,model.link,model.describe,cTime];
         if (success == NO) {
             TTLog(@"sql error = %@",self.dataBase.lastErrorMessage);
@@ -256,7 +307,6 @@ ctime 时间戳        integer
         NSInteger integerTime = (NSInteger)[[NSDate date] timeIntervalSince1970];
         NSNumber *cTime = [NSNumber numberWithInteger:integerTime];
         NSString *sql = [NSString stringWithFormat:@"INSERT INTO %@ (frontImg,backImg,type,expireDate,account,password,cvvCode,pin,describe,ctime) VALUES (?,?,?,?,?,?,?,?,?,?)",TABLE_CARD_NAME];
-        TTLog(@"sql == %@",sql);
         BOOL success = [self.dataBase executeUpdate:sql,model.frontImg,model.backImg,model.type,model.expireDate,model.account,model.password,model.cvvCode,model.pin,model.describe,cTime];
         if (success == NO) {
             TTLog(@"sql error = %@",self.dataBase.lastErrorMessage);

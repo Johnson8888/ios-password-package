@@ -17,6 +17,7 @@
 #import "PPDataManager.h"
 #import "SearchItemViewCell.h"
 #import "PresentWebsiteViewController.h"
+#import "ShowWebSiteViewController.h"
 
 @interface MainViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -29,13 +30,11 @@
 - (void)viewWillAppear:(BOOL)animated {
     
     [super viewWillAppear:animated];
-    [self refreshData];
 }
 
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    
     
 //    [self showEmptyMessageView];
     
@@ -52,32 +51,23 @@
         if (btn.tag == 2) {
             [self showSelectedItemViewController];
         }
-        
     };
     [self.view addSubview:groupButton];
     TTLog(@"view did load");
-    
+    [self refreshData];
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([SearchItemViewCell class]) bundle:nil] forCellReuseIdentifier:@"com.main.view.controller.search.item.cell"];
 }
 
 
+
 /// 刷新数据
 - (void)refreshData {
-    [[PPDataManager sharedInstance] getAllWebsiteWithCompletion:^(NSMutableArray<PPWebsiteModel *> * _Nonnull array, NSError * _Nullable error) {
-        if (error) {
-            
-            TTLog(@"get all website error = %@",array);
-        } else {
-            if (self.dataArray) {
-                [self.dataArray removeAllObjects];
-            }
-            if (array.count != 0) {
-                self.dataArray = array.mutableCopy;
-                [self.tableView reloadData];
-            }
-        }
-    }];
-
+    if (self.dataArray) {
+        [self.dataArray removeAllObjects];
+    }
+    NSMutableArray *array = [[PPDataManager sharedInstance] getAllWebsite];
+    self.dataArray = array.mutableCopy;
+    [self.tableView reloadData];
 }
 
 
@@ -95,7 +85,14 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     PresentWebsiteViewController *sViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass([PresentWebsiteViewController class])];
-    sViewController.websiteModel = self.dataArray[indexPath.row];
+    PPWebsiteModel *dataModel = self.dataArray[indexPath.row];
+    sViewController.websiteModel = dataModel;
+    sViewController.deleteCallBack = ^{
+        [self refreshData];
+    };
+    sViewController.viewCallBack = ^{
+        [self showViewSiteViewControllerWithModel:dataModel];
+    };
     sViewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     [self.tabBarController presentViewController:sViewController animated:YES completion:nil];
 }
@@ -108,6 +105,12 @@
     [self.navigationController presentViewController:sViewController animated:YES completion:nil];
 }
 
+- (void)showViewSiteViewControllerWithModel:(PPWebsiteModel *)model {
+    ShowWebSiteViewController *sViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass([ShowWebSiteViewController class])];
+    sViewController.modalPresentationStyle = UIModalPresentationFullScreen;
+    sViewController.websiteModel = model;
+    [self.navigationController pushViewController:sViewController animated:YES];
+}
 
 - (void)showCreatePasswordViewController {
     CreatePasswordViewController *cViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass([CreatePasswordViewController class])];

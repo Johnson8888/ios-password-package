@@ -29,6 +29,8 @@
 		F37257992434C5AC009B054F /* PPPasswordCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = F37257982434C5AC009B054F /* PPPasswordCreator.m */; };
 		F3725DEA243588DE009B054F /* website in Resources */ = {isa = PBXBuildFile; fileRef = F3725DE9243588DE009B054F /* website */; };
 		F3725DF1243593A0009B054F /* PPWebsiteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F3725DF0243593A0009B054F /* PPWebsiteModel.m */; };
+		F37A6F932445CE9E004EDF84 /* ShowWebSiteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F37A6F922445CE9E004EDF84 /* ShowWebSiteViewController.m */; };
+		F37A6F962445E321004EDF84 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = F37A6F952445E321004EDF84 /* MainTabBarController.m */; };
 		F3C7F6B0243B430700F45EBD /* CSYGroupButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C7F6AF243B430700F45EBD /* CSYGroupButtonView.m */; };
 		F3C7F6E2243C469000F45EBD /* HWTopBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C7F6D5243C469000F45EBD /* HWTopBarViewController.m */; };
 		F3C7F6E3243C469000F45EBD /* HWFullDialogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C7F6D6243C469000F45EBD /* HWFullDialogViewController.m */; };
@@ -89,6 +91,10 @@
 		F3725DE9243588DE009B054F /* website */ = {isa = PBXFileReference; lastKnownFileType = folder; path = website; sourceTree = "<group>"; };
 		F3725DEF243593A0009B054F /* PPWebsiteModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPWebsiteModel.h; sourceTree = "<group>"; };
 		F3725DF0243593A0009B054F /* PPWebsiteModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPWebsiteModel.m; sourceTree = "<group>"; };
+		F37A6F912445CE9E004EDF84 /* ShowWebSiteViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShowWebSiteViewController.h; sourceTree = "<group>"; };
+		F37A6F922445CE9E004EDF84 /* ShowWebSiteViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShowWebSiteViewController.m; sourceTree = "<group>"; };
+		F37A6F942445E321004EDF84 /* MainTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
+		F37A6F952445E321004EDF84 /* MainTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
 		F3C7F6AE243B430700F45EBD /* CSYGroupButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSYGroupButtonView.h; sourceTree = "<group>"; };
 		F3C7F6AF243B430700F45EBD /* CSYGroupButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSYGroupButtonView.m; sourceTree = "<group>"; };
 		F3C7F6D4243C469000F45EBD /* HWAutoSizeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWAutoSizeViewController.h; sourceTree = "<group>"; };
@@ -213,18 +219,14 @@
 				F36A890524348C520003FF39 /* SceneDelegate.m */,
 				F37257972434C5AC009B054F /* PPPasswordCreator.h */,
 				F37257982434C5AC009B054F /* PPPasswordCreator.m */,
+				F37A6F942445E321004EDF84 /* MainTabBarController.h */,
+				F37A6F952445E321004EDF84 /* MainTabBarController.m */,
 				F36A890724348C520003FF39 /* MainViewController.h */,
 				F36A890824348C520003FF39 /* MainViewController.m */,
-				F3C9D988243FFB9900BAD7EA /* BankCardViewController.h */,
-				F3C9D989243FFB9900BAD7EA /* BankCardViewController.m */,
-				F325325A243DB7DB00BCEA3E /* InputWebsiteViewController.h */,
-				F325325B243DB7DB00BCEA3E /* InputWebsiteViewController.m */,
-				F3D53B5C2440D98100D1B1A3 /* PresentWebsiteViewController.h */,
-				F3D53B5D2440D98100D1B1A3 /* PresentWebsiteViewController.m */,
+				F37A6F8F2445CE3B004EDF84 /* Site */,
+				F37A6F902445CE50004EDF84 /* Bankcard */,
 				F325325D243DB88200BCEA3E /* InputCartViewController.h */,
 				F325325E243DB88200BCEA3E /* InputCartViewController.m */,
-				F363594A2437493C00182C96 /* SearchItemViewController.h */,
-				F363594B2437493C00182C96 /* SearchItemViewController.m */,
 				F36359562437661300182C96 /* CreatePasswordViewController.h */,
 				F36359572437661300182C96 /* CreatePasswordViewController.m */,
 				F36359312435FA6B00182C96 /* LoginViewController.h */,
@@ -264,6 +266,30 @@
 				F3C9D98C2440237500BAD7EA /* PPBankCardModel.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		F37A6F8F2445CE3B004EDF84 /* Site */ = {
+			isa = PBXGroup;
+			children = (
+				F325325A243DB7DB00BCEA3E /* InputWebsiteViewController.h */,
+				F325325B243DB7DB00BCEA3E /* InputWebsiteViewController.m */,
+				F3D53B5C2440D98100D1B1A3 /* PresentWebsiteViewController.h */,
+				F3D53B5D2440D98100D1B1A3 /* PresentWebsiteViewController.m */,
+				F363594A2437493C00182C96 /* SearchItemViewController.h */,
+				F363594B2437493C00182C96 /* SearchItemViewController.m */,
+				F37A6F912445CE9E004EDF84 /* ShowWebSiteViewController.h */,
+				F37A6F922445CE9E004EDF84 /* ShowWebSiteViewController.m */,
+			);
+			path = Site;
+			sourceTree = "<group>";
+		};
+		F37A6F902445CE50004EDF84 /* Bankcard */ = {
+			isa = PBXGroup;
+			children = (
+				F3C9D988243FFB9900BAD7EA /* BankCardViewController.h */,
+				F3C9D989243FFB9900BAD7EA /* BankCardViewController.m */,
+			);
+			path = Bankcard;
 			sourceTree = "<group>";
 		};
 		F3C7F6D3243C469000F45EBD /* PopViewController */ = {
@@ -430,6 +456,7 @@
 				F3C7F6E6243C469000F45EBD /* HWBottomAuthViewController.m in Sources */,
 				F363594C2437493C00182C96 /* SearchItemViewController.m in Sources */,
 				F3C9D98A243FFB9900BAD7EA /* BankCardViewController.m in Sources */,
+				F37A6F932445CE9E004EDF84 /* ShowWebSiteViewController.m in Sources */,
 				F3C7F6E5243C469000F45EBD /* HWNavStackViewController.m in Sources */,
 				F325325C243DB7DB00BCEA3E /* InputWebsiteViewController.m in Sources */,
 				F36359172435AF2300182C96 /* Utils.m in Sources */,
@@ -448,6 +475,7 @@
 				F36A890624348C520003FF39 /* SceneDelegate.m in Sources */,
 				F3C7F6F2243C46AA00F45EBD /* HWAnimationConfigListViewController.m in Sources */,
 				F3253246243C969800BCEA3E /* SearchItemViewCell.m in Sources */,
+				F37A6F962445E321004EDF84 /* MainTabBarController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

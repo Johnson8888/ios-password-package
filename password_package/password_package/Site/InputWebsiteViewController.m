@@ -76,14 +76,12 @@
     
 //    NSLog(@"self.insertModel = %@",self.insertModel);
     
-    [[PPDataManager sharedInstance] insertWebsiteWithModel:self.insertModel
-                                                completion:^(BOOL isSuccess) {
-        if (isSuccess) {
-            TTLog(@"插入成功 需要返回");
-        } else {
-            TTLog(@"插入失败");
-        }
-    }];
+    BOOL isSuccess = [[PPDataManager sharedInstance] insertWebsiteWithModel:self.insertModel];
+    if (isSuccess) {
+        TTLog(@"插入成功 需要返回");
+    } else {
+        TTLog(@"插入失败");
+    }
 }
 
 - (IBAction)pressedCreatePasswrodButton:(id)sender {

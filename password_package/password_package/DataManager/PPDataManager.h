@@ -22,7 +22,7 @@ typedef void(^ExecuteSqlCompletion)(BOOL isSuccess);
 @interface PPDataManager : NSObject
 
 + (instancetype)sharedInstance;
-
+/*
 /// 获取所有的网站信息记录
 /// @param completion 获取成功后的回调
 - (void)getAllWebsiteWithCompletion:(LoadAllWebsiteCompletion)completion;
@@ -42,6 +42,21 @@ typedef void(^ExecuteSqlCompletion)(BOOL isSuccess);
 - (void)updateWebsizeWithId:(NSNumber *)aId
                       model:(PPWebsiteModel *)model
                  completion:(ExecuteSqlCompletion)completion;
+*/
+
+
+/// 获取所有的网站信息记录
+- (NSMutableArray <PPWebsiteModel *>*)getAllWebsite;
+/// 删除一个网站信息
+/// @param aId 自增键
+- (BOOL)deleteWebsiteWithId:(NSNumber *)aId;
+/// 新增一个网站信息记录
+/// @param model 数据模型
+- (BOOL)insertWebsiteWithModel:(PPWebsiteModel *)model;
+/// 更新网站信息
+/// @param aId 自增键
+/// @param model 数据模型
+- (BOOL)updateWebsizeWithId:(NSNumber *)aId model:(PPWebsiteModel *)model;
 
 
 

@@ -10,6 +10,7 @@
 
 
 typedef void(^DeleteWebsiteItemCallBack)(void);
+typedef void(^ViewWebsiteItemCallBack)(void);
 @class PPWebsiteModel;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -17,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface PresentWebsiteViewController : UIViewController
 
 @property (nonatomic,copy) DeleteWebsiteItemCallBack deleteCallBack;
+@property (nonatomic,copy) ViewWebsiteItemCallBack viewCallBack;
 @property (nonatomic,strong) PPWebsiteModel *websiteModel;
 
 @end

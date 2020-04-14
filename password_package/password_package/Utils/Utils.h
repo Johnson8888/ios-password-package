@@ -29,6 +29,9 @@ NS_ASSUME_NONNULL_BEGIN
                 detail:(NSString *)detail
               callBack:(MMPopupItemHandler)callBack;
 
+//// 显示Pop View
++ (void)showPopWithText:(NSString *)text;
+
 @end
 
 NS_ASSUME_NONNULL_END

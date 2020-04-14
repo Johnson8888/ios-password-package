@@ -7,7 +7,9 @@
 //
 
 #import "Utils.h"
+#import <HWPop.h>
 #import <sys/utsname.h>
+#import "HWTopBarViewController.h"
 #import <LocalAuthentication/LocalAuthentication.h>
 
 
@@ -35,6 +37,18 @@
     return NO;
 }
 
+
+/// 显示提示框
+/// @param text 提示文字
++ (void)showPopWithText:(NSString *)text {
+    HWTopBarViewController *topBarVC = [[HWTopBarViewController alloc] initWithText:text];
+    HWPopController *popController = [[HWPopController alloc] initWithViewController:topBarVC];
+    popController.backgroundAlpha = 0;
+    popController.popPosition = HWPopPositionTop;
+    popController.popType = HWPopTypeBounceInFromTop;
+    popController.dismissType = HWDismissTypeSlideOutToTop;
+    [popController presentInViewController:[UIApplication sharedApplication].keyWindow.rootViewController];
+}
 
 /// 给出Alert提示 用于给用户下载购买过的视频
 /// @param title Title
