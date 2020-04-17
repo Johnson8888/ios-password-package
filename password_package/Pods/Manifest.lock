@@ -38,6 +38,7 @@ PODS:
   - MBProgressHUD (1.2.0)
   - MMPopupView (1.7.2):
     - Masonry
+  - ProgressHUD (2.51)
   - PYSearch (0.9.1)
   - SCIndexView (2.2.3)
   - SDWebImage (5.6.1):
@@ -66,6 +67,7 @@ DEPENDENCIES:
   - Masonry
   - MBProgressHUD
   - MMPopupView
+  - ProgressHUD
   - PYSearch
   - SCIndexView
   - SDWebImage
@@ -88,6 +90,7 @@ SPEC REPOS:
     - Masonry
     - MBProgressHUD
     - MMPopupView
+    - ProgressHUD
     - PYSearch
     - SCIndexView
     - SDWebImage
@@ -111,6 +114,7 @@ SPEC CHECKSUMS:
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   MMPopupView: fe1dd010824029dfb632fdf1a531db5dd5386020
+  ProgressHUD: 54b4c2fa202bf3da7dddc1c698ae4e6376333bd9
   PYSearch: 76dee18eea3309b60921a5d6a69390a63a5dda15
   SCIndexView: 992b56c3c7743bd7799bb43e764d42aef02038d9
   SDWebImage: 7edb9c3ea661e77a66661f7f044de8c1b55d1120
@@ -120,6 +124,6 @@ SPEC CHECKSUMS:
   WCDB: 8e90babdeb7784c569353a4bd22a66c0a175a882
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
 
-PODFILE CHECKSUM: 47b2827ea5fe35b86037b8a0a5a7ca6f894cbb10
+PODFILE CHECKSUM: 62f16f83533b0f7292a1258d16f6fb69fc5af339
 
 COCOAPODS: 1.8.4

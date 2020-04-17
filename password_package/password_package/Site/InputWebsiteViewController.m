@@ -28,23 +28,34 @@
 
 - (void)viewDidLoad {
     
-    // 100.54 400630999
-    //
-    [super viewDidLoad];
-    self.insertModel = [[PPWebsiteModel alloc] init];
     
-    TTLog(@"webSite = %@",self.webSiteName);
-    if ([self.webSiteName containsString:@"."] == NO) {
-        self.websiteTF.text = [NSString stringWithFormat:@"https://www.%@.com",[self.webSiteName lowercaseString]];
+    [super viewDidLoad];
+    
+    if (self.websiteModel) {
+        TTLog(@"edit model");
+        self.websiteTF.text = self.websiteModel.link;
+        self.iconImageView.image = [UIImage imageWithData:self.websiteModel.iconImg];
+        self.iconLabel.text = self.websiteModel.title;
+        self.passwordTF.text = self.websiteModel.password;
+        self.accountTF.text = self.websiteModel.account;
+        self.describeTextView.text = self.websiteModel.describe;
     } else {
-        self.websiteTF.text = [NSString stringWithFormat:@"https://www.%@",[self.webSiteName lowercaseString]];
+        TTLog(@"input model");
+        self.insertModel = [[PPWebsiteModel alloc] init];
+        TTLog(@"webSite = %@",self.webSiteName);
+        if ([self.webSiteName containsString:@"."] == NO) {
+            self.websiteTF.text = [NSString stringWithFormat:@"https://www.%@.com",[self.webSiteName lowercaseString]];
+        } else {
+            self.websiteTF.text = [NSString stringWithFormat:@"https://www.%@",[self.webSiteName lowercaseString]];
+        }
+        NSString *namePath = [NSString stringWithFormat:@"/website/%@@2x.png",self.webSiteName];
+        NSString *filePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingString:namePath];
+        self.iconImageView.image = [UIImage imageWithContentsOfFile:filePath];
+        self.iconLabel.text = self.webSiteName;
+        self.insertModel.title = self.iconLabel.text;
+        self.insertModel.iconImg = UIImagePNGRepresentation(self.iconImageView.image);
     }
-    NSString *namePath = [NSString stringWithFormat:@"/website/%@@2x.png",self.webSiteName];
-    NSString *filePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingString:namePath];
-    self.iconImageView.image = [UIImage imageWithContentsOfFile:filePath];
-    self.iconLabel.text = self.webSiteName;
-    self.insertModel.title = self.iconLabel.text;
-    self.insertModel.iconImg = UIImagePNGRepresentation(self.iconImageView.image);
+
 }
 
 
@@ -54,34 +65,58 @@
 
 
 - (IBAction)pressedCancelButton:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
+    [self dismissViewControllerAnimated:YES completion:^{}];
 }
 
 - (IBAction)pressedFinishButton:(id)sender {
     
     if (self.accountTF.text.length == 0 || self.accountTF.text == nil) {
-        
         return;
     }
     if (self.passwordTF.text.length == 0 || self.passwordTF.text == nil) {
-        
         return;
     }
     
-    self.insertModel.account = self.accountTF.text;
-    self.insertModel.password = self.passwordTF.text;
-    self.insertModel.link = self.websiteTF.text;
-    self.insertModel.describe = self.describeTextView.text;
-    
-//    NSLog(@"self.insertModel = %@",self.insertModel);
-    
-    BOOL isSuccess = [[PPDataManager sharedInstance] insertWebsiteWithModel:self.insertModel];
-    if (isSuccess) {
-        TTLog(@"插入成功 需要返回");
-    } else {
-        TTLog(@"插入失败");
+    /// 如果是编辑的模式 就更新数据
+    if (self.websiteModel) {
+        self.websiteModel.title = self.iconLabel.text;
+        self.websiteModel.account = self.accountTF.text;
+        self.websiteModel.password = self.passwordTF.text;
+        self.websiteModel.link = self.websiteTF.text;
+        self.websiteModel.describe = self.describeTextView.text;
+        self.websiteModel.iconImg = UIImagePNGRepresentation(self.iconImageView.image);
+        BOOL updateResult = [[PPDataManager sharedInstance] updateWebsizeWithId:self.websiteModel.aId model:self.websiteModel];
+        if (updateResult) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:PP_MAIN_REFRESH_DATA_NOTIFICATION
+                                                                object:nil];
+            [self dismissViewControllerAnimated:YES completion:^{}];
+        }
     }
+    /// 如果是 新增数据模式 就插入数据
+    else {
+        self.insertModel.account = self.accountTF.text;
+        self.insertModel.password = self.passwordTF.text;
+        self.insertModel.link = self.websiteTF.text;
+        self.insertModel.describe = self.describeTextView.text;
+        BOOL isSuccess = [[PPDataManager sharedInstance] insertWebsiteWithModel:self.insertModel];
+        if (isSuccess) {
+            TTLog(@"插入成功 需要返回");
+            UIViewController *present = self.presentingViewController;
+            while (YES) {
+                if (present.presentingViewController) {
+                    present = present.presentingViewController;
+                }else{
+                    break;
+                }
+            }
+            [[NSNotificationCenter defaultCenter] postNotificationName:PP_MAIN_REFRESH_DATA_NOTIFICATION
+                                                                object:nil];
+            [present dismissViewControllerAnimated:YES completion:nil];
+        } else {
+            TTLog(@"插入失败");
+        }
+    }
+    
 }
 
 - (IBAction)pressedCreatePasswrodButton:(id)sender {
@@ -201,4 +236,7 @@
     imagePickerVc.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:imagePickerVc animated:YES completion:nil];
 }
+
+
+
 @end

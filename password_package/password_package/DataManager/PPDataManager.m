@@ -43,7 +43,6 @@
 id 自增键           int
 type 类型           1 是信用卡 2是储蓄卡
 frontImg 正面图片     blob
-backImg 反面图片     blob
 expireDate 到期时间  text
 account 账号        text
 password 密码       text
@@ -53,7 +52,7 @@ describe 描述       text
 ctime 时间戳        integer
 */
 
-#define SQL_CREATE_BANKCARD [NSString stringWithFormat:@"create table if not exists %@(id INTEGER PRIMARY KEY AUTOINCREMENT,frontImg blob ,backImg blob , type integer, expireDate text, account text , password text ,cvvCode text, pin text ,describe text ,ctime integer)",TABLE_CARD_NAME]
+#define SQL_CREATE_BANKCARD [NSString stringWithFormat:@"create table if not exists %@(id INTEGER PRIMARY KEY AUTOINCREMENT,frontImg blob , type integer, expireDate text, account text , password text ,cvvCode text, pin text ,describe text ,ctime integer)",TABLE_CARD_NAME]
 
 
 @interface PPDataManager()
@@ -161,12 +160,13 @@ ctime 时间戳        integer
     }
     return success;
 }
+
 /// 更新网站信息
 /// @param aId 自增键
 /// @param model 数据模型
 - (BOOL)updateWebsizeWithId:(NSNumber *)aId model:(PPWebsiteModel *)model {
-    NSString *sql = [NSString stringWithFormat:@"UPDATE %@ SET lastMessageContent = ? , unReadCount = ? WHERE id = ?;",TABLE_ITEM_NAME];
-    BOOL result = [self.dataBase executeUpdate:sql];
+    NSString *sql = [NSString stringWithFormat:@"UPDATE %@ SET title = ?, iconImg = ?, account = ?,password = ?,link = ?,describe = ? WHERE id = ?",TABLE_ITEM_NAME];
+    BOOL result = [self.dataBase executeUpdate:sql,model.title,model.iconImg,model.account,model.password,model.link,model.describe,model.aId];
     return result;
 }
 
@@ -267,7 +267,7 @@ ctime 时间戳        integer
 
 /// 获取所有的银行卡信息记录
 /// @param completion 获取成功后的回调
-- (void)getAllBackCardWithCompletion:(LoadAllWebsiteCompletion)completion {
+- (void)getAllBackCardWithCompletion:(LoadAllBackCardCompletion)completion {
     [self.dataBaseQueue inDatabase:^(FMDatabase *db) {
         if ([self.dataBase tableExists:TABLE_CARD_NAME]) {
             [self.dataBase setShouldCacheStatements:YES];

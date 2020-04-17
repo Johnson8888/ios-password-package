@@ -7,17 +7,26 @@
 //
 
 #import "MainViewController.h"
+#if __has_include(<CYLTabBarController/CYLTabBarController.h>)
+#import <CYLTabBarController/CYLTabBarController.h>
+#else
+#import "CYLTabBarController.h"
+#endif
+#import <Masonry.h>
+#import <JHUD/JHUD.h>
+#import <ProgressHUD.h>
+#import "PPWebsiteModel.h"
+#import "PPDataManager.h"
 #import "PPPasswordCreator.h"
 #import "LoginViewController.h"
 #import "SearchItemViewController.h"
 #import "CreatePasswordViewController.h"
 #import "CSYGroupButtonView.h"
-#import <Masonry.h>
-#import <JHUD/JHUD.h>
-#import "PPDataManager.h"
 #import "SearchItemViewCell.h"
 #import "PresentWebsiteViewController.h"
 #import "ShowWebSiteViewController.h"
+#import "InputWebsiteViewController.h"
+
 
 @interface MainViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -26,15 +35,28 @@
 
 @implementation MainViewController
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:PP_MAIN_REFRESH_DATA_NOTIFICATION object:nil];
+}
 
 - (void)viewWillAppear:(BOOL)animated {
-    
+    self.tabBarController.tabBar.hidden = NO;
     [super viewWillAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
 }
 
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(refreshData)
+                                                 name:PP_MAIN_REFRESH_DATA_NOTIFICATION
+                                               object:nil];
     
 //    [self showEmptyMessageView];
     
@@ -85,13 +107,25 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     PresentWebsiteViewController *sViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass([PresentWebsiteViewController class])];
+    
+    __block  __weak MainViewController *weakSelf = self;
     PPWebsiteModel *dataModel = self.dataArray[indexPath.row];
     sViewController.websiteModel = dataModel;
+    /// 删除回调
     sViewController.deleteCallBack = ^{
-        [self refreshData];
+        [weakSelf refreshData];
     };
-    sViewController.viewCallBack = ^{
-        [self showViewSiteViewControllerWithModel:dataModel];
+    /// 展示时候的回调
+    sViewController.viewCallBack = ^(PPWebsiteModel *model) {
+        [weakSelf showViewSiteViewControllerWithModel:model];
+    };
+    /// 需要修改时候的回调
+    sViewController.editCallBack = ^(PPWebsiteModel *model) {
+        [weakSelf showEditViewControllerWithModel:model];
+    };
+    /// 需要分享时候的回调
+    sViewController.shareCallBack = ^(PPWebsiteModel *model) {
+        [weakSelf shareActionWithModel:model];
     };
     sViewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     [self.tabBarController presentViewController:sViewController animated:YES completion:nil];
@@ -109,6 +143,7 @@
     ShowWebSiteViewController *sViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass([ShowWebSiteViewController class])];
     sViewController.modalPresentationStyle = UIModalPresentationFullScreen;
     sViewController.websiteModel = model;
+    self.tabBarController.tabBar.hidden = YES;
     [self.navigationController pushViewController:sViewController animated:YES];
 }
 
@@ -120,9 +155,37 @@
     [self.navigationController presentViewController:cViewController animated:YES completion:nil];
 }
 
+- (void)showEditViewControllerWithModel:(PPWebsiteModel *)model {
+    InputWebsiteViewController *inputWebsiteViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass([InputWebsiteViewController class])];
+    inputWebsiteViewController.websiteModel = model;
+    [self.navigationController presentViewController:inputWebsiteViewController animated:YES completion:^{}];
+}
+
 - (IBAction)pressedAddBarButton:(UIBarButtonItem *)sender {
     [self showSelectedItemViewController];
 }
+
+
+
+
+/// 分享功能
+- (void)shareActionWithModel:(PPWebsiteModel *)model {
+    NSString *shareText = [NSString stringWithFormat:@"账号: %@ \n密码: %@",model.account,model.password];
+    NSArray *activityItems = [[NSArray alloc] initWithObjects:shareText, nil];
+    UIActivityViewController *vc = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+    UIActivityViewControllerCompletionWithItemsHandler myBlock = ^(UIActivityType activityType, BOOL completed, NSArray *returnedItems, NSError *activityError) {
+        NSLog(@"%@",activityType);
+        if (completed) {
+            [ProgressHUD showSuccess:@"分享成功"];
+        } else {
+            [ProgressHUD showError:@"分享失败,请重试!"];
+        }
+        [vc dismissViewControllerAnimated:YES completion:nil];
+    };
+    vc.completionWithItemsHandler = myBlock;
+    [self.navigationController presentViewController:vc animated:YES completion:nil];
+}
+
 
 
 - (void)showEmptyMessageView {

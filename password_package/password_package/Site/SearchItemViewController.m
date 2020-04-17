@@ -77,13 +77,11 @@ PYSearchViewControllerDataSource
     UIButton *searchButton = [UIButton buttonWithType:UIButtonTypeCustom];
     searchButton.frame = CGRectMake(0, 10, headerView.bounds.size.width, 44);
     searchButton.backgroundColor = [UIColor blueColor];
-    searchButton.backgroundColor = SYSTEM_COLOR;
     [searchButton addTarget:self
                      action:@selector(pressedSearchButton:)
            forControlEvents:UIControlEventTouchUpInside];
     [headerView addSubview:searchButton];
     self.tableView.tableHeaderView = headerView;
-    
     
     self.tableView.rowHeight = 64.0f;
     
@@ -210,7 +208,7 @@ PYSearchViewControllerDataSource
         TTLog(@"searchText = %@",searchText);
         InputWebsiteViewController *inputViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass([InputWebsiteViewController class])];
         inputViewController.webSiteName = searchText;
-        [searchViewController.navigationController pushViewController:inputViewController animated:YES];
+        [searchViewController.navigationController presentViewController:inputViewController animated:YES completion:^{}];
     }];
     
     searchViewController.hotSearchStyle = PYHotSearchStyleNormalTag;

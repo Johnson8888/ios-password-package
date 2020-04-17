@@ -25,12 +25,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.5];
-    NSLog(@"self.view = %@",self.view);
-    
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
     self.view.userInteractionEnabled = YES;
     tapGesture.delegate = self;
     [self.view addGestureRecognizer:tapGesture];
+    self.nameLabel.text = self.websiteModel.title;
+    if (self.websiteModel.iconImg) {
+        self.iconImageView.image = [UIImage imageWithData:self.websiteModel.iconImg];
+    }
 }
 
 
@@ -81,13 +83,16 @@
 - (IBAction)pressedViewButton:(id)sender {
     [self dismissViewControllerAnimated:NO completion:nil];
     if (self.viewCallBack) {
-        self.viewCallBack();
+        self.viewCallBack(self.websiteModel);
     }
     TTLog(@"view");
 }
 
 - (IBAction)pressedEditButton:(id)sender {
     [self dismissViewControllerAnimated:NO completion:nil];
+    if (self.editCallBack) {
+        self.editCallBack(self.websiteModel);
+    }
     TTLog(@"edit");
 }
 - (IBAction)pressedShowPwdButton:(id)sender {
@@ -119,12 +124,15 @@
 }
 - (IBAction)pressedShareButton:(id)sender {
     [self dismissViewControllerAnimated:NO completion:nil];
+    if (self.shareCallBack) {
+        self.shareCallBack(self.websiteModel);
+    }
     TTLog(@"share ");
 }
 - (IBAction)pressedDeleteButton:(id)sender {
     [self dismissViewControllerAnimated:NO completion:nil];
     [Utils alertWithTitle:@"提示" detail:@"删除后不能恢复！确定要删除吗？" callBack:^(NSInteger index) {
-        if (index == 0) {
+        if (index == 1) {
             TTLog(@"确定删除");
             BOOL result = [[PPDataManager sharedInstance] deleteWebsiteWithId:self.websiteModel.aId];
             if (result) {

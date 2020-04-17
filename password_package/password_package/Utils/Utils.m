@@ -47,6 +47,7 @@
     popController.popPosition = HWPopPositionTop;
     popController.popType = HWPopTypeBounceInFromTop;
     popController.dismissType = HWDismissTypeSlideOutToTop;
+    popController.shouldDismissOnBackgroundTouch = NO;
     [popController presentInViewController:[UIApplication sharedApplication].keyWindow.rootViewController];
 }
 
@@ -57,8 +58,8 @@
 + (void)alertWithTitle:(NSString *)title
                 detail:(NSString *)detail
               callBack:(MMPopupItemHandler)callBack {
-    NSArray *items =@[MMItemMake(@"确定", MMItemTypeHighlight, callBack),
-                      MMItemMake(@"取消", MMItemTypeNormal, callBack)];
+    NSArray *items =@[MMItemMake(@"取消", MMItemTypeNormal, callBack),
+                      MMItemMake(@"确定", MMItemTypeHighlight, callBack)];
     MMAlertView *alertView = [[MMAlertView alloc] initWithTitle:title
                                  detail:detail
                                   items:items];

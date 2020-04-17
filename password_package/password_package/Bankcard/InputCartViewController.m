@@ -10,7 +10,13 @@
 #import "PPBankCardModel.h"
 #import "PPDataManager.h"
 
-@interface InputCartViewController ()
+@interface InputCartViewController ()<UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *cvvCodeLabel;
+
+/// 用来显示 账号的 label
+@property (weak, nonatomic) IBOutlet UILabel *accountLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *modeImageView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *typeSegment;
 @property (weak, nonatomic) IBOutlet UIImageView *frontImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *backImageView;
@@ -20,7 +26,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *cvvTF;
 @property (weak, nonatomic) IBOutlet UITextView *describe;
 @property (weak, nonatomic) IBOutlet UITextField *expireDateTF;
-
 @property (nonatomic,strong) PPBankCardModel *bankCardModel;
 
 @end
@@ -33,6 +38,7 @@
     NSString *str = @"https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&cardNo=6221506020009066385&cardBinCheck=true";
     
     NSString *getCardImage = @"https://apimg.alipay.com/combo.png?d=cashier&t=ICBC";
+    
     
     self.bankCardModel = [[PPBankCardModel alloc] init];
     
@@ -51,7 +57,6 @@
     }
     
     self.bankCardModel.frontImg = UIImagePNGRepresentation(self.frontImageView.image);
-    self.bankCardModel.backImg = UIImagePNGRepresentation(self.backImageView.image);
     self.bankCardModel.type = self.typeSegment.selectedSegmentIndex;
     self.bankCardModel.account = self.accountTF.text;
     self.bankCardModel.password = self.passwordTF.text;
@@ -76,7 +81,70 @@
 }
 
 
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    return YES;
+}
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    
+}
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
+    return YES;
+}
 
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    
+}
+- (void)textFieldDidEndEditing:(UITextField *)textField
+                         reason:(UITextFieldDidEndEditingReason)reason  {
+    
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    // 16 - 19 位
+    if (textField == self.accountTF) {
+        TTLog(@"text == %@",textField.text);
+            // 4位分隔银行卡卡号
+        NSString *text = [textField text];
+        NSCharacterSet *characterSet = [NSCharacterSet characterSetWithCharactersInString:@"0123456789\b"];
+        string = [string stringByReplacingOccurrencesOfString:@" " withString:@""];
+        if ([string rangeOfCharacterFromSet:[characterSet invertedSet]].location != NSNotFound) {
+            return NO;
+        }
+        text = [text stringByReplacingCharactersInRange:range withString:string];
+        text = [text stringByReplacingOccurrencesOfString:@" " withString:@""];
+        NSString *newString = @"";
+        while (text.length > 0) {
+            NSString *subString = [text substringToIndex:MIN(text.length, 4)];
+            newString = [newString stringByAppendingString:subString];
+            if (subString.length == 4) {
+                newString = [newString stringByAppendingString:@" "];
+            }
+            text = [text substringFromIndex:MIN(text.length, 4)];
+        }
+        newString = [newString stringByTrimmingCharactersInSet:[characterSet invertedSet]];
+        if ([newString stringByReplacingOccurrencesOfString:@" " withString:@""].length >= 20) {
+            return NO;
+        }
+        [textField setText:newString];
+        return NO;
+    }
+    return YES;
+}
+
+
+- (void)textFieldDidChangeSelection:(UITextField *)textField {
+    
+}
+
+- (BOOL)textFieldShouldClear:(UITextField *)textField {
+    return YES;
+}
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if (textField == self.accountTF) {
+        TTLog(@"text == %@",textField.text);
+    }
+    return YES;
+}
 
 
 - (void)addAction {
@@ -112,14 +180,5 @@
      */
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

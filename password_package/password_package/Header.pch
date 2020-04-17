@@ -24,6 +24,8 @@
 
 #define SYSTEM_COLOR [UIColor colorWithRed:1.0 green:111 / 255.0 blue:60 / 255.0 alpha:1.0]
 
+/// 需要刷新主页数据的通知
+#define PP_MAIN_REFRESH_DATA_NOTIFICATION @"com.password.package.main.refresh.data.notification"
 
 
 #ifdef DEBUG

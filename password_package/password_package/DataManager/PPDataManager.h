@@ -63,7 +63,7 @@ typedef void(^ExecuteSqlCompletion)(BOOL isSuccess);
 
 /// 获取所有的银行卡信息记录
 /// @param completion 获取成功后的回调
-- (void)getAllBackCardWithCompletion:(LoadAllWebsiteCompletion)completion;
+- (void)getAllBackCardWithCompletion:(LoadAllBackCardCompletion)completion;
 /// 删除一个银行卡信息
 /// @param aId 自增键
 - (void)deleteBackCardWithId:(NSNumber *)aId

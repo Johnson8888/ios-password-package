@@ -13,13 +13,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface PPWebsiteModel : JSONModel
 
 @property (nonatomic,strong)NSNumber *aId;
-@property (nonatomic,strong) NSString *account;
-@property (nonatomic,strong) NSString *password;
 
 @property (nonatomic,strong) NSData *iconImg;
+
+@property (nonatomic,strong) NSString *account;
+@property (nonatomic,strong) NSString *password;
 @property (nonatomic,strong) NSString *title;
 @property (nonatomic,strong) NSString *link;
 @property (nonatomic,strong) NSString *describe;
+
 @property (nonatomic,assign) NSInteger cTime;
 
 @end

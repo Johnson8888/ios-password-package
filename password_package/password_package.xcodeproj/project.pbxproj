@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D646957927D67AE8C806FD6F /* libPods-password_package.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0270F482AFFA398E0F140246 /* libPods-password_package.a */; };
+		F31969052448273D005C4AB0 /* PresentBankCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F31969042448273D005C4AB0 /* PresentBankCardViewController.m */; };
 		F3253246243C969800BCEA3E /* SearchItemViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F3253244243C969800BCEA3E /* SearchItemViewCell.m */; };
 		F3253247243C969800BCEA3E /* SearchItemViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3253245243C969800BCEA3E /* SearchItemViewCell.xib */; };
 		F325325C243DB7DB00BCEA3E /* InputWebsiteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F325325B243DB7DB00BCEA3E /* InputWebsiteViewController.m */; };
@@ -53,6 +54,8 @@
 		0270F482AFFA398E0F140246 /* libPods-password_package.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-password_package.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		66714315A6FA835F3E139AAC /* Pods-password_package.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-password_package.release.xcconfig"; path = "Target Support Files/Pods-password_package/Pods-password_package.release.xcconfig"; sourceTree = "<group>"; };
 		82E11F506ABBC2510A560921 /* Pods-password_package.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-password_package.debug.xcconfig"; path = "Target Support Files/Pods-password_package/Pods-password_package.debug.xcconfig"; sourceTree = "<group>"; };
+		F31969032448273D005C4AB0 /* PresentBankCardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PresentBankCardViewController.h; sourceTree = "<group>"; };
+		F31969042448273D005C4AB0 /* PresentBankCardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PresentBankCardViewController.m; sourceTree = "<group>"; };
 		F3253243243C969800BCEA3E /* SearchItemViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchItemViewCell.h; sourceTree = "<group>"; };
 		F3253244243C969800BCEA3E /* SearchItemViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchItemViewCell.m; sourceTree = "<group>"; };
 		F3253245243C969800BCEA3E /* SearchItemViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchItemViewCell.xib; sourceTree = "<group>"; };
@@ -225,8 +228,6 @@
 				F36A890824348C520003FF39 /* MainViewController.m */,
 				F37A6F8F2445CE3B004EDF84 /* Site */,
 				F37A6F902445CE50004EDF84 /* Bankcard */,
-				F325325D243DB88200BCEA3E /* InputCartViewController.h */,
-				F325325E243DB88200BCEA3E /* InputCartViewController.m */,
 				F36359562437661300182C96 /* CreatePasswordViewController.h */,
 				F36359572437661300182C96 /* CreatePasswordViewController.m */,
 				F36359312435FA6B00182C96 /* LoginViewController.h */,
@@ -288,6 +289,10 @@
 			children = (
 				F3C9D988243FFB9900BAD7EA /* BankCardViewController.h */,
 				F3C9D989243FFB9900BAD7EA /* BankCardViewController.m */,
+				F325325D243DB88200BCEA3E /* InputCartViewController.h */,
+				F325325E243DB88200BCEA3E /* InputCartViewController.m */,
+				F31969032448273D005C4AB0 /* PresentBankCardViewController.h */,
+				F31969042448273D005C4AB0 /* PresentBankCardViewController.m */,
 			);
 			path = Bankcard;
 			sourceTree = "<group>";
@@ -461,6 +466,7 @@
 				F325325C243DB7DB00BCEA3E /* InputWebsiteViewController.m in Sources */,
 				F36359172435AF2300182C96 /* Utils.m in Sources */,
 				F3C7F6E2243C469000F45EBD /* HWTopBarViewController.m in Sources */,
+				F31969052448273D005C4AB0 /* PresentBankCardViewController.m in Sources */,
 				F36A890324348C520003FF39 /* AppDelegate.m in Sources */,
 				F325325F243DB88200BCEA3E /* InputCartViewController.m in Sources */,
 				F3C7F6F0243C46AA00F45EBD /* HWPickTypeViewController.m in Sources */,

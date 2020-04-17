@@ -99,12 +99,14 @@ EOM
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "${PODS_ROOT}/DYFAuthIDAndGestureLock/Resource/DYFAuthIDAndGestureLock.bundle"
   install_resource "${PODS_ROOT}/PYSearch/PYSearch/PYSearch.bundle"
+  install_resource "${PODS_ROOT}/ProgressHUD/ProgressHUD/ProgressHUD/ProgressHUD.bundle"
   install_resource "${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle"
   install_resource "${PODS_ROOT}/TZImagePickerController/TZImagePickerController/TZImagePickerController/TZImagePickerController.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "${PODS_ROOT}/DYFAuthIDAndGestureLock/Resource/DYFAuthIDAndGestureLock.bundle"
   install_resource "${PODS_ROOT}/PYSearch/PYSearch/PYSearch.bundle"
+  install_resource "${PODS_ROOT}/ProgressHUD/ProgressHUD/ProgressHUD/ProgressHUD.bundle"
   install_resource "${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle"
   install_resource "${PODS_ROOT}/TZImagePickerController/TZImagePickerController/TZImagePickerController/TZImagePickerController.bundle"
 fi

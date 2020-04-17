@@ -23,6 +23,7 @@ pod 'SCIndexView'
 pod 'PYSearch'
 pod 'TZImagePickerController'
 pod 'CYLTabBarController'
+pod 'ProgressHUD'
 
 end
 

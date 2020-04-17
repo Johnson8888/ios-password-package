@@ -8,6 +8,7 @@
 
 #import "BankCardViewController.h"
 #import "InputCartViewController.h"
+#import "PresentBankCardViewController.h"
 #import "PPDataManager.h"
 #import "PPBankCardModel.h"
 #import "BankCardViewCell.h"
@@ -53,6 +54,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    PresentBankCardViewController *presentBackCardViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass([PresentBankCardViewController class])];
+    [self.navigationController presentViewController:presentBackCardViewController animated:YES completion:^{}];
 }
 
 - (IBAction)pressedAddButton:(id)sender {
