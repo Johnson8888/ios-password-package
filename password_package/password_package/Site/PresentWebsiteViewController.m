@@ -42,14 +42,6 @@
     }];
 }
 
-/// 处理点击空白区域 让页面消失
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
-        shouldReceiveTouch:(UITouch *)touch {
-    if( [touch.view isDescendantOfView:self.bgView]) {
-        return NO;
-    }
-    return YES;
-}
 
 - (IBAction)pressedLaunchButton:(id)sender {
     TTLog(@"使用打开App的方式");
@@ -63,6 +55,7 @@
     TTLog(@"launch");
 }
 
+
 - (IBAction)pressedCopyUserName:(id)sender {
     UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
     pasteboard.string = self.websiteModel.account;
@@ -71,6 +64,7 @@
     }];
     TTLog(@"copy user name");
 }
+
 - (IBAction)pressedCopyPwdButton:(id)sender {
     UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
     pasteboard.string = self.websiteModel.password;
@@ -79,6 +73,7 @@
     }];
     TTLog(@"copy pwd");
 }
+
 
 - (IBAction)pressedViewButton:(id)sender {
     [self dismissViewControllerAnimated:NO completion:nil];
@@ -95,6 +90,7 @@
     }
     TTLog(@"edit");
 }
+
 - (IBAction)pressedShowPwdButton:(id)sender {
     [self dismissViewControllerAnimated:NO completion:nil];
     MMAlertView *alertView = [[MMAlertView alloc] initWithInputTitle:@"提示" detail:@"当前的密码是:" placeholder:@"" handler:^(NSString *text) {
@@ -122,6 +118,7 @@
     [alertView show];
     TTLog(@"show pwd");
 }
+
 - (IBAction)pressedShareButton:(id)sender {
     [self dismissViewControllerAnimated:NO completion:nil];
     if (self.shareCallBack) {
@@ -129,6 +126,8 @@
     }
     TTLog(@"share ");
 }
+
+
 - (IBAction)pressedDeleteButton:(id)sender {
     [self dismissViewControllerAnimated:NO completion:nil];
     [Utils alertWithTitle:@"提示" detail:@"删除后不能恢复！确定要删除吗？" callBack:^(NSInteger index) {
@@ -149,16 +148,15 @@
 }
 
 
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+/// 处理点击空白区域 让页面消失
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
+        shouldReceiveTouch:(UITouch *)touch {
+    if( [touch.view isDescendantOfView:self.bgView]) {
+        return NO;
+    }
+    return YES;
 }
-*/
+
+
 
 @end

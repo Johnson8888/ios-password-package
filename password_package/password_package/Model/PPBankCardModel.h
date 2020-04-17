@@ -31,15 +31,19 @@ ctime 时间戳        integer
 */
 
 @property (nonatomic,strong) NSNumber *aId;
-@property (nonatomic,assign) PPBankCardType type;
+
 @property (nonatomic,strong) NSData *frontImg;
 @property (nonatomic,strong) NSData *backImg;
+
+
+@property (nonatomic,assign) PPBankCardType type;
 @property (nonatomic,strong) NSString *expireDate;
 @property (nonatomic,strong) NSString *account;
 @property (nonatomic,strong) NSString *password;
 @property (nonatomic,strong) NSString *cvvCode;
 @property (nonatomic,strong) NSString *pin;
 @property (nonatomic,strong) NSString *describe;
+
 @property (nonatomic,assign) NSInteger cTime;
 
 @end

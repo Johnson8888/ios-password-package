@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class PPBankCardModel;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface InputCartViewController : UIViewController
+
+@property (nonatomic,strong) PPBankCardModel *editModel;
 
 @end
 

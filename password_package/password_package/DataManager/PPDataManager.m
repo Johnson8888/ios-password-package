@@ -52,7 +52,7 @@ describe 描述       text
 ctime 时间戳        integer
 */
 
-#define SQL_CREATE_BANKCARD [NSString stringWithFormat:@"create table if not exists %@(id INTEGER PRIMARY KEY AUTOINCREMENT,frontImg blob , type integer, expireDate text, account text , password text ,cvvCode text, pin text ,describe text ,ctime integer)",TABLE_CARD_NAME]
+#define SQL_CREATE_BANKCARD [NSString stringWithFormat:@"create table if not exists %@(id INTEGER PRIMARY KEY AUTOINCREMENT,frontImg blob, type integer, expireDate text, account text , password text ,cvvCode text, pin text ,describe text ,ctime integer)",TABLE_CARD_NAME]
 
 
 @interface PPDataManager()
@@ -151,71 +151,7 @@ ctime 时间戳        integer
 /// 新增一个网站信息记录
 /// @param model 数据模型
 - (BOOL)insertWebsiteWithModel:(PPWebsiteModel *)model {
-    NSInteger integerTime = (NSInteger)[[NSDate date] timeIntervalSince1970];
-    NSNumber *cTime = [NSNumber numberWithInteger:integerTime];
-    NSString *sql = [NSString stringWithFormat:@"INSERT INTO %@ (title,iconImg,account,password,link,describe,ctime) VALUES (?,?,?,?,?,?,?)",TABLE_ITEM_NAME];
-    BOOL success = [self.dataBase executeUpdate:sql,model.title,model.iconImg,model.account,model.password,model.link,model.describe,cTime];
-    if (success == NO) {
-        TTLog(@"sql error = %@",self.dataBase.lastErrorMessage);
-    }
-    return success;
-}
-
-/// 更新网站信息
-/// @param aId 自增键
-/// @param model 数据模型
-- (BOOL)updateWebsizeWithId:(NSNumber *)aId model:(PPWebsiteModel *)model {
-    NSString *sql = [NSString stringWithFormat:@"UPDATE %@ SET title = ?, iconImg = ?, account = ?,password = ?,link = ?,describe = ? WHERE id = ?",TABLE_ITEM_NAME];
-    BOOL result = [self.dataBase executeUpdate:sql,model.title,model.iconImg,model.account,model.password,model.link,model.describe,model.aId];
-    return result;
-}
-
-
-
-
-
-/// 获取所有的网站信息记录
-/// @param completion 获取成功后的回调
-- (void)getAllWebsiteWithCompletion:(LoadAllWebsiteCompletion)completion {
-    [self.dataBaseQueue inDatabase:^(FMDatabase *db) {
-        if ([self.dataBase tableExists:TABLE_ITEM_NAME]) {
-            [self.dataBase setShouldCacheStatements:YES];
-            NSMutableArray* array = [[NSMutableArray alloc] init];
-            NSString* sqlString = [NSString stringWithFormat:@"SELECT * FROM %@ ",TABLE_ITEM_NAME];
-            FMResultSet* result = [self.dataBase executeQuery:sqlString];
-            id item = nil;
-            while ([result next]) {
-                TTLog(@"result = %@",result);
-                item = [self websiteFromResult:result];
-                if (item != nil) {
-                    [array addObject:item];
-                }
-            }
-            dispatch_async(dispatch_get_main_queue(), ^{
-                completion(array,nil);
-            });
-        }
-    }];
-}
-
-
-
-/// 删除一个网站信息
-/// @param aId 自增键
-- (void)deleteWebsiteWithId:(NSNumber *)aId
-                 completion:(ExecuteSqlCompletion)completion{
-    [self.dataBaseQueue inDatabase:^(FMDatabase *db) {
-        NSString* sql = [NSString stringWithFormat:@"DELETE FROM %@ WHERE id = ?",TABLE_ITEM_NAME];
-        BOOL result = [self.dataBase executeUpdate:sql,aId];
-        completion(result);
-    }];
-}
-
-/// 新增一个网站信息记录
-/// @param model 数据模型
-- (void)insertWebsiteWithModel:(PPWebsiteModel *)model
-                     completion:(ExecuteSqlCompletion)completion {
-    [self.dataBaseQueue inDatabase:^(FMDatabase *db) {
+    @synchronized (self.dataBase) {
         NSInteger integerTime = (NSInteger)[[NSDate date] timeIntervalSince1970];
         NSNumber *cTime = [NSNumber numberWithInteger:integerTime];
         NSString *sql = [NSString stringWithFormat:@"INSERT INTO %@ (title,iconImg,account,password,link,describe,ctime) VALUES (?,?,?,?,?,?,?)",TABLE_ITEM_NAME];
@@ -223,22 +159,22 @@ ctime 时间戳        integer
         if (success == NO) {
             TTLog(@"sql error = %@",self.dataBase.lastErrorMessage);
         }
-        completion(success);
-    }];
+        return success;
+    }
 }
 
 /// 更新网站信息
 /// @param aId 自增键
 /// @param model 数据模型
-- (void)updateWebsizeWithId:(NSNumber *)aId
-                      model:(PPWebsiteModel *)model
-                 completion:(ExecuteSqlCompletion)completion {
-    [self.dataBaseQueue inDatabase:^(FMDatabase *db) {
-        NSString *sql = [NSString stringWithFormat:@"UPDATE %@ SET lastMessageContent = ? , unReadCount = ? WHERE id = ?;",TABLE_ITEM_NAME];
-        BOOL result = [self.dataBase executeUpdate:sql];
-        completion(result);
-    }];
+- (BOOL)updateWebsizeWithId:(NSNumber *)aId model:(PPWebsiteModel *)model {
+    @synchronized (self.dataBase) {
+        NSString *sql = [NSString stringWithFormat:@"UPDATE %@ SET title = ?, iconImg = ?, account = ?,password = ?,link = ?,describe = ? WHERE id = ?",TABLE_ITEM_NAME];
+        BOOL result = [self.dataBase executeUpdate:sql,model.title,model.iconImg,model.account,model.password,model.link,model.describe,model.aId];
+        return result;
+    }
 }
+
+
 
 /// 将 数据库查询的数据封装成 model 目前默认返回Dictionary
 - (id)websiteFromResult:(FMResultSet*)resultSet {
@@ -266,12 +202,11 @@ ctime 时间戳        integer
 
 
 /// 获取所有的银行卡信息记录
-/// @param completion 获取成功后的回调
-- (void)getAllBackCardWithCompletion:(LoadAllBackCardCompletion)completion {
-    [self.dataBaseQueue inDatabase:^(FMDatabase *db) {
+- (NSMutableArray <PPBankCardModel *>*)getAllBackCard {
+    NSMutableArray* array = [[NSMutableArray alloc] init];
+    @synchronized (self.dataBase) {
         if ([self.dataBase tableExists:TABLE_CARD_NAME]) {
             [self.dataBase setShouldCacheStatements:YES];
-            NSMutableArray* array = [[NSMutableArray alloc] init];
             NSString* sqlString = [NSString stringWithFormat:@"SELECT * FROM %@ ",TABLE_CARD_NAME];
             FMResultSet* result = [self.dataBase executeQuery:sqlString];
             id item = nil;
@@ -282,55 +217,50 @@ ctime 时间戳        integer
                     [array addObject:item];
                 }
             }
-            dispatch_async(dispatch_get_main_queue(), ^{
-                completion(array,nil);
-            });
         }
-    }];
-
+    }
+    return array;
 }
 /// 删除一个银行卡信息
 /// @param aId 自增键
-- (void)deleteBackCardWithId:(NSNumber *)aId
-                  completion:(ExecuteSqlCompletion)completion {
-    [self.dataBaseQueue inDatabase:^(FMDatabase *db) {
+- (BOOL)deleteBackCardWithId:(NSNumber *)aId {
+    @synchronized (self.dataBase) {
         NSString* sql = [NSString stringWithFormat:@"DELETE FROM %@ WHERE id = ?",TABLE_CARD_NAME];
         BOOL result = [self.dataBase executeUpdate:sql,aId];
-        completion(result);
-    }];
+        return result;
+    }
 }
+
 /// 新增一个银行卡信息记录
 /// @param model 数据模型
-- (void)insertBackCardWithModel:(PPBankCardModel *)model
-                     completion:(ExecuteSqlCompletion)completion {
-    [self.dataBaseQueue inDatabase:^(FMDatabase *db) {
+- (BOOL)insertBackCardWithModel:(PPBankCardModel *)model {
+    @synchronized (self.dataBase) {
         NSInteger integerTime = (NSInteger)[[NSDate date] timeIntervalSince1970];
         NSNumber *cTime = [NSNumber numberWithInteger:integerTime];
-        NSString *sql = [NSString stringWithFormat:@"INSERT INTO %@ (frontImg,backImg,type,expireDate,account,password,cvvCode,pin,describe,ctime) VALUES (?,?,?,?,?,?,?,?,?,?)",TABLE_CARD_NAME];
-        BOOL success = [self.dataBase executeUpdate:sql,model.frontImg,model.backImg,model.type,model.expireDate,model.account,model.password,model.cvvCode,model.pin,model.describe,cTime];
+        NSNumber *type = [NSNumber numberWithInteger:model.type];
+        NSString *sql = [NSString stringWithFormat:@"INSERT INTO %@ (frontImg,type,expireDate,account,password,cvvCode,pin,describe,ctime) VALUES (?,?,?,?,?,?,?,?,?)",TABLE_CARD_NAME];
+        BOOL success = [self.dataBase executeUpdate:sql,model.frontImg,type,model.expireDate,model.account,model.password,model.cvvCode,model.pin,model.describe,cTime];
         if (success == NO) {
             TTLog(@"sql error = %@",self.dataBase.lastErrorMessage);
         }
-        completion(success);
-    }];
+        return success;
+    }
 }
 
 /// 更新银行卡信息
 /// @param aId 自增键
 /// @param model 数据模型
-- (void)updateBackCardWithId:(NSNumber *)aId
-                        model:(PPBankCardModel *)model
-                  completion:(ExecuteSqlCompletion)completion {
-    [self.dataBaseQueue inDatabase:^(FMDatabase *db) {
+- (BOOL)updateBackCardWithId:(NSNumber *)aId
+                        model:(PPBankCardModel *)model {
+    @synchronized (self.dataBase) {
         NSString *sql = [NSString stringWithFormat:@"UPDATE %@ SET lastMessageContent = ? , unReadCount = ? WHERE id = ?;",TABLE_ITEM_NAME];
         BOOL result = [self.dataBase executeUpdate:sql];
-        completion(result);
-    }];
+        return result;
+    }
 }
 
 /// 将 数据库查询的数据封装成 model 目前默认返回Dictionary
 - (id)backcardFromResult:(FMResultSet*)resultSet {
-    
     NSMutableDictionary *dic = [NSMutableDictionary new];
     dic[@"id"] = [NSNumber numberWithInt:[resultSet intForColumn:@"id"]];
     dic[@"type"] = [NSNumber numberWithInt:[resultSet intForColumn:@"type"]];
@@ -345,7 +275,6 @@ ctime 时间戳        integer
     PPBankCardModel *model = [[PPBankCardModel alloc] initWithDictionary:dic error:&error];
     if (model) {
         model.frontImg = [resultSet dataForColumn:@"frontImg"];
-        model.backImg = [resultSet dataForColumn:@"backImg"];
     }
     if (error) {
         TTLog(@"create model error = %@",error);

@@ -32,6 +32,12 @@ NS_ASSUME_NONNULL_BEGIN
 //// 显示Pop View
 + (void)showPopWithText:(NSString *)text;
 
+
+/// 卡号格式化输出
+/// @param string 被格式化的字符串
++ (NSString *)groupedString:(NSString *)string;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -18,6 +18,9 @@
 		F36359352435FA6C00182C96 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F36359332435FA6C00182C96 /* LoginViewController.xib */; };
 		F363594C2437493C00182C96 /* SearchItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F363594B2437493C00182C96 /* SearchItemViewController.m */; };
 		F36359582437661300182C96 /* CreatePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F36359572437661300182C96 /* CreatePasswordViewController.m */; };
+		F367393E24493FBF0022EAFA /* BankCardResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = F367393D24493FBF0022EAFA /* BankCardResponse.m */; };
+		F3673941244948940022EAFA /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3673940244948940022EAFA /* SettingViewController.m */; };
+		F36739482449E94D0022EAFA /* ShowBankCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F36739472449E94D0022EAFA /* ShowBankCardViewController.m */; };
 		F36A890324348C520003FF39 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F36A890224348C520003FF39 /* AppDelegate.m */; };
 		F36A890624348C520003FF39 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F36A890524348C520003FF39 /* SceneDelegate.m */; };
 		F36A890924348C520003FF39 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F36A890824348C520003FF39 /* MainViewController.m */; };
@@ -72,6 +75,12 @@
 		F363594B2437493C00182C96 /* SearchItemViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchItemViewController.m; sourceTree = "<group>"; };
 		F36359562437661300182C96 /* CreatePasswordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreatePasswordViewController.h; sourceTree = "<group>"; };
 		F36359572437661300182C96 /* CreatePasswordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreatePasswordViewController.m; sourceTree = "<group>"; };
+		F367393C24493FBF0022EAFA /* BankCardResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BankCardResponse.h; sourceTree = "<group>"; };
+		F367393D24493FBF0022EAFA /* BankCardResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BankCardResponse.m; sourceTree = "<group>"; };
+		F367393F244948940022EAFA /* SettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		F3673940244948940022EAFA /* SettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		F36739462449E94D0022EAFA /* ShowBankCardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShowBankCardViewController.h; sourceTree = "<group>"; };
+		F36739472449E94D0022EAFA /* ShowBankCardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShowBankCardViewController.m; sourceTree = "<group>"; };
 		F36A88FE24348C520003FF39 /* password_package.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = password_package.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F36A890124348C520003FF39 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F36A890224348C520003FF39 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -230,6 +239,8 @@
 				F37A6F902445CE50004EDF84 /* Bankcard */,
 				F36359562437661300182C96 /* CreatePasswordViewController.h */,
 				F36359572437661300182C96 /* CreatePasswordViewController.m */,
+				F367393F244948940022EAFA /* SettingViewController.h */,
+				F3673940244948940022EAFA /* SettingViewController.m */,
 				F36359312435FA6B00182C96 /* LoginViewController.h */,
 				F36359322435FA6C00182C96 /* LoginViewController.m */,
 				F36359332435FA6C00182C96 /* LoginViewController.xib */,
@@ -265,6 +276,8 @@
 				F3725DF0243593A0009B054F /* PPWebsiteModel.m */,
 				F3C9D98B2440237500BAD7EA /* PPBankCardModel.h */,
 				F3C9D98C2440237500BAD7EA /* PPBankCardModel.m */,
+				F367393C24493FBF0022EAFA /* BankCardResponse.h */,
+				F367393D24493FBF0022EAFA /* BankCardResponse.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -293,6 +306,8 @@
 				F325325E243DB88200BCEA3E /* InputCartViewController.m */,
 				F31969032448273D005C4AB0 /* PresentBankCardViewController.h */,
 				F31969042448273D005C4AB0 /* PresentBankCardViewController.m */,
+				F36739462449E94D0022EAFA /* ShowBankCardViewController.h */,
+				F36739472449E94D0022EAFA /* ShowBankCardViewController.m */,
 			);
 			path = Bankcard;
 			sourceTree = "<group>";
@@ -462,6 +477,7 @@
 				F363594C2437493C00182C96 /* SearchItemViewController.m in Sources */,
 				F3C9D98A243FFB9900BAD7EA /* BankCardViewController.m in Sources */,
 				F37A6F932445CE9E004EDF84 /* ShowWebSiteViewController.m in Sources */,
+				F36739482449E94D0022EAFA /* ShowBankCardViewController.m in Sources */,
 				F3C7F6E5243C469000F45EBD /* HWNavStackViewController.m in Sources */,
 				F325325C243DB7DB00BCEA3E /* InputWebsiteViewController.m in Sources */,
 				F36359172435AF2300182C96 /* Utils.m in Sources */,
@@ -469,6 +485,7 @@
 				F31969052448273D005C4AB0 /* PresentBankCardViewController.m in Sources */,
 				F36A890324348C520003FF39 /* AppDelegate.m in Sources */,
 				F325325F243DB88200BCEA3E /* InputCartViewController.m in Sources */,
+				F3673941244948940022EAFA /* SettingViewController.m in Sources */,
 				F3C7F6F0243C46AA00F45EBD /* HWPickTypeViewController.m in Sources */,
 				F3C7F6F1243C46AA00F45EBD /* HWCatViewController.m in Sources */,
 				F36359342435FA6C00182C96 /* LoginViewController.m in Sources */,
@@ -476,6 +493,7 @@
 				F37257992434C5AC009B054F /* PPPasswordCreator.m in Sources */,
 				F3C7F6E7243C469000F45EBD /* HWAutoSizeViewController.m in Sources */,
 				F36A891424348C550003FF39 /* main.m in Sources */,
+				F367393E24493FBF0022EAFA /* BankCardResponse.m in Sources */,
 				F3C7F6E8243C469000F45EBD /* HWCenterViewController.m in Sources */,
 				F3C9D98D2440237500BAD7EA /* PPBankCardModel.m in Sources */,
 				F36A890624348C520003FF39 /* SceneDelegate.m in Sources */,

@@ -62,22 +62,21 @@ typedef void(^ExecuteSqlCompletion)(BOOL isSuccess);
 
 
 /// 获取所有的银行卡信息记录
-/// @param completion 获取成功后的回调
-- (void)getAllBackCardWithCompletion:(LoadAllBackCardCompletion)completion;
+- (NSMutableArray <PPBankCardModel *>*)getAllBackCard;
+
 /// 删除一个银行卡信息
 /// @param aId 自增键
-- (void)deleteBackCardWithId:(NSNumber *)aId
-                   completion:(ExecuteSqlCompletion)completion;
+- (BOOL)deleteBackCardWithId:(NSNumber *)aId;
+
 /// 新增一个银行卡信息记录
 /// @param model 数据模型
-- (void)insertBackCardWithModel:(PPBankCardModel *)model
-                      completion:(ExecuteSqlCompletion)completion;
+- (BOOL)insertBackCardWithModel:(PPBankCardModel *)model;
+
 /// 更新银行卡信息
 /// @param aId 自增键
 /// @param model 数据模型
-- (void)updateBackCardWithId:(NSNumber *)aId
-                        model:(PPBankCardModel *)model
-                   completion:(ExecuteSqlCompletion)completion;
+- (BOOL)updateBackCardWithId:(NSNumber *)aId
+                        model:(PPBankCardModel *)model;
 
 
 

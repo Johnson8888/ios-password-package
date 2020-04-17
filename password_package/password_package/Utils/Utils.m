@@ -70,6 +70,29 @@
 
 
 
+
+/// 卡号格式化输出
+/// @param string 被格式化的字符串
++ (NSString *)groupedString:(NSString *)string {
+    NSString *str = [string stringByReplacingOccurrencesOfString:@" " withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, string.length)];
+    // 根据长度计算分组的个数
+    NSInteger groupCount = (NSInteger)ceilf((CGFloat)str.length /4);
+    NSMutableArray *components = [[NSMutableArray alloc] init];
+    for (NSInteger i = 0; i < groupCount; i++) {
+        if (i*4 + 4 > str.length) {
+            [components addObject:[str substringFromIndex:i*4]];
+        } else {
+            NSString * secureStr = [str substringWithRange:NSMakeRange(i*4, 4)];
+            secureStr = [secureStr stringByReplacingCharactersInRange:NSMakeRange(0, 4) withString:@"****"];
+            [components addObject:secureStr];
+        }
+    }
+    NSString *groupedString = [components componentsJoinedByString:@" "];
+    return groupedString;
+}
+
+
+
 + (NSString *)getCurrentDeviceModel {
     struct utsname systemInfo;
     uname(&systemInfo);
