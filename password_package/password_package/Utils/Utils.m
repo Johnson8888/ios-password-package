@@ -93,6 +93,16 @@
 
 
 
+/// 判断是否支持震动反馈
++(BOOL)isSupportTapFeedBack {
+    NSInteger value = [[[UIDevice currentDevice] valueForKey:@"_feedbackSupportLevel"] intValue];
+    if (value == 2) {
+        return YES;
+    }    
+    return NO;
+}
+
+
 + (NSString *)getCurrentDeviceModel {
     struct utsname systemInfo;
     uname(&systemInfo);

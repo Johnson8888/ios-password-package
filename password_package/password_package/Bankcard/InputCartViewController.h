@@ -10,12 +10,14 @@
 
 @class PPBankCardModel;
 
+typedef void(^FinishCallBack)(void);
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface InputCartViewController : UIViewController
 
 @property (nonatomic,strong) PPBankCardModel *editModel;
-
+@property (nonatomic,copy) FinishCallBack finishCallBack;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -25,9 +25,9 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     self.tabBarController.tabBar.hidden = NO;
-    
     [super viewWillAppear:animated];
 }
+
 
 - (void)viewDidLoad {
     
@@ -38,6 +38,8 @@
     [self refreshData];
     
 }
+
+
 
 
 - (void)refreshData {
@@ -62,9 +64,11 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     PresentBankCardViewController *presentBackCardViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass([PresentBankCardViewController class])];
+    presentBackCardViewController.bankCardModel = self.dataArray[indexPath.row];
     
     presentBackCardViewController.deleteCallBack = ^{
         [self refreshData];
@@ -78,12 +82,15 @@
         [self presentViewBankCardViewControllerWithModel:cardModel];
     };
     
-    [self.navigationController presentViewController:presentBackCardViewController animated:YES completion:^{}];
+    [self.tabBarController presentViewController:presentBackCardViewController animated:YES completion:^{}];
 }
 
 
 - (IBAction)pressedAddButton:(id)sender {
     InputCartViewController *inputViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass([InputCartViewController class])];
+    inputViewController.finishCallBack = ^{
+        [self refreshData];
+    };
     [self presentViewController:inputViewController animated:YES completion:nil];
 }
 
@@ -92,18 +99,20 @@
 - (void)presentEditViewControllerWithModel:(PPBankCardModel *)model {
     InputCartViewController *inputViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass([InputCartViewController class])];
     inputViewController.editModel = model;
+    inputViewController.finishCallBack = ^{
+        [self refreshData];
+    };
     [self presentViewController:inputViewController animated:YES completion:nil];
-
 }
+
 
 
 - (void)presentViewBankCardViewControllerWithModel:(PPBankCardModel *)model {
     ShowBankCardViewController *showViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass([ShowBankCardViewController class])];
     showViewController.bankCardModel = model;
-    self.tabBarController.tabBar.hidden = YES;
-    TTLog(@"tab = %@",self.tabBarController);
     [self.navigationController pushViewController:showViewController animated:YES];
 }
+
 
 
 @end

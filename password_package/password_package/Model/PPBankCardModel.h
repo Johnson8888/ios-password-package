@@ -9,7 +9,7 @@
 #import "JSONModel.h"
 
 typedef NS_ENUM(NSUInteger, PPBankCardType) {
-    PP_DEPOSIT_CARD = 1,
+    PP_DEPOSIT_CARD = 0,
     PP_CREDIT_CARD,
 };
 

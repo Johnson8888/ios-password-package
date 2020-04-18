@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SettingViewController : UITableViewController
+@interface SettingViewController : UIViewController
 
 @end
 

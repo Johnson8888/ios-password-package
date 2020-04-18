@@ -43,7 +43,23 @@
     
     [super viewDidLoad];
     
+    TTLog(@"model = %@",self.bankCardModel);
     
+    self.tabBarController.tabBar.hidden = YES;
+    self.accountLabel.text = self.bankCardModel.account;
+    self.passwordLabel.text = self.bankCardModel.password;
+    self.pinLabel.text = self.bankCardModel.pin;
+    self.cvvLabel.text = self.bankCardModel.cvvCode;
+    self.expireDate.text = self.bankCardModel.expireDate;
+    if (self.bankCardModel.type == PP_DEPOSIT_CARD) {
+        self.typeLabel.text = @"储蓄卡";
+    } else if (self.bankCardModel.type == PP_CREDIT_CARD) {
+        self.typeLabel.text = @"信用卡";
+    }
+    self.textView.text = self.bankCardModel.describe;
+    self.headerExpireDate.text = self.bankCardModel.expireDate;
+    self.headerAccountLabel.text = self.bankCardModel.account;
+    self.headerCvvCodeLabel.text = self.bankCardModel.cvvCode;
     
 }
 

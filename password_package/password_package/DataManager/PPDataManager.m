@@ -253,8 +253,9 @@ ctime 时间戳        integer
 - (BOOL)updateBackCardWithId:(NSNumber *)aId
                         model:(PPBankCardModel *)model {
     @synchronized (self.dataBase) {
-        NSString *sql = [NSString stringWithFormat:@"UPDATE %@ SET lastMessageContent = ? , unReadCount = ? WHERE id = ?;",TABLE_ITEM_NAME];
-        BOOL result = [self.dataBase executeUpdate:sql];
+        NSString *sql = [NSString stringWithFormat:@"UPDATE %@ SET frontImg = ?, type = ?, expireDate = ?,account = ?,password = ?,cvvCode = ?, pin = ?, describe = ? WHERE id = ?",TABLE_CARD_NAME];
+        NSNumber *type = [NSNumber numberWithInteger:model.type];
+        BOOL result = [self.dataBase executeUpdate:sql,model.frontImg,type,model.expireDate,model.account,model.password,model.cvvCode,model.pin,model.describe,model.aId];
         return result;
     }
 }

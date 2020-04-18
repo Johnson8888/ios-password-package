@@ -38,6 +38,10 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)groupedString:(NSString *)string;
 
 
+
+/// 判断是否支持震动反馈
++(BOOL)isSupportTapFeedBack;
+
 @end
 
 NS_ASSUME_NONNULL_END

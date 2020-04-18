@@ -35,6 +35,7 @@
 		F3725DF1243593A0009B054F /* PPWebsiteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F3725DF0243593A0009B054F /* PPWebsiteModel.m */; };
 		F37A6F932445CE9E004EDF84 /* ShowWebSiteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F37A6F922445CE9E004EDF84 /* ShowWebSiteViewController.m */; };
 		F37A6F962445E321004EDF84 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = F37A6F952445E321004EDF84 /* MainTabBarController.m */; };
+		F3874B59244AB95F00A3DFA7 /* AppConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = F3874B58244AB95F00A3DFA7 /* AppConfig.m */; };
 		F3C7F6B0243B430700F45EBD /* CSYGroupButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C7F6AF243B430700F45EBD /* CSYGroupButtonView.m */; };
 		F3C7F6E2243C469000F45EBD /* HWTopBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C7F6D5243C469000F45EBD /* HWTopBarViewController.m */; };
 		F3C7F6E3243C469000F45EBD /* HWFullDialogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C7F6D6243C469000F45EBD /* HWFullDialogViewController.m */; };
@@ -107,6 +108,8 @@
 		F37A6F922445CE9E004EDF84 /* ShowWebSiteViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShowWebSiteViewController.m; sourceTree = "<group>"; };
 		F37A6F942445E321004EDF84 /* MainTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
 		F37A6F952445E321004EDF84 /* MainTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
+		F3874B57244AB95F00A3DFA7 /* AppConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppConfig.h; sourceTree = "<group>"; };
+		F3874B58244AB95F00A3DFA7 /* AppConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppConfig.m; sourceTree = "<group>"; };
 		F3C7F6AE243B430700F45EBD /* CSYGroupButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSYGroupButtonView.h; sourceTree = "<group>"; };
 		F3C7F6AF243B430700F45EBD /* CSYGroupButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSYGroupButtonView.m; sourceTree = "<group>"; };
 		F3C7F6D4243C469000F45EBD /* HWAutoSizeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWAutoSizeViewController.h; sourceTree = "<group>"; };
@@ -227,6 +230,8 @@
 				F36A890124348C520003FF39 /* AppDelegate.h */,
 				F36A890224348C520003FF39 /* AppDelegate.m */,
 				F3724ED62434B64D009B054F /* Header.pch */,
+				F3874B57244AB95F00A3DFA7 /* AppConfig.h */,
+				F3874B58244AB95F00A3DFA7 /* AppConfig.m */,
 				F36A890424348C520003FF39 /* SceneDelegate.h */,
 				F36A890524348C520003FF39 /* SceneDelegate.m */,
 				F37257972434C5AC009B054F /* PPPasswordCreator.h */,
@@ -482,6 +487,7 @@
 				F325325C243DB7DB00BCEA3E /* InputWebsiteViewController.m in Sources */,
 				F36359172435AF2300182C96 /* Utils.m in Sources */,
 				F3C7F6E2243C469000F45EBD /* HWTopBarViewController.m in Sources */,
+				F3874B59244AB95F00A3DFA7 /* AppConfig.m in Sources */,
 				F31969052448273D005C4AB0 /* PresentBankCardViewController.m in Sources */,
 				F36A890324348C520003FF39 /* AppDelegate.m in Sources */,
 				F325325F243DB88200BCEA3E /* InputCartViewController.m in Sources */,

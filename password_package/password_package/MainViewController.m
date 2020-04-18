@@ -105,6 +105,13 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+//    UIImpactFeedbackGenerator *feedBackGenertor = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleLight];
+//    UIImpactFeedbackStyleLight,
+//    UIImpactFeedbackStyleMedium,
+//    UIImpactFeedbackStyleHeavy,
+//    [feedBackGenertor impactOccurred];
+
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     PresentWebsiteViewController *sViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass([PresentWebsiteViewController class])];
     
