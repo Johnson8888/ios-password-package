@@ -16,17 +16,26 @@
 #define NET_WORK_DATA_ERROR @"请求网络数据格式错误,请重试"
 #define SINGLE_PLAY_ERROR @"播放失败,请重试"
 /// appid
-#define APP_ID @"XXXXXXXX"
+#define APP_ID @"1508966205"
 /// 反馈bug地址
 #define SUPPORT_EMAIL_ADDRESS @"ctTec@foxmail.com"
 /// 记录我的收藏的 itemId
 #define PLAY_MY_LIKE_TAG -99999
 
+#define ICLOUD_CONTAINER_BUNDLE_IDENTIFER @"iCloud.com.password.package.container"
+
 #define SYSTEM_COLOR [UIColor colorWithRed:1.0 green:111 / 255.0 blue:60 / 255.0 alpha:1.0]
 
 /// 需要刷新主页数据的通知
 #define PP_MAIN_REFRESH_DATA_NOTIFICATION @"com.password.package.main.refresh.data.notification"
+/// 恢复数据成功后的通知
+#define PP_RETRIEVE_DATA_SUCCESS_NOTIFICATION @"com.password.package.retrieve.data.notification"
 
+//// 选择 从不的时候 never 时间tag值
+#define PP_NEVER_TO_DO_TAG 999999
+
+// 数据库 文件名
+#define DB_FILE_NAME     @"pp.sqlite"
 
 #ifdef DEBUG
 # define TTLog(fmt, ...) NSLog((@"" " %s  " "%d \n   " fmt),  __FUNCTION__, __LINE__, ##__VA_ARGS__);

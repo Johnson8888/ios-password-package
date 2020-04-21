@@ -32,6 +32,10 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(refreshData)
+                                                 name:PP_RETRIEVE_DATA_SUCCESS_NOTIFICATION
+                                               object:nil];
     
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([BankCardViewCell class]) bundle:nil] forCellReuseIdentifier:@"com.password.package.backcard.view.controller.bank.card.cell.identifer"];
     

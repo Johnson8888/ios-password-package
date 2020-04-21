@@ -10,6 +10,7 @@
 #import "Utils.h"
 #import "AppConfig.h"
 #import <AppCenter/AppCenter.h>
+#import <iCloudDocumentSync/iCloud.h>
 #import <AppCenterCrashes/AppCenterCrashes.h>
 #import <AppCenterAnalytics/AppCenterAnalytics.h>
 #import <IQKeyboardManager/IQKeyboardManager.h>
@@ -24,7 +25,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-//    UIDevice.currentDevice().valueForKey("_feedbackSupportLevel");
+    [iCloud sharedCloud].verboseLogging = YES;
+    [[iCloud sharedCloud] setupiCloudDocumentSyncWithUbiquityContainer:ICLOUD_CONTAINER_BUNDLE_IDENTIFER];
     
     [MSAppCenter start:@"0209845f-0d7d-4a95-9841-e58fdcb72c52"
           withServices:@[[MSAnalytics class],[MSCrashes class]]];

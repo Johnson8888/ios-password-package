@@ -13,6 +13,9 @@
 		F3253247243C969800BCEA3E /* SearchItemViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3253245243C969800BCEA3E /* SearchItemViewCell.xib */; };
 		F325325C243DB7DB00BCEA3E /* InputWebsiteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F325325B243DB7DB00BCEA3E /* InputWebsiteViewController.m */; };
 		F325325F243DB88200BCEA3E /* InputCartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F325325E243DB88200BCEA3E /* InputCartViewController.m */; };
+		F338856D244E95C000343549 /* SelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F338856B244E95C000343549 /* SelectCell.m */; };
+		F338856E244E95C000343549 /* SelectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F338856C244E95C000343549 /* SelectCell.xib */; };
+		F3388571244EBB4300343549 /* SetAutoLockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3388570244EBB4300343549 /* SetAutoLockViewController.m */; };
 		F36359172435AF2300182C96 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = F36359162435AF2300182C96 /* Utils.m */; };
 		F36359342435FA6C00182C96 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F36359322435FA6C00182C96 /* LoginViewController.m */; };
 		F36359352435FA6C00182C96 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F36359332435FA6C00182C96 /* LoginViewController.xib */; };
@@ -52,6 +55,7 @@
 		F3C9D99124404CA300BAD7EA /* BankCardViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C9D98F24404CA300BAD7EA /* BankCardViewCell.m */; };
 		F3C9D99224404CA300BAD7EA /* BankCardViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3C9D99024404CA300BAD7EA /* BankCardViewCell.xib */; };
 		F3D53B5E2440D98100D1B1A3 /* PresentWebsiteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D53B5D2440D98100D1B1A3 /* PresentWebsiteViewController.m */; };
+		F3F2ED1C244D903000B7FEC3 /* ClearPasteboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3F2ED1B244D903000B7FEC3 /* ClearPasteboardViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +71,11 @@
 		F325325B243DB7DB00BCEA3E /* InputWebsiteViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputWebsiteViewController.m; sourceTree = "<group>"; };
 		F325325D243DB88200BCEA3E /* InputCartViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputCartViewController.h; sourceTree = "<group>"; };
 		F325325E243DB88200BCEA3E /* InputCartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputCartViewController.m; sourceTree = "<group>"; };
+		F338856A244E95C000343549 /* SelectCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectCell.h; sourceTree = "<group>"; };
+		F338856B244E95C000343549 /* SelectCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectCell.m; sourceTree = "<group>"; };
+		F338856C244E95C000343549 /* SelectCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectCell.xib; sourceTree = "<group>"; };
+		F338856F244EBB4300343549 /* SetAutoLockViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetAutoLockViewController.h; sourceTree = "<group>"; };
+		F3388570244EBB4300343549 /* SetAutoLockViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetAutoLockViewController.m; sourceTree = "<group>"; };
 		F36359152435AF2300182C96 /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		F36359162435AF2300182C96 /* Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		F36359312435FA6B00182C96 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -82,7 +91,7 @@
 		F3673940244948940022EAFA /* SettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		F36739462449E94D0022EAFA /* ShowBankCardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShowBankCardViewController.h; sourceTree = "<group>"; };
 		F36739472449E94D0022EAFA /* ShowBankCardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShowBankCardViewController.m; sourceTree = "<group>"; };
-		F36A88FE24348C520003FF39 /* password_package.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = password_package.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F36A88FE24348C520003FF39 /* PasswordPackage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PasswordPackage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F36A890124348C520003FF39 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F36A890224348C520003FF39 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		F36A890424348C520003FF39 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
@@ -141,6 +150,8 @@
 		F3C9D99024404CA300BAD7EA /* BankCardViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BankCardViewCell.xib; sourceTree = "<group>"; };
 		F3D53B5C2440D98100D1B1A3 /* PresentWebsiteViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PresentWebsiteViewController.h; sourceTree = "<group>"; };
 		F3D53B5D2440D98100D1B1A3 /* PresentWebsiteViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PresentWebsiteViewController.m; sourceTree = "<group>"; };
+		F3F2ED1A244D903000B7FEC3 /* ClearPasteboardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClearPasteboardViewController.h; sourceTree = "<group>"; };
+		F3F2ED1B244D903000B7FEC3 /* ClearPasteboardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClearPasteboardViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,7 +229,7 @@
 		F36A88FF24348C520003FF39 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F36A88FE24348C520003FF39 /* password_package.app */,
+				F36A88FE24348C520003FF39 /* PasswordPackage.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -246,6 +257,13 @@
 				F36359572437661300182C96 /* CreatePasswordViewController.m */,
 				F367393F244948940022EAFA /* SettingViewController.h */,
 				F3673940244948940022EAFA /* SettingViewController.m */,
+				F338856F244EBB4300343549 /* SetAutoLockViewController.h */,
+				F3388570244EBB4300343549 /* SetAutoLockViewController.m */,
+				F3F2ED1A244D903000B7FEC3 /* ClearPasteboardViewController.h */,
+				F3F2ED1B244D903000B7FEC3 /* ClearPasteboardViewController.m */,
+				F338856A244E95C000343549 /* SelectCell.h */,
+				F338856B244E95C000343549 /* SelectCell.m */,
+				F338856C244E95C000343549 /* SelectCell.xib */,
 				F36359312435FA6B00182C96 /* LoginViewController.h */,
 				F36359322435FA6C00182C96 /* LoginViewController.m */,
 				F36359332435FA6C00182C96 /* LoginViewController.xib */,
@@ -370,7 +388,7 @@
 			);
 			name = password_package;
 			productName = password_package;
-			productReference = F36A88FE24348C520003FF39 /* password_package.app */;
+			productReference = F36A88FE24348C520003FF39 /* PasswordPackage.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -417,6 +435,7 @@
 				F36359352435FA6C00182C96 /* LoginViewController.xib in Resources */,
 				F3725DEA243588DE009B054F /* website in Resources */,
 				F3C9D99224404CA300BAD7EA /* BankCardViewCell.xib in Resources */,
+				F338856E244E95C000343549 /* SelectCell.xib in Resources */,
 				F3253247243C969800BCEA3E /* SearchItemViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -478,10 +497,12 @@
 				F3C7F6E4243C469000F45EBD /* HWNavViewController.m in Sources */,
 				F36A890924348C520003FF39 /* MainViewController.m in Sources */,
 				F36359582437661300182C96 /* CreatePasswordViewController.m in Sources */,
+				F3F2ED1C244D903000B7FEC3 /* ClearPasteboardViewController.m in Sources */,
 				F3C7F6E6243C469000F45EBD /* HWBottomAuthViewController.m in Sources */,
 				F363594C2437493C00182C96 /* SearchItemViewController.m in Sources */,
 				F3C9D98A243FFB9900BAD7EA /* BankCardViewController.m in Sources */,
 				F37A6F932445CE9E004EDF84 /* ShowWebSiteViewController.m in Sources */,
+				F3388571244EBB4300343549 /* SetAutoLockViewController.m in Sources */,
 				F36739482449E94D0022EAFA /* ShowBankCardViewController.m in Sources */,
 				F3C7F6E5243C469000F45EBD /* HWNavStackViewController.m in Sources */,
 				F325325C243DB7DB00BCEA3E /* InputWebsiteViewController.m in Sources */,
@@ -496,6 +517,7 @@
 				F3C7F6F1243C46AA00F45EBD /* HWCatViewController.m in Sources */,
 				F36359342435FA6C00182C96 /* LoginViewController.m in Sources */,
 				F3C7F6B0243B430700F45EBD /* CSYGroupButtonView.m in Sources */,
+				F338856D244E95C000343549 /* SelectCell.m in Sources */,
 				F37257992434C5AC009B054F /* PPPasswordCreator.m in Sources */,
 				F3C7F6E7243C469000F45EBD /* HWAutoSizeViewController.m in Sources */,
 				F36A891424348C550003FF39 /* main.m in Sources */,
@@ -659,7 +681,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xi.passwordpackage;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = PasswordPackage;
 				PROVISIONING_PROFILE_SPECIFIER = PasswordPackage_dev;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
@@ -687,7 +709,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xi.passwordpackage;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = PasswordPackage;
 				PROVISIONING_PROFILE_SPECIFIER = PasswordPackage_dev;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";

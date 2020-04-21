@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,assign) BOOL userSystemLock;
 /// pinCode
 @property (nonatomic,assign) NSInteger pinCode;
-/// 多长时间自动锁屏  默认是 立刻  10秒 30秒 1分钟 5分钟 10分钟
+/// 多长时间自动锁屏 输入要入密码  默认是 立刻  10秒 30秒 1分钟 5分钟 10分钟
 @property (nonatomic,assign) NSInteger autoLockDuration;
 /// 多长时间清除 剪切板  10秒 30秒 1分钟 2分钟 5分钟 从不
 @property (nonatomic,assign) NSInteger clearPasteboardDuration;

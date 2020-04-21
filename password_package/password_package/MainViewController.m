@@ -57,7 +57,10 @@
                                              selector:@selector(refreshData)
                                                  name:PP_MAIN_REFRESH_DATA_NOTIFICATION
                                                object:nil];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(refreshData)
+                                                 name:PP_RETRIEVE_DATA_SUCCESS_NOTIFICATION
+                                               object:nil];
 //    [self showEmptyMessageView];
     
     self.tableView.rowHeight = 64.0f;
@@ -90,6 +93,7 @@
     NSMutableArray *array = [[PPDataManager sharedInstance] getAllWebsite];
     self.dataArray = array.mutableCopy;
     [self.tableView reloadData];
+//    TTLog(@"refreshData = %@",self.dataArray);
 }
 
 

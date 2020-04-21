@@ -39,7 +39,7 @@
         self.isAllowDarkModeTheme = YES;
         self.mainTheme = PP_THEME_DEFAULT;
         self.autoLockDuration = 0;
-        self.clearPasteboardDuration = 10;
+        self.clearPasteboardDuration = 300;
     }
     return self;
 }

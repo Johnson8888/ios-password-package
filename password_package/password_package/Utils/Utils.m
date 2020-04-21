@@ -8,12 +8,30 @@
 
 #import "Utils.h"
 #import <HWPop.h>
+#import "AppConfig.h"
 #import <sys/utsname.h>
 #import "HWTopBarViewController.h"
 #import <LocalAuthentication/LocalAuthentication.h>
 
 
 @implementation Utils
+
+
+/// 清理剪切板
+/// @param targetString 如果剪切板string与targetString相等就清理
++ (void)clearPasteboardWithTargetString:(NSString *)targetString {
+    NSInteger clearPasteboardDuration = [AppConfig config].clearPasteboardDuration;
+    if (clearPasteboardDuration == 0) {
+        return;
+    }
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(clearPasteboardDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        NSString *currentString = [UIPasteboard generalPasteboard].string;
+        if ([currentString isEqualToString:targetString]) {
+            [UIPasteboard generalPasteboard].string = @"";
+        }
+    });
+}
+
 
 + (BOOL)canUseFaceID {
     if (@available(iOS 11.0, *)) {

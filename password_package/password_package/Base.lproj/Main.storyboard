@@ -77,6 +77,106 @@
             </objects>
             <point key="canvasLocation" x="1919" y="1550"/>
         </scene>
+        <!--Clear Pasteboard View Controller-->
+        <scene sceneID="jte-Vo-7MR">
+            <objects>
+                <viewController storyboardIdentifier="ClearPasteboardViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GsI-wR-Amu" customClass="ClearPasteboardViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="p3e-k3-0un">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dss-93-C8K">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="GsI-wR-Amu" id="gxr-ny-Dfc"/>
+                                    <outlet property="delegate" destination="GsI-wR-Amu" id="iSl-Ri-sWj"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Okb-3I-0pA">
+                                <rect key="frame" x="19" y="55" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="pressedCancelButton:" destination="GsI-wR-Amu" eventType="touchUpInside" id="63t-JW-pDR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PmK-1Y-oaW">
+                                <rect key="frame" x="296" y="55" width="55" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Confirm"/>
+                                <connections>
+                                    <action selector="pressedConfirmButton:" destination="GsI-wR-Amu" eventType="touchUpInside" id="y34-Aq-9Es"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="dss-93-C8K" firstAttribute="top" secondItem="Wrn-3H-OGb" secondAttribute="top" constant="44" id="6gw-Hf-A7o"/>
+                            <constraint firstItem="Wrn-3H-OGb" firstAttribute="trailing" secondItem="dss-93-C8K" secondAttribute="trailing" id="NMW-px-fig"/>
+                            <constraint firstItem="Wrn-3H-OGb" firstAttribute="bottom" secondItem="dss-93-C8K" secondAttribute="bottom" id="fUG-ou-wCj"/>
+                            <constraint firstItem="dss-93-C8K" firstAttribute="leading" secondItem="Wrn-3H-OGb" secondAttribute="leading" id="liB-VM-4xw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Wrn-3H-OGb"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="dss-93-C8K" id="6qc-6o-IH8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rbN-zt-GCJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2928" y="1552"/>
+        </scene>
+        <!--Set Auto Lock View Controller-->
+        <scene sceneID="cWg-qu-VGW">
+            <objects>
+                <viewController storyboardIdentifier="SetAutoLockViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="f36-xJ-yxc" customClass="SetAutoLockViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ePx-7G-X0z">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kAK-4m-cO6">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="f36-xJ-yxc" id="4bt-Vf-cAO"/>
+                                    <outlet property="delegate" destination="f36-xJ-yxc" id="z4A-tc-K7a"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szT-zE-ZLU">
+                                <rect key="frame" x="20" y="44" width="45" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="cancel"/>
+                                <connections>
+                                    <action selector="pressedCancelButton:" destination="f36-xJ-yxc" eventType="touchUpInside" id="kum-MV-xFr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="45Z-Gb-Y7o">
+                                <rect key="frame" x="250" y="44" width="53" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="confirm"/>
+                                <connections>
+                                    <action selector="pressedConfirmButton:" destination="f36-xJ-yxc" eventType="touchUpInside" id="0zz-x9-wTh"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="kAK-4m-cO6" firstAttribute="leading" secondItem="9GL-PF-La3" secondAttribute="leading" id="hNW-lu-fAI"/>
+                            <constraint firstItem="kAK-4m-cO6" firstAttribute="top" secondItem="9GL-PF-La3" secondAttribute="top" constant="44" id="nrW-Cv-Plu"/>
+                            <constraint firstItem="9GL-PF-La3" firstAttribute="bottom" secondItem="kAK-4m-cO6" secondAttribute="bottom" id="qDb-fp-3dc"/>
+                            <constraint firstItem="9GL-PF-La3" firstAttribute="trailing" secondItem="kAK-4m-cO6" secondAttribute="trailing" id="qW1-6N-9t5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="9GL-PF-La3"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="kAK-4m-cO6" id="QKt-os-qoc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gV9-3w-xIo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3839.130434782609" y="1551.5625"/>
+        </scene>
         <!--Item 2-->
         <scene sceneID="Rtw-L4-Yfh">
             <objects>

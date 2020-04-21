@@ -11,8 +11,6 @@
 #import "PPWebsiteModel.h"
 #import "PPBankCardModel.h"
 
-// 数据库 文件名
-#define DB_FILE_NAME     @"pp.sqlite"
 
 /// 网站登录账号和密码
 #define TABLE_ITEM_NAME  @"website"
@@ -78,6 +76,30 @@ ctime 时间戳        integer
     return dataBase;
 }
 
+/// 获取当前数据库二进制数据
++ (NSData *)getDBFileData {
+    NSString *filePath = [self dbFilePath];
+    NSData *data = [NSData dataWithContentsOfFile:filePath];
+    return data;
+}
+
+
+/// 恢复数据到本地数据库
++ (NSError * _Nullable)retrieveToDBWithData:(NSData *)data {
+    NSString *filePath = [self dbFilePath];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
+        NSError *removeError;
+        [[NSFileManager defaultManager] removeItemAtPath:filePath error:&removeError];
+        if (removeError) {
+            return removeError;
+        }
+    }
+    BOOL result = [data writeToFile:filePath atomically:YES];
+    if (result == NO) {
+        return [NSError errorWithDomain:@"password_package" code:100 userInfo:@{NSLocalizedDescriptionKey:@"写入文件失败"}];
+    }
+    return nil;
+}
 
 - (id)init {
     self = [super init];

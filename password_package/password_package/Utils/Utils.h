@@ -37,10 +37,12 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param string 被格式化的字符串
 + (NSString *)groupedString:(NSString *)string;
 
-
-
 /// 判断是否支持震动反馈
 +(BOOL)isSupportTapFeedBack;
+
+/// 清理剪切板
+/// @param targetString 如果剪切板string与targetString相等就清理
++ (void)clearPasteboardWithTargetString:(NSString *)targetString;
 
 @end
 
