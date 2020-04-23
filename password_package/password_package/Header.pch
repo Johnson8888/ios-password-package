@@ -31,6 +31,10 @@
 /// 恢复数据成功后的通知
 #define PP_RETRIEVE_DATA_SUCCESS_NOTIFICATION @"com.password.package.retrieve.data.notification"
 
+/// 记录进入到后台的时间
+#define PP_ENTER_BACKGROUND_TIME_KEY @"com.password.package.enter.background.time.key"
+
+
 //// 选择 从不的时候 never 时间tag值
 #define PP_NEVER_TO_DO_TAG 999999
 

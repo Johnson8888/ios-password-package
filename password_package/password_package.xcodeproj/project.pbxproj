@@ -16,6 +16,7 @@
 		F338856D244E95C000343549 /* SelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F338856B244E95C000343549 /* SelectCell.m */; };
 		F338856E244E95C000343549 /* SelectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F338856C244E95C000343549 /* SelectCell.xib */; };
 		F3388571244EBB4300343549 /* SetAutoLockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3388570244EBB4300343549 /* SetAutoLockViewController.m */; };
+		F3388577244EC01600343549 /* CoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3388576244EC01600343549 /* CoverView.m */; };
 		F36359172435AF2300182C96 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = F36359162435AF2300182C96 /* Utils.m */; };
 		F36359342435FA6C00182C96 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F36359322435FA6C00182C96 /* LoginViewController.m */; };
 		F36359352435FA6C00182C96 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F36359332435FA6C00182C96 /* LoginViewController.xib */; };
@@ -24,6 +25,15 @@
 		F367393E24493FBF0022EAFA /* BankCardResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = F367393D24493FBF0022EAFA /* BankCardResponse.m */; };
 		F3673941244948940022EAFA /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3673940244948940022EAFA /* SettingViewController.m */; };
 		F36739482449E94D0022EAFA /* ShowBankCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F36739472449E94D0022EAFA /* ShowBankCardViewController.m */; };
+		F36A3ACD2451B30800208EB5 /* WUGesturesUnlockViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F36A3AC22451B30800208EB5 /* WUGesturesUnlockViewController.xib */; };
+		F36A3ACE2451B30800208EB5 /* gesture_indicator_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F36A3AC32451B30800208EB5 /* gesture_indicator_normal@2x.png */; };
+		F36A3ACF2451B30800208EB5 /* WUGesturesUnlockIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = F36A3AC62451B30800208EB5 /* WUGesturesUnlockIndicator.m */; };
+		F36A3AD02451B30800208EB5 /* gesture_indicator_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F36A3AC72451B30800208EB5 /* gesture_indicator_selected@2x.png */; };
+		F36A3AD12451B30800208EB5 /* gesture_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F36A3AC82451B30800208EB5 /* gesture_normal@2x.png */; };
+		F36A3AD22451B30800208EB5 /* gesture_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F36A3AC92451B30800208EB5 /* gesture_selected@2x.png */; };
+		F36A3AD32451B30800208EB5 /* WUGesturesUnlockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F36A3ACA2451B30800208EB5 /* WUGesturesUnlockViewController.m */; };
+		F36A3AD42451B30800208EB5 /* WUGesturesUnlockView.m in Sources */ = {isa = PBXBuildFile; fileRef = F36A3ACB2451B30800208EB5 /* WUGesturesUnlockView.m */; };
+		F36A3AD62451BE0000208EB5 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F36A3AD52451BE0000208EB5 /* Security.framework */; };
 		F36A890324348C520003FF39 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F36A890224348C520003FF39 /* AppDelegate.m */; };
 		F36A890624348C520003FF39 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F36A890524348C520003FF39 /* SceneDelegate.m */; };
 		F36A890924348C520003FF39 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F36A890824348C520003FF39 /* MainViewController.m */; };
@@ -76,6 +86,8 @@
 		F338856C244E95C000343549 /* SelectCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectCell.xib; sourceTree = "<group>"; };
 		F338856F244EBB4300343549 /* SetAutoLockViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetAutoLockViewController.h; sourceTree = "<group>"; };
 		F3388570244EBB4300343549 /* SetAutoLockViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetAutoLockViewController.m; sourceTree = "<group>"; };
+		F3388575244EC01600343549 /* CoverView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoverView.h; sourceTree = "<group>"; };
+		F3388576244EC01600343549 /* CoverView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoverView.m; sourceTree = "<group>"; };
 		F36359152435AF2300182C96 /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		F36359162435AF2300182C96 /* Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		F36359312435FA6B00182C96 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -91,6 +103,18 @@
 		F3673940244948940022EAFA /* SettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		F36739462449E94D0022EAFA /* ShowBankCardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShowBankCardViewController.h; sourceTree = "<group>"; };
 		F36739472449E94D0022EAFA /* ShowBankCardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShowBankCardViewController.m; sourceTree = "<group>"; };
+		F36A3AC02451B30800208EB5 /* WUGesturesUnlockIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WUGesturesUnlockIndicator.h; sourceTree = "<group>"; };
+		F36A3AC22451B30800208EB5 /* WUGesturesUnlockViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WUGesturesUnlockViewController.xib; sourceTree = "<group>"; };
+		F36A3AC32451B30800208EB5 /* gesture_indicator_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gesture_indicator_normal@2x.png"; sourceTree = "<group>"; };
+		F36A3AC42451B30800208EB5 /* WUGesturesUnlockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WUGesturesUnlockViewController.h; sourceTree = "<group>"; };
+		F36A3AC52451B30800208EB5 /* WUGesturesUnlockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WUGesturesUnlockView.h; sourceTree = "<group>"; };
+		F36A3AC62451B30800208EB5 /* WUGesturesUnlockIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WUGesturesUnlockIndicator.m; sourceTree = "<group>"; };
+		F36A3AC72451B30800208EB5 /* gesture_indicator_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gesture_indicator_selected@2x.png"; sourceTree = "<group>"; };
+		F36A3AC82451B30800208EB5 /* gesture_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gesture_normal@2x.png"; sourceTree = "<group>"; };
+		F36A3AC92451B30800208EB5 /* gesture_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gesture_selected@2x.png"; sourceTree = "<group>"; };
+		F36A3ACA2451B30800208EB5 /* WUGesturesUnlockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WUGesturesUnlockViewController.m; sourceTree = "<group>"; };
+		F36A3ACB2451B30800208EB5 /* WUGesturesUnlockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WUGesturesUnlockView.m; sourceTree = "<group>"; };
+		F36A3AD52451BE0000208EB5 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		F36A88FE24348C520003FF39 /* PasswordPackage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PasswordPackage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F36A890124348C520003FF39 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F36A890224348C520003FF39 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -159,6 +183,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F36A3AD62451BE0000208EB5 /* Security.framework in Frameworks */,
 				D646957927D67AE8C806FD6F /* libPods-password_package.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -178,6 +203,7 @@
 		71888E6422CCB52593A73A4F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F36A3AD52451BE0000208EB5 /* Security.framework */,
 				0270F482AFFA398E0F140246 /* libPods-password_package.a */,
 			);
 			name = Frameworks;
@@ -216,6 +242,24 @@
 			path = Vender;
 			sourceTree = "<group>";
 		};
+		F36A3ABF2451B30800208EB5 /* WUGestureUnlockView */ = {
+			isa = PBXGroup;
+			children = (
+				F36A3AC72451B30800208EB5 /* gesture_indicator_selected@2x.png */,
+				F36A3AC82451B30800208EB5 /* gesture_normal@2x.png */,
+				F36A3AC92451B30800208EB5 /* gesture_selected@2x.png */,
+				F36A3AC32451B30800208EB5 /* gesture_indicator_normal@2x.png */,
+				F36A3AC42451B30800208EB5 /* WUGesturesUnlockViewController.h */,
+				F36A3ACA2451B30800208EB5 /* WUGesturesUnlockViewController.m */,
+				F36A3AC22451B30800208EB5 /* WUGesturesUnlockViewController.xib */,
+				F36A3AC52451B30800208EB5 /* WUGesturesUnlockView.h */,
+				F36A3ACB2451B30800208EB5 /* WUGesturesUnlockView.m */,
+				F36A3AC02451B30800208EB5 /* WUGesturesUnlockIndicator.h */,
+				F36A3AC62451B30800208EB5 /* WUGesturesUnlockIndicator.m */,
+			);
+			path = WUGestureUnlockView;
+			sourceTree = "<group>";
+		};
 		F36A88F524348C520003FF39 = {
 			isa = PBXGroup;
 			children = (
@@ -240,6 +284,8 @@
 				F3724ED124349C7A009B054F /* password_package.entitlements */,
 				F36A890124348C520003FF39 /* AppDelegate.h */,
 				F36A890224348C520003FF39 /* AppDelegate.m */,
+				F3388575244EC01600343549 /* CoverView.h */,
+				F3388576244EC01600343549 /* CoverView.m */,
 				F3724ED62434B64D009B054F /* Header.pch */,
 				F3874B57244AB95F00A3DFA7 /* AppConfig.h */,
 				F3874B58244AB95F00A3DFA7 /* AppConfig.m */,
@@ -267,6 +313,7 @@
 				F36359312435FA6B00182C96 /* LoginViewController.h */,
 				F36359322435FA6C00182C96 /* LoginViewController.m */,
 				F36359332435FA6C00182C96 /* LoginViewController.xib */,
+				F36A3ABF2451B30800208EB5 /* WUGestureUnlockView */,
 				F3253242243C967300BCEA3E /* Cells */,
 				F363595224375CEF00182C96 /* Vender */,
 				F36359142435AF0E00182C96 /* Utils */,
@@ -430,13 +477,18 @@
 			files = (
 				F36A891124348C550003FF39 /* LaunchScreen.storyboard in Resources */,
 				F36A890E24348C550003FF39 /* Assets.xcassets in Resources */,
+				F36A3ACE2451B30800208EB5 /* gesture_indicator_normal@2x.png in Resources */,
 				F36A890C24348C520003FF39 /* Main.storyboard in Resources */,
+				F36A3AD12451B30800208EB5 /* gesture_normal@2x.png in Resources */,
 				F372533A2434C162009B054F /* login.json in Resources */,
 				F36359352435FA6C00182C96 /* LoginViewController.xib in Resources */,
 				F3725DEA243588DE009B054F /* website in Resources */,
+				F36A3ACD2451B30800208EB5 /* WUGesturesUnlockViewController.xib in Resources */,
 				F3C9D99224404CA300BAD7EA /* BankCardViewCell.xib in Resources */,
+				F36A3AD02451B30800208EB5 /* gesture_indicator_selected@2x.png in Resources */,
 				F338856E244E95C000343549 /* SelectCell.xib in Resources */,
 				F3253247243C969800BCEA3E /* SearchItemViewCell.xib in Resources */,
+				F36A3AD22451B30800208EB5 /* gesture_selected@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,9 +541,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3388577244EC01600343549 /* CoverView.m in Sources */,
 				F3D53B5E2440D98100D1B1A3 /* PresentWebsiteViewController.m in Sources */,
 				F3725DF1243593A0009B054F /* PPWebsiteModel.m in Sources */,
 				F3724ED52434B159009B054F /* PPDataManager.m in Sources */,
+				F36A3AD32451B30800208EB5 /* WUGesturesUnlockViewController.m in Sources */,
 				F3C9D99124404CA300BAD7EA /* BankCardViewCell.m in Sources */,
 				F3C7F6E3243C469000F45EBD /* HWFullDialogViewController.m in Sources */,
 				F3C7F6E4243C469000F45EBD /* HWNavViewController.m in Sources */,
@@ -500,6 +554,7 @@
 				F3F2ED1C244D903000B7FEC3 /* ClearPasteboardViewController.m in Sources */,
 				F3C7F6E6243C469000F45EBD /* HWBottomAuthViewController.m in Sources */,
 				F363594C2437493C00182C96 /* SearchItemViewController.m in Sources */,
+				F36A3ACF2451B30800208EB5 /* WUGesturesUnlockIndicator.m in Sources */,
 				F3C9D98A243FFB9900BAD7EA /* BankCardViewController.m in Sources */,
 				F37A6F932445CE9E004EDF84 /* ShowWebSiteViewController.m in Sources */,
 				F3388571244EBB4300343549 /* SetAutoLockViewController.m in Sources */,
@@ -514,6 +569,7 @@
 				F325325F243DB88200BCEA3E /* InputCartViewController.m in Sources */,
 				F3673941244948940022EAFA /* SettingViewController.m in Sources */,
 				F3C7F6F0243C46AA00F45EBD /* HWPickTypeViewController.m in Sources */,
+				F36A3AD42451B30800208EB5 /* WUGesturesUnlockView.m in Sources */,
 				F3C7F6F1243C46AA00F45EBD /* HWCatViewController.m in Sources */,
 				F36359342435FA6C00182C96 /* LoginViewController.m in Sources */,
 				F3C7F6B0243B430700F45EBD /* CSYGroupButtonView.m in Sources */,

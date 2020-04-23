@@ -13,20 +13,22 @@
 #import "CYLTabBarController.h"
 #endif
 #import <Masonry.h>
+#import "Utils.h"
 #import <JHUD/JHUD.h>
 #import <ProgressHUD.h>
 #import "PPWebsiteModel.h"
 #import "PPDataManager.h"
 #import "PPPasswordCreator.h"
 #import "LoginViewController.h"
-#import "SearchItemViewController.h"
-#import "CreatePasswordViewController.h"
 #import "CSYGroupButtonView.h"
 #import "SearchItemViewCell.h"
+#import "SearchItemViewController.h"
+#import "CreatePasswordViewController.h"
+#import "WUGesturesUnlockViewController.h"
 #import "PresentWebsiteViewController.h"
 #import "ShowWebSiteViewController.h"
 #import "InputWebsiteViewController.h"
-
+#import <LocalAuthentication/LocalAuthentication.h>
 
 @interface MainViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -81,7 +83,134 @@
     TTLog(@"view did load");
     [self refreshData];
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([SearchItemViewCell class]) bundle:nil] forCellReuseIdentifier:@"com.main.view.controller.search.item.cell"];
+    
+        
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        if ([WUGesturesUnlockViewController gesturesPassword].length > 0) {
+            WUGesturesUnlockViewController *vc = [[WUGesturesUnlockViewController alloc] initWithUnlockType:WUUnlockTypeValidatePwd];
+            [self presentViewController:vc animated:YES completion:nil];
+        } else {
+            WUGesturesUnlockViewController *vc = [[WUGesturesUnlockViewController alloc] initWithUnlockType:WUUnlockTypeCreatePwd];
+            [self presentViewController:vc animated:YES completion:nil];
+        }
+    });
+    
+//    [self showUseSystemLockAlert];
+    
 }
+
+
+
+/// 弹出适用系统锁定功能
+- (void)showUseSystemLockAlert {
+    if ([Utils canUseTouchID]) {
+        TTLog(@"can use TouchID");
+        [Utils alertWithTitle:@"提示"
+                       detail:@"您可以设置指纹锁,解锁更方便快捷"
+                     callBack:^(NSInteger index) {
+            if (index == 1) {
+                TTLog(@"use");
+                [self verifyTouchID];
+            }
+        }];
+
+    }
+    if ([Utils canUseFaceID]) {
+        TTLog(@"can use FaceID");
+    }
+}
+
+
+
+- (void)verifyTouchID {
+    
+    LAContext *context = [[LAContext alloc] init];
+    context.localizedFallbackTitle = @"输入密码";
+    
+    [context evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics
+            localizedReason:@"验证手机指纹"
+                      reply:^(BOOL success, NSError * _Nullable error) {
+        
+        if (success) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSLog(@"TouchID 验证成功");
+            });
+        }else if(error){
+            
+            switch (error.code) {
+                case LAErrorAuthenticationFailed:{
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        NSLog(@"TouchID 验证失败");
+                    });
+                    break;
+                }
+                case LAErrorUserCancel:{
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        NSLog(@"TouchID 被用户手动取消");
+                    });
+                }
+                    break;
+                case LAErrorUserFallback:{
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        NSLog(@"用户不使用TouchID,选择手动输入密码");
+                        
+                        
+                    });
+                }
+                    break;
+                case LAErrorSystemCancel:{
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        NSLog(@"TouchID 被系统取消 (如遇到来电,锁屏,按了Home键等)");
+                    });
+                }
+                    break;
+                case LAErrorPasscodeNotSet:{
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        NSLog(@"TouchID 无法启动,因为用户没有设置密码");
+                    });
+                }
+                    break;
+                case LAErrorBiometryNotEnrolled:{
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        NSLog(@"TouchID 无法启动,因为用户没有设置TouchID");
+                    });
+                }
+                    break;
+                case LAErrorBiometryNotAvailable:{
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        NSLog(@"TouchID 无效");
+                    });
+                }
+                    break;
+                case LAErrorBiometryLockout:{
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        NSLog(@"TouchID 被锁定(连续多次验证TouchID失败,系统需要用户手动输入密码)");
+                    });
+                }
+                    break;
+                case LAErrorAppCancel:{
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        NSLog(@"当前软件被挂起并取消了授权 (如App进入了后台等)");
+                    });
+                }
+                    break;
+                case LAErrorInvalidContext:{
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        NSLog(@"当前软件被挂起并取消了授权 (LAContext对象无效)");
+                    });
+                }
+                    break;
+                default:
+                    break;
+            }
+        }
+    }];
+
+
+}
+
+
+
 
 
 
