@@ -12,6 +12,7 @@
 #import "AppConfig.h"
 #import <AppCenter/AppCenter.h>
 #import <iCloudDocumentSync/iCloud.h>
+#import "WUGesturesUnlockViewController.h"
 #import <AppCenterCrashes/AppCenterCrashes.h>
 #import <AppCenterAnalytics/AppCenterAnalytics.h>
 #import <IQKeyboardManager/IQKeyboardManager.h>
@@ -44,7 +45,6 @@
     
     
     
-
 //    删除密码
 //    [ZLGestureLockViewController deleteGesturesPassword];
     
@@ -56,12 +56,11 @@
     if (self.coverView.superview) {
         [self.coverView removeFromSuperview];
     }
-    
     NSInteger duration = [AppConfig config].autoLockDuration;
     NSInteger timeStamp = [[NSDate date] timeIntervalSince1970];
     NSInteger lastTimeStamp = [[NSUserDefaults standardUserDefaults] integerForKey:PP_ENTER_BACKGROUND_TIME_KEY];
     if (lastTimeStamp != 0 && timeStamp - lastTimeStamp >= duration) {
-        [self presentLoginViewController];
+//        [self presentLoginViewController];
     }
     TTLog(@"will enter foreground");
 }
@@ -83,7 +82,12 @@
 
 - (void)presentLoginViewController {
     TTLog(@"need present login view controller");
-    
+    NSString *lastPwd = [WUGesturesUnlockViewController gesturesPassword];
+    if (lastPwd.length > 0) {
+        WUGesturesUnlockViewController *vc = [[WUGesturesUnlockViewController alloc] initWithUnlockType:WUUnlockTypeValidatePwd];
+        vc.modalPresentationStyle = UIModalPresentationFullScreen;
+        [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:vc animated:NO completion:nil];
+    }
 }
 
 

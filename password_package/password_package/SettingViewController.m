@@ -11,12 +11,19 @@
 #import "ClearPasteboardViewController.h"
 #import "SetAutoLockViewController.h"
 #import <MessageUI/MessageUI.h>
+#import "SwitchCell.h"
 #import "PPBankCardModel.h"
 #import "PPWebsiteModel.h"
 #import "PPDataManager.h"
 #import <ProgressHUD.h>
+#import "DetailCell.h"
 #import <sys/utsname.h>
 #import "Utils.h"
+
+
+static NSString *normalCellIdentifier = @"com.password.package.setting.viewcontroller.identifier";
+static NSString *switchCellIdentifier = @"com.password.package.setting.switch.cell.idenfitifer";
+static NSString *detailCellIdentifier = @"com.password.package.setting.detail.cell.identifier";
 
 
 @interface SettingViewController ()<UITableViewDelegate,UITableViewDataSource,MFMailComposeViewControllerDelegate,iCloudDelegate>
@@ -43,8 +50,11 @@
     self.tableView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0);
     self.tableView.tableFooterView = [[UIView alloc] init];
     self.tableView.rowHeight = 44.0f;
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"com.password.package.setting.viewcontroller.identifier"];
     
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:normalCellIdentifier];
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([SwitchCell class]) bundle:nil] forCellReuseIdentifier:switchCellIdentifier];
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([DetailCell class]) bundle:nil] forCellReuseIdentifier:detailCellIdentifier];
+
     
     /// 是否支持震动反馈
     self.isSupportFeedBack = [Utils isSupportTapFeedBack];
@@ -74,7 +84,14 @@
     /// 2.useSystemLock (options)
     /// 3.autoLockDuration
     /// 4.clearPasteboardDuration
-    NSArray *securityArray = @[@"使用密码",@"使用FaceID或TouchID",@"自动锁定时间",@"清理剪切板时间"];
+    NSMutableArray *securityArray = [NSMutableArray arrayWithArray:@[@"使用密码",@"自动锁定时间",@"清理剪切板时间"]];
+    if ([Utils canUseFaceID]) {
+        [securityArray insertObject:@"使用FaceID解锁" atIndex:1];
+    }
+    if ([Utils canUseTouchID]) {
+        [securityArray insertObject:@"使用TouchID解锁" atIndex:1];
+    }
+    
     
     /// 主题
     /// 1. mainTheme
@@ -89,8 +106,8 @@
     /// 2.隐私协议
     /// 3.版本号
     NSArray *supportArray = @[@"意见反馈",@"隐私协议",@"版本号"];
-    
     self.dataArray = @[generalArray,securityArray,themeArray,supportArray];
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -107,8 +124,149 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"com.password.package.setting.viewcontroller.identifier"];
-    cell.textLabel.text = self.dataArray[indexPath.section][indexPath.row];
+       
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:normalCellIdentifier];
+//    cell.textLabel.text = self.dataArray[indexPath.section][indexPath.row];
+//    return cell;
+    
+   
+    if (indexPath.section == 0) {
+        if (self.isSupportFeedBack) {
+            if (indexPath.row == 0) {
+                TTLog(@"震动反馈");
+                SwitchCell *cell = [tableView dequeueReusableCellWithIdentifier:switchCellIdentifier];
+                cell.nameLabel.text = @"震动反馈";
+                return cell;
+            }
+            if (indexPath.row == 1) {
+                TTLog(@"备份到iCloud");
+                DetailCell *cell = [tableView dequeueReusableCellWithIdentifier:detailCellIdentifier];
+                cell.nameLabel.text = @"备份到iCloud";
+                return cell;
+            }
+            if (indexPath.row == 2) {
+                TTLog(@"从iCloud恢复");
+                DetailCell *cell = (DetailCell *)[tableView dequeueReusableCellWithIdentifier:detailCellIdentifier];
+                cell.nameLabel.text = @"从iCloud恢复";
+                return cell;
+            }
+            if (indexPath.row == 3) {
+                TTLog(@"邮件导出");
+                UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:normalCellIdentifier];
+                cell.textLabel.text = @"邮件导出";
+                return cell;
+            }
+        } else {
+            if (indexPath.row == 0) {
+                TTLog(@"备份到iCloud");
+                DetailCell *cell = (DetailCell *)[tableView dequeueReusableCellWithIdentifier:detailCellIdentifier];
+                cell.nameLabel.text = @"备份到iCloud";
+                return cell ;
+            }
+            if (indexPath.row == 1) {
+                TTLog(@"从iCloud恢复");
+                DetailCell *cell = (DetailCell *)[tableView dequeueReusableCellWithIdentifier:detailCellIdentifier];
+                cell.nameLabel.text = @"从iCloud恢复";
+                return cell;
+            }
+            if (indexPath.row == 2) {
+                TTLog(@"邮件导出");
+                UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:normalCellIdentifier];
+                cell.textLabel.text = @"邮件导出";
+                return cell;
+            }
+        }
+    }
+    
+    if (indexPath.section == 1) {
+        if ([Utils canUseFaceID] || [Utils canUseTouchID]) {
+            TTLog(@"can user touch or face ID");
+            if (indexPath.row == 0) {
+                SwitchCell *cell = (SwitchCell *)[tableView dequeueReusableCellWithIdentifier:switchCellIdentifier];
+                cell.nameLabel.text = @"使用密码";
+                return cell;
+            }
+            if (indexPath.row == 1) {
+                SwitchCell *cell = (SwitchCell *)[tableView dequeueReusableCellWithIdentifier:switchCellIdentifier];
+                if ([Utils canUseFaceID]) {
+                    cell.nameLabel.text = @"使用FaceID解锁";
+                }
+                if ([Utils canUseTouchID]) {
+                    cell.nameLabel.text = @"使用TouchID解锁";
+                }
+                return cell;
+            }
+            if (indexPath.row == 2) {
+                TTLog(@"自动锁屏时间");
+                DetailCell *cell = (DetailCell *)[tableView dequeueReusableCellWithIdentifier:detailCellIdentifier];
+                cell.nameLabel.text = @"自动锁屏时间";
+                return cell;
+            }
+            if (indexPath.row == 3) {
+                TTLog(@"清理剪切板时间");
+                DetailCell *cell = (DetailCell *)[tableView dequeueReusableCellWithIdentifier:detailCellIdentifier];
+                cell.nameLabel.text = @"清理剪切板时间";
+                return cell;
+            }
+        } else {
+            if (indexPath.row == 0) {
+                SwitchCell *cell = (SwitchCell *)[tableView dequeueReusableCellWithIdentifier:switchCellIdentifier];
+                cell.nameLabel.text = @"使用密码";
+                return cell;
+            }
+            if (indexPath.row == 1) {
+                TTLog(@"自动锁屏时间");
+                DetailCell *cell = (DetailCell *)[tableView dequeueReusableCellWithIdentifier:detailCellIdentifier];
+                cell.nameLabel.text = @"自动锁屏时间";
+                return cell;
+            }
+            if (indexPath.row == 2) {
+                TTLog(@"清理剪切板时间");
+                DetailCell *cell = (DetailCell *)[tableView dequeueReusableCellWithIdentifier:detailCellIdentifier];
+                cell.nameLabel.text = @"清理剪切板时间";
+                return cell;
+            }
+        }
+    }
+    
+    
+    if (indexPath.section == 2) {
+        if (indexPath.row == 0) {
+            TTLog(@"当前主题");
+            DetailCell *cell = (DetailCell *)[tableView dequeueReusableCellWithIdentifier:detailCellIdentifier];
+            cell.nameLabel.text = @"当前主题";
+            return cell;
+        }
+        if (indexPath.row == 1) {
+            TTLog(@"是否跟随系统主题设置");
+            SwitchCell *cell = (SwitchCell *)[tableView dequeueReusableCellWithIdentifier:switchCellIdentifier];
+            cell.nameLabel.text = @"是否跟随系统主题设置";
+            return cell;
+        }
+    }
+    
+    if (indexPath.section == 3) {
+        if(indexPath.row == 0) {
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:normalCellIdentifier];
+            cell.textLabel.text = @"意见反馈";
+            TTLog(@"意见反馈")
+            return cell;
+        }
+        if (indexPath.row == 1) {
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:normalCellIdentifier];
+            cell.textLabel.text = @"隐私协议";
+            TTLog(@"隐私协议");
+            return cell;
+        }
+        if (indexPath.row == 2) {
+            DetailCell *cell = (DetailCell *)[tableView dequeueReusableCellWithIdentifier:detailCellIdentifier];
+            cell.nameLabel.text = @"隐私协议";
+            TTLog(@"版本号");
+            return cell;
+        }
+    }
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:normalCellIdentifier];
     return cell;
 }
 
@@ -116,7 +274,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-//    self.tabBarController.tabBar.hidden = YES;
+    
     if (indexPath.section == 0) {
         if (self.isSupportFeedBack) {
             if (indexPath.row == 0) {
@@ -163,7 +321,7 @@
     
     if (indexPath.section == 2) {
         if (indexPath.row == 0) {
-            TTLog(@"设置当前主题");
+            TTLog(@"当前主题");
             [self selectThemeAction];
         }
         if (indexPath.row == 1) {

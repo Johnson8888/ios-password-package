@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WUSystemLockView">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k5v-dJ-h7u">
+                    <rect key="frame" x="100" y="717" width="214" height="30"/>
+                    <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="3yv-dn-K5w"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="pressedSystemLockButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="lpX-C8-RhG"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4lu-aJ-rpM">
+                    <rect key="frame" x="100" y="772" width="214" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="nzN-ZU-xeu"/>
+                    </constraints>
+                    <state key="normal" title="Gesture Unlock"/>
+                    <connections>
+                        <action selector="pressedGestureUnlockButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="Ns7-Av-RWO"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="her-VW-GRo">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
+                    <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="VHx-1E-akl"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fTQ-aG-N8f">
+                    <rect key="frame" x="0.0" y="64" width="414" height="100"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="is locked." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6BI-in-bLn">
+                            <rect key="frame" x="0.0" y="20" width="414" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="3Qa-6g-zzS"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemGray3Color" red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="6BI-in-bLn" firstAttribute="leading" secondItem="fTQ-aG-N8f" secondAttribute="leading" id="5N7-bZ-kSw"/>
+                        <constraint firstAttribute="height" constant="100" id="XBk-Es-fOJ"/>
+                        <constraint firstAttribute="trailing" secondItem="6BI-in-bLn" secondAttribute="trailing" id="kOv-Bh-7f9"/>
+                        <constraint firstItem="6BI-in-bLn" firstAttribute="top" secondItem="fTQ-aG-N8f" secondAttribute="top" constant="20" id="vvQ-wu-Wxs"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="4lu-aJ-rpM" secondAttribute="bottom" constant="60" id="4hJ-Ak-Plg"/>
+                <constraint firstItem="4lu-aJ-rpM" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="100" id="AVo-eD-uxq"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="her-VW-GRo" secondAttribute="trailing" id="Aj7-RJ-9ri"/>
+                <constraint firstItem="her-VW-GRo" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="CGy-DS-YV0"/>
+                <constraint firstItem="fTQ-aG-N8f" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="G01-9H-OOk"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="4lu-aJ-rpM" secondAttribute="trailing" constant="100" id="L9J-b1-43k"/>
+                <constraint firstItem="4lu-aJ-rpM" firstAttribute="top" secondItem="k5v-dJ-h7u" secondAttribute="bottom" constant="25" id="LKY-ol-Od5"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="k5v-dJ-h7u" secondAttribute="trailing" constant="100" id="Sjv-qO-1K8"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="fTQ-aG-N8f" secondAttribute="trailing" id="Vtz-Zc-dmy"/>
+                <constraint firstItem="fTQ-aG-N8f" firstAttribute="top" secondItem="her-VW-GRo" secondAttribute="bottom" id="YLa-Em-CIB"/>
+                <constraint firstItem="k5v-dJ-h7u" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="100" id="osF-tN-KzG"/>
+                <constraint firstItem="her-VW-GRo" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="tF7-Ys-eR2"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="systemUnlockButton" destination="k5v-dJ-h7u" id="yDs-2e-Fyq"/>
+                <outlet property="titleLabel" destination="6BI-in-bLn" id="T04-bP-b3A"/>
+            </connections>
+            <point key="canvasLocation" x="18.840579710144929" y="-95.758928571428569"/>
+        </view>
+    </objects>
+</document>

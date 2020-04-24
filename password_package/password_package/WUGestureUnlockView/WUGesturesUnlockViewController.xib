@@ -68,6 +68,16 @@
                         <action selector="resetGesturePassword:" destination="-1" eventType="touchUpInside" id="deQ-ZB-WoJ"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="设置密码更加安全" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RSy-9N-1Af">
+                    <rect key="frame" x="0.0" y="140" width="414" height="16"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="mcc-tR-xUY"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -77,12 +87,15 @@
                 <constraint firstItem="a0y-Gp-tdy" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="92R-cr-alH"/>
                 <constraint firstItem="EcM-Ux-9L5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Ae3-my-rsN"/>
                 <constraint firstAttribute="trailing" secondItem="EcM-Ux-9L5" secondAttribute="trailing" id="KRc-Cf-SI1"/>
+                <constraint firstItem="RSy-9N-1Af" firstAttribute="top" secondItem="a0y-Gp-tdy" secondAttribute="bottom" constant="20" id="Sm2-dC-emJ"/>
                 <constraint firstItem="hgo-5j-l5s" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="36" id="WNN-9h-y0t"/>
                 <constraint firstItem="Bjd-m7-W2M" firstAttribute="centerY" secondItem="hgo-5j-l5s" secondAttribute="centerY" id="aMt-4e-6Er"/>
                 <constraint firstItem="a0y-Gp-tdy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="cl7-q6-DpH"/>
                 <constraint firstAttribute="trailing" secondItem="fz6-8A-XA6" secondAttribute="trailing" constant="36" id="dDr-yK-p2o"/>
                 <constraint firstAttribute="bottom" secondItem="hgo-5j-l5s" secondAttribute="bottom" constant="33" id="dKi-fp-IKE"/>
+                <constraint firstItem="RSy-9N-1Af" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="nbC-dT-i84"/>
                 <constraint firstItem="fz6-8A-XA6" firstAttribute="baseline" secondItem="hgo-5j-l5s" secondAttribute="baseline" id="oGg-yW-KAv"/>
+                <constraint firstAttribute="trailing" secondItem="RSy-9N-1Af" secondAttribute="trailing" id="rXg-n3-8NB"/>
             </constraints>
             <point key="canvasLocation" x="176.5" y="358.5"/>
         </view>

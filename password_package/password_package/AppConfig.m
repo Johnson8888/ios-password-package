@@ -37,7 +37,7 @@
     if (self) {
         self.isSharkFeedBack = YES;
         /// 默认是不适用 系统锁定功能的
-        self.userSystemLock = NO;
+        self.userSystemLock = YES;
         self.isAllowDarkModeTheme = YES;
         self.mainTheme = PP_THEME_DEFAULT;
         self.autoLockDuration = 0;
@@ -55,6 +55,7 @@
         self.isAllowDarkModeTheme = [aDecoder decodeBoolForKey:@"isAllowDarkModeTheme"];
         self.autoLockDuration = [aDecoder decodeIntegerForKey:@"autoLockDuration"];
         self.clearPasteboardDuration = [aDecoder decodeIntegerForKey:@"clearPasteboardDuration"];
+        self.userSystemLock = [aDecoder decodeBoolForKey:@"userSystemLock"];
     }
     return self;
 }
@@ -65,6 +66,7 @@
     [aCoder encodeBool:self.isAllowDarkModeTheme forKey:@"isAllowDarkModeTheme"];
     [aCoder encodeInteger:self.autoLockDuration forKey:@"autoLockDuration"];
     [aCoder encodeInteger:self.clearPasteboardDuration forKey:@"clearPasteboardDuration"];
+    [aCoder encodeBool:self.userSystemLock forKey:@"userSystemLock"];
 }
 
 

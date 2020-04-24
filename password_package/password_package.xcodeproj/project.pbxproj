@@ -34,6 +34,12 @@
 		F36A3AD32451B30800208EB5 /* WUGesturesUnlockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F36A3ACA2451B30800208EB5 /* WUGesturesUnlockViewController.m */; };
 		F36A3AD42451B30800208EB5 /* WUGesturesUnlockView.m in Sources */ = {isa = PBXBuildFile; fileRef = F36A3ACB2451B30800208EB5 /* WUGesturesUnlockView.m */; };
 		F36A3AD62451BE0000208EB5 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F36A3AD52451BE0000208EB5 /* Security.framework */; };
+		F36A3ADB2452B06D00208EB5 /* WUSystemLockView.m in Sources */ = {isa = PBXBuildFile; fileRef = F36A3ADA2452B06D00208EB5 /* WUSystemLockView.m */; };
+		F36A3ADD2452B07600208EB5 /* WUSystemLockView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F36A3ADC2452B07600208EB5 /* WUSystemLockView.xib */; };
+		F36A3AE12452D74200208EB5 /* SwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F36A3ADF2452D74200208EB5 /* SwitchCell.m */; };
+		F36A3AE22452D74200208EB5 /* SwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F36A3AE02452D74200208EB5 /* SwitchCell.xib */; };
+		F36A3AE62452DA8100208EB5 /* DetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F36A3AE42452DA8100208EB5 /* DetailCell.m */; };
+		F36A3AE72452DA8100208EB5 /* DetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F36A3AE52452DA8100208EB5 /* DetailCell.xib */; };
 		F36A890324348C520003FF39 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F36A890224348C520003FF39 /* AppDelegate.m */; };
 		F36A890624348C520003FF39 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F36A890524348C520003FF39 /* SceneDelegate.m */; };
 		F36A890924348C520003FF39 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F36A890824348C520003FF39 /* MainViewController.m */; };
@@ -115,6 +121,15 @@
 		F36A3ACA2451B30800208EB5 /* WUGesturesUnlockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WUGesturesUnlockViewController.m; sourceTree = "<group>"; };
 		F36A3ACB2451B30800208EB5 /* WUGesturesUnlockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WUGesturesUnlockView.m; sourceTree = "<group>"; };
 		F36A3AD52451BE0000208EB5 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		F36A3AD92452B06D00208EB5 /* WUSystemLockView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WUSystemLockView.h; sourceTree = "<group>"; };
+		F36A3ADA2452B06D00208EB5 /* WUSystemLockView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WUSystemLockView.m; sourceTree = "<group>"; };
+		F36A3ADC2452B07600208EB5 /* WUSystemLockView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WUSystemLockView.xib; sourceTree = "<group>"; };
+		F36A3ADE2452D74200208EB5 /* SwitchCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwitchCell.h; sourceTree = "<group>"; };
+		F36A3ADF2452D74200208EB5 /* SwitchCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwitchCell.m; sourceTree = "<group>"; };
+		F36A3AE02452D74200208EB5 /* SwitchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchCell.xib; sourceTree = "<group>"; };
+		F36A3AE32452DA8100208EB5 /* DetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailCell.h; sourceTree = "<group>"; };
+		F36A3AE42452DA8100208EB5 /* DetailCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailCell.m; sourceTree = "<group>"; };
+		F36A3AE52452DA8100208EB5 /* DetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailCell.xib; sourceTree = "<group>"; };
 		F36A88FE24348C520003FF39 /* PasswordPackage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PasswordPackage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F36A890124348C520003FF39 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F36A890224348C520003FF39 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -256,6 +271,9 @@
 				F36A3ACB2451B30800208EB5 /* WUGesturesUnlockView.m */,
 				F36A3AC02451B30800208EB5 /* WUGesturesUnlockIndicator.h */,
 				F36A3AC62451B30800208EB5 /* WUGesturesUnlockIndicator.m */,
+				F36A3AD92452B06D00208EB5 /* WUSystemLockView.h */,
+				F36A3ADA2452B06D00208EB5 /* WUSystemLockView.m */,
+				F36A3ADC2452B07600208EB5 /* WUSystemLockView.xib */,
 			);
 			path = WUGestureUnlockView;
 			sourceTree = "<group>";
@@ -307,6 +325,12 @@
 				F3388570244EBB4300343549 /* SetAutoLockViewController.m */,
 				F3F2ED1A244D903000B7FEC3 /* ClearPasteboardViewController.h */,
 				F3F2ED1B244D903000B7FEC3 /* ClearPasteboardViewController.m */,
+				F36A3AE32452DA8100208EB5 /* DetailCell.h */,
+				F36A3AE42452DA8100208EB5 /* DetailCell.m */,
+				F36A3AE52452DA8100208EB5 /* DetailCell.xib */,
+				F36A3ADE2452D74200208EB5 /* SwitchCell.h */,
+				F36A3ADF2452D74200208EB5 /* SwitchCell.m */,
+				F36A3AE02452D74200208EB5 /* SwitchCell.xib */,
 				F338856A244E95C000343549 /* SelectCell.h */,
 				F338856B244E95C000343549 /* SelectCell.m */,
 				F338856C244E95C000343549 /* SelectCell.xib */,
@@ -476,6 +500,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F36A891124348C550003FF39 /* LaunchScreen.storyboard in Resources */,
+				F36A3AE22452D74200208EB5 /* SwitchCell.xib in Resources */,
+				F36A3ADD2452B07600208EB5 /* WUSystemLockView.xib in Resources */,
 				F36A890E24348C550003FF39 /* Assets.xcassets in Resources */,
 				F36A3ACE2451B30800208EB5 /* gesture_indicator_normal@2x.png in Resources */,
 				F36A890C24348C520003FF39 /* Main.storyboard in Resources */,
@@ -489,6 +515,7 @@
 				F338856E244E95C000343549 /* SelectCell.xib in Resources */,
 				F3253247243C969800BCEA3E /* SearchItemViewCell.xib in Resources */,
 				F36A3AD22451B30800208EB5 /* gesture_selected@2x.png in Resources */,
+				F36A3AE72452DA8100208EB5 /* DetailCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,6 +570,7 @@
 			files = (
 				F3388577244EC01600343549 /* CoverView.m in Sources */,
 				F3D53B5E2440D98100D1B1A3 /* PresentWebsiteViewController.m in Sources */,
+				F36A3ADB2452B06D00208EB5 /* WUSystemLockView.m in Sources */,
 				F3725DF1243593A0009B054F /* PPWebsiteModel.m in Sources */,
 				F3724ED52434B159009B054F /* PPDataManager.m in Sources */,
 				F36A3AD32451B30800208EB5 /* WUGesturesUnlockViewController.m in Sources */,
@@ -564,9 +592,11 @@
 				F36359172435AF2300182C96 /* Utils.m in Sources */,
 				F3C7F6E2243C469000F45EBD /* HWTopBarViewController.m in Sources */,
 				F3874B59244AB95F00A3DFA7 /* AppConfig.m in Sources */,
+				F36A3AE12452D74200208EB5 /* SwitchCell.m in Sources */,
 				F31969052448273D005C4AB0 /* PresentBankCardViewController.m in Sources */,
 				F36A890324348C520003FF39 /* AppDelegate.m in Sources */,
 				F325325F243DB88200BCEA3E /* InputCartViewController.m in Sources */,
+				F36A3AE62452DA8100208EB5 /* DetailCell.m in Sources */,
 				F3673941244948940022EAFA /* SettingViewController.m in Sources */,
 				F3C7F6F0243C46AA00F45EBD /* HWPickTypeViewController.m in Sources */,
 				F36A3AD42451B30800208EB5 /* WUGesturesUnlockView.m in Sources */,
