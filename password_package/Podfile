@@ -24,6 +24,8 @@ pod 'PYSearch'
 pod 'TZImagePickerController'
 pod 'CYLTabBarController'
 pod 'ProgressHUD'
+pod 'LEETheme'
+
 
 end
 

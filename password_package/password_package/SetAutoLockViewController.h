@@ -10,8 +10,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SetAutoLockViewController : UIViewController
+typedef void(^SaveAutoLockCallBack)(void);
 
+@interface SetAutoLockViewController : UIViewController
+@property (nonatomic,copy) SaveAutoLockCallBack saveCallBack;
 @end
 
 NS_ASSUME_NONNULL_END

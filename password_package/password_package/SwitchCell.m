@@ -16,13 +16,15 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-//    self.contentView.backgroundColor = [UIColor greenColor];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+}
+- (IBAction)switchAction:(id)sender {
+    if (self.switchCallBack) {
+        self.switchCallBack(self.switchMenu.isOn);
+    }
 }
 
 @end

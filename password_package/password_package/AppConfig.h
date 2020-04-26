@@ -8,8 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+/// @[@"白色",@"红色",@"蓝色",@"绿色",@"紫色",@"暗黑"]
 typedef NS_ENUM(NSUInteger, PPTheme) {
-    PP_THEME_DEFAULT,
+    PP_THEME_WHITE,
+    PP_THEME_RED,
+    PP_THEME_BLUE,
+    PP_THEME_GREEN,
+    PP_THEME_PURPLE,
+    PP_THEME_BLACK,
 };
 
 NS_ASSUME_NONNULL_BEGIN
@@ -21,9 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 是否开启震动反馈
 @property (nonatomic,assign) BOOL isSharkFeedBack;
 /// 主题颜色
-@property (nonatomic,assign) PPTheme mainTheme;
-/// 开启后 主题模式跟随系统外观
-@property (nonatomic,assign) BOOL isAllowDarkModeTheme;
+@property (nonatomic,assign) PPTheme mainTheme;;
 /// 是否开启系统锁屏 如果是指纹就开启指纹 如果是FaceID 就开启 faceID
 @property (nonatomic,assign) BOOL userSystemLock;
 /// pinCode
@@ -32,7 +36,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,assign) NSInteger autoLockDuration;
 /// 多长时间清除 剪切板  10秒 30秒 1分钟 2分钟 5分钟 从不
 @property (nonatomic,assign) NSInteger clearPasteboardDuration;
-
+/// 上一次上传的时间
+@property (nonatomic,assign) NSInteger lastUploadTimeStamp;
+/// 上一次下载的时间
+@property (nonatomic,assign) NSInteger lastDownloadTimeStamp;
 
 + (AppConfig *)config;
 

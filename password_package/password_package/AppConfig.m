@@ -38,10 +38,10 @@
         self.isSharkFeedBack = YES;
         /// 默认是不适用 系统锁定功能的
         self.userSystemLock = YES;
-        self.isAllowDarkModeTheme = YES;
-        self.mainTheme = PP_THEME_DEFAULT;
+        self.mainTheme = PP_THEME_WHITE;
         self.autoLockDuration = 0;
         self.clearPasteboardDuration = 300;
+        
     }
     return self;
 }
@@ -52,10 +52,11 @@
     if (self) {
         self.isSharkFeedBack = [aDecoder decodeBoolForKey:@"isSharkFeedBack"];
         self.mainTheme = [aDecoder decodeIntegerForKey:@"mainTheme"];
-        self.isAllowDarkModeTheme = [aDecoder decodeBoolForKey:@"isAllowDarkModeTheme"];
         self.autoLockDuration = [aDecoder decodeIntegerForKey:@"autoLockDuration"];
         self.clearPasteboardDuration = [aDecoder decodeIntegerForKey:@"clearPasteboardDuration"];
         self.userSystemLock = [aDecoder decodeBoolForKey:@"userSystemLock"];
+        self.lastUploadTimeStamp = [aDecoder decodeIntegerForKey:@"lastUploadTimeStamp"];
+        self.lastDownloadTimeStamp = [aDecoder decodeIntegerForKey:@"lastDownloadTimeStamp"];
     }
     return self;
 }
@@ -63,10 +64,11 @@
 - (void)encodeWithCoder:(NSCoder *)aCoder {
     [aCoder encodeBool:self.isSharkFeedBack forKey:@"isSharkFeedBack"];
     [aCoder encodeInteger:self.mainTheme forKey:@"mainTheme"];
-    [aCoder encodeBool:self.isAllowDarkModeTheme forKey:@"isAllowDarkModeTheme"];
     [aCoder encodeInteger:self.autoLockDuration forKey:@"autoLockDuration"];
     [aCoder encodeInteger:self.clearPasteboardDuration forKey:@"clearPasteboardDuration"];
     [aCoder encodeBool:self.userSystemLock forKey:@"userSystemLock"];
+    [aCoder encodeInteger:self.lastUploadTimeStamp forKey:@"lastUploadTimeStamp"];
+    [aCoder encodeInteger:self.lastDownloadTimeStamp forKey:@"lastDownloadTimeStamp"];
 }
 
 

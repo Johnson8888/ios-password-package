@@ -17,9 +17,17 @@
         NSString *bundleDisplayName = [[NSBundle mainBundle] infoDictionary][@"CFBundleDisplayName"];
         NSString *context = [NSString stringWithFormat:@"%@全力保护你的信息安全",bundleDisplayName];
         UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, frame.size.height - 40, frame.size.width, 40)];
-        titleLabel.textColor = [UIColor darkGrayColor];
+        if (@available(iOS 13.0, *)) {
+            titleLabel.textColor = [UIColor labelColor];
+        } else {
+            titleLabel.textColor = [UIColor darkGrayColor];
+        }
         titleLabel.textAlignment = NSTextAlignmentCenter;
-        titleLabel.backgroundColor = [UIColor whiteColor];
+        if (@available(iOS 13.0, *)) {
+            titleLabel.backgroundColor = [UIColor systemBackgroundColor];
+        } else {
+            titleLabel.backgroundColor = [UIColor whiteColor];
+        }
         titleLabel.font = [UIFont systemFontOfSize:14.0f];
         titleLabel.text = context;
         [self addSubview:titleLabel];

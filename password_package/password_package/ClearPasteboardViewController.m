@@ -97,6 +97,9 @@
     [AppConfig saveConfig:config];
     [self dismissViewControllerAnimated:YES completion:^{}];
     [Utils showPopWithText:@"保存成功!"];
+    if (self.clearCallBack) {
+        self.clearCallBack();
+    }
 }
 
 - (IBAction)pressedCancelButton:(id)sender {

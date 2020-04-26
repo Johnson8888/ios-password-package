@@ -10,14 +10,16 @@
 #import <iCloudDocumentSync/iCloud.h>
 #import "ClearPasteboardViewController.h"
 #import "SetAutoLockViewController.h"
+#import "SelectThemeViewController.h"
 #import <MessageUI/MessageUI.h>
-#import "SwitchCell.h"
 #import "PPBankCardModel.h"
 #import "PPWebsiteModel.h"
 #import "PPDataManager.h"
 #import <ProgressHUD.h>
-#import "DetailCell.h"
 #import <sys/utsname.h>
+#import "DetailCell.h"
+#import "SwitchCell.h"
+#import "AppConfig.h"
 #import "Utils.h"
 
 
@@ -30,8 +32,6 @@ static NSString *detailCellIdentifier = @"com.password.package.setting.detail.ce
 
 /// 是否支持 震动反馈
 @property (nonatomic,assign) BOOL isSupportFeedBack;
-/// 是否支持 DarkMode
-@property (nonatomic,assign) BOOL isSupportDarkMode;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic,strong) NSArray *dataArray;
@@ -62,11 +62,6 @@ static NSString *detailCellIdentifier = @"com.password.package.setting.detail.ce
         TTLog(@"支持震动反馈");
     }
     
-    self.isSupportDarkMode = NO;
-    float version = [[[UIDevice currentDevice] systemVersion] floatValue];
-    if (version >= 13.0) {
-        self.isSupportDarkMode = YES;
-    }
     
     /// 通用
     /// 1.是否允许 震动反馈(options)
@@ -84,7 +79,8 @@ static NSString *detailCellIdentifier = @"com.password.package.setting.detail.ce
     /// 2.useSystemLock (options)
     /// 3.autoLockDuration
     /// 4.clearPasteboardDuration
-    NSMutableArray *securityArray = [NSMutableArray arrayWithArray:@[@"使用密码",@"自动锁定时间",@"清理剪切板时间"]];
+    
+    NSMutableArray *securityArray = [NSMutableArray arrayWithArray:@[@"自动锁屏时间",@"清理剪切板时间"]];
     if ([Utils canUseFaceID]) {
         [securityArray insertObject:@"使用FaceID解锁" atIndex:1];
     }
@@ -95,11 +91,8 @@ static NSString *detailCellIdentifier = @"com.password.package.setting.detail.ce
     
     /// 主题
     /// 1. mainTheme
-    /// 2. 暗黑模式 (options )
-    NSMutableArray *themeArray = [NSMutableArray arrayWithArray:@[@"当前主题",@"是否跟随系统主题设置"]];
-    if (self.isSupportDarkMode == NO) {
-        [themeArray removeLastObject];
-    }
+    NSMutableArray *themeArray = [NSMutableArray arrayWithArray:@[@"当前主题"]];
+    
     
     /// 支持
     /// 1.意见反馈
@@ -124,36 +117,36 @@ static NSString *detailCellIdentifier = @"com.password.package.setting.detail.ce
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-       
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:normalCellIdentifier];
-//    cell.textLabel.text = self.dataArray[indexPath.section][indexPath.row];
-//    return cell;
     
-   
+    AppConfig *appConfig = [AppConfig config];
     if (indexPath.section == 0) {
         if (self.isSupportFeedBack) {
             if (indexPath.row == 0) {
                 TTLog(@"震动反馈");
                 SwitchCell *cell = [tableView dequeueReusableCellWithIdentifier:switchCellIdentifier];
                 cell.nameLabel.text = @"震动反馈";
+                cell.switchMenu.on = appConfig.isSharkFeedBack;
                 return cell;
             }
             if (indexPath.row == 1) {
                 TTLog(@"备份到iCloud");
                 DetailCell *cell = [tableView dequeueReusableCellWithIdentifier:detailCellIdentifier];
                 cell.nameLabel.text = @"备份到iCloud";
+                cell.detailLabel.text = [self timeDescriptionWithTimeStamp:appConfig.lastUploadTimeStamp];
                 return cell;
             }
             if (indexPath.row == 2) {
                 TTLog(@"从iCloud恢复");
                 DetailCell *cell = (DetailCell *)[tableView dequeueReusableCellWithIdentifier:detailCellIdentifier];
                 cell.nameLabel.text = @"从iCloud恢复";
+                cell.detailLabel.text = [self timeDescriptionWithTimeStamp:appConfig.lastDownloadTimeStamp];
                 return cell;
             }
             if (indexPath.row == 3) {
                 TTLog(@"邮件导出");
                 UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:normalCellIdentifier];
                 cell.textLabel.text = @"邮件导出";
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                 return cell;
             }
         } else {
@@ -161,18 +154,21 @@ static NSString *detailCellIdentifier = @"com.password.package.setting.detail.ce
                 TTLog(@"备份到iCloud");
                 DetailCell *cell = (DetailCell *)[tableView dequeueReusableCellWithIdentifier:detailCellIdentifier];
                 cell.nameLabel.text = @"备份到iCloud";
+                cell.detailLabel.text = [self timeDescriptionWithTimeStamp:appConfig.lastUploadTimeStamp];
                 return cell ;
             }
             if (indexPath.row == 1) {
                 TTLog(@"从iCloud恢复");
                 DetailCell *cell = (DetailCell *)[tableView dequeueReusableCellWithIdentifier:detailCellIdentifier];
                 cell.nameLabel.text = @"从iCloud恢复";
+                cell.detailLabel.text = [self timeDescriptionWithTimeStamp:appConfig.lastDownloadTimeStamp];
                 return cell;
             }
             if (indexPath.row == 2) {
                 TTLog(@"邮件导出");
                 UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:normalCellIdentifier];
                 cell.textLabel.text = @"邮件导出";
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                 return cell;
             }
         }
@@ -180,13 +176,7 @@ static NSString *detailCellIdentifier = @"com.password.package.setting.detail.ce
     
     if (indexPath.section == 1) {
         if ([Utils canUseFaceID] || [Utils canUseTouchID]) {
-            TTLog(@"can user touch or face ID");
             if (indexPath.row == 0) {
-                SwitchCell *cell = (SwitchCell *)[tableView dequeueReusableCellWithIdentifier:switchCellIdentifier];
-                cell.nameLabel.text = @"使用密码";
-                return cell;
-            }
-            if (indexPath.row == 1) {
                 SwitchCell *cell = (SwitchCell *)[tableView dequeueReusableCellWithIdentifier:switchCellIdentifier];
                 if ([Utils canUseFaceID]) {
                     cell.nameLabel.text = @"使用FaceID解锁";
@@ -194,53 +184,53 @@ static NSString *detailCellIdentifier = @"com.password.package.setting.detail.ce
                 if ([Utils canUseTouchID]) {
                     cell.nameLabel.text = @"使用TouchID解锁";
                 }
-                return cell;
-            }
-            if (indexPath.row == 2) {
-                TTLog(@"自动锁屏时间");
-                DetailCell *cell = (DetailCell *)[tableView dequeueReusableCellWithIdentifier:detailCellIdentifier];
-                cell.nameLabel.text = @"自动锁屏时间";
-                return cell;
-            }
-            if (indexPath.row == 3) {
-                TTLog(@"清理剪切板时间");
-                DetailCell *cell = (DetailCell *)[tableView dequeueReusableCellWithIdentifier:detailCellIdentifier];
-                cell.nameLabel.text = @"清理剪切板时间";
-                return cell;
-            }
-        } else {
-            if (indexPath.row == 0) {
-                SwitchCell *cell = (SwitchCell *)[tableView dequeueReusableCellWithIdentifier:switchCellIdentifier];
-                cell.nameLabel.text = @"使用密码";
+                cell.switchMenu.on = appConfig.userSystemLock;
+                cell.switchCallBack = ^(BOOL isOn) {
+                    AppConfig *cc = [AppConfig config];
+                    cc.userSystemLock = isOn;
+                    [AppConfig saveConfig:cc];
+                    [tableView reloadData];
+                };
                 return cell;
             }
             if (indexPath.row == 1) {
                 TTLog(@"自动锁屏时间");
                 DetailCell *cell = (DetailCell *)[tableView dequeueReusableCellWithIdentifier:detailCellIdentifier];
                 cell.nameLabel.text = @"自动锁屏时间";
+                cell.detailLabel.text = [self durationToDescription:appConfig.autoLockDuration];
                 return cell;
             }
             if (indexPath.row == 2) {
                 TTLog(@"清理剪切板时间");
                 DetailCell *cell = (DetailCell *)[tableView dequeueReusableCellWithIdentifier:detailCellIdentifier];
                 cell.nameLabel.text = @"清理剪切板时间";
+                cell.detailLabel.text = [self durationToDescription:appConfig.clearPasteboardDuration];
+                return cell;
+            }
+        } else {
+            if (indexPath.row == 0) {
+                TTLog(@"自动锁屏时间");
+                DetailCell *cell = (DetailCell *)[tableView dequeueReusableCellWithIdentifier:detailCellIdentifier];
+                cell.nameLabel.text = @"自动锁屏时间";
+                cell.detailLabel.text = [self durationToDescription:appConfig.autoLockDuration];
+                return cell;
+            }
+            if (indexPath.row == 1) {
+                TTLog(@"清理剪切板时间");
+                DetailCell *cell = (DetailCell *)[tableView dequeueReusableCellWithIdentifier:detailCellIdentifier];
+                cell.nameLabel.text = @"清理剪切板时间";
+                cell.detailLabel.text = [self durationToDescription:appConfig.clearPasteboardDuration];
                 return cell;
             }
         }
     }
-    
     
     if (indexPath.section == 2) {
         if (indexPath.row == 0) {
             TTLog(@"当前主题");
             DetailCell *cell = (DetailCell *)[tableView dequeueReusableCellWithIdentifier:detailCellIdentifier];
             cell.nameLabel.text = @"当前主题";
-            return cell;
-        }
-        if (indexPath.row == 1) {
-            TTLog(@"是否跟随系统主题设置");
-            SwitchCell *cell = (SwitchCell *)[tableView dequeueReusableCellWithIdentifier:switchCellIdentifier];
-            cell.nameLabel.text = @"是否跟随系统主题设置";
+            cell.detailLabel.text = [self themeDescriptionOfThemeValue:appConfig.mainTheme];
             return cell;
         }
     }
@@ -249,23 +239,28 @@ static NSString *detailCellIdentifier = @"com.password.package.setting.detail.ce
         if(indexPath.row == 0) {
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:normalCellIdentifier];
             cell.textLabel.text = @"意见反馈";
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+
             TTLog(@"意见反馈")
             return cell;
         }
         if (indexPath.row == 1) {
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:normalCellIdentifier];
             cell.textLabel.text = @"隐私协议";
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+
             TTLog(@"隐私协议");
             return cell;
         }
         if (indexPath.row == 2) {
             DetailCell *cell = (DetailCell *)[tableView dequeueReusableCellWithIdentifier:detailCellIdentifier];
-            cell.nameLabel.text = @"隐私协议";
+            cell.nameLabel.text = @"版本号";
+            NSString *shortVersion = [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"];
+            cell.detailLabel.text = [NSString stringWithFormat:@"v%@",shortVersion];
             TTLog(@"版本号");
             return cell;
         }
     }
-    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:normalCellIdentifier];
     return cell;
 }
@@ -309,11 +304,15 @@ static NSString *detailCellIdentifier = @"com.password.package.setting.detail.ce
     }
     
     if (indexPath.section == 1) {
-        if (indexPath.row == 2) {
+        NSInteger startIndex = 0;
+        if ([AppConfig config].userSystemLock) {
+            startIndex = 1;
+        }
+        if (indexPath.row == startIndex) {
             TTLog(@"自动锁屏时间");
             [self setAutoLockDuration];
         }
-        if (indexPath.row == 3) {
+        if (indexPath.row == startIndex + 1) {
             TTLog(@"清理剪切板时间");
             [self clearPasteboardDuration];
         }
@@ -323,9 +322,6 @@ static NSString *detailCellIdentifier = @"com.password.package.setting.detail.ce
         if (indexPath.row == 0) {
             TTLog(@"当前主题");
             [self selectThemeAction];
-        }
-        if (indexPath.row == 1) {
-            TTLog(@"是否跟随系统主题设置");
         }
     }
     
@@ -365,6 +361,10 @@ static NSString *detailCellIdentifier = @"com.password.package.setting.detail.ce
                                            withContent:contentData
                                             completion:^(UIDocument *cloudDocument, NSData *documentData, NSError *error) {
         if (error == nil) {
+            AppConfig *config = [AppConfig config];
+            config.lastUploadTimeStamp = [[NSDate date] timeIntervalSince1970];
+            [AppConfig saveConfig:config];
+            [self.tableView reloadData];
             [Utils showPopWithText:@"备份数据成功!"];
         } else {
             [Utils showPopWithText:@"备份数据失败,请重试!"];
@@ -401,12 +401,16 @@ static NSString *detailCellIdentifier = @"com.password.package.setting.detail.ce
                 [[NSNotificationCenter defaultCenter]
                  postNotificationName:PP_RETRIEVE_DATA_SUCCESS_NOTIFICATION
                                                                     object:nil];
+                AppConfig *config = [AppConfig config];
+                config.lastDownloadTimeStamp = [[NSDate date] timeIntervalSince1970];
+                [AppConfig saveConfig:config];
+                [self.tableView reloadData];
                 [Utils showPopWithText:@"恢复数据成功!"];
             } else {
                 [Utils showPopWithText:@"恢复数据失败,请重试!"];
             }
         } else {
-            TTLog(@"retrieve error = %@",error);
+            [Utils showPopWithText:@"恢复数据失败,请重试!"];
         }
     }];
     TTLog(@"downFromiClound");
@@ -417,6 +421,10 @@ static NSString *detailCellIdentifier = @"com.password.package.setting.detail.ce
 /// 自动锁屏的时间
 - (void)setAutoLockDuration {
     SetAutoLockViewController *sViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass([SetAutoLockViewController class])];
+    __weak SettingViewController *weakSelf = self;
+    sViewController.saveCallBack = ^{
+        [weakSelf.tableView reloadData];
+    };
     [self.navigationController presentViewController:sViewController animated:YES completion:^{}];
     TTLog(@"setAutoLockDuration");
 }
@@ -425,6 +433,10 @@ static NSString *detailCellIdentifier = @"com.password.package.setting.detail.ce
 /// 清理 剪切板的间隔
 - (void)clearPasteboardDuration {
     ClearPasteboardViewController *cViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass([ClearPasteboardViewController class])];
+    __weak SettingViewController *weakSelf = self;
+    cViewController.clearCallBack = ^{
+        [weakSelf.tableView reloadData];
+    };
     [self.navigationController presentViewController:cViewController animated:YES completion:^{}];
     TTLog(@"clearPasteboardDuration");
 }
@@ -433,6 +445,13 @@ static NSString *detailCellIdentifier = @"com.password.package.setting.detail.ce
 /// 选择主题
 - (void)selectThemeAction {
     TTLog(@"selectThemeAction");
+    SelectThemeViewController *sViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass([SelectThemeViewController class])];
+    __weak SettingViewController *weakSelf = self;
+    sViewController.selectThemeCallBack = ^{
+        [weakSelf.tableView reloadData];
+    };
+    [self.navigationController presentViewController:sViewController animated:YES completion:^{}];
+    
 }
 
 
@@ -551,12 +570,12 @@ static NSString *detailCellIdentifier = @"com.password.package.setting.detail.ce
     
 }
 - (void)iCloudFileUpdateDidBegin {
-    
+    TTLog(@"iCloudFileUpdateDidBegin");
 }
 
 
 - (void)iCloudFileUpdateDidEnd {
-    
+    TTLog(@"iCloudFileUpdateDidEnd");
 }
 
 - (void)iCloudFilesDidChange:(NSMutableArray *)files withNewFileNames:(NSMutableArray *)fileNames {
@@ -572,6 +591,100 @@ static NSString *detailCellIdentifier = @"com.password.package.setting.detail.ce
 #pragma MFMailConposeViewController Delegate
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(nullable NSError *)error {
     [controller dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+
+
+/// 将 时间间隔 转化为 时间描述
+/// @param duration 时间间隔
+- (NSString *)durationToDescription:(NSInteger)duration {
+    ///   默认是 立刻  10秒 30秒 1分钟 5分钟 10分钟
+    ///   10秒 30秒 1分钟 2分钟 5分钟 从不
+    if (duration == 0) {
+        return @"立刻";
+    }
+    if (duration == PP_NEVER_TO_DO_TAG) {
+        return @"从不";
+    }
+    NSInteger t1 = duration % 60;
+    NSInteger t2 = duration / 60;
+    if (t1 != 0) {
+        return [NSString stringWithFormat:@"%ld秒",(long)duration];
+    }
+    if (t1 == 0) {
+        return [NSString stringWithFormat:@"%ld分钟",(long)t2];
+    }
+    return @"";
+}
+
+
+/// 将时间戳转换为时间描述
+/// @param timestamp 时间戳
+- (NSString *)timeDescriptionWithTimeStamp:(NSInteger)timestamp {
+    
+    NSInteger currentTimeStamp = [[NSDate new] timeIntervalSince1970];
+    NSInteger duration = currentTimeStamp - timestamp;
+    if (duration < 60) {
+        return @"刚刚";
+    }
+    if (duration > 60 && duration < 120) {
+        return @"1分钟以前";
+    }
+    if (duration > 120 && duration < 300) {
+        return @"2分钟以前";
+    }
+    if (duration > 300 && duration < 600) {
+        return @"5分钟以前";
+    }
+    if (duration > 600 && duration < 60 * 30) {
+        return @"10分钟以前";
+    }
+    if (duration > 60 * 30 && duration < 60 * 60) {
+        return @"30分钟以前";
+    }
+    if (duration > 60 * 60 && duration < 60 * 60 * 2) {
+        return @"1小时前";
+    }
+    if (currentTimeStamp == duration) {
+        return @"从未";
+    }
+    NSDate *detailDate=[NSDate dateWithTimeIntervalSince1970:timestamp];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init]; //实例化一个NSDateFormatter对象
+   //设定时间格式,这里可以设置成自己需要的格式
+       [dateFormatter setDateFormat:@"MM-dd HH:mm:ss"];
+    NSString *currentDateStr = [dateFormatter stringFromDate: detailDate];
+    return currentDateStr;
+}
+
+
+
+/// 有 theme主题返回主题描述
+/// @param theme 主题的值
+- (NSString *)themeDescriptionOfThemeValue:(PPTheme)theme {
+    switch (theme) {
+        case PP_THEME_WHITE:
+            return @"白色";
+            break;
+        case PP_THEME_RED:
+            return @"红色";
+            break;
+        case PP_THEME_BLUE:
+            return @"蓝色";
+            break;
+        case PP_THEME_GREEN:
+            return @"绿色";
+            break;
+        case PP_THEME_PURPLE:
+            return @"紫色";
+            break;
+        case PP_THEME_BLACK:
+            return @"暗黑";
+            break;
+        default:
+            break;
+    }
+    return @"默认";
 }
 
 

@@ -96,7 +96,11 @@
     if (_coverView == nil) {
         _coverView = [[CoverView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     }
-    _coverView.backgroundColor = [UIColor whiteColor];
+    if (@available(iOS 13.0, *)) {
+        _coverView.backgroundColor = [UIColor systemBackgroundColor];
+    } else {
+        _coverView.backgroundColor = [UIColor whiteColor];
+    }
     _coverView.alpha = 0.9;
     return _coverView;
 }

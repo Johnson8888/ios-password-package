@@ -10,8 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef void(^ClearPasteboardCallBack)(void);
+
 @interface ClearPasteboardViewController : UIViewController
 
+@property (nonatomic,copy) ClearPasteboardCallBack clearCallBack;
 @end
 
 NS_ASSUME_NONNULL_END

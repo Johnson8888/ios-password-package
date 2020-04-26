@@ -8,12 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^SwitchActionCallBack)(BOOL isOn);
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SwitchCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UISwitch *switchMenu;
 
+@property (nonatomic,copy) SwitchActionCallBack switchCallBack;
 @end
 
 NS_ASSUME_NONNULL_END

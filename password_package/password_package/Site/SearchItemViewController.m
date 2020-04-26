@@ -249,6 +249,18 @@ PYSearchViewControllerDataSource
     return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 15.0f;
+}
+
+
+
+//- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
+//    view.backgroundColor = [UIColor blackColor];
+//    UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
+//    [header.textLabel setTextColor:[UIColor whiteColor]];
+//}
+
 - (NSInteger)searchSuggestionView:(UITableView *)searchSuggestionView
             numberOfRowsInSection:(NSInteger)section {
     return self.resultDataArray.count;

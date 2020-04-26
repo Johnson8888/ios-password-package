@@ -40,6 +40,7 @@
 		F36A3AE22452D74200208EB5 /* SwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F36A3AE02452D74200208EB5 /* SwitchCell.xib */; };
 		F36A3AE62452DA8100208EB5 /* DetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F36A3AE42452DA8100208EB5 /* DetailCell.m */; };
 		F36A3AE72452DA8100208EB5 /* DetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F36A3AE52452DA8100208EB5 /* DetailCell.xib */; };
+		F36A3AEB2455A4E200208EB5 /* SelectThemeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F36A3AEA2455A4E200208EB5 /* SelectThemeViewController.m */; };
 		F36A890324348C520003FF39 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F36A890224348C520003FF39 /* AppDelegate.m */; };
 		F36A890624348C520003FF39 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F36A890524348C520003FF39 /* SceneDelegate.m */; };
 		F36A890924348C520003FF39 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F36A890824348C520003FF39 /* MainViewController.m */; };
@@ -130,6 +131,8 @@
 		F36A3AE32452DA8100208EB5 /* DetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailCell.h; sourceTree = "<group>"; };
 		F36A3AE42452DA8100208EB5 /* DetailCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailCell.m; sourceTree = "<group>"; };
 		F36A3AE52452DA8100208EB5 /* DetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailCell.xib; sourceTree = "<group>"; };
+		F36A3AE92455A4E200208EB5 /* SelectThemeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectThemeViewController.h; sourceTree = "<group>"; };
+		F36A3AEA2455A4E200208EB5 /* SelectThemeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectThemeViewController.m; sourceTree = "<group>"; };
 		F36A88FE24348C520003FF39 /* PasswordPackage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PasswordPackage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F36A890124348C520003FF39 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F36A890224348C520003FF39 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -325,6 +328,8 @@
 				F3388570244EBB4300343549 /* SetAutoLockViewController.m */,
 				F3F2ED1A244D903000B7FEC3 /* ClearPasteboardViewController.h */,
 				F3F2ED1B244D903000B7FEC3 /* ClearPasteboardViewController.m */,
+				F36A3AE92455A4E200208EB5 /* SelectThemeViewController.h */,
+				F36A3AEA2455A4E200208EB5 /* SelectThemeViewController.m */,
 				F36A3AE32452DA8100208EB5 /* DetailCell.h */,
 				F36A3AE42452DA8100208EB5 /* DetailCell.m */,
 				F36A3AE52452DA8100208EB5 /* DetailCell.xib */,
@@ -611,6 +616,7 @@
 				F3C7F6E8243C469000F45EBD /* HWCenterViewController.m in Sources */,
 				F3C9D98D2440237500BAD7EA /* PPBankCardModel.m in Sources */,
 				F36A890624348C520003FF39 /* SceneDelegate.m in Sources */,
+				F36A3AEB2455A4E200208EB5 /* SelectThemeViewController.m in Sources */,
 				F3C7F6F2243C46AA00F45EBD /* HWAnimationConfigListViewController.m in Sources */,
 				F3253246243C969800BCEA3E /* SearchItemViewCell.m in Sources */,
 				F37A6F962445E321004EDF84 /* MainTabBarController.m in Sources */,
