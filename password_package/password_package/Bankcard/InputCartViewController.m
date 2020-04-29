@@ -10,7 +10,9 @@
 #import "PPBankCardModel.h"
 #import "PPDataManager.h"
 #import <AFNetworking.h>
+#import <ProgressHUD/ProgressHUD.h>
 #import "BankCardResponse.h"
+#import <UITextView+Placeholder/UITextView+Placeholder.h>
 
 @interface InputCartViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
@@ -55,22 +57,28 @@
         self.cvvTF.text = self.editModel.cvvCode;
         self.pinTF.text = self.editModel.pin;
         self.describe.text = self.editModel.describe;
-        
         TTLog(@"编辑模式 model = %@",self.editModel);
         
     } else {
         self.bankCardModel = [[PPBankCardModel alloc] init];
+        self.describe.placeholder = @"请输入备注(可选)";
+        if (@available(iOS 13.0, *)) {
+            self.describe.placeholderColor = [UIColor labelColor];
+        } else {
+            self.describe.placeholderColor = [UIColor darkTextColor];
+        }
     }
-    
 }
 
 
+
 - (IBAction)pressedConfirmButton:(id)sender {
-    
     if (self.accountTF.text.length == 0) {
+        [ProgressHUD showError:@"请输入银行卡号!"];
         return;
     }
     if (self.passwordTF.text.length == 0) {
+        [ProgressHUD showError:@"请输入密码!"];
         return;
     }
     

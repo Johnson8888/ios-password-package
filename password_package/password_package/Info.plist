@@ -29,6 +29,29 @@
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleIcons</key>
+	<dict>
+		<key>CFBundlePrimaryIcon</key>
+		<dict>
+			<key>CFBundleIconFiles</key>
+			<array>
+				<string></string>
+			</array>
+			<key>UIPrerenderedIcon</key>
+			<false/>
+		</dict>
+		<key>UINewsstandIcon</key>
+		<dict>
+			<key>CFBundleIconFiles</key>
+			<array>
+				<string></string>
+			</array>
+			<key>UINewsstandBindingType</key>
+			<string>UINewsstandBindingTypeMagazine</string>
+			<key>UINewsstandBindingEdge</key>
+			<string>UINewsstandBindingEdgeLeft</string>
+		</dict>
+	</dict>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -41,6 +64,22 @@
 	<string>1</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>neteasemail</string>
+		<string>BaiduSSO</string>
+		<string>baiduyun</string>
+		<string>doubanradio</string>
+		<string>zhihu</string>
+		<string>openapp.jdMobile</string>
+		<string>xiami</string>
+		<string>googlechrome</string>
+		<string>evernote</string>
+		<string>youdaonote</string>
+		<string>cn.12306</string>
+		<string>dingtalk</string>
+		<string>alipay</string>
+		<string>weixin</string>
+		<string>mqq</string>
+		<string>weibo</string>
 		<string>brave</string>
 		<string>firefox</string>
 		<string>havecake</string>

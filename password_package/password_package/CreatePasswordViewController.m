@@ -14,7 +14,8 @@
 #import <Masonry.h>
 
 
-@interface CreatePasswordViewController ()
+@interface CreatePasswordViewController ()<UITableViewDataSource>
+
 @property (weak, nonatomic) IBOutlet UILabel *lengthLabel;
 @property (weak, nonatomic) IBOutlet UISlider *lengthSlider;
 @property (weak, nonatomic) IBOutlet UISwitch *length8Switch;
@@ -29,11 +30,14 @@
 @property (nonatomic,assign) PPNumberType currentNumberType;
 @property (nonatomic,assign) PPLetterType currentLetterType;
 @property (nonatomic,assign) BOOL isOtherCharacter;
+@property (nonatomic,strong) NSArray *titleArray;
+
 @end
 
 @implementation CreatePasswordViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     self.isOtherCharacter = NO;
     self.lengthSlider.minimumValue = 6;
@@ -41,27 +45,13 @@
     self.currentLetterType = PPUpAndLowLetter;
     self.currentNumberType = PPNumberAndLetter;
     self.lengthSlider.value = 8;
-    
-    UIButton *closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [closeButton setImage:[[UIImage imageNamed:@"btn_close_circle_white"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
-                     forState:UIControlStateNormal];
-    closeButton.tintColor = SYSTEM_COLOR;
-    [self.view addSubview:closeButton];
-    [closeButton addTarget:self
-                    action:@selector(pressedCloseButton:)
-          forControlEvents:UIControlEventTouchUpInside];
-    
-    [closeButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(@36);
-        make.height.equalTo(@36);
-        make.right.equalTo(self.view).offset(-30);
-        make.top.equalTo(@30);
-    }];
+    self.titleArray = @[@"长度",@"字母组合",@"大小写",@"特殊字符"];
 }
 
-- (void)pressedCloseButton:(id)sender {
+- (IBAction)closeAction:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
 
 - (IBAction)lengthSliderAction:(UISlider *)slider {
     
@@ -119,6 +109,7 @@
         self.currentNumberType = PPAllLetter;
     }
 }
+
 - (IBAction)allLetterSwitchAction:(UISwitch *)switchItem {
     BOOL isOn = switchItem.on;
     if (isOn) {
@@ -131,6 +122,7 @@
         self.currentNumberType = PPAllNumber;
     }
 }
+
 - (IBAction)numberAndLetterSwitchAction:(UISwitch *)switchItem {
     BOOL isOn = switchItem.on;
     if (isOn) {
@@ -157,6 +149,7 @@
         self.currentLetterType = PPLowLetter;
     }
 }
+
 - (IBAction)lowLetterSwitchAction:(UISwitch *)switchItem {
     BOOL isOn = switchItem.on;
     if (isOn) {
@@ -169,6 +162,7 @@
         self.currentLetterType = PPUpLetter;
     }
 }
+
 - (IBAction)upAndLowLetterSwitchAction:(UISwitch *)switchItem {
     BOOL isOn = switchItem.on;
     if (isOn) {
@@ -181,6 +175,7 @@
         self.currentLetterType = PPLowLetter;
     }
 }
+
 - (IBAction)otherCharacterSwitchAction:(UISwitch *)switchItem {
     self.isOtherCharacter = switchItem.isOn;
 }
@@ -232,5 +227,18 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
+        return 40.0f;
+    }
+    return 20.0f;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return self.titleArray[section];
+}
+
 
 @end

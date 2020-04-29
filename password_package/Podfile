@@ -25,6 +25,7 @@ pod 'TZImagePickerController'
 pod 'CYLTabBarController'
 pod 'ProgressHUD'
 pod 'LEETheme'
+pod 'UITextView+Placeholder'
 
 
 end

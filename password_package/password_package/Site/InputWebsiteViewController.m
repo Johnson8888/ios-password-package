@@ -9,6 +9,8 @@
 #import "InputWebsiteViewController.h"
 #import "PPWebsiteModel.h"
 #import "PPDataManager.h"
+#import <ProgressHUD/ProgressHUD.h>
+#import <UITextView+Placeholder/UITextView+Placeholder.h>
 #import "CreatePasswordViewController.h"
 #import "CreatePasswordViewController.h"
 #import <TZImagePickerController/TZImagePickerController.h>
@@ -54,6 +56,12 @@
         self.iconLabel.text = self.webSiteName;
         self.insertModel.title = self.iconLabel.text;
         self.insertModel.iconImg = UIImagePNGRepresentation(self.iconImageView.image);
+        self.describeTextView.placeholder = @"请输入备注(可选)";
+        if (@available(iOS 13.0, *)) {
+            self.describeTextView.placeholderColor = [UIColor labelColor];
+        } else {
+            self.describeTextView.placeholderColor = [UIColor darkTextColor];
+        }
     }
 
 }
@@ -68,12 +76,13 @@
     [self dismissViewControllerAnimated:YES completion:^{}];
 }
 
-- (IBAction)pressedFinishButton:(id)sender {
-    
+- (IBAction)pressedFinishButton:(id)sender {    
     if (self.accountTF.text.length == 0 || self.accountTF.text == nil) {
+        [ProgressHUD showError:@"请输入账户名!"];
         return;
     }
     if (self.passwordTF.text.length == 0 || self.passwordTF.text == nil) {
+        [ProgressHUD showError:@"请输入密码!"];
         return;
     }
     
@@ -100,7 +109,7 @@
         self.insertModel.describe = self.describeTextView.text;
         BOOL isSuccess = [[PPDataManager sharedInstance] insertWebsiteWithModel:self.insertModel];
         if (isSuccess) {
-            TTLog(@"插入成功 需要返回");
+            TTLog(@"插入成功 需要返回 循环返回");
             UIViewController *present = self.presentingViewController;
             while (YES) {
                 if (present.presentingViewController) {
@@ -113,10 +122,9 @@
                                                                 object:nil];
             [present dismissViewControllerAnimated:YES completion:nil];
         } else {
-            TTLog(@"插入失败");
+            [ProgressHUD showError:@"保存数据失败,请重试!"];
         }
     }
-    
 }
 
 - (IBAction)pressedCreatePasswrodButton:(id)sender {
@@ -126,7 +134,6 @@
         self.passwordTF.text = pwd;
         [viewController dismissViewControllerAnimated:YES completion:nil];
     };
-    
     cViewController.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:cViewController animated:YES completion:nil];
 }
@@ -145,7 +152,6 @@
 #pragma mark - 五类个性化设置，这些参数都可以不传，此时会走默认设置
     /// 允许选择原图
     imagePickerVc.isSelectOriginalPhoto = YES;
-    
     imagePickerVc.allowTakePicture = YES; // 在内部显示拍照按钮
     [imagePickerVc setUiImagePickerControllerSettingBlock:^(UIImagePickerController *imagePickerController) {
         imagePickerController.videoQuality = UIImagePickerControllerQualityTypeHigh;
@@ -180,13 +186,11 @@
     imagePickerVc.allowPickingOriginalPhoto = NO;
     imagePickerVc.allowPickingGif = NO;
     imagePickerVc.allowPickingMultipleVideo = NO; // 是否可以多选视频
-    
     // 4. 照片排列按修改时间升序
     imagePickerVc.sortAscendingByModificationDate = YES;
     
     // imagePickerVc.minImagesCount = 3;
     // imagePickerVc.alwaysEnableDoneBtn = YES;
-    
     // imagePickerVc.minPhotoWidthSelectable = 3000;
     // imagePickerVc.minPhotoHeightSelectable = 2000;
     
@@ -220,8 +224,8 @@
     */
     
     // imagePickerVc.isStatusBarDefault = NO;
-    imagePickerVc.statusBarStyle = UIStatusBarStyleLightContent;
     
+    imagePickerVc.statusBarStyle = UIStatusBarStyleLightContent;
     // 设置是否显示图片序号
     imagePickerVc.showSelectedIndex = NO;
     imagePickerVc.allowCameraLocation = NO;

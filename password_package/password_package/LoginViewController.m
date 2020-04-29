@@ -16,7 +16,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     BOOL canUseFaceID = [Utils canUseFaceID];
     BOOL canUseTouchID = [Utils canUseTouchID];
     NSLog(@"canUseFaceID = %d canUseTouchID = %d",canUseFaceID,canUseTouchID);

@@ -62,13 +62,14 @@
                                              selector:@selector(refreshData)
                                                  name:PP_RETRIEVE_DATA_SUCCESS_NOTIFICATION
                                                object:nil];
-//    [self showEmptyMessageView];
     
     self.tableView.rowHeight = 64.0f;
+    
     self.tableView.tableFooterView = [[UIView alloc] init];
     NSArray *arrayLeft = @[@"按钮1",@"按钮2",@"按钮3"];
     //相应数组
-    CSYGroupButtonView *groupButton = [[CSYGroupButtonView alloc]initWithFrame:CGRectMake(self.view.bounds.size.width - 85, self.view.bounds.size.height - 100 - 65, 65, 65) mainButtonTitle:@"添加" selectedTitle:@"添加" otherButtonsTitle:arrayLeft];
+    CSYGroupButtonView *groupButton = [[CSYGroupButtonView alloc]initWithFrame:CGRectMake(self.view.bounds.size.width - 65, self.view.bounds.size.height - 100 - 45, 45, 45) mainButtonTitle:@"" selectedTitle:@"" otherButtonsTitle:arrayLeft];
+    
     groupButton.ButtonClickBlock = ^(UIButton *btn) {
         NSLog(@"%@ tag=%ld",btn.titleLabel.text,(long)btn.tag);
         if (btn.tag == 1) {
@@ -77,7 +78,11 @@
         if (btn.tag == 2) {
             [self showSelectedItemViewController];
         }
+        if (btn.tag == 3) {
+            TTLog(@"this is tag == 3");
+        }
     };
+    
     
     [self.view addSubview:groupButton];
     TTLog(@"view did load");
@@ -85,7 +90,10 @@
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([SearchItemViewCell class]) bundle:nil] forCellReuseIdentifier:@"com.main.view.controller.search.item.cell"];
     
     
-    /*
+    //    [self showEmptyMessageView];
+    
+    
+    /* 不能删除
     NSString *lastPwd = [WUGesturesUnlockViewController gesturesPassword];
     /// 如果没有密码 就创建密码
     TTLog(@"lastPwd == %@",lastPwd);
@@ -100,6 +108,9 @@
     }
     */
     
+    
+    BOOL canOpen = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"weixin://"]];
+    TTLog(@"canOpen = %d",canOpen);
 }
 
 

@@ -18,7 +18,7 @@
 
 /*!  京东   印象笔记   豆瓣 12306 支付宝
  *
- * 常用的网站地址 微信 QQ 京东 淘宝 豆瓣 知乎 百度 微博 支付宝 网易邮箱 QQ邮箱 12306 印象笔记 百度网盘 Github
+ * 常用的网站地址 微信 QQ 淘宝 京东 微博 支付宝 豆瓣 12306 印象笔记  知乎 百度 百度网盘 网易邮箱 QQ邮箱  Github
  *  中国工商银行
  *  中国建设银
  *  中国银行
@@ -45,7 +45,6 @@ PYSearchViewControllerDataSource
 >
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
 /// 当前页面显示的数据
 @property (nonatomic,strong) NSMutableDictionary *dataDictionary;
 /// 被 搜索数据的数组
@@ -73,18 +72,32 @@ PYSearchViewControllerDataSource
     self.resultDataArray = [NSMutableArray array];
     
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 64)];
-    headerView.backgroundColor = [UIColor redColor];
     UIButton *searchButton = [UIButton buttonWithType:UIButtonTypeCustom];
     searchButton.frame = CGRectMake(0, 10, headerView.bounds.size.width, 44);
-    searchButton.backgroundColor = [UIColor blueColor];
+    [searchButton setTitle:@"Search" forState:UIControlStateNormal];
+    [searchButton setTintColor:SYSTEM_COLOR];
+    [searchButton setTitleColor:SYSTEM_COLOR forState:UIControlStateNormal];
     [searchButton addTarget:self
                      action:@selector(pressedSearchButton:)
            forControlEvents:UIControlEventTouchUpInside];
     [headerView addSubview:searchButton];
+    
+    
+    UIButton *closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [closeButton setImage:[[UIImage imageNamed:@"btn_close_circle_white"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
+                     forState:UIControlStateNormal];
+    closeButton.tintColor = SYSTEM_COLOR;
+    [headerView addSubview:closeButton];
+    [closeButton addTarget:self
+                    action:@selector(pressedCloseButton:)
+          forControlEvents:UIControlEventTouchUpInside];
+    closeButton.frame = CGRectMake([UIScreen mainScreen].bounds.size.width - 76, 30, 36, 36);
     self.tableView.tableHeaderView = headerView;
     
-    self.tableView.rowHeight = 64.0f;
     
+    
+    
+    self.tableView.rowHeight = 64.0f;
     SCIndexViewConfiguration *configuration = [SCIndexViewConfiguration configuration];
     configuration.indicatorTextColor = SYSTEM_COLOR;
     self.tableView.sc_indexViewConfiguration = configuration;
@@ -118,7 +131,6 @@ PYSearchViewControllerDataSource
             [array addObject:webSiteName];
             self.dataDictionary[startCharacter] = array;
         }
-//        TTLog(@"webSiteName = %@",webSiteName);
     }
     
     self.tableView.sectionIndexColor = [UIColor blackColor];
@@ -126,32 +138,14 @@ PYSearchViewControllerDataSource
     
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([SearchItemViewCell class]) bundle:nil] forCellReuseIdentifier:@"password.package.search.item.cell.identifier"];
     
-    
     NSMutableArray *mutableKeysArray = [NSMutableArray arrayWithArray:self.dataDictionary.allKeys];
     NSMutableArray *sortedArray = [self paixuWith:mutableKeysArray];
     [sortedArray removeObjectAtIndex:0];
     
     self.tableView.sc_indexViewDataSource = sortedArray.copy;
     self.tableView.sc_startSection = 0;
-    
     [self.tableView reloadData];
     
-        
-    UIButton *closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [closeButton setImage:[[UIImage imageNamed:@"btn_close_circle_white"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
-                     forState:UIControlStateNormal];
-    closeButton.tintColor = SYSTEM_COLOR;
-    [self.view addSubview:closeButton];
-    [closeButton addTarget:self
-                    action:@selector(pressedCloseButton:)
-          forControlEvents:UIControlEventTouchUpInside];
-    
-    [closeButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(@36);
-        make.height.equalTo(@36);
-        make.right.equalTo(self.view).offset(-30);
-        make.top.equalTo(@30);
-    }];
 }
 
 
@@ -189,6 +183,7 @@ PYSearchViewControllerDataSource
     InputWebsiteViewController *inputViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass([InputWebsiteViewController class])];
     SearchItemViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     inputViewController.webSiteName = cell.websiteName;
+    inputViewController.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:inputViewController animated:YES completion:nil];
 }
 
@@ -255,11 +250,6 @@ PYSearchViewControllerDataSource
 
 
 
-//- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
-//    view.backgroundColor = [UIColor blackColor];
-//    UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
-//    [header.textLabel setTextColor:[UIColor whiteColor]];
-//}
 
 - (NSInteger)searchSuggestionView:(UITableView *)searchSuggestionView
             numberOfRowsInSection:(NSInteger)section {

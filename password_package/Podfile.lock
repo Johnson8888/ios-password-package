@@ -49,6 +49,7 @@ PODS:
     - WCDBOptimizedSQLCipher (~> 1.2.0)
   - SVProgressHUD (2.2.5)
   - TZImagePickerController (3.3.1)
+  - "UITextView+Placeholder (1.4.0)"
   - WCDB (1.0.7.5):
     - SQLiteRepairKit (~> 1.2.0)
     - WCDBOptimizedSQLCipher (~> 1.2.0)
@@ -75,6 +76,7 @@ DEPENDENCIES:
   - SDWebImage
   - SVProgressHUD
   - TZImagePickerController
+  - "UITextView+Placeholder"
   - WCDB
 
 SPEC REPOS:
@@ -100,6 +102,7 @@ SPEC REPOS:
     - SQLiteRepairKit
     - SVProgressHUD
     - TZImagePickerController
+    - "UITextView+Placeholder"
     - WCDB
     - WCDBOptimizedSQLCipher
 
@@ -125,9 +128,10 @@ SPEC CHECKSUMS:
   SQLiteRepairKit: 35aaae5a8838adb85f5b1eb4d796055be6060a4b
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   TZImagePickerController: 99f03b64145a8c92c55b9b1b931410967d9be4cb
+  "UITextView+Placeholder": d7b0c400921f66523f3a85d74f774512e14f6502
   WCDB: 8e90babdeb7784c569353a4bd22a66c0a175a882
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
 
-PODFILE CHECKSUM: 4c0e8fce0a1291d56b94168ecc06e9d550025f93
+PODFILE CHECKSUM: cf28ba1df64330f88e270d2c9dd28a810fa0c7e8
 
 COCOAPODS: 1.8.4

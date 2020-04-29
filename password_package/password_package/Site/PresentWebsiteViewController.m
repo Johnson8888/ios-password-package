@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIView *bgView;
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *launchViewHeightConstraints;
 
 @end
 
@@ -148,6 +149,7 @@
 }
 
 
+
 /// 处理点击空白区域 让页面消失
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
         shouldReceiveTouch:(UITouch *)touch {
@@ -156,6 +158,7 @@
     }
     return YES;
 }
+
 
 
 

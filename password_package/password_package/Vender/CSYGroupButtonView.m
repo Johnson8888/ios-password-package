@@ -22,50 +22,33 @@ static const int fontSize = 10.0;
 
 @implementation CSYGroupButtonView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 
 
--(instancetype)initWithFrame:(CGRect)frame mainButtonTitle:(NSString *)title selectedTitle:(NSString *)selectedTitle otherButtonsTitle:(NSArray<NSString *> *)subButtonsTitle_Array
-{
+-(instancetype)initWithFrame:(CGRect)frame
+             mainButtonTitle:(NSString *)title
+               selectedTitle:(NSString *)selectedTitle
+           otherButtonsTitle:(NSArray<NSString *> *)subButtonsTitle_Array {
+    
     self = [super initWithFrame:frame];
     if (self) {
         self.frame = frame;
         rectFrame = frame;
-        //        self.backgroundColor = [UIColor redColor];
-        
         self.unSelectedTitle = title;   //没被选择的显示按钮
         self.selectedTitle = selectedTitle;  //被选择之后显示的按钮
         self.subButtonsTitle_Array = subButtonsTitle_Array;  //其他要显示的按钮的标题
-        self.SpaceDistance = 0;  //设置间距
+        self.SpaceDistance = 10;  //设置间距
         [self layoutAddViewBy:self];
         
         UIButton *mainBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-//        [mainBtn setBackgroundColor:[UIColor blackColor]];
         [mainBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [mainBtn setBackgroundColor:[UIColor whiteColor]];
         mainBtn.titleLabel.font = [UIFont systemFontOfSize:fontSize];
-
+        [mainBtn setImage:[UIImage imageNamed:@"add_button"] forState:UIControlStateNormal];
+        [mainBtn setTintColor:SYSTEM_COLOR];
+        [mainBtn setBackgroundColor:[UIColor whiteColor]];
         mainBtn.frame = self.bounds;
         mainBtn.tag = 0;
-        //        [mainBtn setBackgroundImage:[UIImage imageNamed:imag] forState:0];
-        [mainBtn setTitle:title forState:UIControlStateNormal];  //设置标题
         
-        //        mainBtn.layer.cornerRadius = CGRectGetWidth(frame)/2;
-        //        self.layer.cornerRadius = CGRectGetWidth(frame)/2;
-        //        self.clipsToBounds = YES;
         [mainBtn addTarget:self action:@selector(buttonClick:) forControlEvents:5];
-        
-        
-        [mainBtn.layer setBorderWidth:1.0];  //设置边框大小
-        [mainBtn.layer setBorderColor:[UIColor blackColor].CGColor];  //设置边框颜色
-        
-        
         mainBtn.selected = NO;  //设置未被选择
         [self addSubview:mainBtn];
         self.mainButton = mainBtn;
@@ -74,44 +57,35 @@ static const int fontSize = 10.0;
 }
 
 #pragma -mark 按钮点击事件
--(void)buttonClick:(UIButton*)button
-{
+-(void)buttonClick:(UIButton*)button {
     [self setAnimation];
     if (button.tag == 0) {
         NSString * string = button.selected == NO ? self.unSelectedTitle : self.selectedTitle;
-        //        [button setBackgroundImage:[UIImage imageNamed:string] forState:0];
         [button setTitle:string forState:UIControlStateNormal];
     } else {
         
-        for (UIButton* btn in otherButtons)
-        {
+        for (UIButton* btn in otherButtons) {
             btn.selected = NO;
             [btn setBackgroundColor:[UIColor whiteColor]];
         }
-        
         button.selected = YES;
-//        [button setBackgroundColor:[UIColor orangeColor]];
-        for (UIButton* btn in otherButtons)
-        {
+        for (UIButton* btn in otherButtons) {
             if(btn.selected == YES)
                [btn setBackgroundColor:[UIColor orangeColor]];
         }
     }
-    
-    
-    
     if (self.ButtonClickBlock) {
         self.ButtonClickBlock(button);
     }
-    
-    
 }
 
 #pragma -mark  设置动画
--(void)setAnimation
-{
-    [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.5 initialSpringVelocity:10 options:UIViewAnimationOptionLayoutSubviews animations:^{
-        
+-(void)setAnimation {
+    [UIView animateWithDuration:0.3
+                          delay:0
+         usingSpringWithDamping:1.0
+          initialSpringVelocity:10
+                        options:UIViewAnimationOptionLayoutSubviews animations:^{
         //如果已经被选择则收回 否则则移除
         self.mainButton.selected == YES ? [self back]:[self move];
     } completion:^(BOOL finished) {
@@ -120,9 +94,7 @@ static const int fontSize = 10.0;
     self.mainButton.selected = !self.mainButton.selected;
 }
 #pragma -mark 弹出
--(void)move
-{
- 
+-(void)move {
     myImageView.alpha = 0;
     //调整视图大小，响应点击事件
     CGRect bounds = self.frame;
@@ -139,8 +111,7 @@ static const int fontSize = 10.0;
     self.mainButton.frame = mainBtnBounds;
     
     //设置二级按钮响应事件
-    for (int i = 0; i < otherButtons.count; i++)
-    {
+    for (int i = 0; i < otherButtons.count; i++) {
         //获得button
         UIButton *button = otherButtons[otherButtons.count - 1 - i];
         CGRect rect = button.frame;
@@ -148,13 +119,11 @@ static const int fontSize = 10.0;
         rect.origin.y = (i * (CGRectGetHeight(rect) + self.SpaceDistance));
         button.frame = rect;
     }
-    
 }
+
 #pragma -mark 收起
--(void)back
-{
+-(void)back {
     myImageView.alpha = 1;
-    
     for (int i = 0;  i< otherButtons.count; i++) {
         UIButton *button = otherButtons[i];
         button.frame = self.mainButton.bounds;
@@ -170,12 +139,12 @@ static const int fontSize = 10.0;
     for (int i = 0; i < self.subButtonsTitle_Array.count; i++) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.frame = self.bounds;  //根据主按钮的形状
-//        [button setBackgroundColor:[UIColor blackColor]];
-        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [button.layer setBorderWidth:1.0];  //设置边框大小
-        [button.layer setBorderColor:[UIColor blackColor].CGColor];  //设置边框颜色
-//        [button setBackgroundImage:[UIColor whiteColor] forState:UIControlStateNormal];
-        [button setBackgroundColor:[UIColor whiteColor]];
+
+//        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//        [button.layer setBorderWidth:1.0];  //设置边框大小
+//        [button.layer setBorderColor:[UIColor blackColor].CGColor];  //设置边框颜色
+        
+        [button setBackgroundColor:SYSTEM_COLOR];
         button.titleLabel.font = [UIFont systemFontOfSize:fontSize];
         button.tag = 1 + i;  //设置tag
         [button setTitle:self.subButtonsTitle_Array[i] forState:UIControlStateNormal];

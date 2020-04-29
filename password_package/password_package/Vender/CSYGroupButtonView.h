@@ -20,7 +20,10 @@ typedef void(^buttonClickBlock)(UIButton*button);
 
 @property(copy,nonatomic)buttonClickBlock ButtonClickBlock;
 
--(instancetype)initWithFrame:(CGRect)frame mainButtonTitle:(NSString*)title selectedTitle:(NSString*)selectedTitle otherButtonsTitle:(NSArray<NSString*>*)subButtonsTitle_Array;
+-(instancetype)initWithFrame:(CGRect)frame
+             mainButtonTitle:(NSString*)title
+               selectedTitle:(NSString*)selectedTitle
+           otherButtonsTitle:(NSArray<NSString*>*)subButtonsTitle_Array;
 
 @end
 
