@@ -13,6 +13,7 @@
 
 @interface PresentBankCardViewController ()<UIGestureRecognizerDelegate>
 @property (weak, nonatomic) IBOutlet UIView *bgView;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 
 @end
 
@@ -25,6 +26,7 @@
     // view
     // edit
     // delete
+//    self.nameLabel.text = self.bankCardModel.
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
     self.view.userInteractionEnabled = YES;
     tapGesture.delegate = self;
