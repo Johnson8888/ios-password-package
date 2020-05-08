@@ -9,11 +9,12 @@
 #import "PresentBankCardViewController.h"
 #import "PPBankCardModel.h"
 #import "PPDataManager.h"
+#import <SDWebImage.h>
 #import "Utils.h"
 
 @interface PresentBankCardViewController ()<UIGestureRecognizerDelegate>
 @property (weak, nonatomic) IBOutlet UIView *bgView;
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *logoImageVeiw;
 
 @end
 
@@ -23,14 +24,14 @@
     
     [super viewDidLoad];
     
-    // view
-    // edit
-    // delete
-//    self.nameLabel.text = self.bankCardModel.
+    
+    self.view.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.5];
+    
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
     self.view.userInteractionEnabled = YES;
     tapGesture.delegate = self;
     [self.view addGestureRecognizer:tapGesture];
+    [self.logoImageVeiw sd_setImageWithURL:[NSURL URLWithString:self.bankCardModel.logoImageUrl]];
     
 }
 

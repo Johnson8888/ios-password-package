@@ -21,6 +21,7 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 }
+
 - (IBAction)switchAction:(id)sender {
     if (self.switchCallBack) {
         self.switchCallBack(self.switchMenu.isOn);

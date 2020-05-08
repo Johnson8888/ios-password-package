@@ -47,10 +47,11 @@ password 密码       text
 cvvCode  cvv码      text
 pin   pin码         text
 describe 描述       text
+logoImageUrl       text
 ctime 时间戳        integer
 */
 
-#define SQL_CREATE_BANKCARD [NSString stringWithFormat:@"create table if not exists %@(id INTEGER PRIMARY KEY AUTOINCREMENT,frontImg blob, type integer, expireDate text, account text , password text ,cvvCode text, pin text ,describe text ,ctime integer)",TABLE_CARD_NAME]
+#define SQL_CREATE_BANKCARD [NSString stringWithFormat:@"create table if not exists %@(id INTEGER PRIMARY KEY AUTOINCREMENT,frontImg blob, type integer, expireDate text, account text , password text ,cvvCode text, pin text ,describe text ,logoImageUrl text,ctime integer)",TABLE_CARD_NAME]
 
 
 @interface PPDataManager()
@@ -260,8 +261,8 @@ ctime 时间戳        integer
         NSInteger integerTime = (NSInteger)[[NSDate date] timeIntervalSince1970];
         NSNumber *cTime = [NSNumber numberWithInteger:integerTime];
         NSNumber *type = [NSNumber numberWithInteger:model.type];
-        NSString *sql = [NSString stringWithFormat:@"INSERT INTO %@ (frontImg,type,expireDate,account,password,cvvCode,pin,describe,ctime) VALUES (?,?,?,?,?,?,?,?,?)",TABLE_CARD_NAME];
-        BOOL success = [self.dataBase executeUpdate:sql,model.frontImg,type,model.expireDate,model.account,model.password,model.cvvCode,model.pin,model.describe,cTime];
+        NSString *sql = [NSString stringWithFormat:@"INSERT INTO %@ (frontImg,type,expireDate,account,password,cvvCode,pin,describe,logoImageUrl,ctime) VALUES (?,?,?,?,?,?,?,?,?,?)",TABLE_CARD_NAME];
+        BOOL success = [self.dataBase executeUpdate:sql,model.frontImg,type,model.expireDate,model.account,model.password,model.cvvCode,model.pin,model.describe,model.logoImageUrl,cTime];
         if (success == NO) {
             TTLog(@"sql error = %@",self.dataBase.lastErrorMessage);
         }
@@ -275,9 +276,9 @@ ctime 时间戳        integer
 - (BOOL)updateBackCardWithId:(NSNumber *)aId
                         model:(PPBankCardModel *)model {
     @synchronized (self.dataBase) {
-        NSString *sql = [NSString stringWithFormat:@"UPDATE %@ SET frontImg = ?, type = ?, expireDate = ?,account = ?,password = ?,cvvCode = ?, pin = ?, describe = ? WHERE id = ?",TABLE_CARD_NAME];
+        NSString *sql = [NSString stringWithFormat:@"UPDATE %@ SET frontImg = ?, type = ?, expireDate = ?,account = ?,password = ?,cvvCode = ?, pin = ?, describe = ?,logoImageUrl = ? WHERE id = ?",TABLE_CARD_NAME];
         NSNumber *type = [NSNumber numberWithInteger:model.type];
-        BOOL result = [self.dataBase executeUpdate:sql,model.frontImg,type,model.expireDate,model.account,model.password,model.cvvCode,model.pin,model.describe,model.aId];
+        BOOL result = [self.dataBase executeUpdate:sql,model.frontImg,type,model.expireDate,model.account,model.password,model.cvvCode,model.pin,model.describe,model.logoImageUrl,model.aId];
         return result;
     }
 }
@@ -292,6 +293,7 @@ ctime 时间戳        integer
     dic[@"expireDate"] = [resultSet stringForColumn:@"expireDate"];
     dic[@"cvvCode"] = [resultSet stringForColumn:@"cvvCode"];
     dic[@"pin"] = [resultSet stringForColumn:@"pin"];
+    dic[@"logoImageUrl"] = [resultSet stringForColumn:@"logoImageUrl"];
     dic[@"describe"] = [resultSet stringForColumn:@"describe"];
     dic[@"cTime"] = [NSNumber numberWithInt:[resultSet intForColumn:@"ctime"]];
     NSError *error;

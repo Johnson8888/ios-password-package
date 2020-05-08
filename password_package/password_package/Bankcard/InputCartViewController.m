@@ -9,6 +9,7 @@
 #import "InputCartViewController.h"
 #import "PPBankCardModel.h"
 #import "PPDataManager.h"
+#import <SDWebImage.h>
 #import <AFNetworking.h>
 #import <ProgressHUD/ProgressHUD.h>
 #import "BankCardResponse.h"
@@ -17,6 +18,7 @@
 @interface InputCartViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *cvvCodeLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *bankLogoImageView;
 
 /// 用来显示 账号的 label
 @property (weak, nonatomic) IBOutlet UILabel *accountLabel;
@@ -30,6 +32,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *cvvTF;
 @property (weak, nonatomic) IBOutlet UITextView *describe;
 @property (weak, nonatomic) IBOutlet UITextField *expireDateTF;
+@property (nonatomic,strong) NSString *logoImageUrl;
+
 @property (nonatomic,strong) PPBankCardModel *bankCardModel;
 
 @end
@@ -41,8 +45,6 @@
     [super viewDidLoad];
     /// cert 4984513025445663
     // SPDB
-    NSString *getCardImage = @"https://apimg.alipay.com/combo.png?d=cashier&t=ICBC";
-    NSString *getCardImage1 = @"https://apimg.alipay.com/combo.png?d=cashier&t=SPDB";
     
     if (self.editModel) {
         
@@ -57,6 +59,8 @@
         self.cvvTF.text = self.editModel.cvvCode;
         self.pinTF.text = self.editModel.pin;
         self.describe.text = self.editModel.describe;
+        [self.bankLogoImageView sd_setImageWithURL:[NSURL URLWithString:self.editModel.logoImageUrl]];
+        
         TTLog(@"编辑模式 model = %@",self.editModel);
         
     } else {
@@ -112,6 +116,7 @@
         self.bankCardModel.cvvCode = self.cvvTF.text;
         self.bankCardModel.pin = self.pinTF.text;
         self.bankCardModel.describe = self.describe.text;
+        self.bankCardModel.logoImageUrl = self.logoImageUrl;
         
         BOOL isSuccess = [[PPDataManager sharedInstance] insertBackCardWithModel:self.bankCardModel];
         if (isSuccess) {
@@ -149,6 +154,10 @@
             }
             
             TTLog(@"cardType = %@ bank = %@",model.cardType,model.bank);
+            if (model.bank.length != 0) {
+                [self setBankLoginWithBankName:model.bank];
+            }
+            
             if (model.cardType.length == 0) {
                 return;
             }
@@ -162,7 +171,14 @@
             }
         }];
     }
-    
+}
+
+
+/// 设置 银行的logo
+- (void)setBankLoginWithBankName:(NSString *)bankName {
+    NSString *imageUrl = [NSString stringWithFormat:@"https://apimg.alipay.com/combo.png?d=cashier&t=%@",bankName];
+    self.logoImageUrl = imageUrl;
+    [self.bankLogoImageView sd_setImageWithURL:[NSURL URLWithString:imageUrl]];
 }
 
 
@@ -230,41 +246,23 @@
             return NO;
         }
     }
+    
+    if (textField == self.passwordTF) {
+        self.passwordTF.text = textField.text;
+        if (self.passwordTF.text.length > 6) {
+            return NO;
+        }
+    }
+    
+    if (textField == self.pinTF) {
+        self.pinTF.text = textField.text;
+        if (self.pinTF.text.length > 6) {
+            return NO;
+        }
+    }
+    
     return YES;
 }
-
-
-/*
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
-    return YES;
-}
-
-- (void)textFieldDidBeginEditing:(UITextField *)textField {
-    TTLog(@"textFieldDidBeginEditing");
-}
-
-- (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
-    TTLog(@"textFieldShouldEndEditing");
-    return YES;
-}
-
-- (void)textFieldDidEndEditing:(UITextField *)textField {
-    TTLog(@"textFieldDidEndEditing");
-}
-
-- (void)textFieldDidChangeSelection:(UITextField *)textField {
-    TTLog(@"textFieldDidChangeSelection");
-}
-
-- (BOOL)textFieldShouldClear:(UITextField *)textField {
-    TTLog(@"textFieldShouldClear");
-    return YES;
-}
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    TTLog(@"textFieldShouldReturn");
-    return YES;
-}
-*/
 
 
 

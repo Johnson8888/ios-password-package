@@ -32,6 +32,9 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
+
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(refreshData)
                                                  name:PP_RETRIEVE_DATA_SUCCESS_NOTIFICATION
@@ -55,6 +58,9 @@
     [self.tableView reloadData];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 84.0f;
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.dataArray.count;

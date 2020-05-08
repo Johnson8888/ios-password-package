@@ -43,6 +43,7 @@ ctime 时间戳        integer
 @property (nonatomic,strong) NSString *cvvCode;
 @property (nonatomic,strong) NSString *pin;
 @property (nonatomic,strong) NSString *describe;
+@property (nonatomic,strong) NSString *logoImageUrl;
 
 @property (nonatomic,assign) NSInteger cTime;
 

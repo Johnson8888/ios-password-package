@@ -8,6 +8,13 @@
 
 #import "BankCardViewCell.h"
 #import "PPBankCardModel.h"
+#import <SDWebImage.h>
+
+@interface BankCardViewCell()
+@property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+
+@end
 
 @implementation BankCardViewCell
 
@@ -19,8 +26,11 @@
 
 - (void)setDataModel:(PPBankCardModel *)dataModel {
     _dataModel = dataModel;
-    self.textLabel.text = dataModel.account;
+    self.nameLabel.text = dataModel.account;
+    
+    [self.logoImageView sd_setImageWithURL:[NSURL URLWithString:_dataModel.logoImageUrl]];
 }
+
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

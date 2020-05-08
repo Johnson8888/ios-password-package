@@ -8,6 +8,7 @@
 
 #import "ShowBankCardViewController.h"
 #import "PPBankCardModel.h"
+#import <SDWebImage.h>
 
 @interface ShowBankCardViewController ()
 
@@ -33,6 +34,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *passwordLabel;
 /// 账号 label
 @property (weak, nonatomic) IBOutlet UILabel *accountLabel;
+/// 显示Logo的 ImageView
+@property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
 
 
 @end
@@ -60,7 +63,7 @@
     self.headerExpireDate.text = self.bankCardModel.expireDate;
     self.headerAccountLabel.text = self.bankCardModel.account;
     self.headerCvvCodeLabel.text = self.bankCardModel.cvvCode;
-    
+    [self.logoImageView sd_setImageWithURL:[NSURL URLWithString:self.bankCardModel.logoImageUrl]];
 }
 
 
