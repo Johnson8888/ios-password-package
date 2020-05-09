@@ -8,11 +8,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="dH0-DJ-Uzq">
             <objects>
                 <navigationController id="12U-ci-zda" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="quK-nD-cU3"/>
+                    <tabBarItem key="tabBarItem" title="" image="back" id="quK-nD-cU3"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KPs-0O-DY7">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -25,11 +25,11 @@
             </objects>
             <point key="canvasLocation" x="832" y="826"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="mVr-P3-0Od">
             <objects>
                 <navigationController id="Wnd-nD-yUk" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="psn-K4-Dvi"/>
+                    <tabBarItem key="tabBarItem" title="" image="settings" id="psn-K4-Dvi"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="RKb-fc-qEI">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2587,11 +2587,11 @@
             </objects>
             <point key="canvasLocation" x="4157.971014492754" y="-1362.0535714285713"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="vj8-Sy-X3u">
             <objects>
                 <navigationController id="qbg-LR-kfc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="92w-Sl-OE6"/>
+                    <tabBarItem key="tabBarItem" title="" image="site" id="92w-Sl-OE6"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gnW-Mf-AZp">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2626,14 +2626,17 @@
     </scenes>
     <resources>
         <image name="add_button_small" width="22" height="22"/>
+        <image name="back" width="24" height="24"/>
         <image name="btn_close_circle_white" width="24" height="24"/>
         <image name="copy_name" width="50" height="50"/>
         <image name="copy_pwd" width="50" height="50"/>
         <image name="delete" width="32" height="32"/>
         <image name="edit" width="32" height="32"/>
         <image name="launch" width="32" height="32"/>
+        <image name="settings" width="24" height="24"/>
         <image name="share" width="50" height="50"/>
         <image name="show_password" width="32" height="32"/>
+        <image name="site" width="24" height="24"/>
         <image name="view_item" width="32" height="32"/>
     </resources>
 </document>

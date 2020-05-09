@@ -9,6 +9,7 @@
 #import "BankCardViewController.h"
 #import "InputCartViewController.h"
 #import "PresentBankCardViewController.h"
+#import "PresentWebsiteViewController.h"
 #import "ShowBankCardViewController.h"
 #import "PPDataManager.h"
 #import "PPBankCardModel.h"
@@ -91,8 +92,9 @@
     presentBackCardViewController.viewBankCardCallBack = ^(PPBankCardModel *cardModel) {
         [self presentViewBankCardViewControllerWithModel:cardModel];
     };
-    
+    presentBackCardViewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     [self.tabBarController presentViewController:presentBackCardViewController animated:YES completion:^{}];
+    
 }
 
 
