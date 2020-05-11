@@ -12,7 +12,14 @@
         <scene sceneID="dH0-DJ-Uzq">
             <objects>
                 <navigationController id="12U-ci-zda" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="back" id="quK-nD-cU3"/>
+                    <tabBarItem key="tabBarItem" title="" image="bank" id="quK-nD-cU3">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.93987613920000002" green="0.63260972500000001" blue="0.4296479225" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KPs-0O-DY7">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -29,7 +36,14 @@
         <scene sceneID="mVr-P3-0Od">
             <objects>
                 <navigationController id="Wnd-nD-yUk" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="settings" id="psn-K4-Dvi"/>
+                    <tabBarItem key="tabBarItem" title="" image="settings" id="psn-K4-Dvi">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.93987613920000002" green="0.63260972500000001" blue="0.4296479225" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="RKb-fc-qEI">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2591,7 +2605,14 @@
         <scene sceneID="vj8-Sy-X3u">
             <objects>
                 <navigationController id="qbg-LR-kfc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="site" id="92w-Sl-OE6"/>
+                    <tabBarItem key="tabBarItem" title="" image="site" id="92w-Sl-OE6">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.93987613920000002" green="0.63260972500000001" blue="0.4296479225" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gnW-Mf-AZp">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2626,7 +2647,7 @@
     </scenes>
     <resources>
         <image name="add_button_small" width="22" height="22"/>
-        <image name="back" width="24" height="24"/>
+        <image name="bank" width="24" height="24"/>
         <image name="btn_close_circle_white" width="24" height="24"/>
         <image name="copy_name" width="50" height="50"/>
         <image name="copy_pwd" width="50" height="50"/>

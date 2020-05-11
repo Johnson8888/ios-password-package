@@ -45,6 +45,8 @@ static NSString *detailCellIdentifier = @"com.password.package.setting.detail.ce
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+//    self.navigationController.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
+    
     [[iCloud sharedCloud] setDelegate:self];
     
     self.tableView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0);

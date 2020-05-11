@@ -133,7 +133,7 @@
 		F36A3AE52452DA8100208EB5 /* DetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailCell.xib; sourceTree = "<group>"; };
 		F36A3AE92455A4E200208EB5 /* SelectThemeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectThemeViewController.h; sourceTree = "<group>"; };
 		F36A3AEA2455A4E200208EB5 /* SelectThemeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectThemeViewController.m; sourceTree = "<group>"; };
-		F36A88FE24348C520003FF39 /* PasswordPackage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PasswordPackage.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F36A88FE24348C520003FF39 /* 密码君.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "密码君.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F36A890124348C520003FF39 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F36A890224348C520003FF39 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		F36A890424348C520003FF39 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
@@ -294,7 +294,7 @@
 		F36A88FF24348C520003FF39 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F36A88FE24348C520003FF39 /* PasswordPackage.app */,
+				F36A88FE24348C520003FF39 /* 密码君.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -464,7 +464,7 @@
 			);
 			name = password_package;
 			productName = password_package;
-			productReference = F36A88FE24348C520003FF39 /* PasswordPackage.app */;
+			productReference = F36A88FE24348C520003FF39 /* 密码君.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -773,7 +773,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xi.passwordpackage;
-				PRODUCT_NAME = PasswordPackage;
+				PRODUCT_NAME = "密码君";
 				PROVISIONING_PROFILE_SPECIFIER = PasswordPackage_dev;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
@@ -801,7 +801,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xi.passwordpackage;
-				PRODUCT_NAME = PasswordPackage;
+				PRODUCT_NAME = "密码君";
 				PROVISIONING_PROFILE_SPECIFIER = PasswordPackage_dev;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";

@@ -28,6 +28,7 @@
 #import "PresentWebsiteViewController.h"
 #import "ShowWebSiteViewController.h"
 #import "InputWebsiteViewController.h"
+#import "InputCartViewController.h"
 
 @interface MainViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -52,6 +53,9 @@
 
 - (void)viewDidLoad {
     
+//    self.navigationController.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
+    
+    
     [super viewDidLoad];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -66,12 +70,12 @@
     self.tableView.rowHeight = 64.0f;
     
     self.tableView.tableFooterView = [[UIView alloc] init];
-    NSArray *arrayLeft = @[@"按钮1",@"按钮2",@"按钮3"];
+    NSArray *arrayLeft = @[@"",@"",@""];
     //相应数组
     CSYGroupButtonView *groupButton = [[CSYGroupButtonView alloc]initWithFrame:CGRectMake(self.view.bounds.size.width - 65, self.view.bounds.size.height - 100 - 45, 45, 45) mainButtonTitle:@"" selectedTitle:@"" otherButtonsTitle:arrayLeft];
     
     groupButton.ButtonClickBlock = ^(UIButton *btn) {
-        NSLog(@"%@ tag=%ld",btn.titleLabel.text,(long)btn.tag);
+        
         if (btn.tag == 1) {
             [self showCreatePasswordViewController];
         }
@@ -79,7 +83,7 @@
             [self showSelectedItemViewController];
         }
         if (btn.tag == 3) {
-            TTLog(@"this is tag == 3");
+            [self showCreateBankCardViewController];
         }
     };
     
@@ -108,9 +112,6 @@
     }
     */
     
-    
-    BOOL canOpen = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"weixin://"]];
-    TTLog(@"canOpen = %d",canOpen);
 }
 
 
@@ -144,12 +145,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-//    UIImpactFeedbackGenerator *feedBackGenertor = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleLight];
-//    UIImpactFeedbackStyleLight,
-//    UIImpactFeedbackStyleMedium,
-//    UIImpactFeedbackStyleHeavy,
-//    [feedBackGenertor impactOccurred];
-
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     PresentWebsiteViewController *sViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass([PresentWebsiteViewController class])];
     
@@ -204,6 +199,16 @@
     InputWebsiteViewController *inputWebsiteViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass([InputWebsiteViewController class])];
     inputWebsiteViewController.websiteModel = model;
     [self.navigationController presentViewController:inputWebsiteViewController animated:YES completion:^{}];
+}
+
+
+/// 跳转到 createBankCard View Controller
+- (void)showCreateBankCardViewController {
+    InputCartViewController *inputViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass([InputCartViewController class])];
+    inputViewController.finishCallBack = ^{
+        self.tabBarController.selectedIndex = 1;
+    };
+    [self presentViewController:inputViewController animated:YES completion:nil];
 }
 
 - (IBAction)pressedAddBarButton:(UIBarButtonItem *)sender {

@@ -10,6 +10,7 @@
 
 
 static const int fontSize = 10.0;
+static const float CORNERRADIUS = 22.0f;
 
 @interface CSYGroupButtonView() {
     NSMutableArray *otherButtons;
@@ -17,6 +18,7 @@ static const int fontSize = 10.0;
     UIImageView *myImageView;
 }
 
+@property (nonatomic,strong) NSArray *imagesArray;
 
 @end
 
@@ -32,6 +34,7 @@ static const int fontSize = 10.0;
     self = [super initWithFrame:frame];
     if (self) {
         self.frame = frame;
+        self.imagesArray = @[@"create_password",@"site",@"bank"];
         rectFrame = frame;
         self.unSelectedTitle = title;   //没被选择的显示按钮
         self.selectedTitle = selectedTitle;  //被选择之后显示的按钮
@@ -42,15 +45,26 @@ static const int fontSize = 10.0;
         UIButton *mainBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [mainBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         mainBtn.titleLabel.font = [UIFont systemFontOfSize:fontSize];
-        [mainBtn setImage:[UIImage imageNamed:@"add_button"] forState:UIControlStateNormal];
+//        [mainBtn setImage:[UIImage imageNamed:@"add_button"] forState:UIControlStateNormal];
+  
+        [mainBtn setImage:[[UIImage imageNamed:@"add_button"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
+                   forState:UIControlStateNormal];
         [mainBtn setTintColor:SYSTEM_COLOR];
-        [mainBtn setBackgroundColor:[UIColor whiteColor]];
+        [mainBtn setBackgroundColor:[UIColor clearColor]];
         mainBtn.frame = self.bounds;
         mainBtn.tag = 0;
+        mainBtn.layer.masksToBounds = YES;
+        mainBtn.layer.cornerRadius = CORNERRADIUS;
         
         [mainBtn addTarget:self action:@selector(buttonClick:) forControlEvents:5];
         mainBtn.selected = NO;  //设置未被选择
         [self addSubview:mainBtn];
+        
+//        [mainBtn setImage:[[UIImage imageNamed:@"add_button"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
+//                         forState:UIControlStateNormal];
+        mainBtn.tintColor = SYSTEM_COLOR;
+
+        
         self.mainButton = mainBtn;
     }
     return self;
@@ -58,20 +72,16 @@ static const int fontSize = 10.0;
 
 #pragma -mark 按钮点击事件
 -(void)buttonClick:(UIButton*)button {
+        
     [self setAnimation];
     if (button.tag == 0) {
         NSString * string = button.selected == NO ? self.unSelectedTitle : self.selectedTitle;
         [button setTitle:string forState:UIControlStateNormal];
     } else {
-        
-        for (UIButton* btn in otherButtons) {
-            btn.selected = NO;
-            [btn setBackgroundColor:[UIColor whiteColor]];
-        }
+
         button.selected = YES;
         for (UIButton* btn in otherButtons) {
-            if(btn.selected == YES)
-               [btn setBackgroundColor:[UIColor orangeColor]];
+            [btn setBackgroundColor:[UIColor whiteColor]];
         }
     }
     if (self.ButtonClickBlock) {
@@ -95,6 +105,10 @@ static const int fontSize = 10.0;
 }
 #pragma -mark 弹出
 -(void)move {
+    for (UIButton *btn in otherButtons) {
+        btn.hidden = NO;
+    }
+    
     myImageView.alpha = 0;
     //调整视图大小，响应点击事件
     CGRect bounds = self.frame;
@@ -126,26 +140,34 @@ static const int fontSize = 10.0;
     myImageView.alpha = 1;
     for (int i = 0;  i< otherButtons.count; i++) {
         UIButton *button = otherButtons[i];
-        button.frame = self.mainButton.bounds;
+        CGRect mainButtonFrame = self.mainButton.bounds;
+        CGRect endFrame = CGRectMake(mainButtonFrame.origin.x, mainButtonFrame.origin.y - mainButtonFrame.size.height, mainButtonFrame.size.width, mainButtonFrame.size.height);
+        button.frame = endFrame;
+        button.hidden = YES;
     }
     self.mainButton.frame = self.mainButton.bounds;
     self.frame = rectFrame;
 }
 
--(void)layoutAddViewBy:(UIView*)view
-{
+-(void)layoutAddViewBy:(UIView*)view {
     otherButtons = [[NSMutableArray alloc] init];
     //根据需要的按钮数量
     for (int i = 0; i < self.subButtonsTitle_Array.count; i++) {
+        
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.frame = self.bounds;  //根据主按钮的形状
-
-//        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-//        [button.layer setBorderWidth:1.0];  //设置边框大小
-//        [button.layer setBorderColor:[UIColor blackColor].CGColor];  //设置边框颜色
         
-        [button setBackgroundColor:SYSTEM_COLOR];
+        [button setImage:[[UIImage imageNamed:self.imagesArray[i]] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
+                         forState:UIControlStateNormal];
+        button.tintColor = SYSTEM_COLOR;
+
+        button.layer.masksToBounds = YES;
+        button.layer.cornerRadius = CORNERRADIUS;
+        
+        
+        button.hidden = YES;
         button.titleLabel.font = [UIFont systemFontOfSize:fontSize];
+        
         button.tag = 1 + i;  //设置tag
         [button setTitle:self.subButtonsTitle_Array[i] forState:UIControlStateNormal];
         [button addTarget:self action:@selector(buttonClick:) forControlEvents:5];  //设置点击事件
