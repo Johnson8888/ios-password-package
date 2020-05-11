@@ -28,6 +28,9 @@
 
 #define SYSTEM_COLOR [UIColor colorWithRed:1.0 green:111 / 255.0 blue:60 / 255.0 alpha:1.0]
 
+// 16,80,96
+#define TEXT_COLOR [UIColor colorWithRed:16 / 255.0 green:80 / 255.0 blue:96 / 255.0 alpha:1.0]
+
 /// 需要刷新主页数据的通知
 #define PP_MAIN_REFRESH_DATA_NOTIFICATION @"com.password.package.main.refresh.data.notification"
 /// 恢复数据成功后的通知

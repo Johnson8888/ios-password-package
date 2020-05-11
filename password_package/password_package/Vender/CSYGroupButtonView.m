@@ -44,9 +44,9 @@ static const float CORNERRADIUS = 22.0f;
         
         UIButton *mainBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [mainBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        mainBtn.titleLabel.font = [UIFont systemFontOfSize:fontSize];
-//        [mainBtn setImage:[UIImage imageNamed:@"add_button"] forState:UIControlStateNormal];
-  
+        mainBtn.titleLabel.font = [UIFont systemFontOfSize:fontSize];\
+        
+        
         [mainBtn setImage:[[UIImage imageNamed:@"add_button"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
                    forState:UIControlStateNormal];
         [mainBtn setTintColor:SYSTEM_COLOR];
@@ -55,16 +55,9 @@ static const float CORNERRADIUS = 22.0f;
         mainBtn.tag = 0;
         mainBtn.layer.masksToBounds = YES;
         mainBtn.layer.cornerRadius = CORNERRADIUS;
-        
         [mainBtn addTarget:self action:@selector(buttonClick:) forControlEvents:5];
         mainBtn.selected = NO;  //设置未被选择
         [self addSubview:mainBtn];
-        
-//        [mainBtn setImage:[[UIImage imageNamed:@"add_button"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
-//                         forState:UIControlStateNormal];
-        mainBtn.tintColor = SYSTEM_COLOR;
-
-        
         self.mainButton = mainBtn;
     }
     return self;

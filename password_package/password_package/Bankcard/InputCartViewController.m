@@ -32,6 +32,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *cvvTF;
 @property (weak, nonatomic) IBOutlet UITextView *describe;
 @property (weak, nonatomic) IBOutlet UITextField *expireDateTF;
+@property (weak, nonatomic) IBOutlet UIView *cardBgView;
+@property (weak, nonatomic) IBOutlet UIView *cardInLineView;
 @property (nonatomic,strong) NSString *logoImageUrl;
 
 @property (nonatomic,strong) PPBankCardModel *bankCardModel;
@@ -45,6 +47,16 @@
     [super viewDidLoad];
     /// cert 4984513025445663
     // SPDB
+    
+    self.cardBgView.layer.masksToBounds = YES;
+    self.cardBgView.layer.cornerRadius = 20.0f;
+    self.cardBgView.layer.borderColor = SYSTEM_COLOR.CGColor;
+    self.cardBgView.layer.borderWidth = 2.0f;
+    
+    self.cardInLineView.layer.masksToBounds = YES;
+    self.cardInLineView.layer.cornerRadius = 18.0f;
+    self.cardInLineView.layer.borderColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5].CGColor;
+    self.cardInLineView.layer.borderWidth = 2.0f;
     
     if (self.editModel) {
         
