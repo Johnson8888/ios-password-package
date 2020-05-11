@@ -49,9 +49,12 @@
     
     self.currentSelectedIndex = -1;
     
-    UIImageView *titleView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 83, 24)];
+    UIImageView *titleView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 82, 24)];
     [titleView sd_setImageWithURL:[NSURL URLWithString:self.bankCardModel.logoImageUrl]];
-    self.navigationItem.titleView = titleView;
+    UIView *titleBgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 82, 24)];
+    [titleBgView addSubview:titleView];
+    self.navigationItem.titleView = titleBgView;
+    
     TTLog(@"model = %@",self.bankCardModel);
     
     self.tabBarController.tabBar.hidden = YES;
@@ -71,6 +74,11 @@
     self.headerExpireDate.text = self.bankCardModel.expireDate;
     self.headerAccountLabel.text = self.bankCardModel.account;
     self.headerCvvCodeLabel.text = self.bankCardModel.cvvCode;
+    
+    
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithImage:BACK_BUTTON_IMAGE style:UIBarButtonItemStyleDone target:self action:@selector(pressedBackButton:)];
+    backItem.tintColor = SYSTEM_COLOR;
+    self.navigationItem.leftBarButtonItem = backItem;
     
 }
 
@@ -159,5 +167,9 @@
     return place;
 }
 
+
+- (void)pressedBackButton:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 @end

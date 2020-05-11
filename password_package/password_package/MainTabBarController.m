@@ -18,6 +18,19 @@
     
     [super viewDidLoad];
     
+    if (@available(iOS 13, *)) {
+        UITabBarAppearance *appearance = [self.tabBar.standardAppearance copy];
+        appearance.backgroundImage = [UIImage new];
+        appearance.backgroundColor = [UIColor clearColor];
+        appearance.shadowImage = [UIImage new];
+        appearance.shadowColor = [UIColor clearColor];
+        self.tabBar.standardAppearance = appearance;
+    } else {
+        self.tabBar.backgroundImage = [UIImage new];
+        self.tabBar.shadowImage = [UIImage new];
+    }
+
+    
 }
 
 

@@ -33,7 +33,8 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-//    self.navigationController.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
+    
+    self.tableView.tableFooterView = [[UIView alloc] init];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(refreshData)

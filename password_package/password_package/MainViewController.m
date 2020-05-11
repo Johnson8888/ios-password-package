@@ -53,9 +53,11 @@
 
 - (void)viewDidLoad {
     
-//    self.navigationController.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
     
     
+    
+    
+  
     [super viewDidLoad];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
