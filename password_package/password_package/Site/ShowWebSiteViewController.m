@@ -23,20 +23,31 @@
 
 - (void)viewDidLoad {
     
+    [super viewDidLoad];
+    self.navigationController.navigationBar.prefersLargeTitles = NO;
+    self.navigationItem.title = @"账号详情";
+    
     self.currentSelectedIndex = -1;
     
-    [super viewDidLoad];
     self.linkLabel.text = self.websiteModel.link;
     self.nameLabel.text = self.websiteModel.title;
     self.accountLabel.text = self.websiteModel.account;
     NSMutableString *place = [NSMutableString string];
     for (int i = 0; i < self.websiteModel.password.length; ++i) {
-        TTLog(@"i == %d",i);
         place = [NSMutableString stringWithString:[place stringByAppendingString:@"•"]];
     }
     TTLog(@"place = %@",place);
     self.passwordLabel.text = place;
     self.textView.text = self.websiteModel.describe;
+    
+    
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithImage:BACK_BUTTON_IMAGE
+                                                                 style:UIBarButtonItemStyleDone
+                                                                target:self
+                                                                action:@selector(pressedBackButton:)];
+    backItem.tintColor = SYSTEM_COLOR;
+    self.navigationItem.leftBarButtonItem = backItem;
+    
 }
 
 
@@ -100,9 +111,14 @@
     self.passwordLabel.text = self.websiteModel.password;
 }
 
-
 - (BOOL)canBecomeFirstResponder {
     return YES;
 }
+
+
+- (void)pressedBackButton:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 @end

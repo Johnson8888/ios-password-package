@@ -36,8 +36,8 @@
 /// 账号 label
 @property (weak, nonatomic) IBOutlet UILabel *accountLabel;
 /// 当前选中的cell
-
 @property (nonatomic,assign) NSInteger currentSelectedIndex;
+
 
 @end
 
@@ -46,7 +46,8 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    
+    self.navigationController.navigationBar.prefersLargeTitles = NO;
+
     self.currentSelectedIndex = -1;
     
     UIImageView *titleView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 82, 24)];
@@ -70,13 +71,17 @@
     } else if (self.bankCardModel.type == PP_CREDIT_CARD) {
         self.typeLabel.text = @"信用卡";
     }
+    
     self.textView.text = self.bankCardModel.describe;
     self.headerExpireDate.text = self.bankCardModel.expireDate;
     self.headerAccountLabel.text = self.bankCardModel.account;
     self.headerCvvCodeLabel.text = self.bankCardModel.cvvCode;
     
     
-    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithImage:BACK_BUTTON_IMAGE style:UIBarButtonItemStyleDone target:self action:@selector(pressedBackButton:)];
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithImage:BACK_BUTTON_IMAGE
+                                                                 style:UIBarButtonItemStyleDone
+                                                                target:self
+                                                                action:@selector(pressedBackButton:)];
     backItem.tintColor = SYSTEM_COLOR;
     self.navigationItem.leftBarButtonItem = backItem;
     
@@ -109,7 +114,6 @@
                              action:@selector(showAction)];
     [menu setTargetRect:CGRectMake(100, 300, 120, 20) inView:self.view];
     items = @[items1,items2];
-
     menu.menuItems = items;
     menu.menuVisible = YES;
     [menu setTargetRect:cell.frame inView:self.view];

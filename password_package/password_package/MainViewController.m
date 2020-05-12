@@ -44,6 +44,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     self.tabBarController.tabBar.hidden = NO;
+    self.navigationController.navigationBar.prefersLargeTitles = YES;
     [super viewWillAppear:animated];
 }
 
@@ -52,14 +53,8 @@
 }
 
 - (void)viewDidLoad {
-    
-    
-    
-    
-    
   
     [super viewDidLoad];
-    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(refreshData)
                                                  name:PP_MAIN_REFRESH_DATA_NOTIFICATION

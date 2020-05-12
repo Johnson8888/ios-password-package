@@ -25,6 +25,8 @@
     
     [super viewDidLoad];
     // /// 多长时间自动锁屏 输入要入密码  默认是 立刻  10秒 30秒 1分钟 5分钟 10分钟
+    
+    self.tableView.tableFooterView = [[UIView alloc] init];
 
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([SelectCell class]) bundle:nil] forCellReuseIdentifier:@"com.set.auto.lock.viewcontroller.identifier"];
     

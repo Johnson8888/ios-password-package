@@ -19,6 +19,11 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    
+    [self.selectButton setImage:[[UIImage imageNamed:@"select_check"]
+                                 imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
+                       forState:UIControlStateNormal];
+    self.selectButton.tintColor = SYSTEM_COLOR;
 }
 
 - (void)setDataDictionary:(NSDictionary *)dataDictionary {
@@ -28,9 +33,9 @@
     }
     if ([dataDictionary objectForKey:@"selected"] &&
         [[dataDictionary objectForKey:@"selected"] boolValue]) {
-        self.selectButton.selected = YES;
+        self.selectButton.hidden = NO;
     } else {
-        self.selectButton.selected = NO;
+        self.selectButton.hidden = YES;
     }
 }
 

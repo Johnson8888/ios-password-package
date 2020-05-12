@@ -148,6 +148,7 @@ static NSString *detailCellIdentifier = @"com.password.package.setting.detail.ce
                 TTLog(@"邮件导出");
                 UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:normalCellIdentifier];
                 cell.textLabel.text = @"邮件导出";
+                cell.textLabel.textColor = TEXT_COLOR;
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                 return cell;
             }
@@ -170,6 +171,7 @@ static NSString *detailCellIdentifier = @"com.password.package.setting.detail.ce
                 TTLog(@"邮件导出");
                 UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:normalCellIdentifier];
                 cell.textLabel.text = @"邮件导出";
+                cell.textLabel.textColor = TEXT_COLOR;
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                 return cell;
             }
@@ -242,7 +244,7 @@ static NSString *detailCellIdentifier = @"com.password.package.setting.detail.ce
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:normalCellIdentifier];
             cell.textLabel.text = @"意见反馈";
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-
+            cell.textLabel.textColor = TEXT_COLOR;
             TTLog(@"意见反馈")
             return cell;
         }
@@ -250,7 +252,7 @@ static NSString *detailCellIdentifier = @"com.password.package.setting.detail.ce
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:normalCellIdentifier];
             cell.textLabel.text = @"隐私协议";
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-
+            cell.textLabel.textColor = TEXT_COLOR;
             TTLog(@"隐私协议");
             return cell;
         }
@@ -268,10 +270,9 @@ static NSString *detailCellIdentifier = @"com.password.package.setting.detail.ce
 }
 
 
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
     if (indexPath.section == 0) {
         if (self.isSupportFeedBack) {
             if (indexPath.row == 0) {
@@ -563,7 +564,9 @@ static NSString *detailCellIdentifier = @"com.password.package.setting.detail.ce
 
 #pragma iCloud
 
-- (void)iCloudAvailabilityDidChangeToState:(BOOL)cloudIsAvailable withUbiquityToken:(id)ubiquityToken withUbiquityContainer:(NSURL *)ubiquityContainer {
+- (void)iCloudAvailabilityDidChangeToState:(BOOL)cloudIsAvailable
+                         withUbiquityToken:(id)ubiquityToken
+                     withUbiquityContainer:(NSURL *)ubiquityContainer {
     
 }
 
@@ -657,6 +660,24 @@ static NSString *detailCellIdentifier = @"com.password.package.setting.detail.ce
        [dateFormatter setDateFormat:@"MM-dd HH:mm:ss"];
     NSString *currentDateStr = [dateFormatter stringFromDate: detailDate];
     return currentDateStr;
+}
+
+
+
+/// 修改AppIcon方法
+/// @param iconName icon的名字
+- (void)changeAppIconWithName:(NSString *)iconName {
+    if (![[UIApplication sharedApplication] supportsAlternateIcons]) {
+        return;
+    }
+    if ([iconName isEqualToString:@""]) {
+        iconName = nil;
+    }
+    [[UIApplication sharedApplication] setAlternateIconName:iconName completionHandler:^(NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"change app icon error : %@",error);
+        }
+    }];
 }
 
 

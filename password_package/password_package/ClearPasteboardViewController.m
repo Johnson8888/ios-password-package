@@ -24,6 +24,7 @@
     
     [super viewDidLoad];
     self.clearPasteboardValue = [AppConfig config].clearPasteboardDuration;
+    self.tableView.tableFooterView = [[UIView alloc] init];
     
     NSDictionary *dic0 = @{@"title":@"10秒",@"selected":@NO,@"value":@10};
     NSDictionary *dic1 = @{@"title":@"30秒",@"selected":@NO,@"value":@30};

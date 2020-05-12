@@ -28,6 +28,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [UITabBar appearance].tintColor = SYSTEM_COLOR;
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:SYSTEM_COLOR}];
     
     [iCloud sharedCloud].verboseLogging = YES;
     [[iCloud sharedCloud] setupiCloudDocumentSyncWithUbiquityContainer:ICLOUD_CONTAINER_BUNDLE_IDENTIFER];

@@ -31,6 +31,10 @@
 // 16,80,96
 #define TEXT_COLOR [UIColor colorWithRed:16 / 255.0 green:80 / 255.0 blue:96 / 255.0 alpha:1.0]
 
+/// 205,223,235
+#define LIGHT_TEXT_COLOR [UIColor colorWithRed:205 / 255.0 green:223 / 255.0 blue:235 / 255.0 alpha:1.0]
+
+
 #define BACK_BUTTON_IMAGE  [UIImage imageNamed:@"arrows"]
 
 /// 需要刷新主页数据的通知

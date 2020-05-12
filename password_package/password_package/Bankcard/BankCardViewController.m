@@ -26,6 +26,7 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     self.tabBarController.tabBar.hidden = NO;
+    self.navigationController.navigationBar.prefersLargeTitles = YES;
     [super viewWillAppear:animated];
 }
 

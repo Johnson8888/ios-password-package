@@ -27,7 +27,9 @@
     
 //    self.dataArray = @[@"白色",@"红色",@"蓝色",@"绿色",@"紫色",@"暗黑"];
     
+    self.navigationItem.title = @"选择时长";
     
+    self.tableView.tableFooterView = [[UIView alloc] init];
     NSDictionary *dic0 = @{@"title":@"白色",@"selected":@NO,@"value":[NSNumber numberWithInteger:PP_THEME_WHITE]};
     NSDictionary *dic1 = @{@"title":@"红色",@"selected":@NO,@"value":[NSNumber numberWithInteger:PP_THEME_RED]};
     NSDictionary *dic2 = @{@"title":@"蓝色",@"selected":@NO,@"value":[NSNumber numberWithInteger:PP_THEME_BLUE]};
