@@ -13,10 +13,16 @@ typedef NS_ENUM(NSInteger,WUUnlockType) {
     WUUnlockTypeValidatePwd//校验手势密码
 };
 
+typedef void(^CreatePwdCompletion)(void);
+
 @interface WUGesturesUnlockViewController : UIViewController
 
 + (void)deleteGesturesPassword;//删除手势密码
 + (NSString *)gesturesPassword;//获取手势密码
+
+
+
+@property (nonatomic,copy) CreatePwdCompletion completion;
 
 - (instancetype)initWithUnlockType:(WUUnlockType)unlockType;
 

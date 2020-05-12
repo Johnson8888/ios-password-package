@@ -155,13 +155,13 @@
     }
     
     if ([self.lastGesturePassword isEqualToString:gesturesPassword]) {//绘制成功
-        
         [self dismissViewControllerAnimated:YES completion:^{
-            //保存手势密码
             [WUGesturesUnlockViewController addGesturesPassword:gesturesPassword];
+            if (self.completion) {
+                self.completion();
+            }
         }];
-        
-    }else {
+    } else {
         self.statusLabel.text = @"与上一次绘制不一致，请重新绘制";
         [self shakeAnimationForView:self.statusLabel];
     }
@@ -313,6 +313,9 @@
                 case LAErrorUserFallback:{
                     dispatch_async(dispatch_get_main_queue(), ^{
                         NSLog(@"用户不使用TouchID,选择手势解锁");
+                        if (self.systemLockView) {
+                            [self.systemLockView removeFromSuperview];
+                        }
                     });
                 }
                     break;

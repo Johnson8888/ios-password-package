@@ -41,7 +41,6 @@
         self.mainTheme = PP_THEME_WHITE;
         self.autoLockDuration = 0;
         self.clearPasteboardDuration = 300;
-        
     }
     return self;
 }
@@ -57,6 +56,7 @@
         self.userSystemLock = [aDecoder decodeBoolForKey:@"userSystemLock"];
         self.lastUploadTimeStamp = [aDecoder decodeIntegerForKey:@"lastUploadTimeStamp"];
         self.lastDownloadTimeStamp = [aDecoder decodeIntegerForKey:@"lastDownloadTimeStamp"];
+        self.iconFileName = [aDecoder decodeObjectForKey:@"iconFileName"];
     }
     return self;
 }
@@ -69,6 +69,7 @@
     [aCoder encodeBool:self.userSystemLock forKey:@"userSystemLock"];
     [aCoder encodeInteger:self.lastUploadTimeStamp forKey:@"lastUploadTimeStamp"];
     [aCoder encodeInteger:self.lastDownloadTimeStamp forKey:@"lastDownloadTimeStamp"];
+    [aCoder encodeObject:self.iconFileName forKey:@"iconFileName"];
 }
 
 

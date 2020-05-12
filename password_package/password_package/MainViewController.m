@@ -90,25 +90,39 @@
     [self refreshData];
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([SearchItemViewCell class]) bundle:nil] forCellReuseIdentifier:@"com.main.view.controller.search.item.cell"];
     
-    
-    //    [self showEmptyMessageView];
-    
-    
-    /* 不能删除
+    //不能删除
+    /*
     NSString *lastPwd = [WUGesturesUnlockViewController gesturesPassword];
     /// 如果没有密码 就创建密码
     TTLog(@"lastPwd == %@",lastPwd);
     if (lastPwd == nil || lastPwd.length == 0) {
+        TTLog(@"create pwd");
         WUGesturesUnlockViewController *vc = [[WUGesturesUnlockViewController alloc] initWithUnlockType:WUUnlockTypeCreatePwd];
         vc.modalPresentationStyle = UIModalPresentationFullScreen;
         [self.tabBarController presentViewController:vc animated:YES completion:nil];
+        CreatePwdCompletion completion = ^{
+            NSString *detail = @"";
+            BOOL isTouchID = [Utils canUseTouchID];
+            BOOL isFaceID = [Utils canUseFaceID];
+            if (isTouchID) {
+                detail = @"TouchID";
+            }
+            if (isFaceID) {
+                detail = @"FaceID";
+            }
+            if (detail.length == 0) {
+                return;
+            }
+            NSString *dd = [NSString stringWithFormat:@"下次会默认使用%@解锁。",detail];
+            [Utils configmAlertWithTitle:@"提示" detail:dd callBack:^(NSInteger index) {}];
+        };
+        vc.completion = completion;
     } else {
         WUGesturesUnlockViewController *vc = [[WUGesturesUnlockViewController alloc] initWithUnlockType:WUUnlockTypeValidatePwd];
         vc.modalPresentationStyle = UIModalPresentationFullScreen;
         [self.tabBarController presentViewController:vc animated:YES completion:nil];
     }
-    */
-    
+     */
 }
 
 
@@ -126,6 +140,11 @@
     NSMutableArray *array = [[PPDataManager sharedInstance] getAllWebsite];
     self.dataArray = array.mutableCopy;
     [self.tableView reloadData];
+    if (self.dataArray.count == 0) {
+        [self showEmptyMessageView];
+    } else {
+        [self hiddenEmptyMessageView];
+    }
 }
 
 
@@ -248,5 +267,11 @@
     }
 }
 
+- (void)hiddenEmptyMessageView {
+    UIView *hudView = [self.view viewWithTag:999];
+    if (hudView) {
+        [hudView removeFromSuperview];
+    }
+}
 
 @end

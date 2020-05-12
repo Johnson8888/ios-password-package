@@ -31,6 +31,7 @@
 @property (nonatomic,assign) PPLetterType currentLetterType;
 @property (nonatomic,assign) BOOL isOtherCharacter;
 @property (nonatomic,strong) NSArray *titleArray;
+@property (weak, nonatomic) IBOutlet UIButton *closeButton;
 
 @end
 
@@ -39,6 +40,11 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
+    [self.closeButton setImage:[[UIImage imageNamed:@"btn_close_circle_white"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
+               forState:UIControlStateNormal];
+    [self.closeButton setTintColor:SYSTEM_COLOR];
+    
     self.isOtherCharacter = NO;
     self.lengthSlider.minimumValue = 6;
     self.lengthSlider.maximumValue = 32;
@@ -46,6 +52,7 @@
     self.currentNumberType = PPNumberAndLetter;
     self.lengthSlider.value = 8;
     self.titleArray = @[@"长度",@"字母组合",@"大小写",@"特殊字符"];
+    
 }
 
 - (IBAction)closeAction:(id)sender {

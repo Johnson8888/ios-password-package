@@ -16,6 +16,7 @@
 #import <TZImagePickerController/TZImagePickerController.h>
 
 @interface InputWebsiteViewController ()<TZImagePickerControllerDelegate>
+@property (weak, nonatomic) IBOutlet UIButton *editButton;
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
 @property (weak, nonatomic) IBOutlet UILabel *iconLabel;
 @property (weak, nonatomic) IBOutlet UITextField *accountTF;
@@ -63,14 +64,12 @@
             self.describeTextView.placeholderColor = [UIColor darkTextColor];
         }
     }
-
 }
 
 
 - (IBAction)pressedChangeIconButton:(id)sender {
     [self pushTZImagePickerController];
 }
-
 
 - (IBAction)pressedCancelButton:(id)sender {
     [self dismissViewControllerAnimated:YES completion:^{}];

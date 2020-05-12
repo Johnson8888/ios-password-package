@@ -23,7 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface AppConfig : NSObject
 
 
-
+/// 记录当前选中的 icon 文件的名字
+@property (nonatomic,strong,nullable) NSString *iconFileName;
 /// 是否开启震动反馈
 @property (nonatomic,assign) BOOL isSharkFeedBack;
 /// 主题颜色

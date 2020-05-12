@@ -50,12 +50,15 @@ static const float CORNERRADIUS = 22.0f;
         [mainBtn setImage:[[UIImage imageNamed:@"add_button"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
                    forState:UIControlStateNormal];
         [mainBtn setTintColor:SYSTEM_COLOR];
+        
         [mainBtn setBackgroundColor:[UIColor clearColor]];
         mainBtn.frame = self.bounds;
         mainBtn.tag = 0;
         mainBtn.layer.masksToBounds = YES;
         mainBtn.layer.cornerRadius = CORNERRADIUS;
-        [mainBtn addTarget:self action:@selector(buttonClick:) forControlEvents:5];
+        [mainBtn addTarget:self
+                    action:@selector(buttonClick:)
+          forControlEvents:5];
         mainBtn.selected = NO;  //设置未被选择
         [self addSubview:mainBtn];
         self.mainButton = mainBtn;

@@ -1,15 +1,17 @@
 {
   "images" : [
     {
+      "filename" : "product_detail_bottom_mask.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "ic_edit.png",
+      "filename" : "product_detail_bottom_mask@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "product_detail_bottom_mask@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

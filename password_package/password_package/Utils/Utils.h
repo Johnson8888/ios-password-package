@@ -21,13 +21,23 @@ NS_ASSUME_NONNULL_BEGIN
 /// 判断 FaceID 是否可用
 + (BOOL)canUseFaceID;
 
-/// 给出Alert提示 用于给用户下载购买过的视频
+/// 给出Alert提示 
 /// @param title Title
 /// @param detail 详细描述
 /// @param callBack 点击后的回调
 + (void)alertWithTitle:(NSString *)title
                 detail:(NSString *)detail
               callBack:(MMPopupItemHandler)callBack;
+
+
+/// 给出Alert提示
+/// @param title Title
+/// @param detail 详细描述
+/// @param callBack 点击后的回调
++ (void)configmAlertWithTitle:(NSString *)title
+                       detail:(NSString *)detail
+                     callBack:(MMPopupItemHandler)callBack;
+
 
 //// 显示Pop View
 + (void)showPopWithText:(NSString *)text;
