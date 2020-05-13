@@ -2,25 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Application Scene Manifest1</key>
-	<dict>
-		<key>UIApplicationSupportsMultipleScenes</key>
-		<false/>
-		<key>UISceneConfigurations</key>
-		<dict>
-			<key>UIWindowSceneSessionRoleApplication</key>
-			<array>
-				<dict>
-					<key>UISceneConfigurationName</key>
-					<string>Default Configuration</string>
-					<key>UISceneDelegateClassName</key>
-					<string>SceneDelegate</string>
-					<key>UISceneStoryboardFile</key>
-					<string>Main</string>
-				</dict>
-			</array>
-		</dict>
-	</dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -116,27 +97,27 @@
 	<array>
 		<dict>
 			<key>UIApplicationShortcutItemIconFile</key>
-			<string>ic_empty_box</string>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>添加密码</string>
-			<key>UIApplicationShortcutItemType</key>
-			<string>CreatePasswordViewController</string>
-		</dict>
-		<dict>
-			<key>UIApplicationShortcutItemIconFile</key>
-			<string>ic_empty_box</string>
+			<string>bank</string>
 			<key>UIApplicationShortcutItemTitle</key>
 			<string>添加银行卡</string>
 			<key>UIApplicationShortcutItemType</key>
-			<string>CreatePasswordViewController</string>
+			<string>Bank</string>
 		</dict>
 		<dict>
 			<key>UIApplicationShortcutItemIconFile</key>
-			<string>ic_empty_box</string>
+			<string>site</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>添加密码</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>Site</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>create_password</string>
 			<key>UIApplicationShortcutItemTitle</key>
 			<string>生成密码</string>
 			<key>UIApplicationShortcutItemType</key>
-			<string>CreatePasswordViewController</string>
+			<string>Create</string>
 		</dict>
 	</array>
 	<key>UILaunchStoryboardName</key>

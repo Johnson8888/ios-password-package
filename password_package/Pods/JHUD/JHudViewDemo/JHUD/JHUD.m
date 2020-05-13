@@ -71,9 +71,9 @@
     [self setupSubViewsWithHudType:hudType];
     
     [self dispatchMainQueue:^{
-        
         view ? [view addSubview:self]:[KLastWindow addSubview:self];
-        [self.superview bringSubviewToFront:self];
+//        [self.superview bringSubviewToFront:self];
+        
     }];
 }
 

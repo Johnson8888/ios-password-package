@@ -11,7 +11,7 @@
 #import "PPWebsiteModel.h"
 #import "PPDataManager.h"
 #import "Utils.h"
-
+#import "AppConfig.h"
 
 @interface PresentWebsiteViewController ()<UIGestureRecognizerDelegate>
 @property (weak, nonatomic) IBOutlet UIView *bgView;
@@ -131,7 +131,13 @@
 
 
 - (IBAction)pressedDeleteButton:(id)sender {
+    
     [self dismissViewControllerAnimated:NO completion:nil];
+    if ([AppConfig config].isSharkFeedBack) {
+        UIImpactFeedbackGenerator *feedBackGenertor = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleHeavy];
+        [feedBackGenertor impactOccurred];
+    }
+    
     [Utils alertWithTitle:@"提示" detail:@"删除后不能恢复！确定要删除吗？" callBack:^(NSInteger index) {
         if (index == 1) {
             TTLog(@"确定删除");

@@ -27,6 +27,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    if ([launchOptions valueForKey:UIApplicationLaunchOptionsShortcutItemKey]) {
+        
+        TTLog(@"是跳转过来的！！");
+    }
+    
     [UITabBar appearance].tintColor = SYSTEM_COLOR;
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:SYSTEM_COLOR}];
     
@@ -45,11 +50,6 @@
         [self presentLoginViewController];
     }
     TTLog(@"timeStamp = %ld lastTimeStamp = %ld duration = %ld",(long)timeStamp,(long)lastTimeStamp,(long)duration);
-    
-    
-    
-//    删除密码
-//    [ZLGestureLockViewController deleteGesturesPassword];
     
     return YES;
 }
@@ -82,6 +82,21 @@
     TTLog(@"did enter background");
 }
 
+
+- (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void(^)(BOOL succeeded))completionHandler {
+    
+    NSString *type = shortcutItem.type;
+    if ([type isEqualToString:@"Bank"]) {
+        TTLog(@"Bank");
+    }
+    if ([type isEqualToString:@"Site"]) {
+        TTLog(@"Site");
+    }
+    if ([type isEqualToString:@"Create"]) {
+        TTLog(@"Create");
+    }
+    
+}
 
 - (void)presentLoginViewController {
     TTLog(@"need present login view controller");

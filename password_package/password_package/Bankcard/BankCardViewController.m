@@ -14,6 +14,8 @@
 #import "PPDataManager.h"
 #import "PPBankCardModel.h"
 #import "BankCardViewCell.h"
+#import <JHUD/JHUD.h>
+
 
 @interface BankCardViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -50,7 +52,7 @@
 
 
 
-
+/// 刷新数据源
 - (void)refreshData {
     if (self.dataArray) {
         [self.dataArray removeAllObjects];
@@ -58,7 +60,13 @@
     NSMutableArray *array = [[PPDataManager sharedInstance] getAllBackCard];
     self.dataArray = array.mutableCopy;
     [self.tableView reloadData];
+    if (self.dataArray.count == 0) {
+        [self showEmptyMessageView];
+    } else {
+        [self hiddenEmptyMessageView];
+    }
 }
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 84.0f;
@@ -125,6 +133,30 @@
     showViewController.bankCardModel = model;
     [self.navigationController pushViewController:showViewController animated:YES];
 }
+
+
+
+- (void)showEmptyMessageView {
+    UIView *hudView = [self.view viewWithTag:999];
+    if (hudView == nil) {
+        JHUD *hudView = [[JHUD alloc]initWithFrame:self.view.bounds];
+        hudView.tag = 999;
+        hudView.indicatorViewSize = CGSizeMake(138, 110);
+        hudView.messageLabel.text = @"";
+        hudView.customImage = [UIImage imageNamed:@"ic_empty_box"];
+        [hudView showAtView:self.view hudType:JHUDLoadingTypeFailure];
+        hudView.refreshButton.hidden = YES;
+    }
+}
+
+
+- (void)hiddenEmptyMessageView {
+    UIView *hudView = [self.view viewWithTag:999];
+    if (hudView) {
+        [hudView removeFromSuperview];
+    }
+}
+
 
 
 

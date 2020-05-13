@@ -33,6 +33,7 @@
 @interface MainViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic,strong) NSMutableArray *dataArray;
+@property (nonatomic,strong) CSYGroupButtonView *groupButton;
 @end
 
 @implementation MainViewController
@@ -69,24 +70,22 @@
     self.tableView.tableFooterView = [[UIView alloc] init];
     NSArray *arrayLeft = @[@"",@"",@""];
     //相应数组
-    CSYGroupButtonView *groupButton = [[CSYGroupButtonView alloc]initWithFrame:CGRectMake(self.view.bounds.size.width - 65, self.view.bounds.size.height - 100 - 45, 45, 45) mainButtonTitle:@"" selectedTitle:@"" otherButtonsTitle:arrayLeft];
+    self.groupButton = [[CSYGroupButtonView alloc]initWithFrame:CGRectMake(self.view.bounds.size.width - 65, self.view.bounds.size.height - 100 - 45, 45, 45) mainButtonTitle:@"" selectedTitle:@"" otherButtonsTitle:arrayLeft];
     
-    groupButton.ButtonClickBlock = ^(UIButton *btn) {
-        
+    __weak __block MainViewController *weakSelf = self;
+    self.groupButton.ButtonClickBlock = ^(UIButton *btn) {
         if (btn.tag == 1) {
-            [self showCreatePasswordViewController];
+            [weakSelf showCreatePasswordViewController];
         }
         if (btn.tag == 2) {
-            [self showSelectedItemViewController];
+            [weakSelf showSelectedItemViewController];
         }
         if (btn.tag == 3) {
-            [self showCreateBankCardViewController];
+            [weakSelf showCreateBankCardViewController];
         }
     };
+    [self.view addSubview:self.groupButton];
     
-    
-    [self.view addSubview:groupButton];
-    TTLog(@"view did load");
     [self refreshData];
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([SearchItemViewCell class]) bundle:nil] forCellReuseIdentifier:@"com.main.view.controller.search.item.cell"];
     
@@ -227,6 +226,8 @@
     [self presentViewController:inputViewController animated:YES completion:nil];
 }
 
+
+/// 添加
 - (IBAction)pressedAddBarButton:(UIBarButtonItem *)sender {
     [self showSelectedItemViewController];
 }
@@ -254,6 +255,7 @@
 
 
 
+/// 空白页面显示
 - (void)showEmptyMessageView {
     UIView *hudView = [self.view viewWithTag:999];
     if (hudView == nil) {
@@ -264,14 +266,20 @@
         hudView.customImage = [UIImage imageNamed:@"ic_empty_box"];
         [hudView showAtView:self.view hudType:JHUDLoadingTypeFailure];
         hudView.refreshButton.hidden = YES;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [hudView.superview bringSubviewToFront:self.groupButton];
+        });
     }
 }
 
+/// 隐藏空白按钮
 - (void)hiddenEmptyMessageView {
     UIView *hudView = [self.view viewWithTag:999];
     if (hudView) {
         [hudView removeFromSuperview];
     }
 }
+
+
 
 @end

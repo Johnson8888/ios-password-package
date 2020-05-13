@@ -14,6 +14,7 @@
 #import "CreatePasswordViewController.h"
 #import "CreatePasswordViewController.h"
 #import <TZImagePickerController/TZImagePickerController.h>
+#import "AppConfig.h"
 
 @interface InputWebsiteViewController ()<TZImagePickerControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *editButton;
@@ -124,6 +125,11 @@
             [ProgressHUD showError:@"保存数据失败,请重试!"];
         }
     }
+    if ([AppConfig config].isSharkFeedBack) {
+        UIImpactFeedbackGenerator *feedBackGenertor = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleMedium];
+        [feedBackGenertor impactOccurred];
+    }
+    
 }
 
 - (IBAction)pressedCreatePasswrodButton:(id)sender {
