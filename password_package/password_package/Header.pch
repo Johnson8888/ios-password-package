@@ -21,6 +21,9 @@
 #define APP_ID @"1508966205"
 /// 反馈bug地址
 #define SUPPORT_EMAIL_ADDRESS @"ctTec@foxmail.com"
+/// 隐私地址
+#define PRIVATE_POLICY_URL @"https://www.freeprivacypolicy.com/privacy/view/df18185e724278e415dab71180bb0088"
+
 /// 记录我的收藏的 itemId
 #define PLAY_MY_LIKE_TAG -99999
 

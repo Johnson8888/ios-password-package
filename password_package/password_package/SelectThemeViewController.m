@@ -93,6 +93,11 @@
 }
 
 - (IBAction)pressedConfirmButton:(id)sender {
+    if ([AppConfig config].isSharkFeedBack) {
+        UIImpactFeedbackGenerator *feedBackGenertor = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleMedium];
+        [feedBackGenertor impactOccurred];
+    }
+
     AppConfig *config = [AppConfig config];
     config.mainTheme = self.lastTheme;
     [AppConfig saveConfig:config];

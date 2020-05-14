@@ -40,7 +40,7 @@
     
     self.logoImageView.backgroundColor = SYSTEM_COLOR;
     NSString *iconFileName = [AppConfig config].iconFileName;
-    if (iconFileName != nil || iconFileName.length == 0) {
+    if (iconFileName == nil || iconFileName.length == 0) {
         self.logoImageView.image = [UIImage imageNamed:@"default_icon_file"];
     }else {
         self.logoImageView.image = [UIImage imageNamed:iconFileName];

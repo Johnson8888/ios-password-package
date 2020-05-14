@@ -12,6 +12,7 @@
 #import "SetAutoLockViewController.h"
 #import "SelectThemeViewController.h"
 #import "SelectIconViewController.h"
+#import "WKWebViewController.h"
 #import <MessageUI/MessageUI.h>
 #import "PPBankCardModel.h"
 #import "PPWebsiteModel.h"
@@ -491,6 +492,9 @@ static NSString *iconCellIdentifier = @"com.password.package.setting.icon.cell.i
 
 /// 隐私服务
 - (void)privatePolicy {
+    
+    WKWebViewController *wViewController = [[WKWebViewController alloc] initWithUrl:PRIVATE_POLICY_URL];
+    [self.tabBarController presentViewController:wViewController animated:YES completion:nil];
     TTLog(@"privatePolicy");
 }
 

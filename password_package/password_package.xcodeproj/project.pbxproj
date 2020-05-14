@@ -117,6 +117,7 @@
 		F3970890246D1CF900A716FE /* 2Icon-App-40x40@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = F3970858246D1CF800A716FE /* 2Icon-App-40x40@1x.png */; };
 		F3970891246D1CF900A716FE /* 1Icon-App-29x29@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F3970859246D1CF800A716FE /* 1Icon-App-29x29@3x.png */; };
 		F3970892246D1CF900A716FE /* 4Icon-App-40x40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F397085A246D1CF800A716FE /* 4Icon-App-40x40@2x.png */; };
+		F3970898246D57A900A716FE /* WKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3970897246D57A900A716FE /* WKWebViewController.m */; };
 		F3C7F6B0243B430700F45EBD /* CSYGroupButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C7F6AF243B430700F45EBD /* CSYGroupButtonView.m */; };
 		F3C7F6E2243C469000F45EBD /* HWTopBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C7F6D5243C469000F45EBD /* HWTopBarViewController.m */; };
 		F3C7F6E3243C469000F45EBD /* HWFullDialogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C7F6D6243C469000F45EBD /* HWFullDialogViewController.m */; };
@@ -286,6 +287,8 @@
 		F3970858246D1CF800A716FE /* 2Icon-App-40x40@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2Icon-App-40x40@1x.png"; sourceTree = "<group>"; };
 		F3970859246D1CF800A716FE /* 1Icon-App-29x29@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1Icon-App-29x29@3x.png"; sourceTree = "<group>"; };
 		F397085A246D1CF800A716FE /* 4Icon-App-40x40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "4Icon-App-40x40@2x.png"; sourceTree = "<group>"; };
+		F3970896246D57A900A716FE /* WKWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKWebViewController.h; sourceTree = "<group>"; };
+		F3970897246D57A900A716FE /* WKWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKWebViewController.m; sourceTree = "<group>"; };
 		F3C7F6AE243B430700F45EBD /* CSYGroupButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSYGroupButtonView.h; sourceTree = "<group>"; };
 		F3C7F6AF243B430700F45EBD /* CSYGroupButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSYGroupButtonView.m; sourceTree = "<group>"; };
 		F3C7F6D4243C469000F45EBD /* HWAutoSizeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWAutoSizeViewController.h; sourceTree = "<group>"; };
@@ -457,6 +460,8 @@
 				F36A3AEA2455A4E200208EB5 /* SelectThemeViewController.m */,
 				F397081E246CF69C00A716FE /* SelectIconViewController.h */,
 				F397081F246CF69C00A716FE /* SelectIconViewController.m */,
+				F3970896246D57A900A716FE /* WKWebViewController.h */,
+				F3970897246D57A900A716FE /* WKWebViewController.m */,
 				F36A3AE32452DA8100208EB5 /* DetailCell.h */,
 				F36A3AE42452DA8100208EB5 /* DetailCell.m */,
 				F36A3AE52452DA8100208EB5 /* DetailCell.xib */,
@@ -854,6 +859,7 @@
 				F3C7F6E2243C469000F45EBD /* HWTopBarViewController.m in Sources */,
 				F3874B59244AB95F00A3DFA7 /* AppConfig.m in Sources */,
 				F36A3AE12452D74200208EB5 /* SwitchCell.m in Sources */,
+				F3970898246D57A900A716FE /* WKWebViewController.m in Sources */,
 				F31969052448273D005C4AB0 /* PresentBankCardViewController.m in Sources */,
 				F36A890324348C520003FF39 /* AppDelegate.m in Sources */,
 				F325325F243DB88200BCEA3E /* InputCartViewController.m in Sources */,

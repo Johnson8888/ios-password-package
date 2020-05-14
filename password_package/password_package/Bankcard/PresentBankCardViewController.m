@@ -10,6 +10,7 @@
 #import "PPBankCardModel.h"
 #import "PPDataManager.h"
 #import <SDWebImage.h>
+#import "AppConfig.h"
 #import "Utils.h"
 
 @interface PresentBankCardViewController ()<UIGestureRecognizerDelegate>
@@ -50,6 +51,11 @@
 }
 
 - (IBAction)pressedDeleteButton:(id)sender {
+    
+    if ([AppConfig config].isSharkFeedBack) {
+        [[[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleHeavy] impactOccurred];
+    }
+    
     [self dismissViewControllerAnimated:NO completion:nil];
     [Utils alertWithTitle:@"提示" detail:@"删除后不能恢复！确定要删除吗？" callBack:^(NSInteger index) {
         if (index == 1) {

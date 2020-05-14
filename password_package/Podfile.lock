@@ -1,19 +1,4 @@
 PODS:
-  - AFNetworking (3.2.1):
-    - AFNetworking/NSURLSession (= 3.2.1)
-    - AFNetworking/Reachability (= 3.2.1)
-    - AFNetworking/Security (= 3.2.1)
-    - AFNetworking/Serialization (= 3.2.1)
-    - AFNetworking/UIKit (= 3.2.1)
-  - AFNetworking/NSURLSession (3.2.1):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/Reachability (3.2.1)
-  - AFNetworking/Security (3.2.1)
-  - AFNetworking/Serialization (3.2.1)
-  - AFNetworking/UIKit (3.2.1):
-    - AFNetworking/NSURLSession
   - AppCenter (1.2.0):
     - AppCenter/Analytics (= 1.2.0)
     - AppCenter/Crashes (= 1.2.0)
@@ -56,7 +41,6 @@ PODS:
   - WCDBOptimizedSQLCipher (1.2.1)
 
 DEPENDENCIES:
-  - AFNetworking
   - AppCenter
   - CYLTabBarController
   - DYFAuthIDAndGestureLock
@@ -81,7 +65,6 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
-    - AFNetworking
     - AppCenter
     - CYLTabBarController
     - DYFAuthIDAndGestureLock
@@ -107,7 +90,6 @@ SPEC REPOS:
     - WCDBOptimizedSQLCipher
 
 SPEC CHECKSUMS:
-  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   AppCenter: d0b68b2a7a87ac0aed78e66f36d87fd321d0a29c
   CYLTabBarController: edd9fecba9afa3f2e9e44ed50ca6dde69941f25f
   DYFAuthIDAndGestureLock: bb0b77378f1f1fa6964cd29ebbd30c4fa647b224
@@ -132,6 +114,6 @@ SPEC CHECKSUMS:
   WCDB: 8e90babdeb7784c569353a4bd22a66c0a175a882
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
 
-PODFILE CHECKSUM: cf28ba1df64330f88e270d2c9dd28a810fa0c7e8
+PODFILE CHECKSUM: 3efcb37565efc262c13ab4b93ab0e811d55d8112
 
 COCOAPODS: 1.8.4

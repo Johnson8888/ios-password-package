@@ -90,7 +90,7 @@
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([SearchItemViewCell class]) bundle:nil] forCellReuseIdentifier:@"com.main.view.controller.search.item.cell"];
     
     //不能删除
-    /*
+    
     NSString *lastPwd = [WUGesturesUnlockViewController gesturesPassword];
     /// 如果没有密码 就创建密码
     TTLog(@"lastPwd == %@",lastPwd);
@@ -121,7 +121,7 @@
         vc.modalPresentationStyle = UIModalPresentationFullScreen;
         [self.tabBarController presentViewController:vc animated:YES completion:nil];
     }
-     */
+     
 }
 
 

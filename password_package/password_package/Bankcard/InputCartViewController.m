@@ -10,7 +10,6 @@
 #import "PPBankCardModel.h"
 #import "PPDataManager.h"
 #import <SDWebImage.h>
-#import <AFNetworking.h>
 #import <ProgressHUD/ProgressHUD.h>
 #import "BankCardResponse.h"
 #import <UITextView+Placeholder/UITextView+Placeholder.h>
@@ -283,21 +282,50 @@
     
     NSString *baseURL = @"https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&cardBinCheck=true&cardNo=";
     NSString *requestURL = [NSString stringWithFormat:@"%@%@",baseURL,number];
-    AFHTTPSessionManager *manger = [AFHTTPSessionManager manager];
-    [manger GET:requestURL parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    
+    [self getNetworRequestWithURL:requestURL
+                       completion:^(NSDictionary * _Nullable response, NSError * _Nullable error) {
+        if (error) {
+            return;
+        }
         NSError *createModelError;
-        BankCardResponse *model = [[BankCardResponse alloc] initWithDictionary:responseObject error:&createModelError];
+        BankCardResponse *model = [[BankCardResponse alloc] initWithDictionary:response error:&createModelError];
         if (createModelError) {
             completion(nil,createModelError);
         } else {
             completion(model,nil);
         }
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        TTLog(@"请求失败 不显示")
-        completion(nil,error);
     }];
+
 }
 
 
+/// Get 请求
+/// @param url 请求地址
+/// @param completion 请求完成后的回调
+- (void)getNetworRequestWithURL:(NSString *)url
+                     completion:(void(^)(NSDictionary *_Nullable response, NSError *_Nullable error))completion {
+    
+    NSMutableURLRequest *mutableRequest = [[NSMutableURLRequest alloc]initWithURL:[NSURL URLWithString:url]];
+    mutableRequest.timeoutInterval = 90.0f;
+    [mutableRequest setHTTPMethod: @"GET"];
+    [mutableRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:mutableRequest completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (data) {
+            NSError *parseError;
+            id responseObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&parseError];
+            if (parseError) {
+                completion(nil,parseError);
+                return;
+            }
+            completion(responseObject,nil);
+        }else{
+            completion(nil,error);
+        }
+    }];
+    [dataTask resume];
+}
 
 @end
