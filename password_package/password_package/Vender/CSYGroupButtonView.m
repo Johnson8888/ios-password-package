@@ -163,7 +163,7 @@ static const float CORNERRADIUS = 22.0f;
         
         button.hidden = YES;
         button.titleLabel.font = [UIFont systemFontOfSize:fontSize];
-        
+        button.backgroundColor = [UIColor whiteColor];
         button.tag = 1 + i;  //设置tag
         [button setTitle:self.subButtonsTitle_Array[i] forState:UIControlStateNormal];
         [button addTarget:self action:@selector(buttonClick:) forControlEvents:5];  //设置点击事件

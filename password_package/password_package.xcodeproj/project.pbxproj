@@ -1027,6 +1027,7 @@
 				CODE_SIGN_ENTITLEMENTS = password_package/password_package.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 101;
 				DEVELOPMENT_TEAM = B322RG9L6H;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/password_package/Header.pch";
@@ -1036,6 +1037,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.xi.passwordpackage;
 				PRODUCT_NAME = "密码君";
 				PROVISIONING_PROFILE_SPECIFIER = PasswordPackage_dev;
@@ -1055,6 +1057,7 @@
 				CODE_SIGN_ENTITLEMENTS = password_package/password_package.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 101;
 				DEVELOPMENT_TEAM = B322RG9L6H;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/password_package/Header.pch";
@@ -1064,6 +1067,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.xi.passwordpackage;
 				PRODUCT_NAME = "密码君";
 				PROVISIONING_PROFILE_SPECIFIER = PasswordPackage_dev;

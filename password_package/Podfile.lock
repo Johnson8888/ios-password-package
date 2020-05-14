@@ -17,6 +17,7 @@ PODS:
   - HWPopController (1.0.6)
   - iCloudDocumentSync (7.4.1)
   - IQKeyboardManager (6.5.5)
+  - JGProgressHUD (2.1)
   - JHUD (0.3.0)
   - JSONModel (1.8.0)
   - LEETheme (1.1.9)
@@ -48,6 +49,7 @@ DEPENDENCIES:
   - HWPopController
   - iCloudDocumentSync
   - IQKeyboardManager
+  - JGProgressHUD
   - JHUD
   - JSONModel
   - LEETheme
@@ -72,6 +74,7 @@ SPEC REPOS:
     - HWPopController
     - iCloudDocumentSync
     - IQKeyboardManager
+    - JGProgressHUD
     - JHUD
     - JSONModel
     - LEETheme
@@ -97,6 +100,7 @@ SPEC CHECKSUMS:
   HWPopController: 7a079918fe8ca5bf7de3d971faf1cab7fc905529
   iCloudDocumentSync: 961aac30ca09c221de4c236e94dae69912f2c589
   IQKeyboardManager: 3a8b9e603f8b0eeaf5f096a1f2b2cfcf121992ef
+  JGProgressHUD: aa403e9a5b45cae98903c4600cccdd98c0c3ec90
   JHUD: 17650f65045d9843a7ad19f6a0b1eac6c78a45d2
   JSONModel: 02ab723958366a3fd27da57ea2af2113658762e9
   LEETheme: 6afc531cb92b58b193b29f94266408adf7b8276d
@@ -114,6 +118,6 @@ SPEC CHECKSUMS:
   WCDB: 8e90babdeb7784c569353a4bd22a66c0a175a882
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
 
-PODFILE CHECKSUM: 3efcb37565efc262c13ab4b93ab0e811d55d8112
+PODFILE CHECKSUM: 3151ba9f9921911d82323f520409e9ddf69fe349
 
 COCOAPODS: 1.8.4

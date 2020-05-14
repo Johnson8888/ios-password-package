@@ -91,6 +91,7 @@
     
     //不能删除
     
+    /*
     NSString *lastPwd = [WUGesturesUnlockViewController gesturesPassword];
     /// 如果没有密码 就创建密码
     TTLog(@"lastPwd == %@",lastPwd);
@@ -121,6 +122,7 @@
         vc.modalPresentationStyle = UIModalPresentationFullScreen;
         [self.tabBarController presentViewController:vc animated:YES completion:nil];
     }
+     */
      
 }
 

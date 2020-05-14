@@ -135,6 +135,12 @@ static NSString *iconCellIdentifier = @"com.password.package.setting.icon.cell.i
                 SwitchCell *cell = [tableView dequeueReusableCellWithIdentifier:switchCellIdentifier];
                 cell.nameLabel.text = @"震动反馈";
                 cell.switchMenu.on = appConfig.isSharkFeedBack;
+                cell.switchCallBack = ^(BOOL isOn) {
+                    AppConfig *cc = [AppConfig config];
+                    cc.isSharkFeedBack = isOn;
+                    [AppConfig saveConfig:cc];
+                    [tableView reloadData];
+                };
                 return cell;
             }
             if (indexPath.row == 1) {
@@ -293,6 +299,7 @@ static NSString *iconCellIdentifier = @"com.password.package.setting.icon.cell.i
         if (self.isSupportFeedBack) {
             if (indexPath.row == 0) {
                 TTLog(@"震动反馈");
+                
             }
             if (indexPath.row == 1) {
                 TTLog(@"备份到iCloud");
@@ -371,6 +378,7 @@ static NSString *iconCellIdentifier = @"com.password.package.setting.icon.cell.i
     sViewController.saveCallBack = ^{
         [weakSelf.tableView reloadData];
     };
+    sViewController.modalPresentationStyle = UIModalPresentationFullScreen;
     [self.navigationController presentViewController:sViewController animated:YES completion:^{}];
 }
 
@@ -459,6 +467,7 @@ static NSString *iconCellIdentifier = @"com.password.package.setting.icon.cell.i
     sViewController.saveCallBack = ^{
         [weakSelf.tableView reloadData];
     };
+    sViewController.modalPresentationStyle = UIModalPresentationFullScreen;
     [self.navigationController presentViewController:sViewController animated:YES completion:^{}];
     TTLog(@"setAutoLockDuration");
 }
@@ -471,6 +480,7 @@ static NSString *iconCellIdentifier = @"com.password.package.setting.icon.cell.i
     cViewController.clearCallBack = ^{
         [weakSelf.tableView reloadData];
     };
+    cViewController.modalPresentationStyle = UIModalPresentationFullScreen;
     [self.navigationController presentViewController:cViewController animated:YES completion:^{}];
     TTLog(@"clearPasteboardDuration");
 }
@@ -484,8 +494,8 @@ static NSString *iconCellIdentifier = @"com.password.package.setting.icon.cell.i
     sViewController.selectThemeCallBack = ^{
         [weakSelf.tableView reloadData];
     };
+    sViewController.modalPresentationStyle = UIModalPresentationFullScreen;
     [self.navigationController presentViewController:sViewController animated:YES completion:^{}];
-    
 }
 
 
@@ -494,6 +504,7 @@ static NSString *iconCellIdentifier = @"com.password.package.setting.icon.cell.i
 - (void)privatePolicy {
     
     WKWebViewController *wViewController = [[WKWebViewController alloc] initWithUrl:PRIVATE_POLICY_URL];
+    wViewController.modalPresentationStyle = UIModalPresentationFullScreen;
     [self.tabBarController presentViewController:wViewController animated:YES completion:nil];
     TTLog(@"privatePolicy");
 }

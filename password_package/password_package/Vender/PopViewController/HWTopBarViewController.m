@@ -28,20 +28,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.contentSizeInPop = CGSizeMake([UIScreen mainScreen].bounds.size.width - 50, 64);
+    CGFloat height = 64.0f;
+    if ([self isPhoneX]) {
+        height = 88.0f;
+    }
+    self.contentSizeInPop = CGSizeMake([UIScreen mainScreen].bounds.size.width - 50, height);    
     self.view.backgroundColor = [UIColor colorWithRed:0.397 green:0.859 blue:0.066 alpha:1.00];
-//    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapToDismiss)];
+    
+    //    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapToDismiss)];
 //    [self.view addGestureRecognizer:tapGestureRecognizer];
     
     UILabel *label = [UILabel new];
     label.text = self.text;
     label.textAlignment = NSTextAlignmentCenter;
     label.textColor = [UIColor whiteColor];
-
     [self.view addSubview:label];
 
     [label mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.mas_equalTo(CGPointZero);
+        if ([self isPhoneX]) {
+            make.centerX.mas_equalTo(@0);
+            make.centerY.mas_equalTo(@20);
+        } else {
+            make.center.mas_equalTo(CGPointZero);
+        }
     }];
     [self performSelector:@selector(didTapToDismiss) withObject:nil afterDelay:0.75];
 }
@@ -51,5 +60,9 @@
 }
 
 
+
+- (BOOL)isPhoneX {
+     return [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bottom > 0.0;
+}
 
 @end
