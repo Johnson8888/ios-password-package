@@ -40,11 +40,10 @@
 }
 
 - (IBAction)pressedSelectedButton:(id)sender {
-    BOOL isSelected = self.selectButton.isSelected;
-    /// 已经选中了
-    if (isSelected) {
-        return;
-    }
+//    BOOL isSelected = self.selectButton.isSelected;
+//    if (isSelected) {
+//        return;
+//    }
 }
 
 

@@ -11,6 +11,7 @@
 #import "ClearPasteboardViewController.h"
 #import "SetAutoLockViewController.h"
 #import "SelectThemeViewController.h"
+#import "SelectIconViewController.h"
 #import <MessageUI/MessageUI.h>
 #import "PPBankCardModel.h"
 #import "PPWebsiteModel.h"
@@ -19,6 +20,7 @@
 #import <sys/utsname.h>
 #import "DetailCell.h"
 #import "SwitchCell.h"
+#import "IconCell.h"
 #import "AppConfig.h"
 #import "Utils.h"
 
@@ -26,7 +28,7 @@
 static NSString *normalCellIdentifier = @"com.password.package.setting.viewcontroller.identifier";
 static NSString *switchCellIdentifier = @"com.password.package.setting.switch.cell.idenfitifer";
 static NSString *detailCellIdentifier = @"com.password.package.setting.detail.cell.identifier";
-
+static NSString *iconCellIdentifier = @"com.password.package.setting.icon.cell.identifier";
 
 @interface SettingViewController ()<UITableViewDelegate,UITableViewDataSource,MFMailComposeViewControllerDelegate,iCloudDelegate>
 
@@ -56,7 +58,7 @@ static NSString *detailCellIdentifier = @"com.password.package.setting.detail.ce
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:normalCellIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([SwitchCell class]) bundle:nil] forCellReuseIdentifier:switchCellIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([DetailCell class]) bundle:nil] forCellReuseIdentifier:detailCellIdentifier];
-
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([IconCell class]) bundle:nil] forCellReuseIdentifier:iconCellIdentifier];
     
     /// 是否支持震动反馈
     self.isSupportFeedBack = [Utils isSupportTapFeedBack];
@@ -94,6 +96,10 @@ static NSString *detailCellIdentifier = @"com.password.package.setting.detail.ce
     /// 主题
     /// 1. mainTheme
     NSMutableArray *themeArray = [NSMutableArray arrayWithArray:@[@"当前主题"]];
+    /// UIApplication.shared.supportsAlternateIcons
+    if ([UIApplication sharedApplication].supportsAlternateIcons) {
+        [themeArray addObject:@"Icon图片"];
+    }
     
     
     /// 支持
@@ -237,6 +243,15 @@ static NSString *detailCellIdentifier = @"com.password.package.setting.detail.ce
             cell.detailLabel.text = [self themeDescriptionOfThemeValue:appConfig.mainTheme];
             return cell;
         }
+        if (indexPath.row == 1) {
+            IconCell *cell = (IconCell *)[tableView dequeueReusableCellWithIdentifier:iconCellIdentifier];
+            NSString *iconFileName = [AppConfig config].iconFileName;
+            if (iconFileName == nil || iconFileName.length == 0) {
+                iconFileName = @"7Icon-App-60x60";
+            }
+            cell.iconImageView.image = [UIImage imageNamed:iconFileName];
+            return cell;
+        }
     }
     
     if (indexPath.section == 3) {
@@ -326,6 +341,10 @@ static NSString *detailCellIdentifier = @"com.password.package.setting.detail.ce
             TTLog(@"当前主题");
             [self selectThemeAction];
         }
+        if (indexPath.row == 1) {
+            TTLog(@"选择 Icon");
+            [self selectIconFile];
+        }
     }
     
     if (indexPath.section == 3) {
@@ -341,6 +360,17 @@ static NSString *detailCellIdentifier = @"com.password.package.setting.detail.ce
             TTLog(@"版本号");
         }
     }
+}
+
+
+/// 选择 Icon 方法
+- (void)selectIconFile {
+    SelectIconViewController *sViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass([SelectIconViewController class])];
+    __weak SettingViewController *weakSelf = self;
+    sViewController.saveCallBack = ^{
+        [weakSelf.tableView reloadData];
+    };
+    [self.navigationController presentViewController:sViewController animated:YES completion:^{}];
 }
 
 
