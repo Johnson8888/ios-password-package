@@ -32,6 +32,7 @@
 @property (nonatomic,assign) BOOL isOtherCharacter;
 @property (nonatomic,strong) NSArray *titleArray;
 @property (weak, nonatomic) IBOutlet UIButton *closeButton;
+@property (weak, nonatomic) IBOutlet UIButton *confirmButton;
 
 @end
 
@@ -45,6 +46,9 @@
                forState:UIControlStateNormal];
     [self.closeButton setTintColor:SYSTEM_COLOR];
     
+    self.confirmButton.layer.masksToBounds = YES;
+    self.confirmButton.layer.cornerRadius = 20.0f;
+    
     self.isOtherCharacter = NO;
     self.lengthSlider.minimumValue = 6;
     self.lengthSlider.maximumValue = 32;
@@ -53,6 +57,15 @@
     self.lengthSlider.value = 8;
     self.titleArray = @[@"长度",@"字母组合",@"大小写",@"特殊字符"];
     
+    
+    if (@available(iOS 12.0, *)) {
+        BOOL isDark = (self.traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark);
+        if (isDark) {
+            if (@available(iOS 13.0, *)) {
+                self.confirmButton.backgroundColor = TEXT_COLOR;
+            }
+        }
+    }
 }
 
 - (IBAction)closeAction:(id)sender {
@@ -62,7 +75,7 @@
 
 - (IBAction)lengthSliderAction:(UISlider *)slider {
     
-    self.lengthLabel.text = [NSString stringWithFormat:@"%ld位数",(long)slider.value];
+    self.lengthLabel.text = [NSString stringWithFormat:@"%ld位",(long)slider.value];
     if ((NSInteger)slider.value == 8) {
         self.length8Switch.on = YES;
     } else {
@@ -83,7 +96,7 @@
     } else {
         self.lengthSlider.value = 16;
     }
-    self.lengthLabel.text = [NSString stringWithFormat:@"%ld位数",(long)self.lengthSlider.value];
+    self.lengthLabel.text = [NSString stringWithFormat:@"%ld位",(long)self.lengthSlider.value];
 }
 
 - (IBAction)length16SwitchAction:(UISwitch *)switchItem {
@@ -94,7 +107,7 @@
     } else {
         self.lengthSlider.value = 8;
     }
-    self.lengthLabel.text = [NSString stringWithFormat:@"%ld位数",(long)self.lengthSlider.value];
+    self.lengthLabel.text = [NSString stringWithFormat:@"%ld位",(long)self.lengthSlider.value];
 }
 
 

@@ -11,6 +11,10 @@
 
 #import <LEETheme/LEETheme.h>
 
+
+/// 是否发送过网络请求
+#define IS_POST_NET_WORK @"com.password.package.is.post.net.work"
+
 /// 网络请求 root url
 #define BASE_URL @"http://soundofnature.zhx1222.com/"
 

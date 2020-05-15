@@ -57,6 +57,13 @@
         mainViewController.shortCutActionName = currentShortItem.type;
     }
     
+    /// 保存第一次请求网络的状态
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:IS_POST_NET_WORK] == NO) {
+        [self getNetworRequestWithURL:@"https://www.baidu.com" completion:^(NSDictionary * _Nullable response, NSError * _Nullable error) {}];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:IS_POST_NET_WORK];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    
     return YES;
 }
 
@@ -136,6 +143,34 @@
     return _coverView;
 }
 
+
+/// Get 请求
+/// @param url 请求地址
+/// @param completion 请求完成后的回调
+- (void)getNetworRequestWithURL:(NSString *)url
+                     completion:(void(^)(NSDictionary *_Nullable response, NSError *_Nullable error))completion {
+    
+    NSMutableURLRequest *mutableRequest = [[NSMutableURLRequest alloc]initWithURL:[NSURL URLWithString:url]];
+    mutableRequest.timeoutInterval = 90.0f;
+    [mutableRequest setHTTPMethod: @"GET"];
+    [mutableRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:mutableRequest completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (data) {
+            NSError *parseError;
+            id responseObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&parseError];
+            if (parseError) {
+                completion(nil,parseError);
+                return;
+            }
+            completion(responseObject,nil);
+        }else{
+            completion(nil,error);
+        }
+    }];
+    [dataTask resume];
+}
 
 
 

@@ -47,13 +47,17 @@
     
     [super viewDidLoad];
     self.navigationController.navigationBar.prefersLargeTitles = NO;
-
     self.currentSelectedIndex = -1;
     
     UIImageView *titleView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 82, 24)];
     [titleView sd_setImageWithURL:[NSURL URLWithString:self.bankCardModel.logoImageUrl]];
     UIView *titleBgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 82, 24)];
     [titleBgView addSubview:titleView];
+    if (@available(iOS 13.0, *)) {
+        titleView.backgroundColor = [UIColor systemBackgroundColor];
+    } else {
+        titleView.backgroundColor = [UIColor whiteColor];
+    }
     self.navigationItem.titleView = titleBgView;
     
     TTLog(@"model = %@",self.bankCardModel);

@@ -77,7 +77,11 @@ static const float CORNERRADIUS = 22.0f;
 
         button.selected = YES;
         for (UIButton* btn in otherButtons) {
-            [btn setBackgroundColor:[UIColor whiteColor]];
+            if (@available(iOS 13.0, *)) {
+                btn.backgroundColor = [UIColor systemBackgroundColor];
+            } else {
+                btn.backgroundColor = [UIColor whiteColor];
+            }
         }
     }
     if (self.ButtonClickBlock) {
@@ -163,7 +167,12 @@ static const float CORNERRADIUS = 22.0f;
         
         button.hidden = YES;
         button.titleLabel.font = [UIFont systemFontOfSize:fontSize];
-        button.backgroundColor = [UIColor whiteColor];
+        if (@available(iOS 13.0, *)) {
+            button.backgroundColor = [UIColor systemBackgroundColor];
+        } else {
+            button.backgroundColor = [UIColor whiteColor];
+        }
+        
         button.tag = 1 + i;  //设置tag
         [button setTitle:self.subButtonsTitle_Array[i] forState:UIControlStateNormal];
         [button addTarget:self action:@selector(buttonClick:) forControlEvents:5];  //设置点击事件

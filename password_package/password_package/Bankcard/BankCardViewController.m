@@ -29,6 +29,7 @@
 -(void)viewWillAppear:(BOOL)animated {
     self.tabBarController.tabBar.hidden = NO;
     self.navigationController.navigationBar.prefersLargeTitles = YES;
+    [self refreshData];
     [super viewWillAppear:animated];
 }
 
@@ -46,7 +47,7 @@
     
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([BankCardViewCell class]) bundle:nil] forCellReuseIdentifier:@"com.password.package.backcard.view.controller.bank.card.cell.identifer"];
     
-    [self refreshData];
+//    [self refreshData];
     
 }
 

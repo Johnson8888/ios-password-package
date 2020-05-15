@@ -152,7 +152,7 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
                          reason:(UITextFieldDidEndEditingReason)reason  {
-    TTLog(@"textFieldDidEndEditing with reason");
+//    TTLog(@"textFieldDidEndEditing with reason");
     
     if (textField == self.accountTF) {
         NSString *tempString = textField.text;
@@ -252,8 +252,8 @@
     }
     
     if (textField == self.cvvTF) {
-        self.cvvCodeLabel.text = textField.text;
-        if (self.cvvCodeLabel.text.length > 2) {
+        self.cvvTF.text = textField.text;
+        if (self.cvvTF.text.length > 2) {
             return NO;
         }
     }
@@ -290,11 +290,14 @@
         }
         NSError *createModelError;
         BankCardResponse *model = [[BankCardResponse alloc] initWithDictionary:response error:&createModelError];
-        if (createModelError) {
-            completion(nil,createModelError);
-        } else {
-            completion(model,nil);
-        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (createModelError) {
+                completion(nil,createModelError);
+            } else {
+                completion(model,nil);
+            }
+        });
     }];
 
 }
