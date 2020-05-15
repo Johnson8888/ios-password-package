@@ -10,6 +10,7 @@
 #import "Utils.h"
 #import "CoverView.h"
 #import "AppConfig.h"
+#import "MainViewController.h"
 #import <AppCenter/AppCenter.h>
 #import <iCloudDocumentSync/iCloud.h>
 #import "WUGesturesUnlockViewController.h"
@@ -26,12 +27,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
-    if ([launchOptions valueForKey:UIApplicationLaunchOptionsShortcutItemKey]) {
         
-        TTLog(@"是跳转过来的！！");
-    }
-    
     [UITabBar appearance].tintColor = SYSTEM_COLOR;
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:SYSTEM_COLOR}];
     
@@ -49,7 +45,17 @@
     if (lastTimeStamp != 0 && timeStamp - lastTimeStamp >= duration) {
         [self presentLoginViewController];
     }
-    TTLog(@"timeStamp = %ld lastTimeStamp = %ld duration = %ld",(long)timeStamp,(long)lastTimeStamp,(long)duration);
+    
+    if ([launchOptions valueForKey:UIApplicationLaunchOptionsShortcutItemKey]) {
+        UIApplicationShortcutItem *currentShortItem = launchOptions[UIApplicationLaunchOptionsShortcutItemKey];
+        if (currentShortItem.type.length == 0) {
+            return YES;
+        }
+        UITabBarController *rootViewController = (UITabBarController *)self.window.rootViewController;
+        UINavigationController *navigationController = rootViewController.viewControllers.firstObject;
+        MainViewController *mainViewController = navigationController.viewControllers.firstObject;
+        mainViewController.shortCutActionName = currentShortItem.type;
+    }
     
     return YES;
 }
@@ -84,19 +90,25 @@
 
 
 - (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void(^)(BOOL succeeded))completionHandler {
-    
-    NSString *type = shortcutItem.type;
-    if ([type isEqualToString:@"Bank"]) {
-        TTLog(@"Bank");
+    UITabBarController *rootViewController = (UITabBarController *)self.window.rootViewController;
+    if (rootViewController.selectedIndex != 0) {
+        rootViewController.selectedIndex = 0;
     }
-    if ([type isEqualToString:@"Site"]) {
-        TTLog(@"Site");
+    UINavigationController *navigationController = rootViewController.viewControllers.firstObject;
+    if ([navigationController.topViewController isKindOfClass:[MainViewController class]] == NO) {
+        [navigationController popToRootViewControllerAnimated:NO];
     }
-    if ([type isEqualToString:@"Create"]) {
-        TTLog(@"Create");
+    if (navigationController.presentedViewController != nil) {
+        [navigationController.presentedViewController dismissViewControllerAnimated:NO completion:nil];
     }
-    
+    if (navigationController.viewControllers.firstObject.presentingViewController != nil) {
+        [navigationController.presentedViewController dismissViewControllerAnimated:NO completion:nil];
+    }
+    MainViewController *mainViewController = navigationController.viewControllers.firstObject;
+    [mainViewController shortCutActionWithName:shortcutItem.type];
 }
+
+
 
 - (void)presentLoginViewController {
     TTLog(@"need present login view controller");
@@ -106,6 +118,7 @@
         vc.modalPresentationStyle = UIModalPresentationFullScreen;
         [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:vc animated:NO completion:nil];
     }
+    
 }
 
 

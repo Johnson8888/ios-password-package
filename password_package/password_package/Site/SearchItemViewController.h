@@ -12,6 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SearchItemViewController : UIViewController
 
+
+
++ (NSString *)descriptionWithName:(NSString *)name;
+
 @end
 
 NS_ASSUME_NONNULL_END

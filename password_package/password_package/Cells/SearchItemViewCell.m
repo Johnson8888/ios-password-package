@@ -10,6 +10,7 @@
 #import "PPWebsiteModel.h"
 #import "HWBottomAuthViewController.h"
 #import "HWTopBarViewController.h"
+#import "SearchItemViewController.h"
 #import <HWPop.h>
 
 
@@ -31,13 +32,11 @@
 
 
 - (void)setWebsiteName:(NSString *)websiteName {
-    
     _websiteName = websiteName;
-    
     NSString *namePath = [NSString stringWithFormat:@"/website/%@@2x.png",websiteName];
     NSString *filePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingString:namePath];
-        
     self.iconImageView.image = [UIImage imageWithContentsOfFile:filePath];
+    
     
     if ([websiteName containsString:@"."] == NO) {
         self.nameLabel.text = websiteName;
@@ -51,10 +50,17 @@
 }
 
 
+//- (void)setDescriptionName:(NSString *)descriptionName {
+//    _descriptionName = descriptionName;
+//    self.nameLabel.text = descriptionName;
+//}
+
+
 - (void)setDataModel:(PPWebsiteModel *)dataModel {
     _dataModel = dataModel;
     self.iconImageView.image = [UIImage imageWithData:dataModel.iconImg];
-    self.nameLabel.text = dataModel.title;
+//    self.nameLabel.text = dataModel.title;
+    self.nameLabel.text = [SearchItemViewController descriptionWithName:dataModel.title];
     self.websiteLabel.text = dataModel.account;
     self.pasteButton.hidden = NO;
 }
@@ -64,7 +70,6 @@
 }
 
 - (IBAction)pressedCopyButton:(id)sender {
-    
     UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
     HWTopBarViewController *topBarVC = [[HWTopBarViewController alloc] initWithText:@"复制密码成功!"];
     HWPopController *popController = [[HWPopController alloc] initWithViewController:topBarVC];

@@ -27,6 +27,8 @@
     self.navigationController.navigationBar.prefersLargeTitles = NO;
     self.navigationItem.title = @"账号详情";
     
+    self.tableView.tableFooterView = [[UIView alloc] init];
+    
     self.currentSelectedIndex = -1;
     
     self.linkLabel.text = self.websiteModel.link;
@@ -54,6 +56,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self becomeFirstResponder]; //设置为第一响应者
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if (indexPath.row == 4) {
+        [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    }
     BOOL isCopyOnly = YES;
     if (indexPath.row == 3) {
         isCopyOnly = NO;

@@ -10,6 +10,7 @@
 #import "PPWebsiteModel.h"
 #import "PPDataManager.h"
 #import <ProgressHUD/ProgressHUD.h>
+#import "SearchItemViewController.h"
 #import <UITextView+Placeholder/UITextView+Placeholder.h>
 #import "CreatePasswordViewController.h"
 #import "CreatePasswordViewController.h"
@@ -39,7 +40,7 @@
         TTLog(@"edit model");
         self.websiteTF.text = self.websiteModel.link;
         self.iconImageView.image = [UIImage imageWithData:self.websiteModel.iconImg];
-        self.iconLabel.text = self.websiteModel.title;
+        self.iconLabel.text = [SearchItemViewController descriptionWithName:self.websiteModel.title];
         self.passwordTF.text = self.websiteModel.password;
         self.accountTF.text = self.websiteModel.account;
         self.describeTextView.text = self.websiteModel.describe;
@@ -55,8 +56,9 @@
         NSString *namePath = [NSString stringWithFormat:@"/website/%@@2x.png",self.webSiteName];
         NSString *filePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingString:namePath];
         self.iconImageView.image = [UIImage imageWithContentsOfFile:filePath];
-        self.iconLabel.text = self.webSiteName;
-        self.insertModel.title = self.iconLabel.text;
+        
+        self.iconLabel.text = [SearchItemViewController descriptionWithName:self.webSiteName];
+        self.insertModel.title = self.webSiteName;
         self.insertModel.iconImg = UIImagePNGRepresentation(self.iconImageView.image);
         self.describeTextView.placeholder = @"请输入备注(可选)";
         if (@available(iOS 13.0, *)) {
@@ -125,6 +127,7 @@
             [ProgressHUD showError:@"保存数据失败,请重试!"];
         }
     }
+    
     if ([AppConfig config].isSharkFeedBack) {
         UIImpactFeedbackGenerator *feedBackGenertor = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleMedium];
         [feedBackGenertor impactOccurred];

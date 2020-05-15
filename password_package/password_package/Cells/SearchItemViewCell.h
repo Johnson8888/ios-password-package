@@ -15,6 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface SearchItemViewCell : UITableViewCell
 
 
+/// 描述的名字
+@property (nonatomic,strong) NSString *descriptionName;
+/// Model
 @property (nonatomic,strong) PPWebsiteModel *dataModel;
 /// 网站的名字
 @property (nonatomic,strong) NSString *websiteName;

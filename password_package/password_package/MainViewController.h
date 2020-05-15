@@ -11,5 +11,14 @@
 @interface MainViewController : UIViewController
 
 
+
+
+
+/// shortCutAction
+@property (nonatomic,strong) NSString *shortCutActionName;
+
+/// short cut jump with name
+- (void)shortCutActionWithName:(NSString *)name;
+
 @end
 

@@ -89,8 +89,8 @@
     [self refreshData];
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([SearchItemViewCell class]) bundle:nil] forCellReuseIdentifier:@"com.main.view.controller.search.item.cell"];
     
-    //不能删除
     
+    //不能删除
     /*
     NSString *lastPwd = [WUGesturesUnlockViewController gesturesPassword];
     /// 如果没有密码 就创建密码
@@ -124,9 +124,29 @@
     }
      */
      
+    
+    if (self.shortCutActionName) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self shortCutActionWithName:self.shortCutActionName];
+        });
+    }
+    
 }
 
 
+
+/// short cut jump with name
+- (void)shortCutActionWithName:(NSString *)name {
+    if ([name isEqualToString:kShortcutItemCreate]) {
+        [self showCreatePasswordViewController];
+    }
+    if ([name isEqualToString:kShortcutItemBank]) {
+        [self showCreateBankCardViewController];
+    }
+    if ([name isEqualToString:kShortcutItemSite]) {
+        [self showSelectedItemViewController];
+    }
+}
 
 
 
@@ -215,6 +235,7 @@
 - (void)showEditViewControllerWithModel:(PPWebsiteModel *)model {
     InputWebsiteViewController *inputWebsiteViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass([InputWebsiteViewController class])];
     inputWebsiteViewController.websiteModel = model;
+    inputWebsiteViewController.modalPresentationStyle = UIModalPresentationFullScreen;
     [self.navigationController presentViewController:inputWebsiteViewController animated:YES completion:^{}];
 }
 
@@ -225,7 +246,8 @@
     inputViewController.finishCallBack = ^{
         self.tabBarController.selectedIndex = 1;
     };
-    [self presentViewController:inputViewController animated:YES completion:nil];
+    inputViewController.modalPresentationStyle = UIModalPresentationFullScreen;
+    [self.navigationController presentViewController:inputViewController animated:YES completion:nil];
 }
 
 

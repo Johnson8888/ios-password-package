@@ -39,15 +39,28 @@
 
 
 - (void)tapAction:(UITapGestureRecognizer *)tap {
-    [self dismissViewControllerAnimated:YES completion:^{
-        
-    }];
+    [self dismissViewControllerAnimated:YES completion:^{}];
 }
 
 
 - (IBAction)pressedLaunchButton:(id)sender {
+    
     TTLog(@"使用打开App的方式");
+    NSString *jumpScheme = [self schemeOfTitle:self.websiteModel.title];
+//    TTLog(@"jumpScheme = %@ title = %@",jumpScheme,self.websiteModel.title);
+    
+    
     [self dismissViewControllerAnimated:NO completion:nil];
+    if (jumpScheme && jumpScheme.length > 0) {
+        NSURL *openURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://",jumpScheme]];
+        if ([[UIApplication sharedApplication] canOpenURL:openURL]) {
+            [[UIApplication sharedApplication] openURL:openURL options:@{} completionHandler:^(BOOL success) {
+            }];
+            return;
+        }
+    }
+    
+    
     if (self.websiteModel.link.length > 0) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.websiteModel.link] options:@{} completionHandler:^(BOOL success) {
         }];
@@ -56,6 +69,9 @@
     }
     TTLog(@"launch");
 }
+
+
+
 
 
 - (IBAction)pressedCopyUserName:(id)sender {
@@ -166,6 +182,87 @@
     return YES;
 }
 
+
+
+
+/// 将Title 转换我 scheme
+- (NSString * _Nullable)schemeOfTitle:(NSString *)title {
+    /*
+    taobao,
+       neteasemail,
+       BaiduSSO,
+       baiduyun,
+       doubanradio,
+       zhihu,
+       "openapp.jdMobile",
+       xiami,
+       googlechrome,
+       evernote,
+       youdaonote,
+       "cn.12306",
+       dingtalk,
+       alipay,
+       weixin,
+       mqq,
+       weibo,
+       brave,
+       firefox,
+       havecake,
+       dolphin,
+       "firefox-focus",
+       googlechrome,
+       "microsoft-edge-http",
+       "opera-http",
+       puffin,
+       ucbrowser,
+       "yandexbrowser-open-url",
+       ddgLaunch,
+       ddgQuickLink,
+       alohabrowser,
+       "touch-url",
+       cakebrowser
+    */
+    
+    //    NSArray *inCommonUseArray = @[@"Wechat",@"QQ",@"Taobao",@"Zhihu",@"Baidu",@"Weibo",@"163",@"Github",@"jingdong",@"Yinxiang",@"douban",@"12306",@"zhifubao"];
+
+    if ([title isEqualToString:@"Wechat"]) {
+        return @"weixin";
+    }
+    if ([title isEqualToString:@"QQ"]) {
+        return @"mqq";
+    }
+    if ([title isEqualToString:@"Taobao"]) {
+        return @"taobao";
+    }
+    if ([title isEqualToString:@"Zhihu"]) {
+        return @"zhihu";
+    }
+    if ([title isEqualToString:@"Baidu"]) {
+        return @"BaiduSSO";
+    }
+    if ([title isEqualToString:@"Weibo"]) {
+        return @"weibo";
+    }
+    if ([title isEqualToString:@"163"]) {
+        return @"neteasemail";
+    }
+    if ([title isEqualToString:@"jingdong"]) {
+        return @"openApp.jdMobile";
+    }
+    if ([title isEqualToString:@"Yinxiang"]) {
+        return @"evernote";
+    }
+    if ([title isEqualToString:@"douban"]) {
+        return @"doubanradio";
+    }
+    if ([title isEqualToString:@"12306"]) {
+        return @"cn.12306";
+    }
+    if ([title isEqualToString:@"zhifubao"]) {
+        return @"alipay";
+    }
+    return nil;
+}
 
 
 

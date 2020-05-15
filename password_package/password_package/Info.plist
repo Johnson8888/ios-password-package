@@ -112,6 +112,8 @@
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>mqq</string>
+		<string>taobao</string>
 		<string>neteasemail</string>
 		<string>BaiduSSO</string>
 		<string>baiduyun</string>

@@ -72,14 +72,25 @@ PYSearchViewControllerDataSource
     self.resultDataArray = [NSMutableArray array];
     
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 64)];
+    
     UIButton *searchButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    searchButton.frame = CGRectMake(0, 10, headerView.bounds.size.width, 44);
-    [searchButton setTitle:@"Search" forState:UIControlStateNormal];
-    [searchButton setTintColor:SYSTEM_COLOR];
-    [searchButton setTitleColor:SYSTEM_COLOR forState:UIControlStateNormal];
+    searchButton.frame = CGRectMake(20, 10, headerView.bounds.size.width - 40, 35);
+    [searchButton setTitle:@"搜索" forState:UIControlStateNormal];
+    searchButton.titleLabel.font = [UIFont systemFontOfSize:16.0f];
+    searchButton.layer.masksToBounds = YES;
+    searchButton.layer.cornerRadius = 10.0f;
+    
+    if (@available(iOS 13.0, *)) {
+        [searchButton setTitleColor:[UIColor labelColor] forState:UIControlStateNormal];
+    } else {
+        [searchButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    }
+    
+    [searchButton setImage:[UIImage imageNamed:@"ic_search"] forState:UIControlStateNormal];
     [searchButton addTarget:self
                      action:@selector(pressedSearchButton:)
            forControlEvents:UIControlEventTouchUpInside];
+    searchButton.backgroundColor = [UIColor colorWithRed:205/255.0f green:225/255.0f blue:235/255.0f alpha:1.0f];
     [headerView addSubview:searchButton];
     
     
@@ -91,12 +102,11 @@ PYSearchViewControllerDataSource
     [closeButton addTarget:self
                     action:@selector(pressedCloseButton:)
           forControlEvents:UIControlEventTouchUpInside];
-    closeButton.frame = CGRectMake([UIScreen mainScreen].bounds.size.width - 76, 30, 36, 36);
+    closeButton.frame = CGRectMake([UIScreen mainScreen].bounds.size.width - 76, 9, 36, 36);
     self.tableView.tableHeaderView = headerView;
     
     
-    
-    
+        
     self.tableView.rowHeight = 64.0f;
     SCIndexViewConfiguration *configuration = [SCIndexViewConfiguration configuration];
     configuration.indicatorTextColor = SYSTEM_COLOR;
@@ -104,7 +114,10 @@ PYSearchViewControllerDataSource
     self.tableView.sc_translucentForTableViewInNavigationBar = YES;
     
     self.dataDictionary = [NSMutableDictionary dictionary];
-    NSArray *inCommonUseArray = @[@"Wechat",@"QQ",@"Taobao",@"Zhihu",@"Baidu",@"Weibo",@"163",@"Github",@"jingdong",@"Yinxiang",@"douban",@"12306",@"zhifubao",@"123-reg",@"104",@"1&1",@"23andMe",@"4Shared",@"500px"];
+    
+    NSArray *inCommonUseArray = @[@"Wechat",@"QQ",@"Taobao",@"Zhihu",@"Baidu",@"Weibo",@"163",@"Github",@"jingdong",@"Yinxiang",@"douban",@"12306",@"zhifubao"];
+
+    
     self.dataDictionary[@"常用"] = inCommonUseArray;
     
     NSString *folderPath = [[NSBundle mainBundle] pathForResource:@"website" ofType:nil];
@@ -169,6 +182,7 @@ PYSearchViewControllerDataSource
     NSArray *valueArray = self.dataDictionary[key];
     NSString *name = valueArray[indexPath.row];
     cell.websiteName = name;
+//    cell.descriptionName = [SearchItemViewController descriptionWithName:name];
     return cell;
 }
 
@@ -282,6 +296,42 @@ PYSearchViewControllerDataSource
     int val;
     return[scan scanInt:&val] && [scan isAtEnd];
 }
+
+
+
+
++ (NSString *)descriptionWithName:(NSString *)name {
+    NSString *resultName = name;
+    if ([name isEqualToString:@"Wechat"]) {
+        resultName = @"微信";
+    }
+    if ([name isEqualToString:@"Taobao"]) {
+        resultName = @"淘宝";
+    }
+    if ([name isEqualToString:@"Zhihu"]) {
+        resultName = @"知乎";
+    }
+    if ([name isEqualToString:@"Baidu"]) {
+        resultName = @"百度";
+    }
+    if ([name isEqualToString:@"Weibo"]) {
+        resultName = @"微博";
+    }
+    if ([name isEqualToString:@"jingdong"]) {
+        resultName = @"京东";
+    }
+    if ([name isEqualToString:@"Yinxiang"]) {
+        resultName = @"印象笔记";
+    }
+    if ([name isEqualToString:@"douban"]) {
+        resultName = @"豆瓣";
+    }
+    if ([name isEqualToString:@"zhifubao"]) {
+        resultName = @"支付宝";
+    }
+    return resultName;
+}
+
 
 
 @end
