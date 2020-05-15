@@ -18,12 +18,14 @@
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *launchViewHeightConstraints;
+@property (weak, nonatomic) IBOutlet UIImageView *launchImageView;
 
 @end
 
 @implementation PresentWebsiteViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.5];
     
@@ -35,6 +37,7 @@
     if (self.websiteModel.iconImg) {
         self.iconImageView.image = [UIImage imageWithData:self.websiteModel.iconImg];
     }
+    
 }
 
 
@@ -47,8 +50,6 @@
     
     TTLog(@"使用打开App的方式");
     NSString *jumpScheme = [self schemeOfTitle:self.websiteModel.title];
-//    TTLog(@"jumpScheme = %@ title = %@",jumpScheme,self.websiteModel.title);
-    
     
     [self dismissViewControllerAnimated:NO completion:nil];
     if (jumpScheme && jumpScheme.length > 0) {
@@ -60,14 +61,13 @@
         }
     }
     
-    
     if (self.websiteModel.link.length > 0) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.websiteModel.link] options:@{} completionHandler:^(BOOL success) {
         }];
     } else {
         TTLog(@"show alert");
     }
-    TTLog(@"launch");
+    
 }
 
 
@@ -118,6 +118,7 @@
     }];
     UITextField *inputView = [alertView performSelector:@selector(inputView)];
     inputView.enabled = NO;
+    inputView.textColor = [UIColor blackColor];
     inputView.text = self.websiteModel.password;
     UIView *buttonView = [alertView performSelector:@selector(buttonView)];
     for (UIButton *subView in buttonView.subviews) {
@@ -258,9 +259,9 @@
     if ([title isEqualToString:@"12306"]) {
         return @"cn.12306";
     }
-    if ([title isEqualToString:@"zhifubao"]) {
-        return @"alipay";
-    }
+//    if ([title isEqualToString:@"zhifubao"]) {
+//        return @"alipay";
+//    }
     return nil;
 }
 

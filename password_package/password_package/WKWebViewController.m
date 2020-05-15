@@ -35,9 +35,18 @@
     
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor whiteColor];
+    if (@available(iOS 13.0, *)) {
+        self.view.backgroundColor = [UIColor systemBackgroundColor];
+    } else {
+        self.view.backgroundColor = [UIColor whiteColor];
+    }
+    
     UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [backButton setImage:[UIImage imageNamed:@"ic_close"] forState:UIControlStateNormal];
+//    [backButton setImage:[UIImage imageNamed:@"ic_close"] forState:UIControlStateNormal];
+    [backButton setImage:[[UIImage imageNamed:@"ic_close"]
+                                  imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
+                        forState:UIControlStateNormal];
+    backButton.tintColor = SYSTEM_COLOR;
     backButton.frame = CGRectMake(20, 45, 24, 24);
     [backButton addTarget:self action:@selector(pressedBackButton:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:backButton];
@@ -53,10 +62,16 @@
     WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
     self.wkWebView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 84, self.view.bounds.size.width, self.view.bounds.size.height - 84.0f) configuration:config];
     self.wkWebView.navigationDelegate = self;
-
+    [self.wkWebView setOpaque:NO];
+    if (@available(iOS 13.0, *)) {
+        self.wkWebView.scrollView.backgroundColor = [UIColor systemBackgroundColor];
+        TTLog(@"backgroundColor");
+    } else {
+        self.wkWebView.scrollView.backgroundColor = [UIColor whiteColor];
+    }
     [self.wkWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.currentUrl]]];
-    
     [self.view addSubview:self.wkWebView];
+    
     
     self.hud = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleDark];
     self.hud.textLabel.text = @"加载中...";

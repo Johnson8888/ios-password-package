@@ -16,6 +16,8 @@
 @property (nonatomic,strong) NSMutableArray *dataArray;
 @property(nonatomic,weak) SelectCell *lastSelectedCell;
 @property (nonatomic,assign) NSInteger clearPasteboardValue;
+@property (weak, nonatomic) IBOutlet UIButton *closeButton;
+@property (weak, nonatomic) IBOutlet UIButton *confirmButton;
 @end
 
 @implementation ClearPasteboardViewController
@@ -23,6 +25,19 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
+    [self.confirmButton setImage:[[UIImage imageNamed:@"ic_accept"]
+                                  imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
+                        forState:UIControlStateNormal];
+    self.confirmButton.tintColor = SYSTEM_COLOR;
+    
+    [self.closeButton setImage:[[UIImage imageNamed:@"ic_close"]
+                                  imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
+                        forState:UIControlStateNormal];
+    self.closeButton.tintColor = SYSTEM_COLOR;
+    
+    
+    
     self.clearPasteboardValue = [AppConfig config].clearPasteboardDuration;
     self.tableView.tableFooterView = [[UIView alloc] init];
     

@@ -269,7 +269,7 @@
         if (completed) {
             [ProgressHUD showSuccess:@"分享成功"];
         } else {
-            [ProgressHUD showError:@"分享失败,请重试!"];
+//            [ProgressHUD showError:@"分享失败,请重试!"];
         }
         [vc dismissViewControllerAnimated:YES completion:nil];
     };

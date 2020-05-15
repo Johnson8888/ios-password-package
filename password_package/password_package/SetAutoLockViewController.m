@@ -16,6 +16,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic,assign) NSInteger autoLockValue;
 @property(nonatomic,weak) SelectCell *lastSelectedCell;
+@property (weak, nonatomic) IBOutlet UIButton *closeButton;
+@property (weak, nonatomic) IBOutlet UIButton *confirmButton;
 
 @end
 
@@ -24,6 +26,19 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
+    
+    [self.confirmButton setImage:[[UIImage imageNamed:@"ic_accept"]
+                                  imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
+                        forState:UIControlStateNormal];
+    self.confirmButton.tintColor = SYSTEM_COLOR;
+    
+    [self.closeButton setImage:[[UIImage imageNamed:@"ic_close"]
+                                  imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
+                        forState:UIControlStateNormal];
+    self.closeButton.tintColor = SYSTEM_COLOR;
+
+    
     // /// 多长时间自动锁屏 输入要入密码  默认是 立刻  10秒 30秒 1分钟 5分钟 10分钟
     
     self.tableView.tableFooterView = [[UIView alloc] init];

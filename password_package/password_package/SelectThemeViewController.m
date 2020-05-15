@@ -17,6 +17,8 @@
 @property (nonatomic,strong) NSMutableArray *dataArray;
 @property (nonatomic,weak) SelectCell *lastSelectedCell;
 @property (nonatomic,assign) PPTheme lastTheme;
+@property (weak, nonatomic) IBOutlet UIButton *closeButton;
+@property (weak, nonatomic) IBOutlet UIButton *confirmButton;
 @end
 
 @implementation SelectThemeViewController
@@ -25,9 +27,19 @@
 
     [super viewDidLoad];
     
-//    self.dataArray = @[@"白色",@"红色",@"蓝色",@"绿色",@"紫色",@"暗黑"];
     
     self.navigationItem.title = @"选择时长";
+    
+    [self.confirmButton setImage:[[UIImage imageNamed:@"ic_accept"]
+                                  imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
+                        forState:UIControlStateNormal];
+    self.confirmButton.tintColor = SYSTEM_COLOR;
+    
+    [self.closeButton setImage:[[UIImage imageNamed:@"ic_close"]
+                                  imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
+                        forState:UIControlStateNormal];
+    self.closeButton.tintColor = SYSTEM_COLOR;
+    
     
     self.tableView.tableFooterView = [[UIView alloc] init];
     NSDictionary *dic0 = @{@"title":@"白色",@"selected":@NO,@"value":[NSNumber numberWithInteger:PP_THEME_WHITE]};

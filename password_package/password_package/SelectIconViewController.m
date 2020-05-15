@@ -17,6 +17,8 @@
 @property (nonatomic,strong) NSString *selectIconFileName;
 @property (nonatomic,strong) NSMutableArray *dataArray;
 @property (nonatomic,strong) SelectIconCell *lastSelectedCell;
+@property (weak, nonatomic) IBOutlet UIButton *closeButton;
+@property (weak, nonatomic) IBOutlet UIButton *confirmButton;
 @property (nonatomic,strong) NSString *lastIconFileName;
 @end
 
@@ -25,6 +27,16 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
+    [self.confirmButton setImage:[[UIImage imageNamed:@"ic_accept"]
+                                  imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
+                        forState:UIControlStateNormal];
+    self.confirmButton.tintColor = SYSTEM_COLOR;
+    
+    [self.closeButton setImage:[[UIImage imageNamed:@"ic_close"]
+                                  imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
+                        forState:UIControlStateNormal];
+    self.closeButton.tintColor = SYSTEM_COLOR;
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;

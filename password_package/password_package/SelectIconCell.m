@@ -12,7 +12,13 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    self.iconImageView.layer.masksToBounds = YES;
+    self.iconImageView.layer.cornerRadius = 23.5f;
+    
+    [self.selectButton setImage:[[UIImage imageNamed:@"select_check"]
+                                 imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
+                       forState:UIControlStateNormal];
+    self.selectButton.tintColor = SYSTEM_COLOR;
 }
 
 - (void)setDataDictionary:(NSDictionary *)dataDictionary {
