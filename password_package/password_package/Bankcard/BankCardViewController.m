@@ -28,17 +28,22 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     self.tabBarController.tabBar.hidden = NO;
-    self.navigationController.navigationBar.prefersLargeTitles = YES;
     [self refreshData];
     [super viewWillAppear:animated];
 }
 
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+}
 
 - (void)viewDidLoad {
     
     [super viewDidLoad];
     
     self.tableView.tableFooterView = [[UIView alloc] init];
+    
+    self.navigationController.navigationBar.prefersLargeTitles = YES;
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(refreshData)
@@ -124,6 +129,7 @@
     inputViewController.finishCallBack = ^{
         [self refreshData];
     };
+    inputViewController.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:inputViewController animated:YES completion:nil];
 }
 

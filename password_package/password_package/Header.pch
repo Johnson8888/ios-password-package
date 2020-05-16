@@ -12,6 +12,15 @@
 #import <LEETheme/LEETheme.h>
 
 
+
+#define kThemeDefault @"kThemeDefault"
+#define kThemeRed @"kThemeRed"
+#define kThemeBlue @"kThemeBlue"
+#define kThemeGreen @"kThemeGreen"
+#define kThemePurple @"kThemePurple"
+#define kThemeYellow @"kThemeYellow"
+
+
 /// 是否发送过网络请求
 #define IS_POST_NET_WORK @"com.password.package.is.post.net.work"
 

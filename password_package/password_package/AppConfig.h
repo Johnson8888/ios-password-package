@@ -8,14 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-/// @[@"白色",@"红色",@"蓝色",@"绿色",@"紫色",@"暗黑"]
+/// @[@"白色",@"红色",@"蓝色",@"绿色",@"紫色",@"黄色"]
 typedef NS_ENUM(NSUInteger, PPTheme) {
-    PP_THEME_WHITE,
+    PP_THEME_DEFAULT,
     PP_THEME_RED,
     PP_THEME_BLUE,
     PP_THEME_GREEN,
     PP_THEME_PURPLE,
-    PP_THEME_BLACK,
+    PP_THEME_YELLOW,
 };
 
 NS_ASSUME_NONNULL_BEGIN

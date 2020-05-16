@@ -10,6 +10,7 @@
 #import "SelectCell.h"
 #import "AppConfig.h"
 #import "Utils.h"
+#import <LEETheme/LEETheme.h>
 
 @interface SelectThemeViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -42,12 +43,12 @@
     
     
     self.tableView.tableFooterView = [[UIView alloc] init];
-    NSDictionary *dic0 = @{@"title":@"白色",@"selected":@NO,@"value":[NSNumber numberWithInteger:PP_THEME_WHITE]};
+    NSDictionary *dic0 = @{@"title":@"默认",@"selected":@NO,@"value":[NSNumber numberWithInteger:PP_THEME_DEFAULT]};
     NSDictionary *dic1 = @{@"title":@"红色",@"selected":@NO,@"value":[NSNumber numberWithInteger:PP_THEME_RED]};
     NSDictionary *dic2 = @{@"title":@"蓝色",@"selected":@NO,@"value":[NSNumber numberWithInteger:PP_THEME_BLUE]};
     NSDictionary *dic3 = @{@"title":@"绿色",@"selected":@NO,@"value":[NSNumber numberWithInteger:PP_THEME_GREEN]};
     NSDictionary *dic4 = @{@"title":@"紫色",@"selected":@NO,@"value":[NSNumber numberWithInteger:PP_THEME_PURPLE]};
-    NSDictionary *dic5 = @{@"title":@"暗黑",@"selected":@NO,@"value":[NSNumber numberWithInteger:PP_THEME_BLACK]};
+    NSDictionary *dic5 = @{@"title":@"黄色",@"selected":@NO,@"value":[NSNumber numberWithInteger:PP_THEME_YELLOW]};
     
     AppConfig *config = [AppConfig config];
     self.lastTheme = config.mainTheme;
@@ -109,7 +110,19 @@
         UIImpactFeedbackGenerator *feedBackGenertor = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleMedium];
         [feedBackGenertor impactOccurred];
     }
-
+    
+    NSString *themeDes = [self themeDescriptionOfEnum:self.lastTheme];
+    if (themeDes.length > 0) {
+        
+//        NSAssert([[LEETheme shareTheme].allTags containsObject:tag], @"所启用的主题不存在 - 请检查是否添加了该%@主题的设置" , tag);
+//        
+//        if (!tag) return;
+//        
+//        [LEETheme shareTheme].currentTag = tag;
+//        
+//        [[NSNotificationCenter defaultCenter] postNotificationName:LEEThemeChangingNotificaiton object:nil userInfo:nil];
+    }
+    
     AppConfig *config = [AppConfig config];
     config.mainTheme = self.lastTheme;
     [AppConfig saveConfig:config];
@@ -118,6 +131,38 @@
     if (self.selectThemeCallBack) {
         self.selectThemeCallBack();
     }
+}
+
+
+//PP_THEME_DEFAULT,
+//PP_THEME_RED,
+//PP_THEME_BLUE,
+//PP_THEME_GREEN,
+//PP_THEME_PURPLE,
+//PP_THEME_YELLOW,
+
+
+- (NSString *)themeDescriptionOfEnum:(PPTheme)theme {
+    if (theme == PP_THEME_DEFAULT) {
+        return kThemeDefault;
+    }
+    if (theme == PP_THEME_RED) {
+        return kThemeRed;
+    }
+
+    if (theme == PP_THEME_BLUE) {
+        return kThemeBlue;
+    }
+    if (theme == PP_THEME_GREEN) {
+        return kThemeGreen;
+    }
+    if (theme == PP_THEME_PURPLE) {
+        return kThemePurple;
+    }
+    if (theme == PP_THEME_YELLOW) {
+        return kThemeYellow;
+    }
+    return nil;
 }
 
 @end

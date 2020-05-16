@@ -75,6 +75,7 @@
         TTLog(@"编辑模式 model = %@",self.editModel);
         
     } else {
+        self.logoImageUrl = @"";
         self.bankCardModel = [[PPBankCardModel alloc] init];
         self.describe.placeholder = @"请输入备注(可选)";
         if (@available(iOS 13.0, *)) {

@@ -53,7 +53,8 @@
 - (IBAction)pressedDeleteButton:(id)sender {
     
     if ([AppConfig config].isSharkFeedBack) {
-        [[[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleHeavy] impactOccurred];
+        UIImpactFeedbackGenerator *feedBackGenertor = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleMedium];
+        [feedBackGenertor impactOccurred];
     }
     
     [self dismissViewControllerAnimated:NO completion:nil];

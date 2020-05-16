@@ -15,6 +15,7 @@
 #import <Masonry.h>
 #import "Utils.h"
 #import <JHUD/JHUD.h>
+#import <LEETheme/LEETheme.h>
 #import <ProgressHUD.h>
 #import "PPWebsiteModel.h"
 #import "PPDataManager.h"
@@ -45,7 +46,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     self.tabBarController.tabBar.hidden = NO;
-    self.navigationController.navigationBar.prefersLargeTitles = YES;
     [super viewWillAppear:animated];
 }
 
@@ -56,6 +56,17 @@
 - (void)viewDidLoad {
   
     [super viewDidLoad];
+    
+//    self.navigationController.navigationBar.tintColor.lee_theme
+//    .LeeAddTintColor(kThemeDefault, [UIColor whiteColor])
+//    .LeeAddTintColor(kThemeGreen, [UIColor greenColor]);
+
+    
+    self.navigationController.navigationBar.prefersLargeTitles = YES;
+    
+
+
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(refreshData)
                                                  name:PP_MAIN_REFRESH_DATA_NOTIFICATION

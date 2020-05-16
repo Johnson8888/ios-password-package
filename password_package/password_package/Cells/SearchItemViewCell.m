@@ -12,6 +12,7 @@
 #import "HWTopBarViewController.h"
 #import "SearchItemViewController.h"
 #import <HWPop.h>
+#import <LEETheme/LEETheme.h>
 
 
 @interface SearchItemViewCell()
@@ -28,6 +29,12 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    
+    self.nameLabel.lee_theme
+    .LeeAddTintColor(kThemeDefault, [UIColor whiteColor])
+    .LeeAddTintColor(kThemeGreen, [UIColor greenColor])
+    .LeeConfigTintColor(@"ident7");
+    
 }
 
 

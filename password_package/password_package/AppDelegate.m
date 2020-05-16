@@ -10,6 +10,7 @@
 #import "Utils.h"
 #import "CoverView.h"
 #import "AppConfig.h"
+#import <LEETheme.h>
 #import "MainViewController.h"
 #import <AppCenter/AppCenter.h>
 #import <iCloudDocumentSync/iCloud.h>
@@ -28,6 +29,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
         
+    
+    [self configTheme];
+    
     [UITabBar appearance].tintColor = SYSTEM_COLOR;
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:SYSTEM_COLOR}];
     
@@ -173,5 +177,24 @@
 }
 
 
+
+#pragma mark - 设置主题
+
+- (void)configTheme{
+    
+    NSString *dayJsonPath = [[NSBundle mainBundle] pathForResource:@"themejson_day" ofType:@"json"];
+    
+    NSString *nightJsonPath = [[NSBundle mainBundle] pathForResource:@"themejson_night" ofType:@"json"];
+    
+    NSString *dayJson = [NSString stringWithContentsOfFile:dayJsonPath encoding:NSUTF8StringEncoding error:nil];
+    
+    NSString *nightJson = [NSString stringWithContentsOfFile:nightJsonPath encoding:NSUTF8StringEncoding error:nil];
+    
+    [LEETheme defaultTheme:kThemeGreen];
+    
+//    [LEETheme defaultChangeThemeAnimationDuration:0.0f];
+    [LEETheme addThemeConfigWithJson:dayJson Tag:kThemeDefault ResourcesPath:nil];
+    [LEETheme addThemeConfigWithJson:nightJson Tag:kThemeGreen ResourcesPath:nil];
+}
 
 @end

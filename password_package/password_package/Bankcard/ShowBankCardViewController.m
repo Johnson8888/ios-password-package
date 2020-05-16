@@ -46,7 +46,8 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    self.navigationController.navigationBar.prefersLargeTitles = NO;
+//    self.navigationController.navigationBar.prefersLargeTitles = NO;
+    self.navigationItem.title = @"详情";
     self.currentSelectedIndex = -1;
     
     UIImageView *titleView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 82, 24)];
@@ -59,8 +60,6 @@
         titleView.backgroundColor = [UIColor whiteColor];
     }
     self.navigationItem.titleView = titleBgView;
-    
-    TTLog(@"model = %@",self.bankCardModel);
     
     self.tabBarController.tabBar.hidden = YES;
     self.accountLabel.text = self.bankCardModel.account;
@@ -81,6 +80,7 @@
     self.headerAccountLabel.text = self.bankCardModel.account;
     self.headerCvvCodeLabel.text = self.bankCardModel.cvvCode;
     
+    self.tableView.tableFooterView = [[UIView alloc] init];
     
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithImage:BACK_BUTTON_IMAGE
                                                                  style:UIBarButtonItemStyleDone
@@ -179,5 +179,7 @@
 - (void)pressedBackButton:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+
 
 @end

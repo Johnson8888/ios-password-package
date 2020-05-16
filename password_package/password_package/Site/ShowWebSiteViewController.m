@@ -24,7 +24,6 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    self.navigationController.navigationBar.prefersLargeTitles = NO;
     self.navigationItem.title = @"账号详情";
     
     self.tableView.tableFooterView = [[UIView alloc] init];

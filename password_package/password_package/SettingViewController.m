@@ -746,8 +746,8 @@ static NSString *iconCellIdentifier = @"com.password.package.setting.icon.cell.i
         case PP_THEME_PURPLE:
             return @"紫色";
             break;
-        case PP_THEME_BLACK:
-            return @"暗黑";
+        case PP_THEME_YELLOW:
+            return @"黄色";
             break;
         default:
             break;

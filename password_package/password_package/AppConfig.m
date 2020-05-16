@@ -38,7 +38,7 @@
         self.isSharkFeedBack = YES;
         /// 默认是不适用 系统锁定功能的
         self.userSystemLock = YES;
-        self.mainTheme = PP_THEME_WHITE;
+        self.mainTheme = PP_THEME_DEFAULT;
         self.autoLockDuration = 0;
         self.clearPasteboardDuration = 300;
     }
