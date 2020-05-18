@@ -15,6 +15,8 @@
 #import <UITextView+Placeholder/UITextView+Placeholder.h>
 
 @interface InputCartViewController ()<UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UIButton *confirmBuuton;
+@property (weak, nonatomic) IBOutlet UIButton *closeButton;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *cvvCodeLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *bankLogoImageView;
@@ -46,6 +48,25 @@
     [super viewDidLoad];
     /// cert 4984513025445663
     // SPDB
+    
+    self.confirmBuuton.lee_theme
+    .LeeAddTintColor(kThemeDefault, SYSTEM_COLOR)
+    .LeeAddTintColor(kThemeRed, LEEColorHex(kColorThemeRed))
+    .LeeAddTintColor(kThemeBlue, LEEColorHex(kColorThemeBlue))
+    .LeeAddTintColor(kThemeGreen, LEEColorHex(kColorThemeGreen))
+    .LeeAddTintColor(kThemePurple, LEEColorHex(kColorThemePurple))
+    .LeeAddTintColor(kThemeYellow, LEEColorHex(kColorThemeYellow));
+    
+    
+    self.closeButton.lee_theme
+    .LeeAddTintColor(kThemeDefault, SYSTEM_COLOR)
+    .LeeAddTintColor(kThemeRed, LEEColorHex(kColorThemeRed))
+    .LeeAddTintColor(kThemeBlue, LEEColorHex(kColorThemeBlue))
+    .LeeAddTintColor(kThemeGreen, LEEColorHex(kColorThemeGreen))
+    .LeeAddTintColor(kThemePurple, LEEColorHex(kColorThemePurple))
+    .LeeAddTintColor(kThemeYellow, LEEColorHex(kColorThemeYellow));
+
+
     
     self.cardBgView.layer.masksToBounds = YES;
     self.cardBgView.layer.cornerRadius = 20.0f;

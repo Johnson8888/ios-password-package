@@ -56,16 +56,15 @@
 - (void)viewDidLoad {
   
     [super viewDidLoad];
-    
-//    self.navigationController.navigationBar.tintColor.lee_theme
-//    .LeeAddTintColor(kThemeDefault, [UIColor whiteColor])
-//    .LeeAddTintColor(kThemeGreen, [UIColor greenColor]);
-
-    
     self.navigationController.navigationBar.prefersLargeTitles = YES;
+    self.tabBarController.tabBar.lee_theme
+    .LeeAddTintColor(kThemeDefault, SYSTEM_COLOR)
+    .LeeAddTintColor(kThemeRed, LEEColorHex(kColorThemeRed))
+    .LeeAddTintColor(kThemeBlue, LEEColorHex(kColorThemeBlue))
+    .LeeAddTintColor(kThemeGreen, LEEColorHex(kColorThemeGreen))
+    .LeeAddTintColor(kThemePurple, LEEColorHex(kColorThemePurple))
+    .LeeAddTintColor(kThemeYellow, LEEColorHex(kColorThemeYellow));
     
-
-
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(refreshData)

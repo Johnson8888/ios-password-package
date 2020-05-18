@@ -7,13 +7,15 @@
 //
 
 #import "SelectThemeViewController.h"
+#import "AppDelegate.h"
 #import "SelectCell.h"
 #import "AppConfig.h"
 #import "Utils.h"
-#import <LEETheme/LEETheme.h>
+#import <LEETheme.h>
 
 @interface SelectThemeViewController ()<UITableViewDelegate,UITableViewDataSource>
 
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic,strong) NSMutableArray *dataArray;
 @property (nonatomic,weak) SelectCell *lastSelectedCell;
@@ -31,16 +33,37 @@
     
     self.navigationItem.title = @"选择时长";
     
+    self.titleLabel.lee_theme
+    .LeeAddTextColor(kThemeDefault, SYSTEM_COLOR)
+    .LeeAddTextColor(kThemeRed, LEEColorHex(kColorThemeRed))
+    .LeeAddTextColor(kThemeBlue, LEEColorHex(kColorThemeBlue))
+    .LeeAddTextColor(kThemeGreen, LEEColorHex(kColorThemeGreen))
+    .LeeAddTextColor(kThemePurple, LEEColorHex(kColorThemePurple))
+    .LeeAddTextColor(kThemeYellow, LEEColorHex(kColorThemeYellow));
+    
     [self.confirmButton setImage:[[UIImage imageNamed:@"ic_accept"]
                                   imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
                         forState:UIControlStateNormal];
-    self.confirmButton.tintColor = SYSTEM_COLOR;
     
     [self.closeButton setImage:[[UIImage imageNamed:@"ic_close"]
                                   imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
                         forState:UIControlStateNormal];
-    self.closeButton.tintColor = SYSTEM_COLOR;
     
+    self.confirmButton.lee_theme
+    .LeeAddTintColor(kThemeDefault, SYSTEM_COLOR)
+    .LeeAddTintColor(kThemeRed, LEEColorHex(kColorThemeRed))
+    .LeeAddTintColor(kThemeBlue, LEEColorHex(kColorThemeBlue))
+    .LeeAddTintColor(kThemeGreen, LEEColorHex(kColorThemeGreen))
+    .LeeAddTintColor(kThemePurple, LEEColorHex(kColorThemePurple))
+    .LeeAddTintColor(kThemeYellow, LEEColorHex(kColorThemeYellow));
+    
+    self.closeButton.lee_theme
+    .LeeAddTintColor(kThemeDefault, SYSTEM_COLOR)
+    .LeeAddTintColor(kThemeRed, LEEColorHex(kColorThemeRed))
+    .LeeAddTintColor(kThemeBlue, LEEColorHex(kColorThemeBlue))
+    .LeeAddTintColor(kThemeGreen, LEEColorHex(kColorThemeGreen))
+    .LeeAddTintColor(kThemePurple, LEEColorHex(kColorThemePurple))
+    .LeeAddTintColor(kThemeYellow, LEEColorHex(kColorThemeYellow));
     
     self.tableView.tableFooterView = [[UIView alloc] init];
     NSDictionary *dic0 = @{@"title":@"默认",@"selected":@NO,@"value":[NSNumber numberWithInteger:PP_THEME_DEFAULT]};
@@ -106,6 +129,7 @@
 }
 
 - (IBAction)pressedConfirmButton:(id)sender {
+    
     if ([AppConfig config].isSharkFeedBack) {
         UIImpactFeedbackGenerator *feedBackGenertor = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleMedium];
         [feedBackGenertor impactOccurred];
@@ -113,14 +137,10 @@
     
     NSString *themeDes = [self themeDescriptionOfEnum:self.lastTheme];
     if (themeDes.length > 0) {
-        
-//        NSAssert([[LEETheme shareTheme].allTags containsObject:tag], @"所启用的主题不存在 - 请检查是否添加了该%@主题的设置" , tag);
-//        
-//        if (!tag) return;
-//        
-//        [LEETheme shareTheme].currentTag = tag;
-//        
-//        [[NSNotificationCenter defaultCenter] postNotificationName:LEEThemeChangingNotificaiton object:nil userInfo:nil];
+        UIColor *titColor = [AppDelegate navigationTitleColorOfTheme:themeDes];
+        [[UINavigationBar appearance]setLargeTitleTextAttributes:@{NSForegroundColorAttributeName:titColor}];
+        [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:titColor}];
+        [LEETheme startTheme:themeDes];
     }
     
     AppConfig *config = [AppConfig config];
@@ -140,6 +160,8 @@
 //PP_THEME_GREEN,
 //PP_THEME_PURPLE,
 //PP_THEME_YELLOW,
+
+
 
 
 - (NSString *)themeDescriptionOfEnum:(PPTheme)theme {

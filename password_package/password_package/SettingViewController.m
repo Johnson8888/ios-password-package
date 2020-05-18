@@ -731,8 +731,8 @@ static NSString *iconCellIdentifier = @"com.password.package.setting.icon.cell.i
 /// @param theme 主题的值
 - (NSString *)themeDescriptionOfThemeValue:(PPTheme)theme {
     switch (theme) {
-        case PP_THEME_WHITE:
-            return @"白色";
+        case PP_THEME_DEFAULT:
+            return @"默认";
             break;
         case PP_THEME_RED:
             return @"红色";

@@ -12,5 +12,11 @@
 
 @property (nonatomic,strong) UIWindow *window;
 
+
+
+/// 由Theme返回NavigaionTitle的颜色
+/// @param theme 主题描述
++ (UIColor *)navigationTitleColorOfTheme:(NSString *)theme;
+
 @end
 

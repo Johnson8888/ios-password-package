@@ -7,6 +7,7 @@
 //
 
 #import "CSYGroupButtonView.h"
+#import <LEETheme.h>
 
 
 static const int fontSize = 10.0;
@@ -49,7 +50,17 @@ static const float CORNERRADIUS = 22.0f;
         
         [mainBtn setImage:[[UIImage imageNamed:@"add_button"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
                    forState:UIControlStateNormal];
-        [mainBtn setTintColor:SYSTEM_COLOR];
+        
+        mainBtn.lee_theme
+        .LeeAddTintColor(kThemeDefault, SYSTEM_COLOR)
+        .LeeAddTintColor(kThemeRed, LEEColorHex(kColorThemeRed))
+        .LeeAddTintColor(kThemeBlue, LEEColorHex(kColorThemeBlue))
+        .LeeAddTintColor(kThemeGreen, LEEColorHex(kColorThemeGreen))
+        .LeeAddTintColor(kThemePurple, LEEColorHex(kColorThemePurple))
+        .LeeAddTintColor(kThemeYellow, LEEColorHex(kColorThemeYellow));
+        
+
+        
         
         [mainBtn setBackgroundColor:[UIColor clearColor]];
         mainBtn.frame = self.bounds;
@@ -159,7 +170,14 @@ static const float CORNERRADIUS = 22.0f;
         
         [button setImage:[[UIImage imageNamed:self.imagesArray[i]] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
                          forState:UIControlStateNormal];
-        button.tintColor = SYSTEM_COLOR;
+        
+        button.lee_theme
+        .LeeAddTintColor(kThemeDefault, SYSTEM_COLOR)
+        .LeeAddTintColor(kThemeRed, LEEColorHex(kColorThemeRed))
+        .LeeAddTintColor(kThemeBlue, LEEColorHex(kColorThemeBlue))
+        .LeeAddTintColor(kThemeGreen, LEEColorHex(kColorThemeGreen))
+        .LeeAddTintColor(kThemePurple, LEEColorHex(kColorThemePurple))
+        .LeeAddTintColor(kThemeYellow, LEEColorHex(kColorThemeYellow));
 
         button.layer.masksToBounds = YES;
         button.layer.cornerRadius = CORNERRADIUS;

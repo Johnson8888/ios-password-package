@@ -32,9 +32,17 @@
     
     [self configTheme];
     
-    [UITabBar appearance].tintColor = SYSTEM_COLOR;
-    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:SYSTEM_COLOR}];
     
+    
+    [UITabBar appearance].tintColor = SYSTEM_COLOR;
+    NSString *currentTag = [LEETheme currentThemeTag];
+    if (currentTag == nil || currentTag.length == 0) {
+        currentTag = kThemeDefault;
+    }
+    UIColor *titleColor = [AppDelegate navigationTitleColorOfTheme:currentTag];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:titleColor}];
+    [[UINavigationBar appearance]setLargeTitleTextAttributes:@{NSForegroundColorAttributeName:titleColor}];
+
     [iCloud sharedCloud].verboseLogging = YES;
     [[iCloud sharedCloud] setupiCloudDocumentSyncWithUbiquityContainer:ICLOUD_CONTAINER_BUNDLE_IDENTIFER];
     
@@ -190,11 +198,32 @@
     
     NSString *nightJson = [NSString stringWithContentsOfFile:nightJsonPath encoding:NSUTF8StringEncoding error:nil];
     
-    [LEETheme defaultTheme:kThemeGreen];
-    
-//    [LEETheme defaultChangeThemeAnimationDuration:0.0f];
+    [LEETheme defaultTheme:kThemeGreen];    
     [LEETheme addThemeConfigWithJson:dayJson Tag:kThemeDefault ResourcesPath:nil];
     [LEETheme addThemeConfigWithJson:nightJson Tag:kThemeGreen ResourcesPath:nil];
+}
+
+
+
+/// 由Theme返回NavigaionTitle的颜色
+/// @param theme 主题描述
++ (UIColor *)navigationTitleColorOfTheme:(NSString *)theme {
+    if ([theme isEqualToString:kThemeGreen]) {
+        return LEEColorHex(kColorThemeGreen);
+    }
+    if ([theme isEqualToString:kThemeRed]) {
+        return LEEColorHex(kColorThemeRed);
+    }
+    if ([theme isEqualToString:kThemeBlue]) {
+        return LEEColorHex(kColorThemeBlue);
+    }
+    if ([theme isEqualToString:kThemePurple]) {
+        return LEEColorHex(kColorThemePurple);
+    }
+    if ([theme isEqualToString:kThemeYellow]) {
+        return LEEColorHex(kColorThemeYellow);
+    }
+    return SYSTEM_COLOR;
 }
 
 @end

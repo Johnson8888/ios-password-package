@@ -28,12 +28,12 @@
 @implementation SearchItemViewCell
 
 - (void)awakeFromNib {
+    
     [super awakeFromNib];
     
-    self.nameLabel.lee_theme
-    .LeeAddTintColor(kThemeDefault, [UIColor whiteColor])
-    .LeeAddTintColor(kThemeGreen, [UIColor greenColor])
-    .LeeConfigTintColor(@"ident7");
+//    self.nameLabel.lee_theme
+//    .LeeAddTextColor(kThemeDefault, [UIColor whiteColor])
+//    .LeeAddTextColor(kThemeGreen, [UIColor greenColor]);
     
 }
 

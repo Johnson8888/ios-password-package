@@ -177,6 +177,7 @@
                         <outlet property="closeButton" destination="Okb-3I-0pA" id="QfX-4L-0GD"/>
                         <outlet property="confirmButton" destination="PmK-1Y-oaW" id="abQ-h1-Lf6"/>
                         <outlet property="tableView" destination="dss-93-C8K" id="6qc-6o-IH8"/>
+                        <outlet property="titleLabel" destination="Nlg-tZ-0zx" id="9q5-KV-8YS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rbN-zt-GCJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -262,6 +263,7 @@
                         <outlet property="closeButton" destination="szT-zE-ZLU" id="kgq-Nx-inQ"/>
                         <outlet property="confirmButton" destination="45Z-Gb-Y7o" id="NmP-cy-z3x"/>
                         <outlet property="tableView" destination="kAK-4m-cO6" id="QKt-os-qoc"/>
+                        <outlet property="titleLabel" destination="yDn-6m-nCB" id="siK-7K-onb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gV9-3w-xIo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -349,6 +351,7 @@
                         <outlet property="closeButton" destination="qBA-iy-1Hc" id="kWq-SE-UqR"/>
                         <outlet property="confirmButton" destination="906-MA-lxq" id="kb4-oK-UeO"/>
                         <outlet property="tableView" destination="jM2-uv-HLO" id="Gfv-TW-plL"/>
+                        <outlet property="titleLabel" destination="QwP-OP-sfR" id="Ory-H7-bom"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fhU-iF-8TB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -434,6 +437,7 @@
                         <outlet property="closeButton" destination="v03-Q9-1s1" id="XfX-0R-7XP"/>
                         <outlet property="confirmButton" destination="xB4-Dr-BnF" id="wpE-kg-boB"/>
                         <outlet property="tableView" destination="nqd-dA-8KE" id="0g0-Qf-Tic"/>
+                        <outlet property="titleLabel" destination="ZHT-4w-VbC" id="hAa-Ri-3wg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zmV-vP-h0J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -984,6 +988,14 @@
                         <outlet property="launchImageView" destination="cNY-Db-pbh" id="d4P-MV-cQM"/>
                         <outlet property="launchViewHeightConstraints" destination="zcS-Vv-TRH" id="x2b-mE-Fu9"/>
                         <outlet property="nameLabel" destination="Qu5-dy-bQ0" id="NLe-tJ-cWQ"/>
+                        <outletCollection property="iconImageViews" destination="cNY-Db-pbh" id="Bga-wc-l0u"/>
+                        <outletCollection property="iconImageViews" destination="aeg-1s-cLJ" id="Ci2-5R-XB5"/>
+                        <outletCollection property="iconImageViews" destination="hId-RZ-5ia" id="XVG-bU-Pdg"/>
+                        <outletCollection property="iconImageViews" destination="tUh-CY-gTQ" id="oHf-XP-Ma1"/>
+                        <outletCollection property="iconImageViews" destination="GEN-EO-tSM" id="H9z-wu-ecC"/>
+                        <outletCollection property="iconImageViews" destination="RK8-lL-m88" id="mIL-R4-7xc"/>
+                        <outletCollection property="iconImageViews" destination="NdY-u6-A9F" id="vuC-VP-7AL"/>
+                        <outletCollection property="iconImageViews" destination="uNI-Ar-Rny" id="Nkc-DF-qdZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f26-a2-uMh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1463,6 +1475,8 @@
                     </view>
                     <connections>
                         <outlet property="accountTF" destination="UyC-75-fnO" id="w9M-pD-KAv"/>
+                        <outlet property="closeButton" destination="hQz-2W-lg0" id="u6j-fo-57O"/>
+                        <outlet property="confirmButton" destination="gBf-zh-uhX" id="f11-Zh-UIH"/>
                         <outlet property="describeTextView" destination="yPV-Mp-UOI" id="X8v-bh-Csl"/>
                         <outlet property="editButton" destination="nwM-7B-SFg" id="lwl-xY-E5c"/>
                         <outlet property="iconImageView" destination="u08-qF-fDe" id="XEz-2e-udS"/>
@@ -1794,6 +1808,8 @@
                     <connections>
                         <outlet property="accountTF" destination="SZa-Pa-AqN" id="ReD-cf-Qpo"/>
                         <outlet property="bankLogoImageView" destination="Fya-EE-NkU" id="YFf-hk-a63"/>
+                        <outlet property="closeButton" destination="Jlx-tA-6uv" id="JTd-eN-Yhb"/>
+                        <outlet property="confirmBuuton" destination="QlM-8U-XRX" id="un5-B9-S5a"/>
                         <outlet property="cvvTF" destination="mra-SR-4Cn" id="cUO-w2-ZiQ"/>
                         <outlet property="describe" destination="zw8-4g-r1p" id="cTS-aQ-3HN"/>
                         <outlet property="expireDateTF" destination="VG5-or-V4V" id="cX1-dr-fHd"/>
@@ -2794,7 +2810,7 @@
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="gnW-Mf-AZp">
-                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="largeTitleTextAttributes">
                             <color key="textColor" red="1" green="0.43529411764705883" blue="0.23529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

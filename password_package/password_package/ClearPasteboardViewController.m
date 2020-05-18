@@ -12,6 +12,7 @@
 #import "Utils.h"
 
 @interface ClearPasteboardViewController ()<UITableViewDelegate,UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic,strong) NSMutableArray *dataArray;
 @property(nonatomic,weak) SelectCell *lastSelectedCell;
@@ -26,16 +27,37 @@
     
     [super viewDidLoad];
     
+    self.titleLabel.lee_theme
+    .LeeAddTextColor(kThemeDefault, SYSTEM_COLOR)
+    .LeeAddTextColor(kThemeRed, LEEColorHex(kColorThemeRed))
+    .LeeAddTextColor(kThemeBlue, LEEColorHex(kColorThemeBlue))
+    .LeeAddTextColor(kThemeGreen, LEEColorHex(kColorThemeGreen))
+    .LeeAddTextColor(kThemePurple, LEEColorHex(kColorThemePurple))
+    .LeeAddTextColor(kThemeYellow, LEEColorHex(kColorThemeYellow));
+    
     [self.confirmButton setImage:[[UIImage imageNamed:@"ic_accept"]
                                   imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
                         forState:UIControlStateNormal];
-    self.confirmButton.tintColor = SYSTEM_COLOR;
     
     [self.closeButton setImage:[[UIImage imageNamed:@"ic_close"]
                                   imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
                         forState:UIControlStateNormal];
-    self.closeButton.tintColor = SYSTEM_COLOR;
     
+    self.confirmButton.lee_theme
+    .LeeAddTintColor(kThemeDefault, SYSTEM_COLOR)
+    .LeeAddTintColor(kThemeRed, LEEColorHex(kColorThemeRed))
+    .LeeAddTintColor(kThemeBlue, LEEColorHex(kColorThemeBlue))
+    .LeeAddTintColor(kThemeGreen, LEEColorHex(kColorThemeGreen))
+    .LeeAddTintColor(kThemePurple, LEEColorHex(kColorThemePurple))
+    .LeeAddTintColor(kThemeYellow, LEEColorHex(kColorThemeYellow));
+    
+    self.closeButton.lee_theme
+    .LeeAddTintColor(kThemeDefault, SYSTEM_COLOR)
+    .LeeAddTintColor(kThemeRed, LEEColorHex(kColorThemeRed))
+    .LeeAddTintColor(kThemeBlue, LEEColorHex(kColorThemeBlue))
+    .LeeAddTintColor(kThemeGreen, LEEColorHex(kColorThemeGreen))
+    .LeeAddTintColor(kThemePurple, LEEColorHex(kColorThemePurple))
+    .LeeAddTintColor(kThemeYellow, LEEColorHex(kColorThemeYellow));
     
     
     self.clearPasteboardValue = [AppConfig config].clearPasteboardDuration;

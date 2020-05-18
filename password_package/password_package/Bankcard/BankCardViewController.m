@@ -51,9 +51,6 @@
                                                object:nil];
     
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([BankCardViewCell class]) bundle:nil] forCellReuseIdentifier:@"com.password.package.backcard.view.controller.bank.card.cell.identifer"];
-    
-//    [self refreshData];
-    
 }
 
 
@@ -150,7 +147,19 @@
         hudView.tag = 999;
         hudView.indicatorViewSize = CGSizeMake(138, 110);
         hudView.messageLabel.text = @"";
+        
+//        hudView.customImage = [[UIImage imageNamed:@"ic_empty_box"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         hudView.customImage = [UIImage imageNamed:@"ic_empty_box"];
+        
+//        UIImageView *imageView = [hudView performSelector:@selector(imageView)];
+//        imageView.lee_theme
+//        .LeeAddTintColor(kThemeDefault, SYSTEM_COLOR)
+//        .LeeAddTintColor(kThemeRed, LEEColorHex(kColorThemeRed))
+//        .LeeAddTintColor(kThemeBlue, LEEColorHex(kColorThemeBlue))
+//        .LeeAddTintColor(kThemeGreen, LEEColorHex(kColorThemeGreen))
+//        .LeeAddTintColor(kThemePurple, LEEColorHex(kColorThemePurple))
+//        .LeeAddTintColor(kThemeYellow, LEEColorHex(kColorThemeYellow));
+        
         [hudView showAtView:self.view hudType:JHUDLoadingTypeFailure];
         hudView.refreshButton.hidden = YES;
     }

@@ -21,6 +21,13 @@
 #define kThemeYellow @"kThemeYellow"
 
 
+#define kColorThemeRed @"ff0066"
+#define kColorThemeBlue @"00ccff"
+#define kColorThemeGreen @"66ff99"
+#define kColorThemePurple @"9900ff"
+#define kColorThemeYellow @"ffff66"
+
+
 /// 是否发送过网络请求
 #define IS_POST_NET_WORK @"com.password.package.is.post.net.work"
 

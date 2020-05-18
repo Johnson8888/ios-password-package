@@ -8,6 +8,7 @@
 
 #import "SetAutoLockViewController.h"
 #import "SelectCell.h"
+#import <LEETheme.h>
 #import "AppConfig.h"
 #import "Utils.h"
 
@@ -17,6 +18,7 @@
 @property (nonatomic,assign) NSInteger autoLockValue;
 @property(nonatomic,weak) SelectCell *lastSelectedCell;
 @property (weak, nonatomic) IBOutlet UIButton *closeButton;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIButton *confirmButton;
 
 @end
@@ -27,17 +29,40 @@
     
     [super viewDidLoad];
     
+    self.titleLabel.lee_theme
+    .LeeAddTextColor(kThemeDefault, SYSTEM_COLOR)
+    .LeeAddTextColor(kThemeRed, LEEColorHex(kColorThemeRed))
+    .LeeAddTextColor(kThemeBlue, LEEColorHex(kColorThemeBlue))
+    .LeeAddTextColor(kThemeGreen, LEEColorHex(kColorThemeGreen))
+    .LeeAddTextColor(kThemePurple, LEEColorHex(kColorThemePurple))
+    .LeeAddTextColor(kThemeYellow, LEEColorHex(kColorThemeYellow));
+    
     
     [self.confirmButton setImage:[[UIImage imageNamed:@"ic_accept"]
                                   imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
                         forState:UIControlStateNormal];
-    self.confirmButton.tintColor = SYSTEM_COLOR;
-    
+
     [self.closeButton setImage:[[UIImage imageNamed:@"ic_close"]
                                   imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
                         forState:UIControlStateNormal];
-    self.closeButton.tintColor = SYSTEM_COLOR;
+    
+    self.confirmButton.lee_theme
+    .LeeAddTintColor(kThemeDefault, SYSTEM_COLOR)
+    .LeeAddTintColor(kThemeRed, LEEColorHex(kColorThemeRed))
+    .LeeAddTintColor(kThemeBlue, LEEColorHex(kColorThemeBlue))
+    .LeeAddTintColor(kThemeGreen, LEEColorHex(kColorThemeGreen))
+    .LeeAddTintColor(kThemePurple, LEEColorHex(kColorThemePurple))
+    .LeeAddTintColor(kThemeYellow, LEEColorHex(kColorThemeYellow));
+    
+    self.closeButton.lee_theme
+    .LeeAddTintColor(kThemeDefault, SYSTEM_COLOR)
+    .LeeAddTintColor(kThemeRed, LEEColorHex(kColorThemeRed))
+    .LeeAddTintColor(kThemeBlue, LEEColorHex(kColorThemeBlue))
+    .LeeAddTintColor(kThemeGreen, LEEColorHex(kColorThemeGreen))
+    .LeeAddTintColor(kThemePurple, LEEColorHex(kColorThemePurple))
+    .LeeAddTintColor(kThemeYellow, LEEColorHex(kColorThemeYellow));
 
+    
     
     // /// 多长时间自动锁屏 输入要入密码  默认是 立刻  10秒 30秒 1分钟 5分钟 10分钟
     

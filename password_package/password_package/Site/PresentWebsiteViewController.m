@@ -15,6 +15,8 @@
 #import "AppConfig.h"
 
 @interface PresentWebsiteViewController ()<UIGestureRecognizerDelegate>
+@property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *iconImageViews;
+
 @property (weak, nonatomic) IBOutlet UIView *bgView;
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -37,6 +39,16 @@
     self.nameLabel.text = [SearchItemViewController descriptionWithName:self.websiteModel.title];
     if (self.websiteModel.iconImg) {
         self.iconImageView.image = [UIImage imageWithData:self.websiteModel.iconImg];
+    }
+    
+    for (UIImageView *imageView in self.iconImageViews) {
+        imageView.lee_theme
+        .LeeAddTintColor(kThemeDefault, SYSTEM_COLOR)
+        .LeeAddTintColor(kThemeRed, LEEColorHex(kColorThemeRed))
+        .LeeAddTintColor(kThemeBlue, LEEColorHex(kColorThemeBlue))
+        .LeeAddTintColor(kThemeGreen, LEEColorHex(kColorThemeGreen))
+        .LeeAddTintColor(kThemePurple, LEEColorHex(kColorThemePurple))
+        .LeeAddTintColor(kThemeYellow, LEEColorHex(kColorThemeYellow));
     }
     
 }
@@ -260,9 +272,6 @@
     if ([title isEqualToString:@"12306"]) {
         return @"cn.12306";
     }
-//    if ([title isEqualToString:@"zhifubao"]) {
-//        return @"alipay";
-//    }
     return nil;
 }
 

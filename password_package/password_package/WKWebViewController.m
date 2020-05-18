@@ -46,7 +46,14 @@
     [backButton setImage:[[UIImage imageNamed:@"ic_close"]
                                   imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
                         forState:UIControlStateNormal];
-    backButton.tintColor = SYSTEM_COLOR;
+    backButton.lee_theme
+    .LeeAddTintColor(kThemeDefault, SYSTEM_COLOR)
+    .LeeAddTintColor(kThemeRed, LEEColorHex(kColorThemeRed))
+    .LeeAddTintColor(kThemeBlue, LEEColorHex(kColorThemeBlue))
+    .LeeAddTintColor(kThemeGreen, LEEColorHex(kColorThemeGreen))
+    .LeeAddTintColor(kThemePurple, LEEColorHex(kColorThemePurple))
+    .LeeAddTintColor(kThemeYellow, LEEColorHex(kColorThemeYellow));
+
     backButton.frame = CGRectMake(20, 45, 24, 24);
     [backButton addTarget:self action:@selector(pressedBackButton:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:backButton];
@@ -57,6 +64,14 @@
     label.textColor = SYSTEM_COLOR;
     label.text = @"隐私协议";
     [self.view addSubview:label];
+    
+    label.lee_theme
+    .LeeAddTextColor(kThemeDefault, SYSTEM_COLOR)
+    .LeeAddTextColor(kThemeRed, LEEColorHex(kColorThemeRed))
+    .LeeAddTextColor(kThemeBlue, LEEColorHex(kColorThemeBlue))
+    .LeeAddTextColor(kThemeGreen, LEEColorHex(kColorThemeGreen))
+    .LeeAddTextColor(kThemePurple, LEEColorHex(kColorThemePurple))
+    .LeeAddTextColor(kThemeYellow, LEEColorHex(kColorThemeYellow));
     
     
     WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
