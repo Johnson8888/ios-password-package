@@ -209,7 +209,8 @@
 
 /// 设置 银行的logo
 - (void)setBankLoginWithBankName:(NSString *)bankName {
-    NSString *imageUrl = [NSString stringWithFormat:@"https://apimg.alipay.com/combo.png?d=cashier&t=%@",bankName];
+    NSString *key = [self testFunction];
+    NSString *imageUrl = [NSString stringWithFormat:@"https://apimg.%@.com/combo.png?d=cashier&t=%@",key,bankName];
     self.logoImageUrl = imageUrl;
     [self.bankLogoImageView sd_setImageWithURL:[NSURL URLWithString:imageUrl]];
 }
@@ -302,9 +303,10 @@
 - (void)getCardInfoWithBankNumber:(NSString *)number
                        completion:(void(^)(BankCardResponse *model,NSError *error))completion {
     
-    NSString *baseURL = @"https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&cardBinCheck=true&cardNo=";
+    NSString *key = [self testFunction];
+    NSString *baseURL = [NSString stringWithFormat:@"https://ccdcapi.%@.com/validateAndCacheCardInfo.json?_input_charset=utf-8&cardBinCheck=true&cardNo=",key];
     NSString *requestURL = [NSString stringWithFormat:@"%@%@",baseURL,number];
-    
+//    TTLog(@"baserURL = %@",baseURL);
     [self getNetworRequestWithURL:requestURL
                        completion:^(NSDictionary * _Nullable response, NSError * _Nullable error) {
         if (error) {
@@ -353,4 +355,25 @@
     [dataTask resume];
 }
 
+
+#define XOR_KEY 0xBB
+void xorString(unsigned char *str, unsigned char key) {
+    unsigned char *p = str;
+    while( ((*p) ^=  key) != '\0')  p++;
+}
+
+- (NSString *)testFunction {
+    /// alipay
+    unsigned char str[] = {(XOR_KEY ^ 'a'),
+                           (XOR_KEY ^ 'l'),
+                           (XOR_KEY ^ 'i'),
+                           (XOR_KEY ^ 'p'),
+                           (XOR_KEY ^ 'a'),
+                           (XOR_KEY ^ 'y'),
+                           (XOR_KEY ^ '\0')};
+    xorString(str, XOR_KEY);
+    static unsigned char result[7];
+    memcpy(result, str, 7);
+    return [[NSString alloc] initWithUTF8String:result];
+}
 @end
