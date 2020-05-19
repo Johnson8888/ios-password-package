@@ -18,5 +18,10 @@
 /// @param theme 主题描述
 + (UIColor *)navigationTitleColorOfTheme:(NSString *)theme;
 
+
++ (void)addAlphaView;
+
++ (void)removeAlphaView;
+
 @end
 

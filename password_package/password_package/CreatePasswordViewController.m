@@ -15,6 +15,7 @@
 
 
 @interface CreatePasswordViewController ()<UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *lengthLabel;
 @property (weak, nonatomic) IBOutlet UISlider *lengthSlider;
@@ -42,12 +43,71 @@
     
     [super viewDidLoad];
     
+    NSArray *switchArray = @[self.length8Switch,self.length16Switch,self.allNumberSwitch,self.allLetterSwitch,self.numberAndLetterSwitch,self.upLetterSwitch,self.lowLetterSwitch,self.upAndLetterSwitch,self.otherCharacterSwitch];
+    
+    for (UISwitch *sw in switchArray) {
+        sw.lee_theme
+        .LeeAddOnTintColor(kThemeDefault, SYSTEM_COLOR)
+        .LeeAddOnTintColor(kThemeRed, LEEColorHex(kColorThemeRed))
+        .LeeAddOnTintColor(kThemeBlue, LEEColorHex(kColorThemeBlue))
+        .LeeAddOnTintColor(kThemeGreen, LEEColorHex(kColorThemeGreen))
+        .LeeAddOnTintColor(kThemePurple, LEEColorHex(kColorThemePurple))
+        .LeeAddOnTintColor(kThemeYellow, LEEColorHex(kColorThemeYellow));
+    }
+    
+    
+    self.titleLabel.lee_theme
+    .LeeAddTextColor(kThemeDefault, SYSTEM_COLOR)
+    .LeeAddTextColor(kThemeRed, LEEColorHex(kColorThemeRed))
+    .LeeAddTextColor(kThemeBlue, LEEColorHex(kColorThemeBlue))
+    .LeeAddTextColor(kThemeGreen, LEEColorHex(kColorThemeGreen))
+    .LeeAddTextColor(kThemePurple, LEEColorHex(kColorThemePurple))
+    .LeeAddTextColor(kThemeYellow, LEEColorHex(kColorThemeYellow));
+    
     [self.closeButton setImage:[[UIImage imageNamed:@"btn_close_circle_white"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
                forState:UIControlStateNormal];
-    [self.closeButton setTintColor:SYSTEM_COLOR];
+    
+    self.closeButton.lee_theme
+    .LeeAddTintColor(kThemeDefault, SYSTEM_COLOR)
+    .LeeAddTintColor(kThemeRed, LEEColorHex(kColorThemeRed))
+    .LeeAddTintColor(kThemeBlue, LEEColorHex(kColorThemeBlue))
+    .LeeAddTintColor(kThemeGreen, LEEColorHex(kColorThemeGreen))
+    .LeeAddTintColor(kThemePurple, LEEColorHex(kColorThemePurple))
+    .LeeAddTintColor(kThemeYellow, LEEColorHex(kColorThemeYellow));
     
     self.confirmButton.layer.masksToBounds = YES;
     self.confirmButton.layer.cornerRadius = 20.0f;
+    
+    
+    self.confirmButton.lee_theme
+    .LeeAddButtonTitleColor(kThemeDefault, SYSTEM_COLOR,UIControlStateNormal)
+    .LeeAddButtonTitleColor(kThemeRed, LEEColorHex(kColorThemeRed),UIControlStateNormal)
+    .LeeAddButtonTitleColor(kThemeBlue, LEEColorHex(kColorThemeBlue),UIControlStateNormal)
+    .LeeAddButtonTitleColor(kThemeGreen, LEEColorHex(kColorThemeGreen),UIControlStateNormal)
+    .LeeAddButtonTitleColor(kThemePurple, LEEColorHex(kColorThemePurple),UIControlStateNormal)
+    .LeeAddButtonTitleColor(kThemeYellow, LEEColorHex(kColorThemeYellow),UIControlStateNormal);
+    
+    
+    
+    self.lengthSlider.lee_theme
+    .LeeAddSelectorAndColor(kThemeDefault, @selector(setThumbTintColor:), SYSTEM_COLOR)
+    .LeeAddSelectorAndColor(kThemeRed, @selector(setThumbTintColor:), LEEColorHex(kColorThemeRed))
+    .LeeAddSelectorAndColor(kThemeBlue, @selector(setThumbTintColor:), LEEColorHex(kColorThemeBlue))
+    .LeeAddSelectorAndColor(kThemeGreen, @selector(setThumbTintColor:), LEEColorHex(kColorThemeGreen))
+    .LeeAddSelectorAndColor(kThemePurple, @selector(setThumbTintColor:), LEEColorHex(kColorThemePurple))
+    .LeeAddSelectorAndColor(kThemeYellow, @selector(setThumbTintColor:), LEEColorHex(kColorThemeYellow));
+    
+    
+    self.lengthSlider.lee_theme
+    .LeeAddSelectorAndColor(kThemeDefault, @selector(setMinimumTrackTintColor:), SYSTEM_COLOR)
+    .LeeAddSelectorAndColor(kThemeRed, @selector(setMinimumTrackTintColor:), LEEColorHex(kColorThemeRed))
+    .LeeAddSelectorAndColor(kThemeBlue, @selector(setMinimumTrackTintColor:), LEEColorHex(kColorThemeBlue))
+    .LeeAddSelectorAndColor(kThemeGreen, @selector(setMinimumTrackTintColor:), LEEColorHex(kColorThemeGreen))
+    .LeeAddSelectorAndColor(kThemePurple, @selector(setMinimumTrackTintColor:), LEEColorHex(kColorThemePurple))
+    .LeeAddSelectorAndColor(kThemeYellow, @selector(setMinimumTrackTintColor:), LEEColorHex(kColorThemeYellow));
+    
+    
+    
     
     self.isOtherCharacter = NO;
     self.lengthSlider.minimumValue = 6;

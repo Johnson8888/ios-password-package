@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-/// @[@"白色",@"红色",@"蓝色",@"绿色",@"紫色",@"黄色"]
 typedef NS_ENUM(NSUInteger, PPTheme) {
     PP_THEME_DEFAULT,
     PP_THEME_RED,

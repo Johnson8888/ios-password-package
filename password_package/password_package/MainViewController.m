@@ -215,7 +215,7 @@
         [weakSelf shareActionWithModel:model];
     };
     sViewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    [self.tabBarController presentViewController:sViewController animated:YES completion:nil];
+    [self.tabBarController presentViewController:sViewController animated:NO completion:nil];
 }
 
 
@@ -241,6 +241,7 @@
     cViewController.modalPresentationStyle = UIModalPresentationFullScreen;
     [self.navigationController presentViewController:cViewController animated:YES completion:nil];
 }
+
 
 - (void)showEditViewControllerWithModel:(PPWebsiteModel *)model {
     InputWebsiteViewController *inputWebsiteViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass([InputWebsiteViewController class])];

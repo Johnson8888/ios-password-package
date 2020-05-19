@@ -12,6 +12,7 @@
 #import "PresentWebsiteViewController.h"
 #import "ShowBankCardViewController.h"
 #import "PPDataManager.h"
+#import "AppDelegate.h"
 #import "PPBankCardModel.h"
 #import "BankCardViewCell.h"
 #import <JHUD/JHUD.h>
@@ -105,7 +106,7 @@
         [self presentViewBankCardViewControllerWithModel:cardModel];
     };
     presentBackCardViewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    [self.tabBarController presentViewController:presentBackCardViewController animated:YES completion:^{}];
+    [self.tabBarController presentViewController:presentBackCardViewController animated:NO completion:^{}];
     
 }
 

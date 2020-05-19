@@ -17,10 +17,6 @@
 		F338856E244E95C000343549 /* SelectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F338856C244E95C000343549 /* SelectCell.xib */; };
 		F3388571244EBB4300343549 /* SetAutoLockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3388570244EBB4300343549 /* SetAutoLockViewController.m */; };
 		F3388577244EC01600343549 /* CoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3388576244EC01600343549 /* CoverView.m */; };
-		F34EDB6D2470E96700C1AC1B /* tag_green_json.json in Resources */ = {isa = PBXBuildFile; fileRef = F34EDB692470E96700C1AC1B /* tag_green_json.json */; };
-		F34EDB6E2470E96700C1AC1B /* tag_gray_json.json in Resources */ = {isa = PBXBuildFile; fileRef = F34EDB6A2470E96700C1AC1B /* tag_gray_json.json */; };
-		F34EDB6F2470E96700C1AC1B /* tag_red_json.json in Resources */ = {isa = PBXBuildFile; fileRef = F34EDB6B2470E96700C1AC1B /* tag_red_json.json */; };
-		F34EDB702470E96700C1AC1B /* tag_blue_json.json in Resources */ = {isa = PBXBuildFile; fileRef = F34EDB6C2470E96700C1AC1B /* tag_blue_json.json */; };
 		F36359172435AF2300182C96 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = F36359162435AF2300182C96 /* Utils.m */; };
 		F36359342435FA6C00182C96 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F36359322435FA6C00182C96 /* LoginViewController.m */; };
 		F36359352435FA6C00182C96 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F36359332435FA6C00182C96 /* LoginViewController.xib */; };
@@ -162,10 +158,6 @@
 		F3388570244EBB4300343549 /* SetAutoLockViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetAutoLockViewController.m; sourceTree = "<group>"; };
 		F3388575244EC01600343549 /* CoverView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoverView.h; sourceTree = "<group>"; };
 		F3388576244EC01600343549 /* CoverView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoverView.m; sourceTree = "<group>"; };
-		F34EDB692470E96700C1AC1B /* tag_green_json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tag_green_json.json; sourceTree = "<group>"; };
-		F34EDB6A2470E96700C1AC1B /* tag_gray_json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tag_gray_json.json; sourceTree = "<group>"; };
-		F34EDB6B2470E96700C1AC1B /* tag_red_json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tag_red_json.json; sourceTree = "<group>"; };
-		F34EDB6C2470E96700C1AC1B /* tag_blue_json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tag_blue_json.json; sourceTree = "<group>"; };
 		F36359152435AF2300182C96 /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		F36359162435AF2300182C96 /* Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		F36359312435FA6B00182C96 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -503,10 +495,6 @@
 				F36A891224348C550003FF39 /* Info.plist */,
 				F391DBD2246FD3F000B0EA72 /* themejson_day.json */,
 				F391DBD3246FD3F000B0EA72 /* themejson_night.json */,
-				F34EDB6C2470E96700C1AC1B /* tag_blue_json.json */,
-				F34EDB6A2470E96700C1AC1B /* tag_gray_json.json */,
-				F34EDB692470E96700C1AC1B /* tag_green_json.json */,
-				F34EDB6B2470E96700C1AC1B /* tag_red_json.json */,
 				F36A891324348C550003FF39 /* main.m */,
 				F3970822246D1CF800A716FE /* icons */,
 			);
@@ -727,7 +715,6 @@
 				F397086D246D1CF900A716FE /* 3Icon-App-29x29@3x.png in Resources */,
 				F397087A246D1CF900A716FE /* 6Icon-App-29x29@1x.png in Resources */,
 				F36A891124348C550003FF39 /* LaunchScreen.storyboard in Resources */,
-				F34EDB702470E96700C1AC1B /* tag_blue_json.json in Resources */,
 				F3970863246D1CF800A716FE /* 2Icon-App-60x60@2x.png in Resources */,
 				F3970879246D1CF900A716FE /* 5Icon-App-60x60@2x.png in Resources */,
 				F36A3AE22452D74200208EB5 /* SwitchCell.xib in Resources */,
@@ -757,11 +744,9 @@
 				F397085F246D1CF800A716FE /* 2Icon-App-40x40@2x.png in Resources */,
 				F3970861246D1CF800A716FE /* 7Icon-App-60x60@3x.png in Resources */,
 				F391DBD5246FD3F100B0EA72 /* themejson_night.json in Resources */,
-				F34EDB6D2470E96700C1AC1B /* tag_green_json.json in Resources */,
 				F397085C246D1CF800A716FE /* 7Icon-App-40x40@2x.png in Resources */,
 				F397081D246CF24E00A716FE /* SelectIconCell.xib in Resources */,
 				F397086E246D1CF900A716FE /* 6Icon-App-40x40@2x.png in Resources */,
-				F34EDB6E2470E96700C1AC1B /* tag_gray_json.json in Resources */,
 				F36359352435FA6C00182C96 /* LoginViewController.xib in Resources */,
 				F397085E246D1CF800A716FE /* 7Icon-App-29x29@3x.png in Resources */,
 				F3970892246D1CF900A716FE /* 4Icon-App-40x40@2x.png in Resources */,
@@ -771,7 +756,6 @@
 				F397088D246D1CF900A716FE /* 1Icon-App-40x40@2x.png in Resources */,
 				F3725DEA243588DE009B054F /* website in Resources */,
 				F391DBD4246FD3F100B0EA72 /* themejson_day.json in Resources */,
-				F34EDB6F2470E96700C1AC1B /* tag_red_json.json in Resources */,
 				F3970875246D1CF900A716FE /* 6Icon-App-40x40@3x.png in Resources */,
 				F397087C246D1CF900A716FE /* 5Icon-App-29x29@2x.png in Resources */,
 				F397085D246D1CF800A716FE /* 2Icon-App-29x29@3x.png in Resources */,

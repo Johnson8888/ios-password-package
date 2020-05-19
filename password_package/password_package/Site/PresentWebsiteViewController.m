@@ -55,7 +55,7 @@
 
 
 - (void)tapAction:(UITapGestureRecognizer *)tap {
-    [self dismissViewControllerAnimated:YES completion:^{}];
+    [self dismissViewControllerAnimated:NO completion:^{}];
 }
 
 

@@ -97,7 +97,17 @@ PYSearchViewControllerDataSource
     UIButton *closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [closeButton setImage:[[UIImage imageNamed:@"btn_close_circle_white"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
                      forState:UIControlStateNormal];
-    closeButton.tintColor = SYSTEM_COLOR;
+    
+    closeButton.lee_theme
+    .LeeAddTintColor(kThemeDefault, SYSTEM_COLOR)
+    .LeeAddTintColor(kThemeRed, LEEColorHex(kColorThemeRed))
+    .LeeAddTintColor(kThemeBlue, LEEColorHex(kColorThemeBlue))
+    .LeeAddTintColor(kThemeGreen, LEEColorHex(kColorThemeGreen))
+    .LeeAddTintColor(kThemePurple, LEEColorHex(kColorThemePurple))
+    .LeeAddTintColor(kThemeYellow, LEEColorHex(kColorThemeYellow));
+    
+
+    
     [headerView addSubview:closeButton];
     [closeButton addTarget:self
                     action:@selector(pressedCloseButton:)

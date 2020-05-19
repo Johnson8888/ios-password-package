@@ -7,7 +7,6 @@
 //
 
 #import "SwitchCell.h"
-
 @interface SwitchCell()
 
 @end
@@ -16,6 +15,14 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.switchMenu.lee_theme
+    .LeeAddOnTintColor(kThemeDefault, SYSTEM_COLOR)
+    .LeeAddOnTintColor(kThemeRed, LEEColorHex(kColorThemeRed))
+    .LeeAddOnTintColor(kThemeBlue, LEEColorHex(kColorThemeBlue))
+    .LeeAddOnTintColor(kThemeGreen, LEEColorHex(kColorThemeGreen))
+    .LeeAddOnTintColor(kThemePurple, LEEColorHex(kColorThemePurple))
+    .LeeAddOnTintColor(kThemeYellow, LEEColorHex(kColorThemeYellow));
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

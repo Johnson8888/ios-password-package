@@ -226,4 +226,28 @@
     return SYSTEM_COLOR;
 }
 
+
+//     self.view.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.0];
+
++ (void)addAlphaView {
+    UIWindow *mainWindow = ((AppDelegate *)[UIApplication sharedApplication].delegate).window;
+    UIView *alphaView = [mainWindow viewWithTag:999];
+    if (alphaView) {
+        [alphaView removeFromSuperview];
+    }
+    if (alphaView == nil) {
+        alphaView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        alphaView.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.5];
+        [mainWindow addSubview:alphaView];
+    }
+}
+
++ (void)removeAlphaView {
+    UIWindow *mainWindow = ((AppDelegate *)[UIApplication sharedApplication].delegate).window;
+    UIView *alphaView = [mainWindow viewWithTag:999];
+    if (alphaView) {
+        [alphaView removeFromSuperview];
+    }
+}
+
 @end

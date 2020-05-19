@@ -1000,7 +1000,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f26-a2-uMh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3872.4637681159425" y="136.60714285714286"/>
+            <point key="canvasLocation" x="3877" y="222"/>
         </scene>
         <!--Show Web Site View Controller-->
         <scene sceneID="eLa-QX-1mT">
@@ -1830,7 +1830,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mej-Kq-9zP">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mej-Kq-9zP" userLabel="TmpView">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -2014,8 +2014,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="hN1-V7-bVK" firstAttribute="bottom" secondItem="mej-Kq-9zP" secondAttribute="bottom" id="4m2-cB-3mh"/>
                             <constraint firstItem="hN1-V7-bVK" firstAttribute="leading" secondItem="Qjb-Dw-mZd" secondAttribute="leading" id="4xw-bx-lUG"/>
-                            <constraint firstAttribute="bottom" secondItem="hN1-V7-bVK" secondAttribute="bottom" id="cwb-0h-eEx"/>
                             <constraint firstItem="Qjb-Dw-mZd" firstAttribute="bottom" secondItem="mej-Kq-9zP" secondAttribute="bottom" constant="-34" id="eav-pW-hji"/>
                             <constraint firstItem="Qjb-Dw-mZd" firstAttribute="trailing" secondItem="mej-Kq-9zP" secondAttribute="trailing" id="jG1-Je-wmn"/>
                             <constraint firstItem="mej-Kq-9zP" firstAttribute="top" secondItem="hCa-bR-Csg" secondAttribute="top" id="pMc-69-NDL"/>
@@ -2026,7 +2026,13 @@
                     </view>
                     <connections>
                         <outlet property="bgView" destination="hN1-V7-bVK" id="PTp-qf-nVf"/>
+                        <outlet property="bottomConstraint" destination="4m2-cB-3mh" id="hcq-cV-D1I"/>
+                        <outlet property="imageViewWidthConstraints" destination="ulg-fg-TdT" id="xsr-wx-YqY"/>
                         <outlet property="logoImageVeiw" destination="hMV-la-ZV3" id="Ssx-kp-OWW"/>
+                        <outlet property="tmpView" destination="mej-Kq-9zP" id="kHa-ds-btM"/>
+                        <outletCollection property="iconImageViews" destination="L28-fy-WU0" id="tjg-hQ-6vc"/>
+                        <outletCollection property="iconImageViews" destination="6tM-22-0ef" id="B4D-84-HWn"/>
+                        <outletCollection property="iconImageViews" destination="D3x-8d-3bK" id="FnV-tL-l6t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f0i-LJ-LHD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2351,13 +2357,12 @@
                             <rect key="frame" x="0.0" y="725.5" width="414" height="174"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bx1-sO-eU8">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bx1-sO-eU8">
                                     <rect key="frame" x="20" y="10" width="374" height="144"/>
                                     <color key="backgroundColor" red="0.80392156862745101" green="0.88235294117647056" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                    <state key="normal" title="确定">
-                                        <color key="titleColor" red="1" green="0.43529411759999997" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
+                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <state key="normal" title="确定"/>
                                     <connections>
                                         <action selector="pressedCreateButton:" destination="PE7-pq-3S1" eventType="touchUpInside" id="xUN-PA-cdy"/>
                                     </connections>
@@ -2755,7 +2760,8 @@
                                                         <constraint firstAttribute="width" constant="47" id="IiM-Mj-eVW"/>
                                                         <constraint firstAttribute="height" constant="31" id="dF8-fv-a1O"/>
                                                     </constraints>
-                                                    <color key="thumbTintColor" red="0.062745098040000002" green="0.31372549020000001" blue="0.37647058820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="onTintColor" red="0.062745098040000002" green="0.31372549020000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="thumbTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <connections>
                                                         <action selector="otherCharacterSwitchAction:" destination="PE7-pq-3S1" eventType="valueChanged" id="FEB-Mc-ryQ"/>
                                                     </connections>
@@ -2789,6 +2795,7 @@
                         <outlet property="lowLetterSwitch" destination="DPe-tL-Nm8" id="jPc-fj-ncK"/>
                         <outlet property="numberAndLetterSwitch" destination="bim-j6-2n7" id="KfO-do-pVH"/>
                         <outlet property="otherCharacterSwitch" destination="JMQ-Bm-eM7" id="g7j-tx-rGY"/>
+                        <outlet property="titleLabel" destination="uA1-ie-mNn" id="RL5-m9-ioH"/>
                         <outlet property="upAndLetterSwitch" destination="XMJ-7i-zFv" id="pv8-an-gdC"/>
                         <outlet property="upLetterSwitch" destination="sJR-hR-gpM" id="E5i-cT-KR2"/>
                     </connections>
@@ -2810,7 +2817,7 @@
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="gnW-Mf-AZp">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="largeTitleTextAttributes">
                             <color key="textColor" red="1" green="0.43529411764705883" blue="0.23529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
