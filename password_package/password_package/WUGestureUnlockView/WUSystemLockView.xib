@@ -102,6 +102,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="headerView" destination="her-VW-GRo" id="Xfx-cy-eOa"/>
                 <outlet property="logoImageView" destination="0yw-Di-8be" id="tzK-sc-ue2"/>
                 <outlet property="systemUnlockButton" destination="k5v-dJ-h7u" id="yDs-2e-Fyq"/>
                 <outlet property="titleLabel" destination="6BI-in-bLn" id="T04-bP-b3A"/>

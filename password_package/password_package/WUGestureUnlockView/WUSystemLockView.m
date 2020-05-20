@@ -9,11 +9,13 @@
 #import "WUSystemLockView.h"
 #import "Utils.h"
 #import "AppConfig.h"
+#import <LEETheme.h>
 
 @interface WUSystemLockView()
 @property (weak, nonatomic) IBOutlet UIButton *systemUnlockButton;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
+@property (weak, nonatomic) IBOutlet UIView *headerView;
 
 @end
 
@@ -23,6 +25,17 @@
 - (void)awakeFromNib {
     
     [super awakeFromNib];
+    
+    self.headerView.lee_theme
+    .LeeAddBackgroundColor(kThemeDefault, SYSTEM_COLOR)
+    .LeeAddBackgroundColor(kThemeRed, LEEColorHex(kColorThemeRed))
+    .LeeAddBackgroundColor(kThemeBlue, LEEColorHex(kColorThemeBlue))
+    .LeeAddBackgroundColor(kThemeGreen, LEEColorHex(kColorThemeGreen))
+    .LeeAddBackgroundColor(kThemePurple, LEEColorHex(kColorThemePurple))
+    .LeeAddBackgroundColor(kThemeYellow, LEEColorHex(kColorThemeYellow));
+    
+    
+    
     NSString *displayName = [[NSBundle mainBundle] infoDictionary][@"CFBundleDisplayName"];
     self.titleLabel.text = [NSString stringWithFormat:@"%@已锁定",displayName];
     BOOL isTouchID = [Utils canUseTouchID];

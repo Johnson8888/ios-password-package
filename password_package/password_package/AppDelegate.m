@@ -12,12 +12,10 @@
 #import "AppConfig.h"
 #import <LEETheme.h>
 #import "MainViewController.h"
-#import <AppCenter/AppCenter.h>
 #import <iCloudDocumentSync/iCloud.h>
 #import "WUGesturesUnlockViewController.h"
-#import <AppCenterCrashes/AppCenterCrashes.h>
-#import <AppCenterAnalytics/AppCenterAnalytics.h>
 #import <IQKeyboardManager/IQKeyboardManager.h>
+@import Firebase;
 
 @interface AppDelegate ()
 /// 用来遮挡的 View
@@ -45,9 +43,7 @@
 
     [iCloud sharedCloud].verboseLogging = YES;
     [[iCloud sharedCloud] setupiCloudDocumentSyncWithUbiquityContainer:ICLOUD_CONTAINER_BUNDLE_IDENTIFER];
-    
-    [MSAppCenter start:@"0209845f-0d7d-4a95-9841-e58fdcb72c52"
-          withServices:@[[MSAnalytics class],[MSCrashes class]]];
+
     
     [IQKeyboardManager sharedManager];
     
@@ -76,6 +72,8 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
     
+    [FIRApp configure];
+
     return YES;
 }
 
@@ -198,7 +196,7 @@
     
     NSString *nightJson = [NSString stringWithContentsOfFile:nightJsonPath encoding:NSUTF8StringEncoding error:nil];
     
-    [LEETheme defaultTheme:kThemeGreen];    
+    [LEETheme defaultTheme:kThemeDefault];    
     [LEETheme addThemeConfigWithJson:dayJson Tag:kThemeDefault ResourcesPath:nil];
     [LEETheme addThemeConfigWithJson:nightJson Tag:kThemeGreen ResourcesPath:nil];
 }
@@ -227,7 +225,6 @@
 }
 
 
-//     self.view.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.0];
 
 + (void)addAlphaView {
     UIWindow *mainWindow = ((AppDelegate *)[UIApplication sharedApplication].delegate).window;

@@ -135,6 +135,7 @@
 		F3C9D99124404CA300BAD7EA /* BankCardViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C9D98F24404CA300BAD7EA /* BankCardViewCell.m */; };
 		F3C9D99224404CA300BAD7EA /* BankCardViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3C9D99024404CA300BAD7EA /* BankCardViewCell.xib */; };
 		F3D53B5E2440D98100D1B1A3 /* PresentWebsiteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D53B5D2440D98100D1B1A3 /* PresentWebsiteViewController.m */; };
+		F3EEBDF52474F585001C4551 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3EEBDF42474F585001C4551 /* GoogleService-Info.plist */; };
 		F3F2ED1C244D903000B7FEC3 /* ClearPasteboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3F2ED1B244D903000B7FEC3 /* ClearPasteboardViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -322,6 +323,7 @@
 		F3C9D99024404CA300BAD7EA /* BankCardViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BankCardViewCell.xib; sourceTree = "<group>"; };
 		F3D53B5C2440D98100D1B1A3 /* PresentWebsiteViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PresentWebsiteViewController.h; sourceTree = "<group>"; };
 		F3D53B5D2440D98100D1B1A3 /* PresentWebsiteViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PresentWebsiteViewController.m; sourceTree = "<group>"; };
+		F3EEBDF42474F585001C4551 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F3F2ED1A244D903000B7FEC3 /* ClearPasteboardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClearPasteboardViewController.h; sourceTree = "<group>"; };
 		F3F2ED1B244D903000B7FEC3 /* ClearPasteboardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClearPasteboardViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -433,6 +435,7 @@
 			isa = PBXGroup;
 			children = (
 				F3724ED124349C7A009B054F /* password_package.entitlements */,
+				F3EEBDF42474F585001C4551 /* GoogleService-Info.plist */,
 				F36A890124348C520003FF39 /* AppDelegate.h */,
 				F36A890224348C520003FF39 /* AppDelegate.m */,
 				F3388575244EC01600343549 /* CoverView.h */,
@@ -750,6 +753,7 @@
 				F36359352435FA6C00182C96 /* LoginViewController.xib in Resources */,
 				F397085E246D1CF800A716FE /* 7Icon-App-29x29@3x.png in Resources */,
 				F3970892246D1CF900A716FE /* 4Icon-App-40x40@2x.png in Resources */,
+				F3EEBDF52474F585001C4551 /* GoogleService-Info.plist in Resources */,
 				F3970877246D1CF900A716FE /* 3Icon-App-60x60@2x.png in Resources */,
 				F3970881246D1CF900A716FE /* 3Icon-App-40x40@1x.png in Resources */,
 				F397088A246D1CF900A716FE /* 1Icon-App-60x60@2x.png in Resources */,
@@ -1031,7 +1035,7 @@
 				CODE_SIGN_ENTITLEMENTS = password_package/password_package.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 104;
+				CURRENT_PROJECT_VERSION = 105;
 				DEVELOPMENT_TEAM = B322RG9L6H;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/password_package/Header.pch";
@@ -1041,7 +1045,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.4;
+				MARKETING_VERSION = 1.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.xi.passwordpackage;
 				PRODUCT_NAME = "密码君";
 				PROVISIONING_PROFILE_SPECIFIER = PasswordPackage_dev;
@@ -1061,7 +1065,7 @@
 				CODE_SIGN_ENTITLEMENTS = password_package/password_package.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 104;
+				CURRENT_PROJECT_VERSION = 105;
 				DEVELOPMENT_TEAM = B322RG9L6H;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/password_package/Header.pch";
@@ -1071,7 +1075,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.4;
+				MARKETING_VERSION = 1.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.xi.passwordpackage;
 				PRODUCT_NAME = "密码君";
 				PROVISIONING_PROFILE_SPECIFIER = PasswordPackage_dev;
