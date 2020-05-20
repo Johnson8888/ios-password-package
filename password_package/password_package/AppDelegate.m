@@ -186,19 +186,15 @@
 
 #pragma mark - 设置主题
 
-- (void)configTheme{
+- (void)configTheme {
     
-    NSString *dayJsonPath = [[NSBundle mainBundle] pathForResource:@"themejson_day" ofType:@"json"];
-    
-    NSString *nightJsonPath = [[NSBundle mainBundle] pathForResource:@"themejson_night" ofType:@"json"];
-    
-    NSString *dayJson = [NSString stringWithContentsOfFile:dayJsonPath encoding:NSUTF8StringEncoding error:nil];
-    
-    NSString *nightJson = [NSString stringWithContentsOfFile:nightJsonPath encoding:NSUTF8StringEncoding error:nil];
-    
-    [LEETheme defaultTheme:kThemeDefault];    
-    [LEETheme addThemeConfigWithJson:dayJson Tag:kThemeDefault ResourcesPath:nil];
-    [LEETheme addThemeConfigWithJson:nightJson Tag:kThemeGreen ResourcesPath:nil];
+    [LEETheme defaultTheme:kThemeDefault];
+//    NSString *dayJsonPath = [[NSBundle mainBundle] pathForResource:@"themejson_day" ofType:@"json"];
+//    NSString *nightJsonPath = [[NSBundle mainBundle] pathForResource:@"themejson_night" ofType:@"json"];
+//    NSString *dayJson = [NSString stringWithContentsOfFile:dayJsonPath encoding:NSUTF8StringEncoding error:nil];
+//    NSString *nightJson = [NSString stringWithContentsOfFile:nightJsonPath encoding:NSUTF8StringEncoding error:nil];
+//    [LEETheme addThemeConfigWithJson:dayJson Tag:kThemeDefault ResourcesPath:nil];
+//    [LEETheme addThemeConfigWithJson:nightJson Tag:kThemeGreen ResourcesPath:nil];
 }
 
 
