@@ -105,6 +105,17 @@
             self.describe.placeholderColor = [UIColor darkTextColor];
         }
     }
+    
+    
+    [self.cvvTF addTarget:self
+                   action:@selector(textFieldDidChange:)
+         forControlEvents:UIControlEventEditingChanged];
+    [self.passwordTF addTarget:self
+                        action:@selector(textFieldDidChange:)
+              forControlEvents:UIControlEventEditingChanged];
+    [self.pinTF addTarget:self
+                   action:@selector(textFieldDidChange:)
+         forControlEvents:UIControlEventEditingChanged];
 }
 
 
@@ -274,30 +285,21 @@
         return NO;
     }
     
-    if (textField == self.cvvTF) {
-        self.cvvTF.text = textField.text;
-        if (self.cvvTF.text.length > 2) {
-            return NO;
-        }
-    }
-    
-    if (textField == self.passwordTF) {
-        self.passwordTF.text = textField.text;
-        if (self.passwordTF.text.length > 6) {
-            return NO;
-        }
-    }
-    
-    if (textField == self.pinTF) {
-        self.pinTF.text = textField.text;
-        if (self.pinTF.text.length > 6) {
-            return NO;
-        }
-    }
-    
     return YES;
 }
 
+- (void)textFieldDidChange:(UITextField *)textField {
+    if (textField == self.cvvTF) {
+        if (textField.text.length > 3) {
+            textField.text = [textField.text substringToIndex:3];
+        }
+    }
+    if (textField == self.pinTF || textField == self.passwordTF) {
+        if (textField.text.length > 6) {
+            textField.text = [textField.text substringToIndex:6];
+        }
+    }
+}
 
 
 - (void)getCardInfoWithBankNumber:(NSString *)number

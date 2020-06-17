@@ -436,7 +436,7 @@
     self.searchSuggestionHidden = NO;
     self.searchHistoriesCachePath = PYSEARCH_SEARCH_HISTORY_CACHE_PATH;
     self.searchHistoriesCount = 20;
-    self.showSearchHistory = YES;
+    self.showSearchHistory = NO;
     self.showHotSearch = YES;
     self.showSearchResultWhenSearchTextChanged = NO;
     self.showSearchResultWhenSearchBarRefocused = NO;
@@ -1101,23 +1101,24 @@
     if (self.removeSpaceOnSearchString) { // remove sapce on search string
        searchText = [searchBar.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     }
+    [self handleSearchResultShow];
+    
+    /*
     if (self.showSearchHistory && searchText.length > 0) {
         [self.searchHistories removeObject:searchText];
         [self.searchHistories insertObject:searchText atIndex:0];
-
         if (self.searchHistories.count > self.searchHistoriesCount) {
             [self.searchHistories removeLastObject];
         }
         [NSKeyedArchiver archiveRootObject:self.searchHistories toFile:self.searchHistoriesCachePath];
-
         if (PYSearchHistoryStyleCell == self.searchHistoryStyle) {
             [self.baseSearchTableView reloadData];
         } else {
             self.searchHistoryStyle = self.searchHistoryStyle;
         }
     }
-
-    [self handleSearchResultShow];
+     */
+    
 }
 
 - (void)handleSearchResultShow

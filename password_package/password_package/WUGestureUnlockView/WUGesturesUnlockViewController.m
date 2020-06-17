@@ -20,6 +20,8 @@
 #define kUnlockTryCount 5
 
 @interface WUGesturesUnlockViewController ()<WUGesturesUnlockViewDelegate,UIAlertViewDelegate>
+/// "设置密码更加安全" 按钮
+@property (weak, nonatomic) IBOutlet UILabel *tagLabel;
 
 @property (weak, nonatomic) IBOutlet WUGesturesUnlockView *gesturesUnlockView;
 @property (weak, nonatomic) IBOutlet WUGesturesUnlockIndicator *gesturesUnlockIndicator;
@@ -89,7 +91,7 @@
             break;
         case WUUnlockTypeValidatePwd: {
             self.gesturesUnlockIndicator.hidden = YES;
-            
+            self.tagLabel.hidden = YES;
         }
             break;
         default:
