@@ -1033,10 +1033,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = password_package/password_package.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 107;
-				DEVELOPMENT_TEAM = B322RG9L6H;
+				DEVELOPMENT_TEAM = HKMDTT53VN;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/password_package/Header.pch";
 				INFOPLIST_FILE = password_package/Info.plist;
@@ -1048,7 +1048,7 @@
 				MARKETING_VERSION = 1.0.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.xi.passwordpackage;
 				PRODUCT_NAME = "密码君";
-				PROVISIONING_PROFILE_SPECIFIER = PasswordPackage_dev;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "";
@@ -1063,10 +1063,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = password_package/password_package.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 107;
-				DEVELOPMENT_TEAM = B322RG9L6H;
+				DEVELOPMENT_TEAM = HKMDTT53VN;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/password_package/Header.pch";
 				INFOPLIST_FILE = password_package/Info.plist;
@@ -1078,7 +1078,7 @@
 				MARKETING_VERSION = 1.0.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.xi.passwordpackage;
 				PRODUCT_NAME = "密码君";
-				PROVISIONING_PROFILE_SPECIFIER = PasswordPackage_dev;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "";

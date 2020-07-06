@@ -74,7 +74,7 @@ PYSearchViewControllerDataSource
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 64)];
     
     UIButton *searchButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    searchButton.frame = CGRectMake(20, 22, headerView.bounds.size.width - 40, 35);
+    searchButton.frame = CGRectMake(20, 14.5, headerView.bounds.size.width - 40, 35);
     [searchButton setTitle:@"搜索" forState:UIControlStateNormal];
     searchButton.titleLabel.font = [UIFont systemFontOfSize:16.0f];
     searchButton.layer.masksToBounds = YES;
@@ -112,7 +112,7 @@ PYSearchViewControllerDataSource
     [closeButton addTarget:self
                     action:@selector(pressedCloseButton:)
           forControlEvents:UIControlEventTouchUpInside];
-    closeButton.frame = CGRectMake([UIScreen mainScreen].bounds.size.width - 76, 22, 36, 36);
+    closeButton.frame = CGRectMake([UIScreen mainScreen].bounds.size.width - 76, 14.5, 36, 36);
     self.tableView.tableHeaderView = headerView;
     
     
