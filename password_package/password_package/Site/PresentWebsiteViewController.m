@@ -36,6 +36,7 @@
     self.view.userInteractionEnabled = YES;
     tapGesture.delegate = self;
     [self.view addGestureRecognizer:tapGesture];
+    
     self.nameLabel.text = [SearchItemViewController descriptionWithName:self.websiteModel.title];
     if (self.websiteModel.iconImg) {
         self.iconImageView.image = [UIImage imageWithData:self.websiteModel.iconImg];

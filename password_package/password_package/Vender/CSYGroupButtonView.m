@@ -69,7 +69,7 @@ static const float CORNERRADIUS = 22.0f;
         mainBtn.layer.cornerRadius = CORNERRADIUS;
         [mainBtn addTarget:self
                     action:@selector(buttonClick:)
-          forControlEvents:5];
+          forControlEvents:UIControlEventTouchUpInside];
         mainBtn.selected = NO;  //设置未被选择
         [self addSubview:mainBtn];
         self.mainButton = mainBtn;
