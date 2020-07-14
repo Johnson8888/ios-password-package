@@ -173,7 +173,6 @@
             TTLog(@"insert data error");
         }
     }
-    
 }
 
 

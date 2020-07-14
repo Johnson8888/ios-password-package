@@ -11,9 +11,6 @@
 @interface MainViewController : UIViewController
 
 
-
-
-
 /// shortCutAction
 @property (nonatomic,strong) NSString *shortCutActionName;
 
