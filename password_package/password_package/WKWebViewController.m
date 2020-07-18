@@ -9,13 +9,14 @@
 #import "WKWebViewController.h"
 #import <WebKit/WebKit.h>
 #import <JGProgressHUD/JGProgressHUD.h>
+#import <ProgressHUD/ProgressHUD.h>
 
 @interface WKWebViewController ()<WKNavigationDelegate>
 
 
 @property (nonatomic,strong) NSString *currentUrl;
 @property (nonatomic,strong) WKWebView *wkWebView;
-@property (nonatomic,strong) JGProgressHUD *hud;
+//@property (nonatomic,strong) JGProgressHUD *hud;
 
 @end
 
@@ -87,25 +88,21 @@
     [self.wkWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.currentUrl]]];
     [self.view addSubview:self.wkWebView];
     
-    
-    self.hud = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleDark];
-    self.hud.textLabel.text = @"加载中...";
-    [self.hud showInView:self.view];
-
+    [ProgressHUD show:@"加载中..."];
 }
 
 
 - (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation {
-    [self.hud dismissAfterDelay:0.0];
+    [ProgressHUD dismiss];
 }
 - (void)webView:(WKWebView *)webView didFailNavigation:(null_unspecified WKNavigation *)navigation withError:(NSError *)error {
-    self.hud.textLabel.text = @"加载失败,请重试!";
-    [self.hud dismissAfterDelay:0.0];
+    [ProgressHUD showError:@"加载失败,请重试!"];
 }
 
 
 - (void)pressedBackButton:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+    [ProgressHUD dismiss];
 }
 
 

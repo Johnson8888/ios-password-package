@@ -254,7 +254,7 @@ static NSString *iconCellIdentifier = @"com.password.package.setting.icon.cell.i
             IconCell *cell = (IconCell *)[tableView dequeueReusableCellWithIdentifier:iconCellIdentifier];
             NSString *iconFileName = [AppConfig config].iconFileName;
             if (iconFileName == nil || iconFileName.length == 0) {
-                iconFileName = @"7Icon-App-60x60";
+                iconFileName = @"4Icon-App-60x60";
             }
             cell.iconImageView.image = [UIImage imageNamed:iconFileName];
             return cell;
