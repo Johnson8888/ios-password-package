@@ -30,7 +30,7 @@ const static int64_t kMillisPerDay = 8.64e+7;
  *
  * @return The NSCoding file path.
  */
-static NSString *ArchivePath() {
+static NSString *ArchivePath(void) {
   static NSString *archivePath;
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
